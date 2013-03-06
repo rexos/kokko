@@ -1,0 +1,29 @@
+
+
+<div class="well">
+  <div class="center">
+    <h2>List of all Programs</h2>
+  </div>
+  <% if @programs.count == 0 %>
+  <div class="alert alert-success">
+    <h2><strong>Ther is any active Program right now</strong></h2>
+  </div>
+  <% else %>
+  <ul type="none" class="programs">
+    <% @programs.each do |program| %>
+    <li>
+      <div class="well" style="background-color:white">
+	<h4><%= program.title %></h4>
+	<p><%= program.description %></p>
+	<%= link_to 'remove', action: :destroy, :id => program.id %>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+  <div class="center">
+    <button href="#myModal" class="btn btn-primary btn-default" data-toggle="modal"></i class="icon-plus icon-white"></i>Add One</button>
+  </div>
+</div>
+
+<%= render "modal" %>

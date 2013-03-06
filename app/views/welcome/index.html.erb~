@@ -1,0 +1,26 @@
+
+
+
+<div class="well">
+  <div class="center">
+    <h2>Welcome to Kokkonut</h2>
+    <div class="well plain" style="width:25%; background-color:white">
+      <div class="top">
+	<h3>Keep Fit!</h3>
+      </div>
+      <div class="bottom" style="display:none">
+	<button class="btn">Hei Rails</button>
+      </div>
+    </div>
+    <br />
+    <%= link_to '<button class="btn btn-primary btn-large" style="width:70%"><b><i class="icon-ok icon-white"></i> GO</b></button>'.html_safe, controller: :programs, action: :index %>
+  </div>
+</div>
+
+
+
+
+
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+ 
+<%= render "modal" %>
