@@ -1,2 +1,1 @@
-
 $('ul.programs').children('li').first().before("<li><div class='well' style='background-color:white'><h4><%= escape_javascript(@program.title) %></h4><p><%= escape_javascript(@program.description) %></p><%= escape_javascript(link_to 'remove', action: :destroy, :id => @program.id) %></div></li>");
