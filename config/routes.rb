@@ -1,5 +1,4 @@
 Kokkonut::Application.routes.draw do
-
   root :to => 'welcome#index'
 
   #program routes
