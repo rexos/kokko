@@ -11,19 +11,11 @@
     <% @programs.each do |program| %>
     <li>
       <div class="well" style="background-color:white">
-<<<<<<< HEAD
 	<div class="title">
 	  <h4><%= program.title %></h4>
 	</div>
-	<div class="body" id="<%= program.id %>" style="display:none">
-	  <p><%= program.description %></p>
-	  <%= link_to '<span class="label label-info" style="cursor-pointer">Remove</span>'.html_safe, action: :destroy, :remote => true, :id => program.id %>
-	</div>
-=======
-	<h4><%= program.title %></h4>
 	<p><%= program.description %></p>
 	<%= link_to 'Remove', action: :destroy, :id => program.id %>
->>>>>>> 951be4583d1620e6a1840722f3c834c1a80f68ee
       </div>
     </li>
     <% end %>

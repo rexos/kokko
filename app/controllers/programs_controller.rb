@@ -11,7 +11,7 @@ class ProgramsController < ApplicationController
     @program = Program.new(params[:new_program])
     if @program.save
       respond_to do |format|
-        format.html {redirect action: :index}
+        format.html {redirect_to action: :index}
         format.js
       end
     else
