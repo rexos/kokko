@@ -1,5 +1,0 @@
-class Program < ActiveRecord::Base
-  attr_accessible :description, :title
-  before_save {|prog| prog.title = title.capitalize}
-  validates_presence_of :title, :description
-end
