@@ -9,7 +9,7 @@
     </div>
 
   <% else %>
-<<<<<<< HEAD
+
   <ul type="none" class="programs">
     <% @programs.each do |program| %>
     <li>
@@ -32,30 +32,6 @@
     </li>
     <% end %>
   </ul>
-=======
-    <ul type="none" class="programs">
-      <% @programs.each do |program| %>
-      <li>
-        <div class="well" style="background-color:white">
-          <div class="title">
-	          <h4><%= program.title %></h4>
-          </div>
-          <p><%= program.description %></p>
-          <h5>Lesssons of <%= program.title %> :</h5>
-          <ul>
-	          <% program.lessons.each do |l| %>
-            <li>
-              <%= l.title %>
-	          </li>
-            <% end %>
-          </ul>
-          <%= link_to 'Remove', action: :destroy, :id => program.id %>
-          <%= link_to 'Add Lesson', controller: :lessons, action: :new, :prog_id => program.id %>
-        </div>
-      </li>
-      <% end %>
-    </ul>
->>>>>>> ec7883d180a55885226663d8c2fb00ee839e8c12
   <% end %>
 
   <div class="center">
