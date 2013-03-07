@@ -1,5 +1,8 @@
 class Lesson < ActiveRecord::Base
   belongs_to :program
-  has_many :exercises
+
+  before_save{|lesson| lesson.title = title.capitalize}
+
+  has_many :associations
   attr_accessible :title
 end

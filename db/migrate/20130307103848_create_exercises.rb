@@ -4,10 +4,8 @@ class CreateExercises < ActiveRecord::Migration
       t.string :name
       t.string :difficulty
       t.text :description
-      t.references :lesson
 
       t.timestamps
     end
-    add_index :exercises, :lesson_id
   end
 end
