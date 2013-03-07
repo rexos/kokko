@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Kokkonut" %></title>
     <%= csrf_meta_tags %>
-
-
-
     <%= stylesheet_link_tag "application", :media => "all" %>
-
   </head>
+
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -34,23 +31,23 @@
       </div>
     </div>
     
-      <div class="container">
-	<div class="row">
+     <div class="container">
+	    <div class="row">
+	    <div class="span1">
+	   </div>
+       <div class="span10">
+         <%= bootstrap_flash %>
+         <%= yield %>
+        </div>
 	  <div class="span1">
-	  </div>
-          <div class="span10">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-	  <div class="span1">
-	  </div>
-        </div>	
-	<footer>
-          <p>&copy; Company 2013</p>
-	</footer>
-      </div>
+    </div>
+    </div>	
+	   <footer>
+        <p>&copy; Company 2013</p>
+	   </footer>
+    </div>
       
-      <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application" %>
     
   </body>
 </html>
