@@ -1,5 +1,6 @@
 class Program < ActiveRecord::Base
   attr_accessible :description, :title
+  has_many :lessons
   before_save {|prog| prog.title = title.capitalize}
   before_save {|prog| prog.description = description.capitalize}
   

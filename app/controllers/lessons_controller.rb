@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
 
   def new
-    @@program = Program.find(params[:id])
+    @@program = Program.find(params[:prog_id])
   end
 
   def create
@@ -9,8 +9,12 @@ class LessonsController < ApplicationController
     if @lesson.save
       redirect_to controller: :programs, action: :index
     else
-      render action: :index
+      render action: :new
     end
   end
 
+  def show
+    @lesson = Lesson.find(params[:lesson_id])
+  end
+  
 end

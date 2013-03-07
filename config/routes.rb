@@ -6,4 +6,8 @@ Kokkonut::Application.routes.draw do
   post "programs/create" => "programs#create"
   get "programs/remove" => "programs#destroy"
 
+  #lesson routes
+  get "lessons/new" => "lessons#new"
+  post "lessons/create" => "lessons#create"
+
 end

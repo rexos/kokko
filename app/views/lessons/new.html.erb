@@ -4,8 +4,9 @@
   <div class="center">
     <h2>Add new Lesson</h2>
   </div>
-  <%= form_for :lesson, url: {controller: :lessons, action: :index} do |f| %>
-  
+  <%= form_for :lesson, url: {controller: :lessons, action: :create} do |f| %>
+  <%= f.text_field :title, placeholder: "Lesson's name" %>
+  <button class="btn btn-primary btn-default">Add Lesson</button>
   <% end %>
   
 </div>
