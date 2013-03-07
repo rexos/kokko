@@ -11,18 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307103848) do
+ActiveRecord::Schema.define(:version => 20130307213850) do
+
+  create_table "associations", :force => true do |t|
+    t.integer  "lesson_id"
+    t.integer  "exercise_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "associations", ["exercise_id"], :name => "index_associations_on_exercise_id"
+  add_index "associations", ["lesson_id", "exercise_id"], :name => "index_associations_on_lesson_id_and_exercise_id", :unique => true
+  add_index "associations", ["lesson_id"], :name => "index_associations_on_lesson_id"
 
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.string   "difficulty"
     t.text     "description"
-    t.integer  "lesson_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
-  add_index "exercises", ["lesson_id"], :name => "index_exercises_on_lesson_id"
 
   create_table "lessons", :force => true do |t|
     t.string   "title"
