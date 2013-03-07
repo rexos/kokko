@@ -15,11 +15,11 @@
 	  <h4><%= program.title %></h4>
 	</div>
 	<p><%= program.description %></p>
-	<h5>Lesssons of <%= program.title %> :</h5>
+	<h5>Lessons of <%= program.title %> :</h5>
 	<ul>
 	  <% program.lessons.each do |l| %>
 	  <li>
-	    <%= l.title %>
+	    <%=link_to l.title, controller: :lessons, action: :index, :id => l.id %>
 	  </li>
 	  <% end %>
 	</ul>

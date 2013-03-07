@@ -1,0 +1,7 @@
+<div class="well">
+	<h1><%=@lesson.title%></h1>
+	<% @exercises.each do |e| %>
+		<%= e.name %>
+	<%end%>
+	<%= link_to '<button class="btn btn-primary btn-default">Add Exercise</button>'.html_safe, controller: :exercises, action: :new , :lesson_id => @lesson.id %>
+</div>

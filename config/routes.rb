@@ -9,5 +9,10 @@ Kokkonut::Application.routes.draw do
   #lesson routes
   get "lessons/new" => "lessons#new"
   post "lessons/create" => "lessons#create"
+  get "lessons/index" => "lessons#index"
+  
+  #exercise routes
+  get "exercises/new" => "exercises#new"
+  post "exercises/create" => "exercises#create"
 
 end
