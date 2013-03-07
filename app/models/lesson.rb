@@ -1,4 +1,4 @@
 class Lesson < ActiveRecord::Base
+  belongs_to :program
   attr_accessible :title
-  before_save {|lesson| lesson.title = title.capitalize}
 end
