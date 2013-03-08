@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130307213850) do
   create_table "associations", :force => true do |t|
     t.integer  "lesson_id"
     t.integer  "exercise_id"
+    t.integer  "repetitions"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

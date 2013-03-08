@@ -16,12 +16,11 @@ class ExercisesController < ApplicationController
   end
 
   def add_ex_to_lesson
-    @association = Association.new(params)
+    @association = Association.new(params[:association])
     if @association.save
-      respond_to do |format|
-        format.html {redirect_to controller: :lessons, action: :index, id: @association.lesson_id }
-        format.js {render :nothing => true}
-      end
+      redirect_to controller: :lessons, action: :index, id: @association.lesson_id
+    else
+      redirect_to controller: :programs, action: :index
     end
   end
   

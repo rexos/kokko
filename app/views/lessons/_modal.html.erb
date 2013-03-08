@@ -15,7 +15,8 @@
 	  <p>Description : <%= e.description %></p>
 	  <p>Difficulty : <%= e.difficulty %></p>
 	  <%= form_for :association, url: {controller: :exercises, action: :add_ex_to_lesson} do |f| %>
-	  <%= f.hidden_field :ex_id, :input_html => {value: e.id}%>
+	  <%= f.hidden_field :exercise_id, value: e.id %>
+	  <%= f.hidden_field :lesson_id, value: @lesson.id %>
 	  Repetitions : <%= f.select :repetitions, options_for_select((1..10).step(1)) %><br />
 	  <button type="submit" class="btn btn-mini btn-success">Add this one</button>
 	  <% end %>

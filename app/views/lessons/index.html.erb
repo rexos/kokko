@@ -1,26 +1,20 @@
 <div class="well">
   <div class="center">
     <h1><%=@lesson.title%></h1>
-    <% @exercises.each do |e| %>
-    <%= e.name %>
-    <% end %><br />
-    
-    <button href="#myModal" class="btn btn-primary btn-default" data-toggle="modal"></i class="icon-plus icon-white"></i>Add Exercise</button>
-
-<!--    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-	Add Exercise
-    <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-	<% @all_exercises.each do |e| %>
-	<li>
-	  <%= e.name %>
-	</li>
-	<% end %>
-      </ul>
-    </div>-->
   </div>
+  <% @lesson.exercises.each do |e| %>
+  <div class="well" style="background-color:white">
+    <div class="title">
+      <h5><%= e.name %></h5>
+    </div>
+    <div class="body" style="display:none">
+      <p><%= e.description %></p>
+      <p><%= e.difficulty %></p>
+      <p><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></p>
+    </div>
+  </div>
+  <% end %><br />
+  <button href="#myModal" class="btn btn-primary btn-default" data-toggle="modal"></i class="icon-plus icon-white"></i>Add Exercise</button>
 </div>
 
 
