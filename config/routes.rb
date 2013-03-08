@@ -14,5 +14,6 @@ Kokkonut::Application.routes.draw do
   #exercise routes
   get "exercises/new" => "exercises#new"
   post "exercises/create" => "exercises#create"
+  post "exercises/add_association" => "exercises#add_ex_to_lesson"
 
 end

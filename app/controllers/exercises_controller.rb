@@ -14,6 +14,10 @@ class ExercisesController < ApplicationController
   
   def edit
   end
+
+  def add_ex_to_lesson
+    @association = Association.new()
+  end
   
   def destroy
   end
