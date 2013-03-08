@@ -1,0 +1,31 @@
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add Exercise to Lesson <%= @lesson.title %></h3>
+  </div>
+  <div class="modal-body">
+    <ul type="none">
+      <% @all_exercises.each do |e| %>
+      <li>
+	<div class="title">
+	  <p>Exercise : <%= e.name %></p>
+	</div>
+	<div class="body" style="display:none">
+	  <p>Description : <%= e.description %></p>
+	  <p>Difficulty : <%= e.difficulty %></p>
+	  <%= form_for :association, url: {controller: :exercises, action: :add_ex_to_lesson} do |f| %>
+	  <%= f.hidden_field :ex_id, :input_html => {value: e.id}%>
+	  Repetitions : <%= f.select :repetitions, options_for_select((1..10).step(1)) %><br />
+	  <button type="submit" class="btn btn-mini btn-success">Add this one</button>
+	  <% end %>
+	</div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<!-- Modal -->
