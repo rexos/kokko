@@ -5,11 +5,14 @@
     <h3 id="myModalLabel">Add Exercise to Lesson <%= @lesson.title %></h3>
   </div>
   <div class="modal-body">
+    <div class="center">
+      <h4>List of all exercises</h4>
+    </div>
     <ul type="none">
       <% @all_exercises.each do |e| %>
       <li>
-	<div class="title">
-	  <p>Exercise : <%= e.name %></p>
+	<div class="title btn" style="width:80%">
+	  <p><%= e.name %></p>
 	</div>
 	<div class="body" style="display:none">
 	  <p>Description : <%= e.description %></p>
