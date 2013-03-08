@@ -1,0 +1,36 @@
+<div class="well">
+  <div class="center">
+    <h2>List of all Programs</h2>
+  </div>
+
+  <% if @trainings.count == 0 %>
+    <div class="alert alert-error">
+      <h2><strong><center>There isn't any active Program right now</center></strong></h2>
+    </div>
+
+  <% else %>
+
+    <ul type="none" class="programs">
+      <% @trainings.each do |t| %>
+      <li>
+      <div class="well" style="background-color:white">
+	       <div class="title">
+	         <h4><%= t.title %></h4>
+	       </div>
+         <div class="body">
+	         <p><%= t.description %></p>
+	         <h5>Lessons of <%= t.title %> :</h5>
+	         <ul>
+	           <% t.lessons.each do |l| %>
+	           <li>
+	             <%=link_to l.title, controller: :lessons, action: :show, :lesson_id => l.id %>
+	           </li>
+	         <% end %>
+	         </ul>
+         </div>
+      </div>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
