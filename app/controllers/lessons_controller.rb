@@ -16,6 +16,7 @@ class LessonsController < ApplicationController
   def index
     @lesson = Lesson.find(params[:id])
     @exercises = @lesson.exercises
+    @all_exercises = Exercise.all
   end
 
   def show

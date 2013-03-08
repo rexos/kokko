@@ -4,6 +4,19 @@
     <% @exercises.each do |e| %>
     <%= e.name %>
     <% end %><br />
-    <button class="btn btn-primary btn-default">Add Exercise</button>
+
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	Add Exercise
+    <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+	<% @all_exercises.each do |e| %>
+	<li>
+	  <%= e.name %>
+	</li>
+	<% end %>
+      </ul>
+    </div>
   </div>
 </div>
