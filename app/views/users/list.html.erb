@@ -19,14 +19,20 @@
 	       </div>
          <div class="body" style="display:none">
 	         <p><%= t.description %></p>
-	         <h5>Lessons of <%= t.title %> :</h5>
-	         <ul>
-	           <% t.lessons.each do |l| %>
-	           <li>
+            <% if t.lessons.count == 0 %>
+             <div class="alert alert-error">
+              <h4><strong><center>There isn't any exercise in this lesson</center></strong></h2>
+            </div>
+            <% else %> 
+	           <h5>Lessons of <%= t.title %> :</h5>
+	           <ul>
+	             <% t.lessons.each do |l| %>
+	             <li>
 	             <%=link_to l.title, controller: :lessons, action: :show, :lesson_id => l.id %>
-	           </li>
-	         <% end %>
-	         </ul>
+	             </li>
+               <% end %>
+	           </ul>
+             <% end %>
          </div>
       </div>
       </li>
