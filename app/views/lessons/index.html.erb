@@ -11,6 +11,8 @@
       <p><%= e.description %></p>
       <p><%= e.difficulty %></p>
       <p><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></p>
+      <%=link_to '<label class="label label-info">Edit</label>'.html_safe %>
+      <%=link_to '<label class="label label-info">Remove</label>'.html_safe %>
     </div>
   </div>
   <% end %><br />

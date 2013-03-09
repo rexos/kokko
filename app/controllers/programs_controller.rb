@@ -20,7 +20,7 @@ class ProgramsController < ApplicationController
   end
 
   def destroy
-    @program = Program.find(params[:id])
+    @program = Program.find(params[:prog_id])
     @program.destroy
     respond_to do |format|
       format.html {redirect_to action: :index}

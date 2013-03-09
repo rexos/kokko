@@ -11,6 +11,8 @@ Kokkonut::Application.routes.draw do
   post "lessons/create" => "lessons#create"
   get "lessons/index" => "lessons#index"
   get "lessons/show/:lesson_id" => "lessons#show"
+  get "lessons/edit" => "lessons#edit"
+  get "lessons/destroy" => "lessons#destroy"
   
   #exercise routes
   get "exercises/new" => "exercises#new"

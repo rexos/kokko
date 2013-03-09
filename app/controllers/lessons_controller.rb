@@ -22,5 +22,11 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:lesson_id])
   end
+
+  def destroy
+    @lesson = Lesson.find(params[:lesson_id])
+    @lesson.destroy
+    redirect_to controller: :programs, action: :index
+  end
   
 end
