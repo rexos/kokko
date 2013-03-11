@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   #validations
   validates :username, :presence => true, :uniqueness => true, :length => { :minimum => 5 }
   validates :email, :presence => true, :format => { :with => EMAIL_REGULAR_EXPRESSION }
-  validates :password, :presence => true, :length => { minimum: 6 }
+  validates :password, :presence => true, :length => { minimum: 6 }, :on => :create
   validates_presence_of :password_confirmation, :on => :create
 
 
