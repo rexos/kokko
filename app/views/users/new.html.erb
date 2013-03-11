@@ -1,0 +1,12 @@
+
+
+<div class="well">
+  <h1>Test SignUp Page</h1>
+  <%= form_for :new_user, url: { controller: :users, action: :create } do |f| %>
+  <%= f.text_field :username, placeholder: "username" %><br />
+  <%= f.text_field :email, placeholder: "email" %><br />
+  <%= f.text_field :password, placeholder: "password" %><br /> 
+  <%= f.text_field :password_confirmation, placeholder: "confirm password" %><br />
+  <button class="btn btn-primary" type="submit">Sign Up</button>
+  <% end %>
+</div>
