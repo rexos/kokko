@@ -6,14 +6,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:new_user])
     if @user.save
-      redirect_to action: :list
+      @user.authenticate(params[:session][:password])
       #SignupMailer.signup_mail(@user).deliver
+      redirect_to :controller => :welcome, :action => :index
     else
-      redirect_to cotntroller: :programs, action: :index
+      render 'new'
     end
   end
 
   def new
+    @user = User.new
   end
 
   def destroy
