@@ -15,6 +15,10 @@ class ExercisesController < ApplicationController
   def edit
   end
 
+  def remove_ex_from_lesson
+    
+  end
+
   def add_ex_to_lesson
     @association = Association.new(params[:association])
     if @association.save
