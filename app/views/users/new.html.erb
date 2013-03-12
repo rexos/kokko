@@ -1,12 +1,30 @@
 
 
-<div class="well">
+<div class="span3 offset3 well"><p><h2>Register</h2></p>
+	<%= render 'form' %>
+</div>
+
+
+
+<!--<div class="well">
   <h1>Test SignUp Page</h1>
   <%= form_for :new_user, url: { controller: :users, action: :create } do |f| %>
   <%= f.text_field :username, placeholder: "username" %><br />
   <%= f.text_field :email, placeholder: "email" %><br />
-  <%= f.text_field :password, placeholder: "password" %><br /> 
-  <%= f.text_field :password_confirmation, placeholder: "confirm password" %><br />
+  <%= f.password_field :password, placeholder: "password" %><br /> 
+  <%= f.password_field  :password_confirmation, placeholder: "confirm password" %><br />
   <button class="btn btn-primary" type="submit">Sign Up</button>
   <% end %>
-</div>
+  <% if @user.errors.any?  %>
+	<div class="alert alert-error">
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li>
+				<%= msg %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	
+</div>!-->

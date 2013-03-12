@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:new_user])
     if @user.save
       redirect_to action: :list
-      SignupMailer.signup_mail(@user).deliver
+      #SignupMailer.signup_mail(@user).deliver
     else
       redirect_to cotntroller: :programs, action: :index
     end

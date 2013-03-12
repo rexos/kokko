@@ -21,6 +21,16 @@
           </a>
           <a class="brand" href="#">Kokkonut</a>
           <div class="container nav-collapse">
+            <p class="navbar-text pull-right">
+              <% if current_user %>
+              Logged in as <%= current_user.email %> |
+              <%= link_to "Settings", edit_user_path(current_user) %> |
+              <%= link_to "logout", logout_path %>
+              <% else %>
+              <%= link_to 'register', new_user_path %> or
+             <%= link_to 'login', login_path %>
+             <% end %>
+            </p>
             <ul class="nav">
               <li><%= link_to "Link1", "/path1"  %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
