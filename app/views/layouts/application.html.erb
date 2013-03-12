@@ -24,11 +24,11 @@
             <p class="navbar-text pull-right">
               <% if current_user %>
               Logged in as <%= current_user.email %> |
-              <%= link_to "Settings", edit_user_path(current_user) %> |
+              <%= link_to "Settings" %> |
               <%= link_to "logout", logout_path %>
               <% else %>
-              <%= link_to 'register', new_user_path %> or
-             <%= link_to 'login', login_path %>
+              <%= link_to 'register' %> or
+             <%= link_to 'login' %>
              <% end %>
             </p>
             <ul class="nav">

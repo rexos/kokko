@@ -3,8 +3,8 @@ Kokkonut::Application.routes.draw do
 
   #sessions routes
 
-  resources :sessions
-  #post "sessions/create" =>"sessions#create"
+  #resources :sessions
+  post "sessions/create" =>"sessions#create"
   #get "sessions/new" => "sessions#new"
   #get "sessions/destroy" => "sessions#destroy"
   match "login" => "sessions#new"
@@ -35,12 +35,10 @@ Kokkonut::Application.routes.draw do
   get "exercises/remove_association" => "exercises#remove_ex_from_lesson"
 
   #users routes
-  #resources :users
 
   get "users/show" => "users#show"
   get "users/list" => "users#list"
   get "users/new" => "users#new"
-  #post "users/new" => "users#new"
   post "users/create" => "users#create"
   get "users/index" => "users#index"
   get "users/destroy" => "users#destroy"

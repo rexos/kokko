@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
+  
   def create
     @user = User.new(params[:new_user])
     if @user.save 
@@ -13,18 +13,16 @@ class UsersController < ApplicationController
       redirect_to action: :index
     end
   end
-
+  
   def new
     @user = User.new
   end
-
+  
   def destroy
     @user = current_user
-    if @user.destroy
-      redirect_to :controller => :users, :action => :index
-    else
-      redirect_to root_url
-    end
+    session[:user_id] = nil
+    cookies.delete(:token)
+    redirect_to root_url
   end
 
   def show

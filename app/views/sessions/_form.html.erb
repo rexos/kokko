@@ -1,7 +1,16 @@
 <%= form_for :session, url: {action: :create}  do |s| %>
-<%= s.label :username %><br>
-<%= s.text_field :username%> <br>
-<%=  s.label :password %><br>
-<%= s.password_field :password %><br><br>
-<%= s.submit "login" %>
+<%= s.label :username %><br />
+<%= s.text_field :username%> <br />
+<%= s.label :password %><br />
+<%= s.password_field :password %><br />
+<div>
+  <div style="float:left; width:8%">
+    <%= s.check_box :remember_me%>
+  </div>
+  <div style="float:left; width:50%; padding-top:4px">
+    Remember Me
+  </div>
+  <br /><br />
+</div>
+<%= s.submit "login", :class => "btn btn-primary btn-default"%>
 <% end %>

@@ -52,8 +52,8 @@
   <div class="row-fluid">
     <br/><br/>
     <div class="span12">
-      <%= link_to '<button class="btn btn-primary btn-large" style="width:49%"><i class="icon-ok icon-white"></i>&nbsp;&nbsp;<b>SIGN IN</b></button>'.html_safe %>
-      <%= link_to '<button class="btn btn-primary btn-large" style="width:49%"><i class="icon-ok icon-white"></i>&nbsp;&nbsp;<b>LOGIN</b></button>'.html_safe %>
+      <%= link_to '<button class="btn btn-primary btn-large" style="width:49%"><i class="icon-ok icon-white"></i>&nbsp;&nbsp;<b>SIGN UP</b></button>'.html_safe, controller: :users, action: :new %>
+      <%= link_to '<button class="btn btn-primary btn-large" style="width:49%"><i class="icon-ok icon-white"></i>&nbsp;&nbsp;<b>LOGIN</b></button>'.html_safe, login_path %>
     </div>
     <div class="center">
       <%= link_to "admin_area", controller: :programs, action: :index %><br /> 
@@ -61,5 +61,4 @@
     </div>
   </div>
 </div>
-
 
