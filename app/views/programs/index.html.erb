@@ -27,7 +27,7 @@
 	  </li>
 	  <% end %>
 	</ul>
-    <button href="#removeModal" class="btn btn-default" data-toggle="modal" data-id="<%program.id%>"></i class="   icon-plus icon-white"></i>Remove Prog</button>
+    <%=link_to '<button class="btn btn-primary btn-default">Remove</button>'.html_safe,  action: :destroy, data: { confirm: "Are you sure?"}, :prog_id => program.id %>
 	  <%= link_to '<button class="btn btn-primary btn-default"></i class="   icon-plus icon-white"></i>Add Lesson</button>'.html_safe, controller: :lessons, action: :new, :prog_id => program.id %>
       </div>
     </li>
