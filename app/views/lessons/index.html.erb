@@ -10,6 +10,7 @@
     <div class="body" style="display:none">
       <p><%= e.description %></p>
       <p><%= e.difficulty %></p>
+      <p><%= e.video_url %></p>
       <p><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></p>
       <%=link_to '<label class="label label-info">Edit</label>'.html_safe, action: :index, :id => @lesson.id %>
       <%=link_to '<label class="label label-info">Remove</label>'.html_safe,  action: :index, :id => @lesson.id %>
