@@ -1,6 +1,6 @@
 class Exercise < ActiveRecord::Base
   attr_accessible :description, :difficulty, :name, :video_url
-  has_many :associations
+  has_many :associations, :dependent => :destroy
   has_many :lessons, through: :associations
   before_save{|ex| ex.name = name.capitalize}
 

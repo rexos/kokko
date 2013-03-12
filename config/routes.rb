@@ -17,6 +17,8 @@ Kokkonut::Application.routes.draw do
   get "programs/all" => "programs#index"
   post "programs/create" => "programs#create"
   get "programs/remove" => "programs#destroy"
+  get "programs/start" => "programs#start"
+  get "programs/next" => "programs#next"
 
   #lesson routes
   get "lessons/new" => "lessons#new"
@@ -30,7 +32,7 @@ Kokkonut::Application.routes.draw do
   get "exercises/new" => "exercises#new"
   post "exercises/create" => "exercises#create"
   post "exercises/add_association" => "exercises#add_ex_to_lesson"
-
+  get "exercises/remove_association" => "exercises#remove_ex_from_lesson"
 
   #users routes
   resources :users

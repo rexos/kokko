@@ -33,7 +33,7 @@
                <% end %>
 	           </ul>
               <br />
-              <%=link_to '<label class="label label-info">Start Training</label>'.html_safe %>
+              <%=link_to '<label class="label label-info">Start Training</label>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
              <% end %>
          </div>
       </div>

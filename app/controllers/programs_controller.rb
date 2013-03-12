@@ -28,4 +28,20 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def start
+    @program = Program.find(params[:prog_id])
+    @lesson = @program.lessons.first
+    @association = @lesson.associations.first
+    @exercise = Exercise.find(@association.exercise_id)
+  end
+
+  def next
+    @lesson = Lesson.find(params[:lesson_id])
+    @association = @lesson.associations.first(:conditions => ['id > ?', params[:association_id]], :order => 'id ASC')
+    if @association.nil?
+      redirect_to controller: :users,action: :show 
+    else
+      @exercise = Exercise.find(@association.exercise_id)
+    end
+  end
 end

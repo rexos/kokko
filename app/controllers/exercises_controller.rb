@@ -16,7 +16,9 @@ class ExercisesController < ApplicationController
   end
 
   def remove_ex_from_lesson
-    
+    @association = Association.where( :lesson_id => params[:lesson_id].to_i, :exercise_id => params[:exercise_id].to_i ).first
+    @association.destroy
+    redirect_to controller: :lessons, action: :index, :id => params[:lesson_id]
   end
 
   def add_ex_to_lesson
@@ -30,4 +32,9 @@ class ExercisesController < ApplicationController
   
   def destroy
   end
+
+  def show
+    @exercise = Exercise.find(params[:id])
+  end
+
 end
