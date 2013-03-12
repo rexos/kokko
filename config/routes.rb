@@ -35,11 +35,12 @@ Kokkonut::Application.routes.draw do
   get "exercises/remove_association" => "exercises#remove_ex_from_lesson"
 
   #users routes
-  resources :users
+  #resources :users
 
   get "users/show" => "users#show"
   get "users/list" => "users#list"
-  get "users/signup" => "users#new"
+  get "users/new" => "users#new"
+  #post "users/new" => "users#new"
   post "users/create" => "users#create"
   get "users/index" => "users#index"
   get "users/destroy" => "users#destroy"

@@ -5,12 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:new_user])
-    if @user.save
-      @user.authenticate(params[:session][:password])
-      #SignupMailer.signup_mail(@user).deliver
+    if @user.save 
+      session[:user_id] = @user.id
+      SignupMailer.signup_mail(@user).deliver
       redirect_to :controller => :welcome, :action => :index
     else
-      render 'new'
+      redirect_to action: :index
     end
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
+    @user = current_user
     if @user.destroy
       redirect_to :controller => :users, :action => :index
     else
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-     @user = User.find(params[:id])
+     @user = current_user
   end
 
   def list

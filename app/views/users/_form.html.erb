@@ -1,4 +1,4 @@
-	<%= form_for(@user) do |u| %>
+	<%= form_for :new_user, url: { controller: :users, action: :create } do |u| %>
 	<%= u.label :username %>
 	<%= u.text_field :username %>
 	<%= u.label :email %>
@@ -7,6 +7,6 @@
 	<%= u.password_field :password %>
 	<%= u.label :password_confirmation, "Cofirm password" %>
 	<%= u.password_field :password_confirmation %>
-	<br>
+	<br />
 	<%= u.submit "Sing in", :class => "btn btn-primary" %>
 	<% end %>

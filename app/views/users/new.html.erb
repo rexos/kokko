@@ -1,15 +1,15 @@
 <div class="span3 offset3 well"><p><h2>Register</h2></p>
-	<% if @user.errors.any?  %>
-	<div class="alert alert-error">
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %>
-			<li>
-				<%= msg %>
-			</li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
+  <% if @user.errors.any?  %>
+  <div class="alert alert-error">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li>
+	<%= msg %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
   <%= render 'form' %>
 </div>
