@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311102751) do
+ActiveRecord::Schema.define(:version => 20130312120910) do
 
   create_table "associations", :force => true do |t|
     t.integer  "lesson_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130311102751) do
     t.string   "token"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,4 +1,12 @@
 Kokkonut::Application.routes.draw do
+  
+
+  #sessions routes
+  
+  post "sessions/create" =>"sessions#create"
+  get "sessions/new" => "sessions#new"
+  get "sessions/destroy" => "sessions#destroy"
+
   root :to => 'welcome#index'
 
   #program routes
