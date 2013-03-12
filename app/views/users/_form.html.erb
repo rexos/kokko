@@ -1,0 +1,12 @@
+	<%= form_for(@user) do |u| %>
+	<%= u.label :username %>
+	<%= u.text_field :username %>
+	<%= u.label :email %>
+	<%= u.text_field :email %>
+	<%= u.label :password %>
+	<%= u.password_field :password %>
+	<%= u.label :password_confirmation, "Cofirm password" %>
+	<%= u.password_field :password_confirmation %>
+	<br>
+	<%= u.submit "Sing in", :class => "btn btn-primary" %>
+	<% end %>
