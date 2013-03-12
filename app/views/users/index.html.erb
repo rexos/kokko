@@ -1,0 +1,13 @@
+
+
+<div class="well">
+  <ul>
+    <% @users.each do |u| %>
+    <li>
+      <h4><%= u.username.capitalize %></h4>
+      <p><%= u.email %></p>
+      <%= link_to "Drop", controller: :users, action: :destroy, :user_id => u.id %>
+    </li>
+    <% end %>
+  </ul>
+</div>

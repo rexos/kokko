@@ -16,6 +16,15 @@ class UsersController < ApplicationController
   def new
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    if @user.destroy
+      redirect_to :controller => :users, :action => :index
+    else
+      redirect_to root_url
+    end
+  end
+
   def show
     @user = User.find(params[:id])
   end

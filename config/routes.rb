@@ -24,5 +24,7 @@ Kokkonut::Application.routes.draw do
   get "users/list" => "users#list"
   get "users/signup" => "users#new"
   post "users/create" => "users#create"
-
+  get "users/index" => "users#index"
+  get "users/destroy" => "users#destroy"
+  
 end
