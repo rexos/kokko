@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130311102751) do
     t.string   "name"
     t.string   "difficulty"
     t.text     "description"
+    t.string   "video_url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

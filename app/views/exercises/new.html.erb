@@ -6,6 +6,7 @@
   <%= form_for :exercise, url: {controller: :exercises, action: :create} do |f| %>
   <%= f.text_field :name, placeholder: "Exercise Name" %><br />
   <%= f.text_area :description, placeholder: "Description", :rows => 5 %><br />
+  <%= f.text_field :video_url, placeholder: "Video Url" %><br />
   <%= f.select :difficulty, options_for_select(["Easy","Medium","Hard"])%><br />
   <button class="btn btn-primary btn-default" type="submit">Add Exercise</button>
   <% end %>
