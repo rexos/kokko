@@ -8,4 +8,8 @@ class Exercise < ActiveRecord::Base
   validates :description, :presence => true
   validates_presence_of :difficulty
   
+def code
+  self.video_url.split('=').last if self.video_url
+end
+
 end

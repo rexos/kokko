@@ -4,11 +4,11 @@
 		<h3><%=@exercise.name%></h3>
 		<div class = "row-fluid">
 			<div class="goal span6">
-				<embed src='<%=@exercise.video_url%>' type="application/x-shockwave-flash" wmode="transparent" width="640" height="496"></embed>
+				<iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@exercise.code %>"></iframe>
 			</div>
 			<div class="goal span6">
 				<p>Descrizione: <%=@exercise.description%> </p>
-				<p># ripetizioni<%=@association.repetitions%><p>
+				<p># ripetizioni<%=@association.repetitions%> </p>
 			</div>
 		</div>
 		<%= link_to "next", action: :next, :lesson_id => @lesson.id, :association_id => @association.id%> 
