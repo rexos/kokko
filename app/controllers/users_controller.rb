@@ -38,4 +38,12 @@ class UsersController < ApplicationController
     @programs = Program.all
   end
 
+  def add_status
+    @status = Status.where(:user_id => params[:user_id],:association_id => params[:association_id]).first
+    unless @status
+      @status = Status.new(:user_id => params[:user_id],:association_id => params[:association_id])
+      @status.save
+    end
+    redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
+  end
 end
