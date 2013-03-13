@@ -7,55 +7,14 @@
     <title><%= content_for?(:title) ? yield(:title) : "Kokkonut" %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"><link href="http://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Kokkonut</a>
-          <div class="container nav-collapse">
-            <p class="navbar-text pull-right">
-              <% if current_user %>
-              Logged in as <%= current_user.email %> |
-              <%= link_to "Settings" %> |
-              <%= link_to "logout", logout_path %>
-              <% else %>
-              <%= link_to 'register' %> or
-             <%= link_to 'login' %>
-             <% end %>
-            </p>
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-     <div class="container">
-	    <div class="row">
-	    <div class="span1">
-	   </div>
-       <div class="span10">
          <%= bootstrap_flash %>
          <%= yield %>
-        </div>
-	  <div class="span1">
-    </div>
-    </div>	
-	   <footer>
-        <p>&copy; Company 2013</p>
-	   </footer>
-    </div>
       
     <%= javascript_include_tag "application" %>
     
