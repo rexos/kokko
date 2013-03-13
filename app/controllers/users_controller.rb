@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       SignupMailer.signup_mail(@user).deliver
       redirect_to :controller => :welcome, :action => :index
     else
-      redirect_to action: :index
+      redirect_to action: :new
     end
   end
   

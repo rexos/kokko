@@ -11,6 +11,8 @@ class Ability
       can :list, :all
       can :start, :all
       cannot :read, Program
+    when "visitor"
+      can :create, User
     end
   end
 end
