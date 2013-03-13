@@ -10,6 +10,7 @@ class Ability
       can :read, :all
       can :list, :all
       can :start, :all
+      cannot :read, Program
     end
   end
 end

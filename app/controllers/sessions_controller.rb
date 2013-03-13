@@ -10,9 +10,14 @@ class SessionsController < ApplicationController
       if params[:session][:remember_me].to_i==1
         cookies.permanent[:token] = user.token
       end
-      redirect_to :controller => :welcome, :action => :index, :notice => "logged in"
+      case user.role
+        when "admin"
+        redirect_to :controller => :programs, action: :index
+        when "user"
+        redirect_to :controller => :users, :action => :show
+      end
     else
-      flash.now.alert = "Wrong email or password "
+      flash.now.alert = "Wrong Username or Password "
       render 'new'
     end
   end
