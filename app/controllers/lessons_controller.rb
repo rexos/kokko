@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  load_and_authorize_resource
 
   def new
     @@program = Program.find(params[:prog_id])

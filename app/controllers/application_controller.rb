@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  rescue_from CanCan::AccessDenied do |exce|
+    flash[:error] = "Access Denied"
+    redirect_to root_url
+  end
+
   helper_method :current_user
   helper_method :remember_user
 
