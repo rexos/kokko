@@ -43,5 +43,5 @@ Kokkonut::Application.routes.draw do
   post "users/create" => "users#create"
   get "users/index" => "users#index"
   get "users/destroy" => "users#destroy"
-  
+  get "users/add_status" => "users#add_status"
 end
