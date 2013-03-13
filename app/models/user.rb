@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :role
   has_secure_password
 
+  #user relationships
+  has_many :statuses
+
   #before create methods
   before_create { |user| user.email = email.downcase }
   before_create :generate_token

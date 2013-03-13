@@ -6,5 +6,8 @@ class CreateStatuses < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :statuses, :user_id
+    add_index :statuses, :association_id
+    add_index :statuses, [:user_id,:association_id], :unique => true
   end
 end
