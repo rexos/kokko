@@ -33,24 +33,4 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:prog_id])
     redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
   end
-
- #commented method
-  if false
-  def start
-    @program = Program.find(params[:prog_id])
-    @lesson = @program.lessons.first
-    @association = @lesson.associations.first
-    @exercise = Exercise.find(@association.exercise_id)
-  end
-
-  def next
-    @lesson = Lesson.find(params[:lesson_id])
-    @association = @lesson.associations.first(:conditions => ['id > ?', params[:association_id]], :order => 'id ASC')
-    if @association.nil?
-      redirect_to controller: :users,action: :show 
-    else
-      @exercise = Exercise.find(@association.exercise_id)
-    end
-  end
-  end
 end
