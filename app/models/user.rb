@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
   validates_presence_of :password_confirmation, :on => :create
 
 
+  def role?(role)
+    self.role.include? role
+  end
+
+
   #private methods
   private
 
