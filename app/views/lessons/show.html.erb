@@ -19,6 +19,7 @@
           <p><%= e.description %></p>
           <p><%= e.difficulty %></p>
           <p><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></p>
+          <%=link_to '<label class="label label-info">Start Exercise</label>'.html_safe,controller: :exercises,action: :show,:association_id => @lesson.associations.find_by_exercise_id(e.id).id %>
     </div>
   </div>
   <% end %><br />

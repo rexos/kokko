@@ -31,6 +31,13 @@ class ProgramsController < ApplicationController
 
   def start
     @program = Program.find(params[:prog_id])
+    redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
+  end
+
+ #commented method
+  if false
+  def start
+    @program = Program.find(params[:prog_id])
     @lesson = @program.lessons.first
     @association = @lesson.associations.first
     @exercise = Exercise.find(@association.exercise_id)
@@ -44,5 +51,6 @@ class ProgramsController < ApplicationController
     else
       @exercise = Exercise.find(@association.exercise_id)
     end
+  end
   end
 end

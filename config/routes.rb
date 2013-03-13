@@ -33,6 +33,7 @@ Kokkonut::Application.routes.draw do
   post "exercises/create" => "exercises#create"
   post "exercises/add_association" => "exercises#add_ex_to_lesson"
   get "exercises/remove_association" => "exercises#remove_ex_from_lesson"
+  get "exercises/show" => "exercises#show"
 
   #users routes
 

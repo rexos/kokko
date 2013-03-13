@@ -11,6 +11,6 @@
 				<p>Num. ripetizioni<%=@association.repetitions%></p>
 			</div>
 		</div>
-		<%= link_to "next", action: :next, :lesson_id => @lesson.id, :association_id => @association.id%> 
+		<%= link_to '<button class="btn btn-default">Done</button>'.html_safe,controller: :lessons, action: :show, :lesson_id => @lesson.id %>
 	</div>
 </div>
