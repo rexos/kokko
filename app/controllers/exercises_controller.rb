@@ -35,7 +35,9 @@ class ExercisesController < ApplicationController
   end
 
   def show
-    @exercise = Exercise.find(params[:id])
+    @association = Association.find(params[:association_id])
+    @lesson = Lesson.find(@association.lesson_id)
+    @exercise = Exercise.find(@association.exercise_id)
   end
 
 end
