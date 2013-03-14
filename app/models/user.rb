@@ -23,8 +23,7 @@ class User < ActiveRecord::Base
   def role?(role)
     self.role.include? role
   end
-
-
+    
   #private methods
   private
 

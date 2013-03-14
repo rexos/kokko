@@ -15,7 +15,19 @@
       <li>
       <div class="well" style="background-color:white">
 	       <div class="title">
-	         <h4><%= p.title %></h4>
+	         <h4>
+		   <% ex_done=0 %>
+		   <%= p.title %>
+		   <% current_user.statuses.each do |s| %>
+		   <% ex_done +=1 %>
+		   <% end %>
+		   <%= ex_done %>
+		   <div class="progress">
+		     <div class="bar bar-danger" style="width: 10%;"></div>
+		     <div class="bar bar-warning" style="width: 20%;"></div>
+		     <div class="bar bar-success" style="width: 35%;"></div>
+		   </div>
+		 </h4>
 	       </div>
          <div class="body" style="display:none">
 	         <p><%= p.description %></p>

@@ -46,4 +46,5 @@ class UsersController < ApplicationController
     end
     redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
   end
+
 end
