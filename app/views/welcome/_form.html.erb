@@ -1,0 +1,44 @@
+<div id="login-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header" style="background-color: #a73d3b  ">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" style="color:white">Entra!</h3>
+  </div>
+  <div class="modal-body center" style="background-color: #b94a48; color:white">
+    <%= form_for :session, url: {controller: :sessions, action: :create}  do |s| %>
+    <%= s.label :username %>
+    <%= s.text_field :username%> <br />
+    <%= s.label :password %>
+    <%= s.password_field :password %><br />
+    <%= s.check_box :remember_me%>
+    Ricordami
+    </div>
+  <div class="modal-footer">
+    <button class="btn " data-dismiss="modal" aria-hidden="true">Indietro</button>
+    <%= s.submit "Login", :class => "btn btn-danger btn-default"%>
+  <% end %>
+  </div>
+</div>
+
+
+<div id="signin-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header" style="background-color: #a73d3b  ">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" style="color:white">Entra!</h3>
+  </div>
+  <div class="modal-body center" style="background-color: #b94a48; color:white">
+  <%= form_for :new_user, url: { controller: :users, action: :create } do |u| %>
+  <%= u.label :username %>
+  <%= u.text_field :username %>
+  <%= u.label :email %>
+  <%= u.text_field :email %>
+  <%= u.label :password %>
+  <%= u.password_field :password %>
+  <%= u.label :password_confirmation, "Conferma Password" %>
+  <%= u.password_field :password_confirmation %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn " data-dismiss="modal" aria-hidden="true">Indietro</button>
+    <%= u.submit "Registrati", :class => "btn btn-danger btn-default" %>
+  <% end %>
+  </div>
+</div>
