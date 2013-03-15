@@ -2,7 +2,7 @@
 	<div class="row-fluid" id="profile-row-line-top">
 		<div class="span6 offset6" id="light-menu">
           <ul type="none">
-            <li><a href="#">Nome_Utente</a></li>
+            <li><%= current_user.username.capitalize %></li>
             <li><%= link_to 'Logout', controller: :sessions, action: :destroy %></li>
           </ul> 
       </div>
