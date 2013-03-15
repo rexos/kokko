@@ -19,30 +19,27 @@
   <body>
     <% if current_user %>
     <div style="max-height: 2048px; max-width: 1536px">
-  <div class="row-fluid" id="profile-row-line-top">
-    <div class="span6 offset6" id="light-menu">
+      <div class="row-fluid" id="profile-row-line-top">
+        <div class="span6 offset6" id="light-menu">
           <ul type="none">
             <li><%=link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :show %></li>
             <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
           </ul> 
+        </div>
       </div>
-  </div>
-  <% else %>
+    <% else %>
     <div class="row-fluid" id="row-line-top">
       <div class="span8 offset4" id="light-menu">
-          <ul type="none">
-            <li><a href="#"><i class="icon-group"></i>&nbsp;chi siamo</a></li> 
-            <li><a href="#"><i class="icon-envelope"></i>&nbsp;contatti</a></li>
+        <ul type="none">
+          <li><a href="#"><i class="icon-group"></i>&nbsp;chi siamo</a></li> 
+          <li><a href="#"><i class="icon-envelope"></i>&nbsp;contatti</a></li>
         </ul> 
       </div>
     </div>
-
     <% end %>
-
-         <%= bootstrap_flash %>
-         <%= yield %>
-      
+    <%= bootstrap_flash %>
+    <%= yield %>
     <%= javascript_include_tag "application" %>
-    
+    </div>
   </body>
 </html>

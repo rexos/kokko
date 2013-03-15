@@ -1,13 +1,18 @@
-/* colore del body */
-/* colore sezione principale */
-/* colore sezione in alto */
-/* colore sezione bottoni */
-/* sezione 1 */
-/* sezione 2 */
-/* sezione 3 */
-/* sezione bottom */
-/* general */
+.black{
+  color:black;
+}
 
+.red {
+  color:#a73d3b;
+}
+
+.bg-red{
+  color:#a73d3b;
+}
+
+.bg-white{
+  color:white;
+}
 
 html body ::selection {
   background: #ff0066;

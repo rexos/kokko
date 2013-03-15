@@ -36,7 +36,7 @@ Kokkonut::Application.routes.draw do
   get "exercises/show" => "exercises#show"
 
   #users routes
-
+  get "users/edit" => "users#edit"
   get "users/show" => "users#show"
   get "users/list" => "users#list"
   get "users/new" => "users#new"
