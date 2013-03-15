@@ -27,7 +27,7 @@
     <div class="row-fluid" id="row-line-button"> 
       <div class="span1"></div>
       <div class="span4 center" style="padding-top:20px">
-        <%= link_to '<button class="btn btn-danger btn-large button-style">Entra!</button>'.html_safe, login_path %>
+        <%= link_to '<a href="#login-modal" role="button" class="btn btn-danger btn-large button-style" data-toggle="modal">Entra!</a>'.html_safe, login_path %>
       </div>
       <div class="span2 center">
         <div class="row-fluid center">
@@ -38,7 +38,8 @@
         </div>
       </div>
       <div class="span4 center" style="padding-top:20px">
-        <%= link_to '<button class="btn btn-danger btn-large button-style">Registrati!</button>'.html_safe, controller: :users, action: :new %>
+        <%= link_to '<a href="#signin-modal" role="button" class="btn btn-danger btn-large button-style" data-toggle="modal">Registrati!</a>'.html_safe, controller: :users, action: :new %>
+
       </div>
       <div class="span1"></div>
     </div>
@@ -83,3 +84,6 @@
     <div class="row-fluid center foot" id="row-line-bottom">
       <p>2013 Kokko</p>
     </div>
+
+    <%= render 'form' %>
+

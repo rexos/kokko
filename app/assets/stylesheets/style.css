@@ -17,7 +17,7 @@ body {
   color: #000;
   padding: 0px;
   font-family: 'Sintony', Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 15px;
 }
 #row-line-top {
   background-color: #a73d3b;
@@ -127,7 +127,9 @@ a:hover {
 }
 .padd-odd {
   padding-right: 20px;
+  font-size: 30px;
 }
 .padd-even {
   padding-left: 20px;
+  font-size: 30px;
 }
