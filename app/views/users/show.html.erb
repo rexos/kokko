@@ -3,7 +3,7 @@
 		<div class="span6 offset6" id="light-menu">
           <ul type="none">
             <li><a href="#">Nome_Utente</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><%= link_to 'Logout', controller: :sessions, action: :destroy %></li>
           </ul> 
       </div>
 	</div>
