@@ -1,6 +1,7 @@
 <div class="well">
 	<div class="center">
-		<h2>User's Personal Home Page</h2>
-		<%= link_to "Training List", controller: :users, action: :list %>
+		<h2>User's Personal Home Page</h2><%= link_to "logout", :controller =>  :sessions, :action => :destroy  %>
+		<%= link_to "Training List", controller: :users, action: :list %><br/><br/>
+		
 	</div>
 </div>

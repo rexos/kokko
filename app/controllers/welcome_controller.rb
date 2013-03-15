@@ -1,7 +1,12 @@
 class WelcomeController < ApplicationController
   def index
-    admin = User.new(:username => "deadormi", :password => "diomerda", :password_confirmation => "diomerda", :email => "dea.dormi@gmail.com", :role => "admin")
-    admin.save
-    current_user
+    if current_user
+    	case user.role
+        when "admin"
+        redirect_to :controller => :programs, action: :index
+        when "user"
+        redirect_to :controller => :users, :action => :show
+      end
+    end
   end
 end
