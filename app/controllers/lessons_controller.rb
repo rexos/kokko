@@ -2,11 +2,12 @@ class LessonsController < ApplicationController
   load_and_authorize_resource
 
   def new
-    @@program = Program.find(params[:prog_id])
+    @program = Program.find(params[:prog_id])
   end
 
   def create
-    @lesson = @@program.lessons.new(params[:lesson])
+    @program = Program.find(params[:idprog])
+    @lesson = @program.lessons.new(params[:lesson])
     if @lesson.save
       redirect_to controller: :programs, action: :index
     else
