@@ -30,7 +30,15 @@ class UsersController < ApplicationController
   end
   
   def edit
-     @user = current_user
+  end
+
+  def update
+    @user = current_user
+    edited = params[:edited_user]
+    psw = BCrypt::Password.create(edited[:new_password]).to_s
+    if @user.update_attributes(:first_name => edited[:first_name] , :second_name => edited[:second_name], :where => edited[:where], :password_digest => psw)
+      redirect_to action: :show
+    end
   end
 
   def list

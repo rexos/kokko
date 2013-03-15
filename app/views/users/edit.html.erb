@@ -1,0 +1,17 @@
+
+
+<div class="well center">
+  <%= form_for :edited_user,url: { controller: :users, action: :update} do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, :value => current_user.first_name %><br />
+  <%= f.label :second_name %>
+  <%= f.text_field :second_name, :value => current_user.second_name %><br />
+  <%= f.label :City %>
+  <%= f.text_field :where, :value => current_user.where %><br />
+  <%= f.label :new_password %>  
+  <%= f.password_field :new_password %>
+  <%= f.label :new_password_confirm %>
+  <%= f.password_field :new_password_confirm %><br />
+  <button class="btn btn-primary" id="edit"><b>Save Changes</b></button>
+  <% end %>
+</div>

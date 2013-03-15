@@ -1,14 +1,17 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :password, :password_confirmation, :role
+  attr_accessible :username, :email, :password, :password_confirmation, :role, :first_name, :second_name, :where, :password_digest
   has_secure_password
 
   #user relationships
   has_many :statuses
   has_many :associations, :through => :status
 
-  #before create methods
+  #before create/update methods
   before_create { |user| user.email = email.downcase }
   before_create :generate_token
+  before_update {|user| user.first_name = first_name.capitalize}
+  before_update {|user| user.second_name = second_name.capitalize}
+  before_update {|user| user.where = where.capitalize}
 
   #email regex
   EMAIL_REGULAR_EXPRESSION = /\b[A-Z0-9._+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
@@ -19,7 +22,6 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :format => { :with => EMAIL_REGULAR_EXPRESSION }
   validates :password, :presence => true, :length => { minimum: 6 }, :on => :create
   validates_presence_of :password_confirmation, :on => :create
-
 
   def role?(role)
     self.role.include? role

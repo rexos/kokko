@@ -10,6 +10,8 @@ class Ability
       can :read, :all
       can :list, :all
       can :start, :all
+      can :edit, User
+      can :update, User
       can :add_status, User
       cannot :read, Program
     when "visitor"

@@ -20,6 +20,21 @@ $(document).ready(function(){
 	$(this).next().toggle('slow');
     });
 
+    $('#edit').click(function(){
+	var psw = $('#edited_user_new_password').val();
+	var psw_confirm = $('#edited_user_new_password_confirm').val();
+	var error=false;
+	if(psw!=psw_confirm){
+	    error=true;
+	    $('div.well').prepend(
+		'<div class="alert alert-error">New passwords do not match!</div>'
+	    );
+	}
+	if(error){
+	    return false;
+	}
+    });
+
     $(function() {
 	window.updateIframe = function() {
 	    var h = $(window).height();

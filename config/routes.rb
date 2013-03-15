@@ -2,11 +2,7 @@ Kokkonut::Application.routes.draw do
   
 
   #sessions routes
-
-  #resources :sessions
   post "sessions/create" =>"sessions#create"
-  #get "sessions/new" => "sessions#new"
-  #get "sessions/destroy" => "sessions#destroy"
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
 
@@ -44,4 +40,6 @@ Kokkonut::Application.routes.draw do
   get "users/index" => "users#index"
   get "users/destroy" => "users#destroy"
   get "users/add_status" => "users#add_status"
+  post "users/update" => "users#update"
+
 end
