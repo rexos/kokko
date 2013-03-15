@@ -5,7 +5,7 @@
   </div>
   <div class="modal-body center" style="background-color: #b94a48; color:white">
     <%= form_for :session, url: {controller: :sessions, action: :create}  do |s| %>
-    <%= s.label :username %>
+    <%= s.label :username, :autofocus => true%>
     <%= s.text_field :username%> <br />
     <%= s.label :password %>
     <%= s.password_field :password %><br />
