@@ -1,7 +1,45 @@
-<div class="well">
-	<div class="center">
-		<h2>User's Personal Home Page</h2><%= link_to "logout", :controller =>  :sessions, :action => :destroy  %>
-		<%= link_to "Training List", controller: :users, action: :list %><br/><br/>
-		
+<div style="max-height: 2048px; max-width: 1536px">
+	<div class="row-fluid" id="profile-row-line-top">
+		<div class="span6 offset6" id="light-menu">
+          <ul type="none">
+            <li><a href="#">Nome_Utente</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul> 
+      </div>
 	</div>
+
+
+	<div class="row-fluid menu-el">
+		<div class="span6 center" style="background-color: rgb(1, 158, 207)">
+			<h2><%= link_to "TRAINING LIST", controller: :users, action: :list %></h2>
+		</div>
+		<div class="span6 center" style="background-color: rgb(2, 172, 111)">
+			<h2>PROGRESS</h2>
+		</div>
+	</div>
+	<div class="row-fluid menu-el">
+		<div class="span6 center" style="background-color: rgb(233, 224, 0)">
+			<h2>
+				CALENDAR
+			</h2>
+		</div>
+		<div class="span6 center" style="background-color: rgb(255, 119, 13)"> 
+			<h2>
+				MAIL
+			</h2>
+		</div>
+	</div>
+	<div class="row-fluid menu-el">
+		<div class="span6 center" style="background-color: rgb(185, 74, 72)">
+			<h2>
+				WALL
+			</h2>
+		</div>
+		<div class="span6 center" style="background-color: rgb(105, 59, 173)">
+			<h2>
+				FRIENDS
+			</h2>
+		</div>
+	</div>
+
 </div>
