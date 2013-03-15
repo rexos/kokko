@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   #user relationships
   has_many :statuses
+  has_many :associations, :through => :status
 
   #before create methods
   before_create { |user| user.email = email.downcase }

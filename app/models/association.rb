@@ -6,6 +6,7 @@ class Association < ActiveRecord::Base
   
   #association relationships
   has_many :status
+  has_many :users, :through => :status
   belongs_to :lesson
   belongs_to :exercise
 

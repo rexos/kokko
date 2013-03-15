@@ -16,16 +16,22 @@
       <div class="well" style="background-color:white">
 	       <div class="title">
 	         <h4>
+		   <% total = 0 %>
+		   <% p.lessons.each do |lesson| %>
+		   <% total += lesson.exercises.count %>
+		   <% end %>
 		   <% ex_done=0 %>
 		   <%= p.title %>
 		   <% current_user.statuses.each do |s| %>
+		   <% association = Association.find(s.association_id) %>
+		   <% prog = Program.find(Lesson.find(association.lesson_id).program.id) %>
+		   <% if prog.id == p.id %>
 		   <% ex_done +=1 %>
 		   <% end %>
-		   <%= ex_done %>
-		   <div class="progress">
-		     <div class="bar bar-danger" style="width: 10%;"></div>
-		     <div class="bar bar-warning" style="width: 20%;"></div>
-		     <div class="bar bar-success" style="width: 35%;"></div>
+		   <% end %>
+		   Progress : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
+		   <div class="progress progress-striped active">
+		     <div class="bar" style="width: <%= progress %>%;"></div>
 		   </div>
 		 </h4>
 	       </div>
