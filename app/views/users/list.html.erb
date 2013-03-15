@@ -10,54 +10,55 @@
 
   <% else %>
 
-    <ul type="none" class="programs">
+    <div class="accordion" id="accordion2">
       <% @programs.each do |p| %>
-      <li>
-      <div class="well" style="background-color:white">
-	       <div class="title">
-	         <h4>
-		   <% total = 0 %>
-		   <% p.lessons.each do |lesson| %>
-		   <% total += lesson.exercises.count %>
-		   <% end %>
-		   <% ex_done=0 %>
-		   <%= p.title %>
-		   <% current_user.statuses.each do |s| %>
-		   <% association = Association.find(s.association_id) %>
-		   <% prog = Program.find(Lesson.find(association.lesson_id).program.id) %>
-		   <% if prog.id == p.id %>
-		   <% ex_done +=1 %>
-		   <% end %>
-		   <% end %>
-		   Progress : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
-		   <div class="progress progress-striped active">
-		     <div class="bar" style="width: <%= progress %>%;"></div>
-		   </div>
-		 </h4>
-	       </div>
-         <div class="body" style="display:none">
-	         <p><%= p.description %></p>
-            <% if p.lessons.count == 0 %>
-             <div class="alert alert-error">
-              <h4><strong><center>There isn't any lesson in this training</center></strong></h2>
-            </div>
-            <% else %> 
-	           <h5>Lessons of <%= p.title %> :</h5>
-	           <ul>
-	             <% p.lessons.each do |l| %>
-	             <li>
-	             <%=link_to l.title, controller: :lessons, action: :show, :lesson_id => l.id %>
-	             </li>
-               <% end %>
-	           </ul>
-              <br />
-              <%=link_to '<label class="label label-info">Start Training</label>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
-             <% end %>
-         </div>
+       <div class="accordion-group">  
+              <div class="accordion-heading">  
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
+            	<h4>
+		   			    <% total = 0 %>
+		   			    <% p.lessons.each do |lesson| %>
+		   			    <% total += lesson.exercises.count %>
+		   			    <% end %>
+		   			    <% ex_done=0 %>
+		  			    <%= p.title %>
+		   			    <% current_user.statuses.each do |s| %>
+		   			    <% association = Association.find(s.association_id) %>
+		   			    <% prog = Program.find(Lesson.find(association.lesson_id).program.id) %>
+		   			    <% if prog.id == p.id %>
+		   			      <% ex_done +=1 %>
+		   			    <% end %>
+		   			    <% end %>
+		   			    Progress : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
+		   			    <div class="progress progress-striped active">
+		     			  <div class="bar" style="width: <%= progress %>%;"></div>
+		   			    </div>
+		 		      </h4>      
+              </a>  
+              </div>  
+              <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
+                <div class="accordion-inner">  
+                  	<p><%= p.description %></p>
+            		<% if p.lessons.count == 0 %>
+             		  <div class="alert alert-error">
+              			<h4><strong><center>There isn't any lesson in this training</center></strong></h2>
+            		  </div>
+            		<% else %> 
+	           			<h5>Lessons of <%= p.title %> :</h5>
+	           		  <ul>
+	             	  <% p.lessons.each do |l| %>
+	             	  <li>
+	             	   <%=link_to l.title, controller: :lessons, action: :show, :lesson_id => l.id %>
+	             	  </li>
+               		<% end %>
+	           		  </ul>
+              		<br />
+              		<%=link_to '<label class="label label-info">Start Training</label>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+             		<% end %>    
+              	</div>  
+            </div>  
       </div>
-      </li>
       <% end %>
-    </ul>
   <% end %>
   <%= link_to "User List", action: :index %>
 </div>
