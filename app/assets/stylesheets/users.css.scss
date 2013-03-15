@@ -12,10 +12,21 @@
 	margin: 0;
 }
 .menu-el .center {
-	padding: 85px;
-
+	padding: 5%;
 }
 
 .menu-el a {
 	color: white;
+}
+
+.span-sx{
+	border-bottom-right-radius: 200px;
+	border-top-right-radius: 200px;
+	border-right: solid 15px #a73d3b;
+}
+
+.span-dx{
+	border-bottom-left-radius: 200px;
+	border-top-left-radius: 200px;
+	border-left: solid 15px rgb(221, 221, 221);
 }
