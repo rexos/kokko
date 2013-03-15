@@ -1,14 +1,142 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-img#immagine{
-	width:40%;
-	height:80%;
+.black{
+  color:black;
 }
 
-div.well_plain{
-	background-color:white;
-	border-radius: 25px;
-	padding: 4%;
+.red {
+  color:#a73d3b;
+}
+
+.bg-red{
+  color:#a73d3b;
+}
+
+.bg-white{
+  color:white;
+}
+
+html body ::selection {
+  background: #ff0066;
+  color: white;
+  text-shadow: none;
+}
+body {
+  background-color: #ebebeb;
+  color: #000;
+  padding: 0px;
+  font-family: 'Sintony', Helvetica, sans-serif;
+  font-size: 15px;
+}
+#row-line-top {
+  background-color: #a73d3b;
+}
+#row-line-main {
+  background-color: #b94a48;
+  color: #ffffff;
+}
+#row-line-button {
+  background-color: #ebebeb;
+}
+#row-line-first {
+  background-color: #ffffff;
+  color: #b94a48;
+}
+#row-line-second {
+  background-color: #b94a48;
+  color: #ffffff;
+}
+#row-line-third {
+  background-color: #ffffff;
+  color: #b94a48;
+}
+#row-line-bottom {
+  background-color: #222222;
+  color: #ffffff;
+}
+.center {
+  text-align: center;
+}
+.main-title {
+  font-size: 90px;
+  line-height: 1;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.85);
+  font-family: 'Montserrat', Helvetica, sans-serif;
+}
+#subtitle {
+  margin-top: 35px;
+}
+.shad-odd,
+.shad-even {
+  font-weight: 50;
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-size: 35px;
+  padding-bottom: 15px;
+}
+.padding-tb {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  line-height: 1.5;
+}
+.button-style {
+  font-family: 'Sintony', Helvetica, sans-serif;
+  width: 70%;
+  padding: 30px 0px;
+  font-size: 30px;
+  /*margin-top: 20px;*/
+
+}
+.numb {
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 100px;
+  line-height: 200%;
+}
+.foot {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+#triangle-top {
+  margin: 0 auto;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 50px 50px 0 50px;
+  border-color: #b94a48 transparent transparent transparent;
+}
+#triangle-bottom {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 50px 50px 50px;
+  border-color: transparent transparent #fff transparent;
+}
+#light-menu {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+#light-menu ul {
+  float: right;
+}
+#light-menu li {
+  color: #fff;
+  text-decoration: none;
+  float: left;
+  padding-right: 20px;
+}
+a {
+  color: #ccc;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+.padd-odd {
+  padding-right: 20px;
+  font-size: 30px;
+}
+.padd-even {
+  padding-left: 20px;
+  font-size: 30px;
 }
