@@ -14,6 +14,11 @@
   <div class="well" style="background-color:white">
     <div class="title">
       <h5><%= e.name %></h5>
+      <% @status.each do |s| %>
+        <% if s.association_id == @lesson.associations.find_by_exercise_id(e.id).id %>
+          <p>fatto</p>
+        <%end%>
+      <%end%>
     </div>
     <div class="body" style="display:none">
           <p><%= e.description %></p>

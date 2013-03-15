@@ -22,6 +22,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:lesson_id])
+    @status = current_user.statuses
   end
 
   def destroy
