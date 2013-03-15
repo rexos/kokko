@@ -10,9 +10,9 @@ class UsersController < ApplicationController
     if @user.save 
       session[:user_id] = @user.id
       SignupMailer.signup_mail(@user).deliver
-      redirect_to :controller => :welcome, :action => :index
+      redirect_to root_url
     else
-      redirect_to action: :new
+      redirect_to root_url
     end
   end
   

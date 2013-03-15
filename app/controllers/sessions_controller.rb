@@ -11,14 +11,13 @@ class SessionsController < ApplicationController
         cookies.permanent[:token] = user.token
       end
       case user.role
-        when "admin"
+      when "admin" 
         redirect_to :controller => :programs, action: :index
-        when "user"
+      when "user"
         redirect_to :controller => :users, :action => :show
-      end
+      end  
     else
-      flash.now.alert = "Wrong Username or Password "
-      render 'new'
+      format.html { redirect_to root_url }
     end
   end
   
