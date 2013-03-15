@@ -12,7 +12,7 @@
 	margin: 0;
 }
 .menu-el .center {
-	padding: 5%;
+	padding: 8%;
 }
 
 .menu-el a {
@@ -23,10 +23,12 @@
 	border-bottom-right-radius: 200px;
 	border-top-right-radius: 200px;
 	border-right: solid 15px #a73d3b;
+	border-top: 1px #a73d3b solid;
 }
 
 .span-dx{
 	border-bottom-left-radius: 200px;
 	border-top-left-radius: 200px;
 	border-left: solid 15px rgb(221, 221, 221);
+	border-top: 1px  solid rgb(221, 221, 221);
 }
