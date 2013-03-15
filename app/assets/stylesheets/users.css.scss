@@ -12,11 +12,48 @@
 	margin: 0;
 }
 .menu-el .center {
-	padding: 8%;
+	padding-top: 5.34%;
+	padding-bottom: 5.34%;
 }
 
-.menu-el a {
-	color: white;
+.white, .menu-el a {
+	color:#fff;
+}
+
+.black{
+	color:black;
+}
+
+.red {
+	color:#a73d3b;
+}
+
+.bg-red{
+	color:#a73d3b;
+}
+
+.bg-white{
+	color:white;
+}
+
+.span-odd-dx{
+	background-color: rgb(185, 74, 72); 
+	border-left: solid 15px #a73d3b;
+	border-top: 1px #a73d3b solid;
+	border-bottom-left-radius: 200px;
+	border-top-left-radius: 200px;
+	border-left: solid 15px #a73d3b;
+	border-top: 1px  solid #a73d3b;
+}
+
+.span-odd-sx{
+	background-color: #fff; 
+	border-right: solid 15px rgb(221, 221, 221);
+	border-top: 1px  solid rgb(221, 221, 221);
+	border-bottom-right-radius: 200px;
+	border-top-right-radius: 200px;
+	border-right: solid 15px rgb(221, 221, 221);
+	border-top: 1px rgb(221, 221, 221) solid;
 }
 
 .span-sx{
@@ -24,6 +61,7 @@
 	border-top-right-radius: 200px;
 	border-right: solid 15px #a73d3b;
 	border-top: 1px #a73d3b solid;
+	background-color: rgb(185, 74, 72);
 }
 
 .span-dx{
@@ -31,4 +69,5 @@
 	border-top-left-radius: 200px;
 	border-left: solid 15px rgb(221, 221, 221);
 	border-top: 1px  solid rgb(221, 221, 221);
+	background-color: #fff;
 }
