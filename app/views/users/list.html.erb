@@ -53,7 +53,13 @@
                		<% end %>
 	           		  </ul>
               		<br />
-              		<%=link_to '<label class="label label-info">Start Training</label>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<% state = String.new %>
+			<% if progress>0 %>
+			<%=link_to '<button class="btn btn-success"><b>Resume Training</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<% else %>
+			<%=link_to '<button class="btn btn-info"><b>Start Training</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<% end %>
+              		
              		<% end %>    
               	</div>  
             </div>  
