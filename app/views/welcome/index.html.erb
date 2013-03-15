@@ -1,6 +1,9 @@
 <div class="row-fluid" id="row-line-top">
       <div class="span6 offset6" id="light-menu">
           <ul type="none">
+	    <% if current_user %>
+	    <li>Logged as <%= current_user.username %> <%= link_to 'logout', controller: :sessions, action: :destroy %></li>
+	    <% end %>
             <li><a href="#">home</a></li>
             <li><a href="#">chi siamo</a></li>
             <li><a href="#">contatti</a></li>
