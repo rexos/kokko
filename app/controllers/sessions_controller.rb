@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         redirect_to :controller => :users, :action => :show
       end  
     else
-      format.html { redirect_to root_url }
+      redirect_to root_url
     end
   end
   
