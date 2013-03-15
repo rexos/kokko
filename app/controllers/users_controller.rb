@@ -10,9 +10,9 @@ class UsersController < ApplicationController
     if @user.save 
       session[:user_id] = @user.id
       SignupMailer.signup_mail(@user).deliver
-      redirect_to :controller => :welcome, :action => :index
+      redirect_to root_url
     else
-      redirect_to action: :new
+      redirect_to root_url
     end
   end
   
@@ -21,10 +21,9 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = current_user
-    session[:user_id] = nil
-    cookies.delete(:token)
-    redirect_to root_url
+    @user = User.find(params[:user_id])
+    @user.destroy
+    redirect_to controller: :programs, action: :index
   end
 
   def show
