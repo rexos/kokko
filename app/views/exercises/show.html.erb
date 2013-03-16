@@ -1,16 +1,21 @@
-<div class="well">
-	<div class="center">
-		<h2><%=@lesson.title%></h2>
-		<div class = "row-fluid">
-			<div class="goal span6">
+<h2 class="center"><i class="icon-film"></i>&nbsp;<%=@lesson.title%></h2>
+	<div class="center" style="background-color: #b94a48">
+		
+		<div class = "row-fluid white">
+			<div class="goal span6" style="padding: 25px">
 				<iframe id="iframe" width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+@exercise.code %>"></iframe>
 			</div>
-			<div class="goal span6">
-				<h3><%=@exercise.name%></h3>
-				<p>Descrizione: <%=@exercise.description%> </p>
-				<p>Num. ripetizioni<%=@association.repetitions%></p>
+			<div class="goal span6" style="padding: 25px">
+				<h3><i class="icon-play"></i>&nbsp;<%=@exercise.name%></h3>
+				<p style="text-align:left">Descrizione: <strong><%=@exercise.description%></strong> </p>
+				<p style="text-align:left">Num. ripetizioni: <strong><%=@association.repetitions%></strong></p>
 			</div>
 		</div>
-		<%= link_to '<button class="btn btn-primary">Done</button>'.html_safe,controller: :users, action: :add_status, :association_id => @association.id , :user_id => current_user.id %>
+		</div>
+		<div class="center">
+			<br />
+		<br />
+		<%= link_to '<button class="btn btn-danger">FINE ESERCIZIO</button>'.html_safe,controller: :users, action: :add_status, :association_id => @association.id , :user_id => current_user.id %>
+		<%= link_to '<button class="btn btn-danger">INDIETRO</button>'.html_safe, controller: :lessons, action: :show, lesson_id: @association.lesson_id %>
 	</div>
-</div>
+

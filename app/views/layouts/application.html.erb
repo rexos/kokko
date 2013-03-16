@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title><%= content_for?(:title) ? yield(:title) : "Kokkonut" %></title>
@@ -20,7 +20,7 @@
 
   <body>
     <% if current_user %>
-    <div style="max-height: 2048px; max-width: 1536px">
+    
       <div class="row-fluid" id="profile-row-line-top">
         <div class="span12" id="light-menu">
           <ul type="none">
@@ -43,6 +43,6 @@
     <%= bootstrap_flash %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
-    </div>
+  
   </body>
 </html>
