@@ -12,7 +12,7 @@
     <% @programs.each do |p| %>
       <div class="accordion-group">  
         <div class="accordion-heading">  
-          <a class="accordion-toggle" style="background-color: #a73d3b; border: solid 1 px #a73d3b" data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
+          <a class="accordion-toggle" style="background-color: #b94a48; border-top-right-radius: 50px; " data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
             <h4>
 		   			  <% total = 0 %>
 		   			  <% p.lessons.each do |lesson| %>
@@ -28,8 +28,9 @@
 		   			  <% end %>
 		   		    <% end %>
 		   			  - Progresso : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
-		   		    <div class="progress progress-striped active">
-		     		   	<div class="bar" style="width: <%= progress %>%;">
+		   		    <br />
+              <div class="progress progress-striped active">
+		     		   	<div class="bar bar-danger" style="width: <%= progress %>%;">
                 </div>
 		   			  </div>
 		 		    </h4>      
@@ -37,15 +38,17 @@
         </div>  
 
           <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-            <div class="accordion-inner white" style="background-color: #b94a48">  
+            <div class="accordion-inner white" style="background-color: #a73d3b; border-bottom-right-radius: 50px">  
               <p><%= p.description %></p>
+              <div class="center">
             	<% if p.lessons.count == 0 %>
              		<div class="alert alert-error">
               			<h4><strong><center>There isn't any lesson in this training</center></strong></h2>
             		</div>
             	<% else %> 
+              
 	           		<h5>Lessons of <%= p.title %> :</h5>
-	           		<ul>
+	           		<ul type="none">
 	             	<% p.lessons.each do |l| %>
 	             	  <li>
 	             	   <%=link_to l.title, controller: :lessons, action: :show, :lesson_id => l.id %>
@@ -55,11 +58,11 @@
               		<br />
 			<% state = String.new %>
 			<% if progress>0 %>
-			<%=link_to '<button class="btn btn-success"><b>Resume Training</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<%=link_to '<button class="btn btn-danger"><b>Continua Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
 			<% else %>
-			<%=link_to '<button class="btn btn-info"><b>Start Training</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<%=link_to '<button class="btn btn-large btn-danger"><b>Inizia Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
 			<% end %>
-              		
+              	</div>	
              		<% end %>    
               	</div>  
                 </div>  

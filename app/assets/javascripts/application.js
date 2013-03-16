@@ -24,10 +24,16 @@ $(document).ready(function(){
 	var psw = $('#edited_user_new_password').val();
 	var psw_confirm = $('#edited_user_new_password_confirm').val();
 	var error=false;
-	if(psw!=psw_confirm){
+	if(psw!=psw_confirm ){
 	    error=true;
 	    $('div.well').prepend(
 		'<div class="alert alert-error">New passwords do not match!</div>'
+	    );
+	}
+	else if (psw.length==0 || psw_confirm.length==0){
+		error=true;
+	    $('div.well').prepend(
+		'<div class="alert alert-error">Passwords cannot be blank!</div>'
 	    );
 	}
 	if(error){
