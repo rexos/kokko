@@ -32,9 +32,10 @@ $(document).ready(function(){
 	}
 	else if (psw.length==0 || psw_confirm.length==0){
 		error=true;
-	    $('div.well').prepend(
+	    $('div.row').prepend(
 		'<div class="alert alert-error">Passwords cannot be blank!</div>'
 	    );
+	    $('div.alert').fadeOut(3000);
 	}
 	if(error){
 	    return false;
