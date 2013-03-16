@@ -1,6 +1,6 @@
-<div class="well" style="background-color: #b94a48; border: 2px solid #a73d3b">
+<!--<div class="o" style="background-color: #b94a48; border: 2px solid #a73d3b">-->
   <div class="center">
-    <h2 style="color:white">List of all Programs</h2>
+    <h2 class="black">List of all Programs</h2>
   </div>
 
   <% if @programs.count == 0 %>
@@ -12,7 +12,7 @@
     <% @programs.each do |p| %>
       <div class="accordion-group">  
         <div class="accordion-heading">  
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
+          <a class="accordion-toggle" style="background-color: #a73d3b; border: solid 1 px #a73d3b" data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
             <h4>
 		   			  <% total = 0 %>
 		   			  <% p.lessons.each do |lesson| %>
@@ -27,7 +27,7 @@
 		   			  <% ex_done +=1 %>
 		   			  <% end %>
 		   		    <% end %>
-		   			  Progress : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
+		   			  - Progresso : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
 		   		    <div class="progress progress-striped active">
 		     		   	<div class="bar" style="width: <%= progress %>%;">
                 </div>
@@ -35,8 +35,9 @@
 		 		    </h4>      
           </a>  
         </div>  
+
           <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-            <div class="accordion-inner">  
+            <div class="accordion-inner white" style="background-color: #b94a48">  
               <p><%= p.description %></p>
             	<% if p.lessons.count == 0 %>
              		<div class="alert alert-error">
@@ -64,6 +65,7 @@
                 </div>  
                 </div>
           <% end %>
+
   <% end %>
  
 </div>
