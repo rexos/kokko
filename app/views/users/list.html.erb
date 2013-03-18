@@ -1,6 +1,7 @@
 <!--<div class="o" style="background-color: #b94a48; border: 2px solid #a73d3b">-->
   <div class="center">
-    <h2 class="black"><i class="icon-list"></i>&nbsp;Programmi Allenamento</h2>
+    <h2 class="black"><i class="icon-list"></i>&nbsp;<span style="color: #282828;
+text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</span></h2>
   </div>
 
   <% if @programs.count == 0 %>
@@ -10,16 +11,16 @@
   <% else %>
   <div class="accordion" id="accordion2">
     <% @programs.each do |p| %>
-      <div class="accordion-group">  
+      <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" >  
         <div class="accordion-heading">  
-          <a class="accordion-toggle" style="background-color: #b94a48; " data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
-            <h4>
+          <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
+            <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
 		   			  <% total = 0 %>
 		   			  <% p.lessons.each do |lesson| %>
 		   			  <% total += lesson.exercises.count %>
 		   			  <% end %>
 		   			  <% ex_done=0 %>
-		  			  <i class="icon-flag white"></i>&nbsp;<%= p.title %>
+		  			  <i class="icon-flag light-red"></i>&nbsp;<%= p.title %>
 		   			  <% current_user.statuses.each do |s| %>
 		   			  <% association = Association.find(s.association_id) %>
 		   			  <% prog = Program.find(Lesson.find(association.lesson_id).program.id) %>
@@ -29,16 +30,16 @@
 		   		    <% end %>
 		   			  - Progresso : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
 		   		    <br />
-              <div class="progress progress-striped active" style="margin: 20px; border: 2px #ebebeb solid">
+              <div class="progress progress-striped active" style="margin: 20px; border: 1px #b94a48 solid">
 		     		   	<div class="bar bar-danger" style="width: <%= progress %>%;">
                 </div>
 		   			  </div>
-		 		    </h4>      
+		 		    </h3>      
           </a>  
         </div>  
 
           <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-            <div class="accordion-inner white" style="background-color: #a73d3b">  
+            <div class="accordion-inner black" style="background-color: #fff">  
               <p><%= p.description %></p>
               <div class="center">
             	<% if p.lessons.count == 0 %>
