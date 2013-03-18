@@ -58,7 +58,7 @@
               		
 			<% state = String.new %>
 			<% if progress>0 %>
-			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Continua Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Continua Allenamento</b></button>'.html_safe,controller: :programs,action: :resume,:prog_id => p.id %>
 			<% else %>
 			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Inizia Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
 			<% end %>

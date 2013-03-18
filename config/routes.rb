@@ -15,6 +15,7 @@ Kokkonut::Application.routes.draw do
   get "programs/remove" => "programs#destroy"
   get "programs/start" => "programs#start"
   get "programs/next" => "programs#next"
+  get "programs/resume" => "programs#resume"
 
   #lesson routes
   get "lessons/new" => "lessons#new"

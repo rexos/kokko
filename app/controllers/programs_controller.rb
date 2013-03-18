@@ -33,4 +33,18 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:prog_id])
     redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
   end
+
+  def resume
+    @program = Program.find(params[:prog_id])
+    @all_lessons = @program.lessons.all
+    @user_statuses = current_user.statuses
+    @lessons.each do |l|
+      tot_ex = l.exercises.count
+      tot_complete = l.statuses.count
+      if tot_ex != tot_complete
+        redirect_to controller: :lessons,action: :show, :lesson_id => l.id
+      end
+    end
+    redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
+  end
 end
