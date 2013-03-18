@@ -38,9 +38,9 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:prog_id])
     @all_lessons = @program.lessons.all
     @user_statuses = current_user.statuses
-    @lessons.each do |l|
+    @all_lessons.each do |l|
       tot_ex = l.exercises.count
-      tot_complete = l.statuses.count
+      tot_complete = l.associations.count
       if tot_ex != tot_complete
         redirect_to controller: :lessons,action: :show, :lesson_id => l.id
       end

@@ -13,6 +13,7 @@ class Ability
       can :edit, User
       can :update, User
       can :add_status, User
+      can :resume, Program
       cannot :read, Program
     when "visitor"
       can :create, User

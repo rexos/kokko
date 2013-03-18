@@ -42,5 +42,4 @@ Kokkonut::Application.routes.draw do
   get "users/add_status" => "users#add_status"
   post "users/update" => "users#update"
   get "users/edit" => "users#edit"
-
 end
