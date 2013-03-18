@@ -6,7 +6,7 @@
   </div>
   <div class="modal-body center" style="background-color: #b94a48; color:white; padding-top: 40px">
     <p>Hai completato il programma di allenamento <%= @done_program.title %>!</p>
-    <%= form_for :feedback, url: {controller: :sessions, action: :create}  do |s| %>
+    <%= form_for :feedback  do |s| %>
     <%= s.text_area :body,  placeholder: "Scrivi qui le motivazioni..", rows: 7 %> <br />
     </div>
   <div class="modal-footer">
