@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include ProgramsHelper
+
 
   rescue_from CanCan::AccessDenied do |exce|
     flash[:error] = "Access Denied"
@@ -7,7 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
-  helper_method :remember_user
 
   private
 

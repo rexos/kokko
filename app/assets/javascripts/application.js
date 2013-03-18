@@ -19,6 +19,10 @@ $(document).ready(function(){
     $('div.title').click(function(){
 	$(this).next().toggle('slow');
     });
+    
+    if ($('p.done').attr('id') != 0){
+	$('#feedback-modal').modal('show');
+    }
 
     $('#edit').click(function(){
 	var psw = $('#edited_user_new_password').val();
