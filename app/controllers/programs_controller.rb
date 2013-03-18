@@ -38,12 +38,25 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:prog_id])
     @all_lessons = @program.lessons.all
     @user_statuses = current_user.statuses
+    user_associations = Array.new
+    
+    @user_statuses.each do |s|
+      user_associations.push(s.association_id)
+    end
+    
     @all_lessons.each do |l|
-      tot_ex = l.exercises.count
-      #va fixato. tot_complete deve essere il numero di status di quella lezione.
-      tot_complete = l.associations.count
-      if tot_ex != tot_complete
-        redirect_to controller: :lessons,action: :show, :lesson_id => l.id
+      
+      lesson_associations = Array.new
+      
+      l.associations.each do |a|
+        lesson_associations.push(a.id)
+      end
+      
+      tot_exercises = l.associations.count
+      ary_complete = user_associations & lesson_associations
+      tot_complete = ary_complete.count
+      if tot_exercises != tot_complete
+        redirect_to :controller => :lessons, action: :show, :lesson_id => l.id and return
       end
     end
     redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
