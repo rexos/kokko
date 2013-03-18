@@ -40,6 +40,7 @@ class ProgramsController < ApplicationController
     @user_statuses = current_user.statuses
     @all_lessons.each do |l|
       tot_ex = l.exercises.count
+      #va fixato. tot_complete deve essere il numero di status di quella lezione.
       tot_complete = l.associations.count
       if tot_ex != tot_complete
         redirect_to controller: :lessons,action: :show, :lesson_id => l.id
