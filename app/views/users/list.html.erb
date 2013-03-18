@@ -52,14 +52,16 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</s
 	           		  </ul>
                   <div style="clear: both"></div>		
 			<% state = String.new %>
-			<% if progress>0 %>
+			<% if progress>0 && progress<100 %>
 			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Continua Allenamento</b></button>'.html_safe,controller: :programs,action: :resume,:prog_id => p.id %>
-			<% else %>
+			<% elsif progress == 0%>
 			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Inizia Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<% else %>
+			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Ricomincia Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
 			<% end %>
               	</div>	
              		<% end %>    
-              	</div>  
+                </div>   
                 </div>  
                 </div>
           <% end %>

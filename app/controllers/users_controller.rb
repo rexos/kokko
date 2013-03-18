@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+sclass UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
@@ -43,15 +43,16 @@ class UsersController < ApplicationController
 
   def list
     @programs = Program.all
+    @program_done = @programs.detect { |p| p.id = params[:program_done]}
   end
-
+  
   def add_status
-    @status = Status.where(:user_id => params[:user_id],:association_id => params[:association_id]).first
+    @association = Association.find(params[:association_id])
+    @status = Status.where(:user_id => params[:user_id],:association_id => @association.id).first
     unless @status
-      @status = Status.new(:user_id => params[:user_id],:association_id => params[:association_id])
+      @status = Status.new(:user_id => params[:user_id],:association_id => @association.id)
       @status.save
     end
     redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
   end
-
 end
