@@ -25,7 +25,7 @@
         <div class="span12" id="light-menu">
           <ul type="none">
             <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :show %></li>
-            <li><%= link_to '<i class="icon-cogs"></i>&nbsp;Impostazioni</li>'.html_safe, controller: :users, action: :edit %>
+	    <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
             <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
           </ul> 
         </div>
@@ -46,3 +46,27 @@
   
   </body>
 </html>
+
+<% if current_user %>
+<!--Settings modal-->
+<div id="settings-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header" style="background-color: #a73d3b  ">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" style="color:white">Impostazioni <%= current_user.username.capitalize %></h3>
+  </div>
+  <div class="modal-body center" style="background-color: #b94a48; color:white; padding-top: 40px">
+    <%= form_for :edited_user,url: { controller: :users, action: :update} do |f| %>
+    <%= f.text_field :first_name, :value => current_user.first_name, placeholder: "Nome" %><br /><br />
+    <%= f.text_field :second_name, :value => current_user.second_name, placeholder: "Cognome" %><br /><br />
+    <%= f.text_field :where, :value => current_user.where, placeholder: "Città" %><br /><br />
+    <%= f.password_field :new_password, placeholder: "Nuova Password", :value => "password" %><br /><br />
+    <%= f.password_field :new_password_confirm, placeholder: "Conferma Password", :value => "passward" %><br /><br />
+    </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-danger btn-large" id="edit"%>Salva Cambiamenti</button>
+    <button class="btn btn-large" data-dismiss="modal" aria-hidden="true">Indietro</button>
+    <% end %>
+  </div>
+</div>
+<!--Settings modal-->
+<% end %>
