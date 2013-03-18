@@ -133,12 +133,32 @@ body {
   padding-right: 20px;
 }
 a {
-  color: #ccc;
+  color: #fff;
 }
 a:hover {
-  color: white;
+  color: #ccc;
   text-decoration: none;
 }
+
+
+.accordion-inner div li a {
+  color: #b94a48;
+  font-size: 25px;
+}
+
+.accordion-inner div li {
+  padding-top: 20px;
+}
+
+.accordion-inner div li a:hover {
+  color: #a73d3b;
+}
+
+.accordion-inner p {
+  padding-left: 20px;
+  font-size: 20px;
+}
+
 .padd-odd {
   padding-right: 20px;
   font-size: 30px;

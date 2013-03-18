@@ -1,7 +1,8 @@
 
   <div class="center">
-    <h2><i class="icon-list black"></i>&nbsp;<%=@lesson.title%></h2>
-
+    <h2><i class="icon-list black"></i>&nbsp;<span style="color: #282828;
+text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><%=@lesson.title%></span></h2>
+  </div>
   
   
   <% if @lesson.exercises.count == 0 %> 
@@ -12,9 +13,9 @@
   <% else %> 
    <div class="accordion" id="accordion2">
       <% @lesson.exercises.each do |e| %>  
-            <div class="accordion-group ">  
-              <div class="accordion-heading" style="background-color: #b94a48 ">  
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= e.id %>">  
+            <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc">  
+              <div class="accordion-heading">  
+                <a style="background-color: rgb(228, 218, 218);" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= e.id %>">  
                  <h4><i class="icon-play white"></i>&nbsp;<%= e.name %>&nbsp;&nbsp;
                  <%if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}%>
                   <!--<span class="label label-success" style="border: 2px #ccc solid"><h6>&nbsp;&nbsp;FINITO!&nbsp;&nbsp;</h6></span>-->
