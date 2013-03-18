@@ -1,21 +1,23 @@
-<h2 class="center"><i class="icon-film"></i>&nbsp;<%=@lesson.title%></h2>
-	<div class="center" style="background-color: #b94a48">
+<h2 class="center"><i class="icon-film"></i>&nbsp;<span class="rilievo"><%=@lesson.title%></span></h2>
+	<div class="center" style="background-color: rgb(228, 218, 218); border-top: 2px solid #ccc;border-bottom: 2px solid #ccc">
 		
-		<div class = "row-fluid white">
+		<div class = "row-fluid black">
 			<div class="goal span6" style="padding: 25px">
 				<iframe id="iframe" width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+@exercise.code %>"></iframe>
 			</div>
 			<div class="goal span6" style="padding: 25px">
-				<h3><i class="icon-play"></i>&nbsp;<%=@exercise.name%></h3>
-				<p style="text-align:left">Descrizione: <strong><%=@exercise.description%></strong> </p>
-				<p style="text-align:left">Num. ripetizioni: <strong><%=@association.repetitions%></strong></p>
+				<h3 class="rilievo"><i class="icon-play light-red"></i>&nbsp;<%=@exercise.name%></h3>
+				<p style="text-align:left">
+					Descrizione: <strong><%=@exercise.description%></strong><br />
+					Num. ripetizioni: <strong><%=@association.repetitions%></strong></p>
+				<%= link_to '<button class="btn btn-large btn-danger" style="margin-top: 40px; border: 2px #ebebeb solid">Fine esercizio!</button>'.html_safe,controller: :users, action: :add_status, :association_id => @association.id , :user_id => current_user.id %>
 			</div>
 		</div>
 		</div>
 		<div class="center">
 			<br />
 		<br />
-		<%= link_to '<button class="btn btn-danger">FINE ESERCIZIO</button>'.html_safe,controller: :users, action: :add_status, :association_id => @association.id , :user_id => current_user.id %>
-		<%= link_to '<button class="btn btn-danger">INDIETRO</button>'.html_safe, controller: :lessons, action: :show, lesson_id: @association.lesson_id %>
+		
+		<%= link_to '<button class="btn btn-large btn-danger">Indietro</button>'.html_safe, controller: :lessons, action: :show, lesson_id: @association.lesson_id %>
 	</div>
 

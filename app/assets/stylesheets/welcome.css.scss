@@ -154,7 +154,7 @@ a:hover {
   color: #a73d3b;
 }
 
-.accordion-inner p {
+.accordion-inner p, .goal p {
   padding-left: 20px;
   padding-top: 5px;
   font-size: 20px;
@@ -169,3 +169,13 @@ a:hover {
   padding-left: 20px;
   font-size: 30px;
 }
+
+.btn {
+  font-family: 'Sintony', sans-serif;
+}
+
+.rilievo {
+  color: #282828;
+  text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;
+}
+
