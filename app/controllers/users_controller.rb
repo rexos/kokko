@@ -43,15 +43,25 @@ class UsersController < ApplicationController
 
   def list
     @programs = Program.all
+    if params[:done_program]
+      @done_program = Program.find( params[:done_program] )
+    else
+      params[:done_program] = nil
+    end
   end
-
+  
   def add_status
-    @status = Status.where(:user_id => params[:user_id],:association_id => params[:association_id]).first
+    @association = Association.find(params[:association_id])
+    @status = Status.where(:user_id => params[:user_id],:association_id => @association.id).first
     unless @status
-      @status = Status.new(:user_id => params[:user_id],:association_id => params[:association_id])
+      @status = Status.new(:user_id => params[:user_id],:association_id => @association.id)
       @status.save
     end
-    redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
+    @current_lesson = Lesson.find(@association.lesson_id)
+    if get_progress_of_program(@current_lesson.program_id) != 100
+      redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
+    else
+      redirect_to action: :list, :done_program => @current_lesson.program_id
+    end
   end
-
 end

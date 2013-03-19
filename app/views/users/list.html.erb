@@ -3,7 +3,7 @@
     <h2 class="black"><i class="icon-list"></i>&nbsp;<span style="color: #282828;
 text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</span></h2>
   </div>
-
+  
   <% if @programs.count == 0 %>
   <div class="alert alert-error">
     <h2><strong><center>Non c'è alcun allenamento!</center></strong></h2>
@@ -15,40 +15,35 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</s
         <div class="accordion-heading">  
           <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#accordion2" href="#<%= p.id %>">  
             <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
-		   			  <% total = 0 %>
-		   			  <% p.lessons.each do |lesson| %>
-		   			  <% total += lesson.exercises.count %>
-		   			  <% end %>
-		   			  <% ex_done=0 %>
-		  			  <i class="icon-flag light-red"></i>&nbsp;<%= p.title %>
-		   			  <% current_user.statuses.each do |s| %>
-		   			  <% association = Association.find(s.association_id) %>
-		   			  <% prog = Program.find(Lesson.find(association.lesson_id).program.id) %>
-		   			  <% if prog.id == p.id %>
-		   			  <% ex_done +=1 %>
-		   			  <% end %>
-		   		    <% end %>
-		   			  - Progresso : <%= progress = ((ex_done.to_f/total.to_f)*100).to_i %>%
-		   		    <br />
-              <div class="progress progress-striped active" style="margin: 20px; border: 1px #b94a48 solid">
-		     		   	<div class="bar bar-danger" style="width: <%= progress %>%;">
+	      
+	      <% progress = get_progress_of_program(p.id) %>
+	      <%= p.title %>  - Progresso : <%= progress %>%
+	      <br />
+              
+		<% if progress < 100 %>
+		   <div class="progress progress-striped active" style="margin: 20px; border: 1px #b94a48 solid">
+		   <div class="bar bar-danger" style="width: <%= progress %>%;">
+		     <% else %>
+		     <div class="progress progress-striped" style="margin: 20px; border: 1px #b94a48 solid">
+		       <div class="bar" style="width: 100%;">
+		     <% end %>
                 </div>
-		   			  </div>
-		 		    </h3>      
+	      </div>
+	    </h3>      
           </a>  
         </div>  
-
-          <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-            <div class="accordion-inner black" style="background-color: #fff">  
-              <p><%= p.description %></p>
-              <div class="center">
-            	<% if p.lessons.count == 0 %>
+	
+        <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
+          <div class="accordion-inner black" style="background-color: #fff">  
+            <p><%= p.description %></p>
+            <div class="center">
+              <% if p.lessons.count == 0 %>
              		<div class="alert alert-error">
-              			<h4><strong><center>Non c'è nessuna lezione per questo programma!</center></strong></h2>
-            		</div>
-            	<% else %> 
-              
-                  <ul class="center" type="none">
+              		  <h4><strong><center>Non c'è nessuna lezione per questo programma!</center></strong></h2>
+                        </div>
+              <% else %> 
+
+              <ul class="center" type="none">
 	             	<% p.lessons.each do |l| %>
 	             	  <li>
 	             	   <%=link_to l.title, controller: :lessons, action: :show, :lesson_id => l.id %>
@@ -57,18 +52,22 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</s
 	           		  </ul>
                   <div style="clear: both"></div>		
 			<% state = String.new %>
-			<% if progress>0 %>
+			<% if progress>0 && progress<100 %>
 			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Continua Allenamento</b></button>'.html_safe,controller: :programs,action: :resume,:prog_id => p.id %>
-			<% else %>
+			<% elsif progress == 0%>
 			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Inizia Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
+			<% else %>
+			<%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid"><b>Ricomincia Allenamento</b></button>'.html_safe,controller: :programs,action: :start,:prog_id => p.id %>
 			<% end %>
               	</div>	
              		<% end %>    
-              	</div>  
+                </div>   
                 </div>  
                 </div>
           <% end %>
 
   <% end %>
- 
+  <% if @done_program %>
+  <%= render 'feedback' %>
+  <% end %>
 </div>
