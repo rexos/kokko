@@ -34,7 +34,7 @@ class ProgramsController < ApplicationController
     redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
   end
 
-  #dont touch this holy method
+  #dont touch this holy pally method
   def resume
     @program = Program.find(params[:prog_id])
     @all_lessons = @program.lessons.all
