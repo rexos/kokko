@@ -9,7 +9,18 @@
 				<h3 class="rilievo"><i class="icon-play light-red"></i>&nbsp;<%=@exercise.name%></h3>
 				<p style="text-align:left">
 					Descrizione: <strong><%=@exercise.description%></strong><br />
-					Num. ripetizioni: <strong><%=@association.repetitions%></strong></p>
+					Num. ripetizioni: <strong><%=@association.repetitions%></strong><br />
+
+					<!-- RATING
+					<span class="rating">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+					</span>
+					-->
+				</p>
 				<%= link_to '<button class="btn btn-large btn-danger" style="margin-top: 40px; border: 2px #ebebeb solid">Fine esercizio!</button>'.html_safe,controller: :users, action: :add_status, :association_id => @association.id , :user_id => current_user.id %>
 			</div>
 		</div>
