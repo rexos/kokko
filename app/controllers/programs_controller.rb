@@ -64,7 +64,12 @@ class ProgramsController < ApplicationController
   end
 
   def show
-    @program = Program.find(params[:prog_id])
+    if params[:done_id]
+      @done_program = Program.find(params[:done_id])
+      @program = Program.find(params[:done_id])
+    else
+      @program = Program.find(params[:prog_id])
+    end
   end
 
 end
