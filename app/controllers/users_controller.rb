@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @program = Program.find(params[:prog_id])
   end
   
   def edit
@@ -64,4 +65,9 @@ class UsersController < ApplicationController
       redirect_to action: :list, :done_program => @current_lesson.program_id
     end
   end
+
+  def home_utente
+    @programs = Program.all
+  end
+
 end
