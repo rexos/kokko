@@ -1,0 +1,23 @@
+
+  <h2 class="center">
+    Your progresses for <%= @program.title %>
+  </h2>
+    
+      <% @program.lessons.each do |l| %>
+      <div style="float:left">
+	<div style="background-color:white;width:20px; height:100px">
+	  <div style="width:100%; height:<%= 100-get_progress_of_lesson(l.id).to_i %>%; background-color:white"></div>
+	  <div style="width:100%; height:<%= get_progress_of_lesson(l.id).to_i %>%; background-color:#FAA732"></div>
+	</div>
+	<%= l.title %>
+      </div>
+      <% end %>
+  
+  <div style="clear:both"></div>
+  <h3 class="center">
+    Total progress
+  </h3>
+  <div class="progress progress-striped active" style="width:80%">
+    <div class="bar" style="width:<%= get_progress_of_program(@program.id) %>%"></div>
+  </div>
+ 

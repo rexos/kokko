@@ -17,6 +17,7 @@ Kokkonut::Application.routes.draw do
   get "programs/next" => "programs#next"
   get "programs/resume" => "programs#resume"
   get "programs/show" => "programs#show"
+  get "programs/progresses" => "programs#progresses"
 
   #lesson routes
   get "lessons/new" => "lessons#new"

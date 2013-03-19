@@ -10,14 +10,9 @@ class Ability
       can :read, :all
       can :list, :all
       can :start, :all
-      can :edit, User
-      can :update, User
-      can :add_status, User
-      can :resume, Program
-      #edit can da controllare
-      can :show, Program
-      can :home_utente, User
-      #cannot :read, Program
+      can :manage, User
+      can :manage, Program
+      cannot :create, User
     when "visitor"
       can :create, User
     end

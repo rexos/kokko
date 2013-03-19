@@ -18,4 +18,19 @@ module ProgramsHelper
     progress = ((ex_done.to_f/total.to_f)*100).to_i
   end
 
+
+  def get_progress_of_lesson(lesson_id)
+    lesson = Lesson.find(lesson_id)
+    user_associations = Array.new
+    current_user.statuses.each do |s|
+      user_associations.push(s.association_id)
+    end
+    lesson_associations = Array.new
+    lesson.associations.each do |a|
+      lesson_associations.push(a.id)
+    end
+    total = (user_associations & lesson_associations)
+    ((lesson_associations & user_associations).count.to_f/lesson_associations.count.to_f)*100
+  end
+
 end

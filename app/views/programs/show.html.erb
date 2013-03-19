@@ -20,11 +20,12 @@
 	      	<% end %>
 	    <% end %>
 	      
+	    <%= link_to ({action: :progresses, :prog_id => @program.id}) do %>
 	      <div class="span6 center span-dx" >
 		<h2 class="red"><i class="icon-bar-chart black"></i>&nbsp;PROGRESSI</h2>
 	      </div>	      
 	    </div>
-
+	    <% end %>
 	    <div class="row-fluid menu-el ">
 	      <div class="span6 center span-odd-sx">
 		<h2 class="red"><i class="icon-calendar black"></i>&nbsp;CALENDARIO</h2>

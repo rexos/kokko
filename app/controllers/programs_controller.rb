@@ -72,4 +72,8 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def progresses
+    @program = Program.find(params[:prog_id])
+  end
+
 end
