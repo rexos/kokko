@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     if get_progress_of_program(@current_lesson.program_id) != 100
       redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
     else
-      redirect_to action: :list, :done_program => @current_lesson.program_id
+      redirect_to controller: :programs, action: :show, :prog_id => @current_lesson.program_id
     end
   end
 
