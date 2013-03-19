@@ -178,3 +178,35 @@ a:hover {
   text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;
 }
 
+/* RATING */
+.rating {
+  unicode-bidi:bidi-override;
+  direction:rtl;
+  font-size:30px
+}
+
+.rating span.star {
+font-family:FontAwesome;
+font-weight:normal;
+font-style:normal;
+display:inline-block;
+}
+
+.rating span.star:hover {
+cursor:pointer
+}
+
+.rating span.star:before {
+content:"\f006";
+padding-right:10px;
+margin-left: -10px;
+color:#999}
+
+.rating span.star:hover:before,
+.rating span.star:hover ~ span.star:before {
+  content:"\f005";
+  color:#e3cf7a
+}
+/* seleztiona tutti i before che vi sono prima del hover */
+
+
