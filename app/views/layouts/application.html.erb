@@ -8,9 +8,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title><%= content_for?(:title) ? yield(:title) : "Kokkonut" %></title>
     <%= csrf_meta_tags %>
-
     
     <%= stylesheet_link_tag "application" %>
+    
+    <!--Start stylesheet tags
+
+    <%= stylesheet_link_tag "bootstrap_and_overrides" %>
+    <%= stylesheet_link_tag "font-awesome" %>
+    <%= stylesheet_link_tag(yield(:style)) %>
+
+    end-->
 
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css">
