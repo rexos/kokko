@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+body{
+	background-color: #ebebeb;
+}
+
 #profile-row-line-top {
   background-color: #a73d3b;
 }
@@ -10,8 +15,8 @@
 	margin: 0;
 }
 .menu-el .center {
-	padding-top: 5.34%;
-	padding-bottom: 5.34%;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 .white, .menu-el a {
@@ -23,37 +28,45 @@
 }
 
 .span-odd-dx{
-	background-color: rgb(185, 74, 72); 
-	border-left: solid 15px #a73d3b;
+	border: 5px solid #bbb;
+	border-radius: 200px;
+	background-color: #ccc; 
+	/*border-left: solid 15px #a73d3b;
 	border-top: 1px #a73d3b solid;
 	border-bottom-left-radius: 200px;
 	border-top-left-radius: 200px;
-	border-left: solid 15px #a73d3b;
-	border-top: 1px  solid #a73d3b;
+	border-left: solid 15px #fff;
+	border-top: 1px  solid #fff;*/
 }
 
 .span-odd-sx{
+	border: 5px solid #ddd;
+	border-radius: 200px;
 	background-color: #fff; 
-	border-right: solid 15px rgb(221, 221, 221);
+	/*border-right: solid 15px rgb(221, 221, 221);
 	border-top: 1px  solid rgb(221, 221, 221);
 	border-bottom-right-radius: 200px;
 	border-top-right-radius: 200px;
 	border-right: solid 15px rgb(221, 221, 221);
-	border-top: 1px rgb(221, 221, 221) solid;
+	border-top: 1px rgb(221, 221, 221) solid;*/
 }
 
 .span-sx{
-	border-bottom-right-radius: 200px;
+	border-radius: 200px;
+	border: 5px solid #bbb;
+	/*border-bottom-right-radius: 200px;
 	border-top-right-radius: 200px;
-	border-right: solid 15px #a73d3b;
-	border-top: 1px #a73d3b solid;
-	background-color: rgb(185, 74, 72);
+	border-right: solid 15px #fff;
+	border-top: 1px #fff solid;*/
+	background-color: #ccc;
 }
 
 .span-dx{
-	border-bottom-left-radius: 200px;
+	border-radius: 200px;
+	border: 5px solid #ddd;
+	/*border-bottom-left-radius: 200px;
 	border-top-left-radius: 200px;
 	border-left: solid 15px rgb(221, 221, 221);
-	border-top: 1px  solid rgb(221, 221, 221);
+	border-top: 1px  solid rgb(221, 221, 221);*/
 	background-color: #fff;
 }

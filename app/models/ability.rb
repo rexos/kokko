@@ -14,6 +14,9 @@ class Ability
       can :update, User
       can :add_status, User
       can :resume, Program
+      #edit can da controllare
+      can :home_training, Program
+      can :home_utente, User
       cannot :read, Program
     when "visitor"
       can :create, User

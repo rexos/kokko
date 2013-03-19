@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       when "admin" 
         redirect_to :controller => :programs, action: :index
       when "user"
-        redirect_to :controller => :users, :action => :show
+        redirect_to :controller => :users, :action => :home_utente
       end  
     else
       redirect_to root_url

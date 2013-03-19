@@ -10,7 +10,8 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><%=@lesson.title%></span
     <h2><strong><center>Non c'è nessun esercizio per questa lezione!</center></strong></h2>
   </div>
 	
-  <% else %> 
+  <% else %>
+
    <div class="accordion" id="accordion2">
       <% @lesson.exercises.each do |e| %>  
             <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc">  
@@ -38,4 +39,4 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><%=@lesson.title%></span
   </div> 
   </div>
   <% end %>
-  <div class="center"><%= link_to '<button class="btn btn-large btn-danger">Indietro</button>'.html_safe, controller: :users, action: :list %></div>
+  <div class="center"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :users, action: :show, :prog_id => @program.id %></div>

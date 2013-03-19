@@ -1,18 +1,24 @@
-
-
 	    <div class="row-fluid menu-el">
-	 
-	      <!--
-		  <div class="span6 center span-sx">
-		    <h2><i class="icon-list"></i>&nbsp;<%= link_to "ALLENAMENTO", controller: :users, action: :list %></h2>
-		  </div>
-		  -->
-	      
-	      <%= link_to ({ controller: :users, action: :list }) do %>
-	      <div class="span6 center span-sx">
-		<h2><i class="icon-list black"></i>&nbsp;ALLENAMENTO</h2>
+	    <% progress = get_progress_of_program(@program.id) %>
+	    <% if progress == 0%>
+	      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+	      <div class="span6 center span-sx black">
+		<h2><i class="icon-list red"></i>&nbsp;INIZIA ALLENAMENTO</h2>
 	      </div>  
 	      <% end %>
+	    <% elsif progress>0 && progress<100%>
+	    	<%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
+	      	<div class="span6 center span-sx black">
+				<h2><i class="icon-list red"></i>&nbsp;CONTINUA ALLENAMENTO</h2>
+	      	</div>  
+	      	<% end %>
+	    <%else %>
+	    	<%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+	      	<div class="span6 center span-sx black">
+				<h2><i class="icon-list red"></i>&nbsp;RICOMINCIA ALLENAMENTO</h2>
+	      	</div>  
+	      	<% end %>
+	    <% end %>
 	      
 	      <div class="span6 center span-dx" >
 		<h2 class="red"><i class="icon-bar-chart black"></i>&nbsp;PROGRESSI</h2>
@@ -23,14 +29,14 @@
 	      <div class="span6 center span-odd-sx">
 		<h2 class="red"><i class="icon-calendar black"></i>&nbsp;CALENDARIO</h2>
 	      </div>
-	      <div class="span6 center span-odd-dx"> 
-		<h2 class="white"><i class="icon-envelope black"></i>&nbsp;MESSAGGI</h2>
+	      <div class="span6 center span-odd-dx black"> 
+		<h2 class><i class="icon-envelope red"></i>&nbsp;MESSAGGI</h2>
 	      </div>
 	    </div>
 	    
 	    <div class="row-fluid menu-el">
-	      <div class="span6 center span-sx">
-		<h2 class="white"><i class="icon-comments black"></i>&nbsp;BACHECA</h2>
+	      <div class="span6 center span-sx black">
+		<h2><i class="icon-comments red"></i>&nbsp;BACHECA</h2>
 	      </div>
 	      <div class="span6 center span-dx">
 		<h2 class="red"><i class="icon-group black"></i>&nbsp;AMICI</h2>

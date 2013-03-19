@@ -23,6 +23,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:lesson_id])
+    @program = @lesson.program
     @status = current_user.statuses
   end
 
