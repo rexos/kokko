@@ -63,8 +63,8 @@ class ProgramsController < ApplicationController
     redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
   end
 
-  def home_training
-    redirect_to controller: :users, action: :show, :prog_id => params[:prog_id]    
+  def show
+    @program = Program.find(params[:prog_id])
   end
 
 end

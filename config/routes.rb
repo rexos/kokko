@@ -16,7 +16,7 @@ Kokkonut::Application.routes.draw do
   get "programs/start" => "programs#start"
   get "programs/next" => "programs#next"
   get "programs/resume" => "programs#resume"
-  get "programs/home_training" => "programs#home_training"
+  get "programs/show" => "programs#show"
 
   #lesson routes
   get "lessons/new" => "lessons#new"
@@ -34,7 +34,6 @@ Kokkonut::Application.routes.draw do
   get "exercises/show" => "exercises#show"
 
   #users routes
-  get "users/show" => "users#show"
   get "users/list" => "users#list"
   get "users/new" => "users#new"
   post "users/create" => "users#create"

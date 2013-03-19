@@ -26,10 +26,6 @@ class UsersController < ApplicationController
     redirect_to controller: :programs, action: :index
   end
 
-  def show
-    @program = Program.find(params[:prog_id])
-  end
-  
   def edit
   end
 
