@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: associations
+#
+#  id          :integer          not null, primary key
+#  lesson_id   :integer
+#  exercise_id :integer
+#  repetitions :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Association < ActiveRecord::Base
   attr_accessible :exercise_id, :lesson_id, :repetitions
 

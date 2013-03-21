@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: exercises
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  difficulty  :string(255)
+#  description :text
+#  video_url   :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Exercise < ActiveRecord::Base
   attr_accessible :description, :difficulty, :name, :video_url
   has_many :associations, :dependent => :destroy
