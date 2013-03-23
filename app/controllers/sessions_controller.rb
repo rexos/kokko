@@ -17,13 +17,14 @@ class SessionsController < ApplicationController
         redirect_to :controller => :users, :action => :home_utente
       end  
     else
+      flash[:error] = "Invalid Username or Password"
       redirect_to root_url
     end
   end
   
-  def destroy	
+  def destroy
     session[:user_id] = nil
     cookies.delete(:token)
-    redirect_to :controller => :welcome, :action => :index, :notice => "logged out"
+    redirect_to :controller => :welcome, :action => :index
   end
 end

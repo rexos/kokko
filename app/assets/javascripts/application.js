@@ -19,6 +19,10 @@ $(document).ready(function(){
     $('div.title').click(function(){
 	$(this).next().toggle('slow');
     });
+
+    if($('p.error').attr('id')>0){
+	$('#login-modal').modal('show');
+    }
     
     if ($('p.done').attr('id') != 0){
 	$('#feedback-modal').modal('show');

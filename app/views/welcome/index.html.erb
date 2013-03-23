@@ -100,5 +100,7 @@
     <div class="row-fluid center foot" id="row-line-bottom">
       <p>2013 Kokko</p>
     </div>
-
     <%= render 'form' %>
+    <% if !flash[:error].nil? %>
+    <p class="error" id="1"></p>  
+    <% end %>

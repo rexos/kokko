@@ -4,6 +4,11 @@
     <h3 id="myModalLabel" style="color:white">Entra!</h3>
   </div>
   <div class="modal-body center" style="background-color: #b94a48; color:white; padding-top: 40px">
+    <% if !flash[:error].nil? %>
+    <div class="alert alert-error center" style="width:90%">
+      <h4><strong>Invalid Username or Password</srong></h4>
+    </div>
+    <% end %>
     <%= form_for :session, url: {controller: :sessions, action: :create}  do |s| %>
     <%= s.text_field :username,  placeholder: "Nome Utente"%> <br />
     <%= s.password_field :password,  placeholder: "Password" %><br />
