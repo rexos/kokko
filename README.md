@@ -21,10 +21,11 @@ $ git add --all // add your changes to tour local repository
 
 $ git commit -m " commit description " 
 
-$ git push origin master // updates the real repo on GutHub 
+$ git push origin master // updates the remote repo on GutHub 
 
 
-ISTRUZIONI PER AGGIUNGERE BOOSTRAP
+ADDING BOOTSTRAP
+
 gem install less-rails
 
 nel gemfile:
@@ -38,5 +39,4 @@ rails generate bootstrap:install less
 
 bundle install
 
-//imposta layout
 rails g bootstrap:layout application fixed
