@@ -3,7 +3,7 @@ class CreateAssociations < ActiveRecord::Migration
     create_table :associations do |t|
       t.integer :lesson_id
       t.integer :exercise_id
-      t.integer :repetitions
+      t.text :repetitions
 
       t.timestamps
     end
