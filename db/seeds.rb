@@ -6,15 +6,15 @@ User.create(username: 'usertest', email:'user1@gmail.com',password:'usertest',pa
 #creazione esercizi
 Exercise.delete_all
 #difficolta mettere Easy o Medium o Hard
-@full_tandem_stand = Exercise.create(:description => 'Tieniti con le mani ad una sedia e metti un piede, in fila, davanti all^altro e mantieni l^equilibrio per 10 secondi poi stacca le mani dalla sedia e mantieni la posizione per altri 10 secondi. Inverti la posizione dei piedi e ripeti. Materiali:Sedia.', 
+@full_tandem_stand = Exercise.create(:description => 'Tieniti con le mani ad una sedia e metti un piede, in fila, davanti all\'altro e mantieni l\'equilibrio per 10 secondi poi stacca le mani dalla sedia e mantieni la posizione per altri 10 secondi. Inverti la posizione dei piedi e ripeti. Materiali:Sedia.', 
 									 :difficulty => 'Easy', 
 									 :name => 'Full Tandem Stand', 
 									 :video_url => 'http://www.youtube.com/watch?v=VC9uQ96CvcA')
-@hell_to_toe_walk = Exercise.create(:description => 'Cammina in linea retta mettendo un piede in fila davanti all^altro cercando di mantenere l^equilibrio aiutandoti anche con le braccia. Materiali:Sedia.',
+@hell_to_toe_walk = Exercise.create(:description => 'Cammina in linea retta mettendo un piede in fila davanti all\'altro cercando di mantenere l\'equilibrio aiutandoti anche con le braccia. Materiali:Sedia.',
 									:difficulty => 'Easy', 
 									:name => 'Hell to toe Walk',
 									:video_url => 'http://www.youtube.com/watch?v=3Pbve2rN4Pc')
-@one_leg_stand = Exercise.create(:description => 'Aiutandoti con una sedia, se necessario, alza la gamba destra all^indietro fino a formare un angolo di novanta gradi con il ginocchio. Mantieni la posizione di equilibrio per 15  secondi poi cambia gamba. Materiali:Sedia.',
+@one_leg_stand = Exercise.create(:description => 'Aiutandoti con una sedia, se necessario, alza la gamba destra all\'indietro fino a formare un angolo di novanta gradi con il ginocchio. Mantieni la posizione di equilibrio per 15  secondi poi cambia gamba. Materiali:Sedia.',
 								 :difficulty => 'Easy', 
 								 :name => 'One Leg Stand',
 								 :video_url => 'http://www.youtube.com/watch?v=WLBdcT4BPCE')
@@ -34,11 +34,11 @@ Exercise.delete_all
 								 :difficulty => 'Easy', 
 								 :name => 'Seated Leg Exstension',
 								 :video_url => 'http://www.youtube.com/watch?v=h-qRd7ma3B0')
-@standing_hell_lift = Exercise.create(:description => 'Usando una sedia come supporto e con dei pesi alle caviglie spingiti verso l^alto appoggiandoti sulle punte. Materiali:Sedia,Pesi per Caviglie.',
+@standing_hell_lift = Exercise.create(:description => 'Usando una sedia come supporto e con dei pesi alle caviglie spingiti verso l\'alto appoggiandoti sulle punte. Materiali:Sedia,Pesi per Caviglie.',
 								 :difficulty => 'Easy', 
 								 :name => 'Standing Hell Lift',
 								 :video_url => 'http://www.youtube.com/watch?v=RtV4gmbt1Dc')
-@standing_leg_curl = Exercise.create(:description => 'Aiutandoti con una sedia, se necessario, alza la gamba destra all^indietro fino a formare un angolo di novanta gradi con il ginocchio. Materiali:Sedia,pesi per caviglie.',
+@standing_leg_curl = Exercise.create(:description => 'Aiutandoti con una sedia, se necessario, alza la gamba destra all\'indietro fino a formare un angolo di novanta gradi con il ginocchio. Materiali:Sedia,pesi per caviglie.',
 								 :difficulty => 'Easy', 
 								 :name => 'Standing Leg Curl',
 								 :video_url => 'http://www.youtube.com/watch?v=BOAZE-8iS3Q')
@@ -50,11 +50,11 @@ Exercise.delete_all
 								 :difficulty => 'Easy', 
 								 :name => 'Seated Hip Adduction',
 								 :video_url => 'http://www.youtube.com/watch?v=8FWlYpfZQnE')
-@standing_toe_lift = Exercise.create(:description => 'Seduto su una sedia spingi le punte dei piedi verso l^alto mantenendo i talloni a terra. Materiali:Sedia.',
+@standing_toe_lift = Exercise.create(:description => 'Seduto su una sedia spingi le punte dei piedi verso l\'alto mantenendo i talloni a terra. Materiali:Sedia.',
 								 :difficulty => 'Easy', 
 								 :name => 'Standing Toe Lift',
 								 :video_url => 'http://www.youtube.com/watch?v=7yjyVyNG8-I')
-@seated_side_arms_with_resistence = Exercise.create(:description => 'Seduto su una sedia prendi una fascia elastica estendendo le braccia verso l^esterno facendola passare sotto i piedi. alza le braccia verso l^alto e l^esterno portando la fascia elastica in estensione, mantieni la posizione per alcuni secondi e rilascia. Materiali:Sedia,fascia elastica.',
+@seated_side_arms_with_resistence = Exercise.create(:description => 'Seduto su una sedia prendi una fascia elastica estendendo le braccia verso l\'esterno facendola passare sotto i piedi. alza le braccia verso l\'alto e l\'esterno portando la fascia elastica in estensione, mantieni la posizione per alcuni secondi e rilascia. Materiali:Sedia,fascia elastica.',
 								 :difficulty => 'Easy', 
 								 :name => 'Seated Aide Arms With Resistance',
 								 :video_url => 'http://www.youtube.com/watch?v=qOhHakQgxVs')
@@ -62,7 +62,7 @@ Exercise.delete_all
 								 :difficulty => 'Easy', 
 								 :name => 'Arms Circles',
 								 :video_url => 'http://www.youtube.com/watch?v=8q4xt1kVApo')
-@hip_abduction_and_adduction = Exercise.create(:description => 'Seduta su una sedia allarga lateralmente una gamba e poi l^altra. Materiali:sedia',
+@hip_abduction_and_adduction = Exercise.create(:description => 'Seduta su una sedia allarga lateralmente una gamba e poi l\'altra. Materiali:sedia',
 								 :difficulty => 'Easy', 
 								 :name => 'Hip Abduction an Adduction',
 								 :video_url => 'http://www.youtube.com/watch?v=QUbaotseOQ4')
