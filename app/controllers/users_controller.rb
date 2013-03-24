@@ -34,19 +34,10 @@ class UsersController < ApplicationController
     edited = params[:edited_user]
     psw = BCrypt::Password.create(edited[:new_password]).to_s
     if @user.update_attributes(:first_name => edited[:first_name] , :second_name => edited[:second_name], :where => edited[:where], :password_digest => psw)
-      redirect_to action: :show
+      redirect_to controller: :users, action: :home_utente
     end
   end
-
-  def list
-    @programs = Program.all
-    if params[:done_program]
-      @done_program = Program.find( params[:done_program] )
-    else
-      params[:done_program] = nil
-    end
-  end
-  
+ 
   def add_status
     @association = Association.find(params[:association_id])
     @status = Status.where(:user_id => params[:user_id],:association_id => @association.id).first

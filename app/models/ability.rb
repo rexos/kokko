@@ -13,6 +13,8 @@ class Ability
       can :manage, User
       can :manage, Program
       cannot :create, User
+      cannot :index, Program
+      cannot :index, User
     when "visitor"
       can :create, User
     end
