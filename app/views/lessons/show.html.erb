@@ -27,8 +27,9 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><%=@lesson.title%></span
               <div id="<%= e.id %>" class="accordion-body collapse" style="height: 0px; ">  
                 <div class="accordion-inner black center" style="background-color: #fff">  
                   <p style="text-align:left"><%= e.description %></p>
-                  <p>Difficoltà: <strong><%= e.difficulty %></strong><br />
-                  Ripetizioni: <strong><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></strong>
+                  <p>
+                    Difficoltà: <strong><%= e.difficulty %></strong><br />
+                    Ripetizioni: <strong><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></strong>
                 </p>
                   <%=link_to '<button class="btn btn-large btn-danger" style="border: 2px #ebebeb solid">Inizia Esercizio!</button>'.html_safe,controller: :exercises,action: :show,:association_id => @lesson.associations.find_by_exercise_id(e.id).id %>  
                 </div>  
