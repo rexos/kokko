@@ -31,7 +31,7 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><%=@lesson.title%></span
                     Difficoltà: <strong><%= e.difficulty %></strong><br />
                     Ripetizioni: <strong><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></strong>
                 </p>
-                  <%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid">Inizia Esercizio!</button>'.html_safe,controller: :exercises,action: :show,:association_id => @lesson.associations.find_by_exercise_id(e.id).id %>  
+                  <%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><i class="icon-play"></i>&nbsp;&nbsp;Inizia Esercizio!</button>'.html_safe,controller: :exercises,action: :show,:association_id => @lesson.associations.find_by_exercise_id(e.id).id %>  
                 </div>  
               </div>  
             </div>
