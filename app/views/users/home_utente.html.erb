@@ -1,6 +1,6 @@
 <!--
    carica i css welcome e style
-   
+
   <% if false %>
   <% provide(:style, %w(welcome style)) %> 
   <% end %>
@@ -33,7 +33,8 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</s
             <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
               <div class="accordion-inner black" style="background-color: #fff">  
                 <p><%= p.description %></p>
-			           <%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+			           <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+                 </p>
                 </div>   
                 </div>  
                 </div>
@@ -57,7 +58,7 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</s
             <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
               <div class="accordion-inner black" style="background-color: #fff">  
                 <p><%= p.description %></p>
-                 <%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>     
+                 <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
                 </div>   
                 </div>  
                 </div>
