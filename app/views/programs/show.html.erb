@@ -3,19 +3,19 @@
 	    <% if progress == 0%>
 	      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
 	      <div class="span6 center span-sx black">
-		<h2><i class="icon-list red"></i>&nbsp;INIZIA ALLENAMENTO</h2>
+		<h2><i class="icon-list red"></i>&nbsp;INIZIA</h2>
 	      </div>  
 	      <% end %>
 	    <% elsif progress>0 && progress<100%>
 	    	<%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
 	      	<div class="span6 center span-sx black">
-				<h2><i class="icon-list red"></i>&nbsp;CONTINUA ALLENAMENTO</h2>
+				<h2><i class="icon-list red"></i>&nbsp;CONTINUA</h2>
 	      	</div>  
 	      	<% end %>
 	    <%else %>
 	    	<%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
 	      	<div class="span6 center span-sx black">
-				<h2><i class="icon-list red"></i>&nbsp;RICOMINCIA ALLENAMENTO</h2>
+				<h2><i class="icon-list red"></i>&nbsp;RICOMINCIA</h2>
 	      	</div>  
 	      	<% end %>
 	    <% end %>
