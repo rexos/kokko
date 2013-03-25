@@ -18,6 +18,7 @@ Kokkonut::Application.routes.draw do
   get "programs/resume" => "programs#resume"
   get "programs/show" => "programs#show"
   get "programs/progresses" => "programs#progresses"
+  post "programs/feedback" => "programs#add_feedback"
 
   #lesson routes
   get "lessons/new" => "lessons#new"

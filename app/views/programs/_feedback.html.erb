@@ -17,12 +17,13 @@
     </span>
     <br />
     <br />
-    <%= form_for :feedback do |f| %>
+    <%= form_for :feedback, url: {:controller => :programs, :action => :add_feedback}, :remote => true do |f| %>
+    <%= f.hidden_field :program_id, value: @done_program.id %>
     <%= f.text_area :body, :placeholder => "Il Tuo Commento ...", rows: 5 %>
-    <% end %>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-success btn-large"><i class="icon-envelope"></i>&nbsp;&nbsp;Give feeds</button>
-    <button class="btn btn-large" data-dismiss="modal" aria-hidden="true"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>
+    <button tybe="submit" class="btn btn-success btn-large"><i class="icon-envelope"></i>&nbsp;&nbsp;Give feeds</button>
+    <% end %>
+    <button class="btn btn-large" data-dismiss="modal" aria-hidden="true"><i class="icon-reply"></i>&nbsp;&nbsp;Non ora</button>
   </div>
 </div>

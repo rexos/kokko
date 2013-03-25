@@ -77,4 +77,12 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:prog_id])
   end
 
+  def add_feedback
+    @feedback = current_user.feedbacks.new(params[:feedback])
+    if @feedback.save
+      respond_to do |format|
+        format.js { render :nothing => true }
+      end
+    end
+  end
 end

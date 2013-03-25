@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 
   #user relationships
   has_many :statuses
+  has_many :feedbacks, :dependent => :destroy
   has_many :associations, :through => :status
 
   #before create/update methods
