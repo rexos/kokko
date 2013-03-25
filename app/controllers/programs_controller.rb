@@ -64,6 +64,7 @@ class ProgramsController < ApplicationController
   end
 
   def show
+    store_current_path
     if params[:done_id]
       @done_program = Program.find(params[:done_id])
       @program = Program.find(params[:done_id])

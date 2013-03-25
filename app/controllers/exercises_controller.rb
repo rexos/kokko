@@ -35,6 +35,7 @@ class ExercisesController < ApplicationController
   end
 
   def show
+    store_current_path
     @association = Association.find(params[:association_id])
     @lesson = Lesson.find(@association.lesson_id)
     @exercise = Exercise.find(@association.exercise_id)

@@ -2,13 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include ProgramsHelper
 
-
   rescue_from CanCan::AccessDenied do |exce|
-    flash[:error] = "Access Denied"
-    redirect_to root_url
+    redirect_to session[:current_path]
   end
 
   helper_method :current_user
+  helper_method :store_current_path
 
   private
 
@@ -20,4 +19,12 @@ class ApplicationController < ActionController::Base
     end 
   end
   
+  def store_current_path
+    session[:current_path] = request.fullpath
+  end
+  
+  def previous_path
+    session[:current_path]
+  end
+
 end

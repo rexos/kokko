@@ -22,6 +22,7 @@ class LessonsController < ApplicationController
   end
 
   def show
+    store_current_path
     @lesson = Lesson.find(params[:lesson_id])
     @program = @lesson.program
     @status = current_user.statuses
