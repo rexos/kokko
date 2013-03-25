@@ -1,13 +1,28 @@
 <div id="feedback-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header" style="background-color: #a73d3b  ">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel" style="color:white">Entra!</h3>
+    <h3 id="myModalLabel" style="color:white">Congratulazioni <%= current_user.username %>!</h3>
   </div>
   <div class="modal-body center" style="background-color: #b94a48; color:white; padding-top: 40px">
-    <p>FEEDBACK MODAL work in progress</p>
+    <p>Hai completato tutti gli esercizi del training program : <b><%= @done_program.title %></b>, Saremo lieti se lasciassi un commento con i tuoi pareri su questo programma di allenamento </p>
+    <br />
+    <b>RATING</b>
+    <br />
+    <span class="rating">
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+    </span>
+    <br />
+    <br />
+    <%= form_for :feedback do |f| %>
+    <%= f.text_area :body, :placeholder => "Il Tuo Commento ...", rows: 5 %>
+    <% end %>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-danger btn-large"><i class="icon-signin"></i>&nbsp;&nbsp;Give feeds</button>
+    <button class="btn btn-success btn-large"><i class="icon-envelope"></i>&nbsp;&nbsp;Give feeds</button>
     <button class="btn btn-large" data-dismiss="modal" aria-hidden="true"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>
   </div>
 </div>
