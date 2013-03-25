@@ -1,23 +1,46 @@
-
   <h2 class="center">
-    Your progresses for <%= @program.title %>
+    <i class="icon-bar-chart black"></i>
+    <span style="color: #282828;
+text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2">Progressi di: <%= @program.title %> </span>
   </h2>
-    
+
+  <!--
+    <div class="row-fluid">
+        <div class="span7 offset5">
       <% @program.lessons.each do |l| %>
-      <div style="float:left">
-	<div style="background-color:white;width:20px; height:100px">
-	  <div style="width:100%; height:<%= 100-get_progress_of_lesson(l.id).to_i %>%; background-color:white"></div>
-	  <div style="width:100%; height:<%= get_progress_of_lesson(l.id).to_i %>%; background-color:#FAA732"></div>
-	</div>
-	<%= l.title %>
+      
+        <div style="float:left">
+	         <div style="background-color:white;width:20px; height:100px">
+	           <div style="width:100%; height:<%= 100-get_progress_of_lesson(l.id).to_i %>%; background-color:white"></div>
+	           <div style="width:100%; height:<%= get_progress_of_lesson(l.id).to_i %>%; background-color:#FAA732"></div>
+	         </div>
+
+	         <%= l.title %>
       </div>
       <% end %>
-  
+      </div>
+    </div>
+
   <div style="clear:both"></div>
-  <h3 class="center">
-    Total progress
-  </h3>
-  <div class="progress progress-striped active" style="width:80%">
+  -->
+
+<% @program.lessons.each do |l| %>
+
+  <div class="row-fluid" style="margin: 20px">
+    <div class="span2" style="text-align: right"><strong><%= l.title %></strong></div>
+    <div class="span8">
+      <div class="progress progress-success" style="width:100%; border: 2px solid #ccc">
+        <div class="bar" style="width:<%= get_progress_of_lesson(l.id) %>%"></div>
+      </div>
+    </div>
+    <div class="span2"></div>
+  </div>
+
+  <% end %>
+
+  <h3 style="margin-bottom: 20px;color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2; text-align:center">Progressi totali
+ </h3>
+  <div class="progress progress-striped progress-success active" style="width:100%;border-top: 2px solid #ccc;border-bottom: 2px solid #ccc">
     <div class="bar" style="width:<%= get_progress_of_program(@program.id) %>%"></div>
   </div>
  
