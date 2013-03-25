@@ -138,8 +138,8 @@ body {
 a {
   color: #fff;
 }
-a:hover {
-  color: #ccc;
+a:active, a:hover {
+  color: #000;
   text-decoration: none;
 }
 
@@ -152,7 +152,7 @@ a:hover {
   padding-top: 20px;
 }
 
-.accordion-inner div li a:hover {
+.accordion-inner div li a:active {
   color: #a73d3b;
 }
 
