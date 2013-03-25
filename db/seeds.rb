@@ -101,6 +101,8 @@ Program.delete_all
 @TP2 = Program.create(:title => 'Forza - Principiante',:description => 'Training per principianti che comincia ad allenare la forza.')
 @TP3 = Program.create(:title => 'Riscaldamento - Principiante', :description => 'Training utile per riscaldarsi la muscolatura prima di un attivita fisica.')
 @TP4 = Program.create(:title => 'Stretching - Principiante', :description => 'Training utile per allungare e riscaldare la muscolatura prima di un attivita fisica.')
+@TP5 = Program.create(:title => 'Misto 1 - Principiante', :description => 'Training misto tra riscaldamento, forze e stretch')
+@TP6 = Program.create(:title => 'Misto 2 - Principiante', :description => 'Training misto tra riscaldamento, forze e equilibrio')
 #creazione lesson di un training
 Lesson.delete_all
 #lezione TP1
@@ -129,6 +131,20 @@ Lesson.delete_all
 @lessonTP4_1.save
 @lessonTP4_2 = @TP4.lessons.new(:title => 'lesson2')
 @lessonTP4_2.save
+#lezioni TP5
+@lessonTP5_1 = @TP5.lessons.new(:title => 'lesson1')
+@lessonTP5_1.save
+@lessonTP5_2 = @TP5.lessons.new(:title => 'lesson2')
+@lessonTP5_2.save
+@lessonTP5_3 = @TP5.lessons.new(:title => 'lesson3')
+@lessonTP5_3.save
+#lezioni TP6
+@lessonTP6_1 = @TP6.lessons.new(:title => 'lesson1')
+@lessonTP6_1.save
+@lessonTP6_2 = @TP6.lessons.new(:title => 'lesson2')
+@lessonTP6_2.save
+@lessonTP6_3 = @TP6.lessons.new(:title => 'lesson3')
+@lessonTP6_3.save
 
 #creazione associationi
 Association.delete_all
@@ -206,3 +222,63 @@ Association.create(:exercise_id => @seated_leg_stretch.id,
 Association.create(:exercise_id => @seated_hip_stretch.id,
 				   :lesson_id => @lessonTP4_2.id, 
 				   :repetitions => "Fare 3 sessioni con durata di 10 secondi.")
+#associazioni lessonTP5_1
+Association.create(:exercise_id => @arms_circles.id,
+				   :lesson_id => @lessonTP5_1.id, 
+				   :repetitions => "Fare 1 sessione con durata di 20 ripetizioni.")
+Association.create(:exercise_id => @chair_stand.id,
+				   :lesson_id => @lessonTP5_1.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 15 ripetizioni.")
+Association.create(:exercise_id => @seated_leg_stretch.id,
+				   :lesson_id => @lessonTP5_1.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 10 secondi.")
+#associazioni lessonTP5_2
+Association.create(:exercise_id => @pointer_foot_to_hell.id,
+				   :lesson_id => @lessonTP5_2.id, 
+				   :repetitions => "Fare 1 sessione con durata di 9 ripetizioni per gamba.")
+Association.create(:exercise_id => @seated_hip_adduction.id,
+				   :lesson_id => @lessonTP5_2.id, 
+				   :repetitions => "Fare 2 sessioni con durata di 12 ripetizioni.")
+Association.create(:exercise_id => @seated_hip_stretch.id,
+				   :lesson_id => @lessonTP5_2.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 10 secondi.")
+#associazioni lessonTP5_3
+Association.create(:exercise_id => @rest_head_lef_and_right.id,
+				   :lesson_id => @lessonTP5_3.id, 
+				   :repetitions => "Fare 1 sessione con durata di 12 ripetizioni.")
+Association.create(:exercise_id => @standing_leg_curl.id,
+				   :lesson_id => @lessonTP5_3.id, 
+				   :repetitions => "Fare 2 sessioni con durata di 12 ripetizioni per gamba.")
+Association.create(:exercise_id => @seated_hip_stretch.id,
+				   :lesson_id => @lessonTP5_3.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 10 secondi.")
+#associazioni lessonTP6_1
+Association.create(:exercise_id => @arms_circles.id,
+				   :lesson_id => @lessonTP6_1.id, 
+				   :repetitions => "Fare 1 sessione con durata di 20 ripetizioni.")
+Association.create(:exercise_id => @full_tandem_stand.id,
+				   :lesson_id => @lessonTP6_1.id, 
+				   :repetitions => "Fare 4 sessioni con durata di 20 secondi.")
+Association.create(:exercise_id => @seated_leg_extension.id,
+				   :lesson_id => @lessonTP6_1.id, 
+				   :repetitions => "Fare 2 sessioni con durata di 9 ripetizioni per gamba.")
+#associazioni lessonTP6_2
+Association.create(:exercise_id => @pointer_foot_to_hell.id,
+				   :lesson_id => @lessonTP6_2.id, 
+				   :repetitions => "Fare 1 sessione con durata di 9 ripetizioni per gamba.")
+Association.create(:exercise_id => @hell_to_toe_walk.id,
+				   :lesson_id => @lessonTP6_2.id, 
+				   :repetitions => "Fare 5 sessioni con durata di 30 secondi.")
+Association.create(:exercise_id => @standing_leg_curl.id,
+				   :lesson_id => @lessonTP6_2.id, 
+				   :repetitions => "Fare 2 sessioni con durata di 12 ripetizioni per gamba.")
+#associazioni lessonTP6_3
+Association.create(:exercise_id => @shoulder_rotation.id,
+				   :lesson_id => @lessonTP6_3.id, 
+				   :repetitions => "Fare 1 sessione con durata di 15 ripetizioni.")
+Association.create(:exercise_id => @one_leg_stand.id,
+				   :lesson_id => @lessonTP6_3.id, 
+				   :repetitions => "Fare 4 sessioni con durata di 15 secondi.")
+Association.create(:exercise_id => @standing_hell_lift.id,
+				   :lesson_id => @lessonTP6_3.id, 
+				   :repetitions => "Fare 2 sessioni con durata di 12 ripetizioni.")
