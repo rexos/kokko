@@ -82,6 +82,14 @@ Exercise.delete_all
 								 :difficulty => 'Easy', 
 								 :name => 'Shoulder Rotation',
 								 :video_url => 'http://www.youtube.com/watch?v=pwqL8uTGjrk')
+@seated_leg_stretch = Exercise.create(:description => 'Seduto su una sedia estendi una gamba e porta avanti in busto verso la punta del piede. Mantieni la posizione per circa 10 secondi e cambia gamba. Materiali:sedia',
+								 :difficulty => 'Easy', 
+								 :name => 'Seated Leg Stretch',
+								 :video_url => 'http://www.youtube.com/watch?v=EqLYhvIXtzw')
+@seated_hip_stretch = Exercise.create(:description => 'Seduto su una sedia estendi una gamba e porta avanti in busto verso la punta del piede. Mantieni la posizione per circa 10 secondi e cambia gamba. Materiali:sedia',
+								 :difficulty => 'Easy', 
+								 :name => 'Seated Hip Stretch',
+								 :video_url => 'http://www.youtube.com/watch?v=scFP3T87PQE')
 #@ = Exercise.create(:description => 'Materiali:sedia',
 #								 :difficulty => 'Easy', 
 #								 :name => '',
@@ -92,6 +100,7 @@ Program.delete_all
 @TP1 = Program.create(:title => 'Equilibrio - Principiante',:description => 'Training per principianti che permette di prendere confidenza con il proprio equilibrio.')
 @TP2 = Program.create(:title => 'Forza - Principiante',:description => 'Training per principianti che comincia ad allenare la forza.')
 @TP3 = Program.create(:title => 'Riscaldamento - Principiante', :description => 'Training utile per riscaldarsi la muscolatura prima di un attivita fisica.')
+@TP4 = Program.create(:title => 'Stretching - Principiante', :description => 'Training utile per allungare e riscaldare la muscolatura prima di un attivita fisica.')
 #creazione lesson di un training
 Lesson.delete_all
 #lezione TP1
@@ -115,6 +124,11 @@ Lesson.delete_all
 @lessonTP3_2.save
 @lessonTP3_3 = @TP3.lessons.new(:title => 'lesson3')
 @lessonTP3_3.save
+#lezioni TP4
+@lessonTP4_1 = @TP4.lessons.new(:title => 'lesson1')
+@lessonTP4_1.save
+@lessonTP4_2 = @TP4.lessons.new(:title => 'lesson2')
+@lessonTP4_2.save
 
 #creazione associationi
 Association.delete_all
@@ -184,3 +198,11 @@ Association.create(:exercise_id => @rest_head_lef_and_right.id,
 Association.create(:exercise_id => @shoulder_rotation.id,
 				   :lesson_id => @lessonTP3_3.id, 
 				   :repetitions => "Fare 1 sessione con durata di 15 ripetizioni.")
+#associazioni lessonTP4_1
+Association.create(:exercise_id => @seated_leg_stretch.id,
+				   :lesson_id => @lessonTP4_1.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 10 secondi.")
+#associazioni lessonTP4_2
+Association.create(:exercise_id => @seated_hip_stretch.id,
+				   :lesson_id => @lessonTP4_2.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 10 secondi.")
