@@ -7,12 +7,14 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:new_user])
-    if @user.save 
-      session[:user_id] = @user.id
-      SignupMailer.signup_mail(@user).deliver
-      redirect_to root_url
-    else
-      redirect_to root_url
+    respond_to do |format|
+      if @user.save 
+        session[:user_id] = @user.id
+        SignupMailer.signup_mail(@user).deliver
+        format.js { render :nothing => true }
+      else
+        format.js { render :nothing => true }
+      end
     end
   end
   
