@@ -182,6 +182,18 @@ Exercise.delete_all
 								 :difficulty => 'Hard', 
 								 :name => 'Standing Hip Adduction',
 								 :video_url => 'http://www.youtube.com/watch?v=5xeYx4CeExw')
+@standing_leg_stretch = Exercise.create(:description =>'In piedi estendi una gamba indietro porta l\'altra gamba piegandola in avanti. Aiutandoti con una sedia spingi in avanti tenendo i talloni a terra, mantieni la posizione per 15 secondi e cambia gamba. Materiali: sedia', 
+									 :difficulty => 'Medium', 
+									 :name => 'Standing Leg Stretch', 
+									 :video_url => 'http://www.youtube.com/watch?v=MvoIoCexd7c')
+@standing_arm_circles = Exercise.create(:description =>'In piedi fai roteare le braccia in maniera circolare all\'indietro', 
+									 :difficulty => 'Medium', 
+									 :name => 'Standing Arms Circles', 
+									 :video_url => 'http://www.youtube.com/watch?v=G0LEnxCpN68')
+@hip_abduction_and_adduction = Exercise.create(:description =>'Seduta su una sedia allarga lateralmente una gamba e poi l\'altra. Materiali: sedia', 
+									 :difficulty => 'Medium', 
+									 :name => 'Hip Abduction and Adduction', 
+									 :video_url => 'http://www.youtube.com/watch?v=QUbaotseOQ4')
 #@ = Exercise.create(:description => 'Materiali:sedia',
 #								 :difficulty => 'Hard', 
 #								 :name => '',
@@ -197,9 +209,12 @@ Program.delete_all
 #training program intermedio
 @TPI1 = Program.create(:title => 'Equilibrio - Intermedio',:description => 'Training che permette di prendere confidenza con il proprio equilibrio.',:difficulty => 'Intermedio')
 @TPI2 = Program.create(:title => 'Forza - Intermedio',:description => 'Training focalizzato ad allenare la forza.',:difficulty => 'Intermedio')
+@TPI3 = Program.create(:title => 'Stretching - Intermedio',:description => 'Training utile per allungare e riscaldare la muscolatura prima di un attivita fisica.', :difficulty => 'Intermedio')
+@TPI4 = Program.create(:title => 'Riscaldamento - Intermedio',:description => 'Training utile per riscaldarsi la muscolatura prima di un attivita fisica.', :difficulty => 'Intermedio')
 #training program avanzati
 @TPA1 = Program.create(:title => 'Equilibrio - Avanzato', :description => 'Training che permette di aumentare e allenare il proprio equilibrio.',:difficulty => 'Avanzato')
 @TPA2 = Program.create(:title => 'Forza - Avanzato', :description => 'Training che permette di aumentare e allenare la propria forza.',:difficulty => 'Avanzato')
+@TPA3 = Program.create(:title => 'Misto - Avanzato',:description => 'Training misto tra equilibrio e forza', :difficulty => 'Avanzato')
 #creazione lesson di un training
 Lesson.delete_all
 #lezioni programmi principiante
@@ -260,6 +275,21 @@ Lesson.delete_all
 #Lezione TPI2_3
 @lessonTPI2_3 = @TPI2.lessons.new(:title => 'Lezione 3')
 @lessonTPI2_3.save
+#Lezione TPI3_1
+@lessonTPI3_1 = @TPI3.lessons.new(:title => 'Lezione 1')
+@lessonTPI3_1.save
+#Lezione TPI3_2
+@lessonTPI3_2 = @TPI3.lessons.new(:title => 'Lezione 2')
+@lessonTPI3_2.save
+#Lezione TPI4_1
+@lessonTPI4_1 = @TPI4.lessons.new(:title => 'Lezione 1')
+@lessonTPI4_1.save
+#Lezione TPI4_2
+@lessonTPI4_2 = @TPI4.lessons.new(:title => 'Lezione 2')
+@lessonTPI4_2.save
+#Lezione TPI4_3
+@lessonTPI4_3 = @TPI4.lessons.new(:title => 'Lezione 3')
+@lessonTPI4_3.save
 
 #lezioni programmi avanzati
 #lezioni TPA1
@@ -276,6 +306,13 @@ Lesson.delete_all
 @lessonTPA2_2.save
 @lessonTPA2_3 = @TPA2.lessons.new(:title => 'lesson3')
 @lessonTPA2_3.save
+#Lezione TPA3
+@lessonTPA3_1 = @TPA3.lessons.new(:title => 'Lezione 1')
+@lessonTPA3_1.save
+@lessonTPA3_2 = @TPA3.lessons.new(:title => 'Lezione 2')
+@lessonTPA3_2.save
+@lessonTPA3_3 = @TPA3.lessons.new(:title => 'Lezione 3')
+@lessonTPA3_3.save
 Association.delete_all
 #associationi programmi principianti
 #associazioni lessonTP1_1
@@ -455,6 +492,39 @@ Association.create(:exercise_id => @seated_hip_adduction.id,
 Association.create(:exercise_id => @seated_side_arms_raise_with_resistance_band.id,
 			       :lesson_id => @lessonTPI2_3.id, 
 			       :repetitions => 'Fare 3 sessioni con una durata di 12 ripetizioni.')
+#Associazione TPI3_1-1
+Association.create(:exercise_id => @standing_leg_stretch.id,
+			       :lesson_id => @lessonTPI3_1.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 15 secondi.')
+#Associazione TPI3_2-1
+Association.create(:exercise_id => @seated_hip_stretch.id,
+			       :lesson_id => @lessonTPI3_2.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 15 secondi.')
+#Associazione TPI4_1-1
+Association.create(:exercise_id => @standing_arm_circles.id,
+			       :lesson_id => @lessonTPI4_1.id, 
+			       :repetitions => 'Fare 1 sessione con una durata di 10 ripetizioni.')
+#Associazione TPI4_1-2
+Association.create(:exercise_id => @hip_abduction_and_adduction.id,
+			       :lesson_id => @lessonTPI4_1.id, 
+			       :repetitions => 'Fare 1 sessione con una durata di 12 ripetizioni.')
+#Associazione TPI4_2-1
+Association.create(:exercise_id => @leg_raises.id,
+			       :lesson_id => @lessonTPI4_2.id, 
+			       :repetitions => 'Fare 1 sessione con una durata di 15 ripetizioni.')
+#Associazione TPI4_2-2
+Association.create(:exercise_id => @pointer_foot_to_hell.id,
+			       :lesson_id => @lessonTPI4_2.id, 
+			       :repetitions => 'Fare 9 ripetizioni (per gamba).')
+#Associazione TPI4_3-1
+Association.create(:exercise_id => @rest_head_lef_and_right.id,
+			       :lesson_id => @lessonTPI4_3.id, 
+			       :repetitions => 'Fare 1 sessione con una durata di 12 ripetizioni.')
+#Associazione TPI4_3-2
+Association.create(:exercise_id => @shoulder_rotation.id,
+			       :lesson_id => @lessonTPI4_3.id, 
+			       :repetitions => 'Fare 1 sessione con una durata di 15 ripetizioni.')
+
 #associazioni training program avanzati
 #associazioni lesson TPA1_1
 Association.create(:exercise_id => @full_tandem_stand_eye_closed.id,
@@ -498,3 +568,39 @@ Association.create(:exercise_id => @standing_toe_lift_with_weights.id,
 Association.create(:exercise_id => @standing_hip_adduction.id,
 				   :lesson_id => @lessonTPA2_3.id, 
 				   :repetitions => "Fare 3 sessioni con durata di 12 ripetizioni.")
+#Associazioni TPA3_1-1
+Association.create(:exercise_id => @full_tandem_stand_eye_closed.id,
+			       :lesson_id => @lessonTPA3_1.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 15 secondi.')
+#Associazioni TPA3_1-2
+Association.create(:exercise_id => @fast_chair_stand.id,
+			       :lesson_id => @lessonTPA3_1.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 11 ripetizioni.')
+#Associazioni TPA3_1-3
+Association.create(:exercise_id => @standing_hip_abduction_without_placing_the_foot_on_the_floor.id,
+			       :lesson_id => @lessonTPA3_1.id, 
+			       :repetitions => 'Fare 3 sessioni (per gamba) con una durata di 12 ripetizioni.')
+#Associazioni TPA3_2-1
+Association.create(:exercise_id => @hell_to_toe_walk_eye_closed.id,
+			       :lesson_id => @lessonTPA3_2.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 30 secondi.')
+#Associazioni TPA3_2-2
+Association.create(:exercise_id => @standing_leg_extension_with_weights.id,
+			       :lesson_id => @lessonTPA3_2.id, 
+			       :repetitions => 'Fare 3 (per gamba) sessioni con una durata di 10 ripetizioni.')
+#Associazioni TPA3_2-3
+Association.create(:exercise_id => @one_leg_heel_lift_with_wights.id,
+			       :lesson_id => @lessonTPA3_2.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 12 ripetizioni.')
+#Associazioni TPA3_3-1
+Association.create(:exercise_id => @one_leg_stand_eye_closed.id,
+			       :lesson_id => @lessonTPA3_2.id, 
+			       :repetitions => 'Fare 4 sessioni con una durata di 15 secondi.')
+#Associazioni TPA3_3-2
+Association.create(:exercise_id => @standing_toe_lift_with_weights.id,
+			       :lesson_id => @lessonTPA3_2.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 10 ripetizioni.')
+#Associazioni TPA3_3-3
+Association.create(:exercise_id => @standing_hip_adduction.id,
+			       :lesson_id => @lessonTPA3_2.id, 
+			       :repetitions => 'Fare 3 sessioni con una durata di 12 ripetizioni.')
