@@ -146,24 +146,60 @@ Exercise.delete_all
 									 :difficulty => 'Medium', 
 									 :name => 'Standing toe lift, with weights', 
 									 :video_url => 'http://www.youtube.com/watch?v=QfHDNaJbkSk')
+@fast_chair_stand = Exercise.create(:description => 'A braccia incrociate siediti e rialzati da una sedia velocemente. Materiali:sedia',
+								 :difficulty => 'Hard', 
+								 :name => 'Fast Chair Stand',
+								 :video_url => 'http://www.youtube.com/watch?v=h41x4orwHag')
+@standing_hip_abduction_without_placing_the_foot_on_the_floor = Exercise.create(:description => 'Stando in piedi ed aiutandoti con una sedia per l\'equilibrio allarga lateralmente una gamba senza appoggiarla per terra. Materiali:sedia',
+								 :difficulty => 'Hard', 
+								 :name => 'Standing Hip Abduction Without Placing the Foot on the Floor',
+								 :video_url => 'http://www.youtube.com/watch?v=N2pVdff79mk')
+@standing_hip_flexion_without_placing_the_foot_on_the_floor = Exercise.create(:description => 'In piedi, aiutandoti con una sedia per l\'equilibrio, porta un ginocchio verso il petto senza appoggiarlo per terra.Materiali:sedia',
+								 :difficulty => 'Hard', 
+								 :name => 'Standing Hip Abduction Without Placing The Foot On The Floor',
+								 :video_url => 'http://www.youtube.com/watch?v=vnspDV60FKU')
+@standing_leg_extension_with_weights = Exercise.create(:description => 'Da in piedi, aiutandoti con una sediae con dei pesi alle caviglie, estendi e fletti una gamba senza appoggiarla per terra. Materiali:sedia,pesi per caviglie.',
+								 :difficulty => 'Hard', 
+								 :name => 'Standing Leg Extension With Weights',
+								 :video_url => 'http://www.youtube.com/watch?v=8ebS6z8IWqc')
+@one_leg_heel_lift_with_wights = Exercise.create(:description => 'Usando una sedia come supporto e con dei pesi alle caviglie spingiti verso l\'alto appoggiandoti sulla punta di un piede, quindi cambia gamba.Materiali:sedia,pesi per caviglie.',
+								 :difficulty => 'Hard', 
+								 :name => 'One Leg Heel Lift With Weights',
+								 :video_url => 'http://www.youtube.com/watch?v=ZUHwHn0pWf8')
+@seated_side_arms_with_resistance = Exercise.create(:description => 'In piedi prendi una fascia elastica estendendo le braccia verso l\'esterno facendola passare sotto i piedi. alza le braccia verso l\'alto e l\'esterno portando la fascia elastica in estensione, mantieni la posizione per alcuni secondi e rilascia. Materiali:fascia elastica',
+								 :difficulty => 'Hard', 
+								 :name => 'Seated Side Arms With Resistance',
+								 :video_url => 'http://www.youtube.com/watch?v=koNiRcibFEk')
+@seated_sit_ups_straight_arms_overhead = Exercise.create(:description => 'Seduto sul bordo della sedia, con le mani distese in avanti, porta indietro la schiena fino a toccare lo schienale ma senza appoggiarti e porta le braccia sempre tese verso l\'alto. Mantieni la posizione per qualche secondo e torna alla posizione di partenza. Materiali:sedia',
+								 :difficulty => 'Hard', 
+								 :name => 'Seated Sit Ups Straight Arms Overhead',
+								 :video_url => 'http://www.youtube.com/watch?v=ZFutVkwSYps')
+@standing_toe_lift_with_weights = Exercise.create(:description => 'In piedi, aiutandoti con una sedia per l\'equilibrio e con dei pesi sulle punte dei piedi, spingi le punte dei piedi verso l\'alto mantenendo i talloni a terra.Materiali:sedia',
+								 :difficulty => 'Hard', 
+								 :name => 'Standing Toe Lift With Weights',
+								 :video_url => 'http://www.youtube.com/watch?v=4-JtqdfrcnA')
+@standing_hip_adduction = Exercise.create(:description => 'In piedi, aiutandoti con una sedia, metti il pallone tra le cosce e cerca di comprimerlo il piu possibile per alcuni secondi per poi rilasciarlo senza farlo cadere. Materiali:sedia,palla per esercizi.',
+								 :difficulty => 'Hard', 
+								 :name => 'Standing Hip Adduction',
+								 :video_url => 'http://www.youtube.com/watch?v=5xeYx4CeExw')
 #@ = Exercise.create(:description => 'Materiali:sedia',
 #								 :difficulty => 'Hard', 
 #								 :name => '',
 #								 :video_url => '')
-
 #creazione training program
 Program.delete_all
 @TP1 = Program.create(:title => 'Equilibrio - Principiante',:description => 'Training per principianti che permette di prendere confidenza con il proprio equilibrio.', :difficulty => 'Principiante' )
 @TP2 = Program.create(:title => 'Forza - Principiante',:description => 'Training per principianti che comincia ad allenare la forza.', :difficulty => 'Principiante')
-@TP3 = Program.create(:title => 'Riscaldamento - Principiante', :description => 'Training utile per riscaldarsi la muscolatura prima di un attivita fisica.' :difficulty => 'Principiante')
+@TP3 = Program.create(:title => 'Riscaldamento - Principiante', :description => 'Training utile per riscaldarsi la muscolatura prima di un attivita fisica.', :difficulty => 'Principiante')
 @TP4 = Program.create(:title => 'Stretching - Principiante', :description => 'Training utile per allungare e riscaldare la muscolatura prima di un attivita fisica.',:difficulty => 'Principiante')
 @TP5 = Program.create(:title => 'Misto 1 - Principiante', :description => 'Training misto tra riscaldamento, forze e stretch',:difficulty => 'Principiante')
 @TP6 = Program.create(:title => 'Misto 2 - Principiante', :description => 'Training misto tra riscaldamento, forze e equilibrio',:difficulty => 'Principiante')
 #training program intermedio
-@TPI1 = Program.create(:title => 'Equilibrio - Intermedio',:description => 'Training che permette di prendere confidenza con il proprio equilibrio.')
-@TPI2 = Program.create(:title => 'Forza - Intermedio',:description => 'Training focalizzato ad allenare la forza.')
+@TPI1 = Program.create(:title => 'Equilibrio - Intermedio',:description => 'Training che permette di prendere confidenza con il proprio equilibrio.',:difficulty => 'Intermedio')
+@TPI2 = Program.create(:title => 'Forza - Intermedio',:description => 'Training focalizzato ad allenare la forza.',:difficulty => 'Intermedio')
 #training program avanzati
-@TPA1 = Program.create(:title => 'Equilibrio - Avanzato', :description => 'Training che permette di aumentare e allenare il proprio equilibrio.')
+@TPA1 = Program.create(:title => 'Equilibrio - Avanzato', :description => 'Training che permette di aumentare e allenare il proprio equilibrio.',:difficulty => 'Avanzato')
+@TPA2 = Program.create(:title => 'Forza - Avanzato', :description => 'Training che permette di aumentare e allenare la propria forza.',:difficulty => 'Avanzato')
 #creazione lesson di un training
 Lesson.delete_all
 #lezioni programmi principiante
@@ -233,7 +269,13 @@ Lesson.delete_all
 @lessonTPA1_2.save
 @lessonTPA1_3 = @TPA1.lessons.new(:title => 'lesson3')
 @lessonTPA1_3.save
-
+#lezioni TPA2
+@lessonTPA2_1 = @TPA2.lessons.new(:title => 'lesson1')
+@lessonTPA2_1.save
+@lessonTPA2_2 = @TPA2.lessons.new(:title => 'lesson2')
+@lessonTPA2_2.save
+@lessonTPA2_3 = @TPA2.lessons.new(:title => 'lesson3')
+@lessonTPA2_3.save
 Association.delete_all
 #associationi programmi principianti
 #associazioni lessonTP1_1
@@ -418,11 +460,41 @@ Association.create(:exercise_id => @seated_side_arms_raise_with_resistance_band.
 Association.create(:exercise_id => @full_tandem_stand_eye_closed.id,
 				   :lesson_id => @lessonTPA1_1.id, 
 				   :repetitions => "Fare 3 sessioni con durata di 15 secondi.")
-#associazioni lesson TPA1_1
+#associazioni lesson TPA1_2
 Association.create(:exercise_id => @hell_to_toe_walk_eye_closed.id,
 				   :lesson_id => @lessonTPA1_2.id, 
 				   :repetitions => "Fare 3 sessioni con durata di 30 secondi.")
-#associazioni lesson TPA1_1
+#associazioni lesson TPA1_3
 Association.create(:exercise_id => @one_leg_stand_eye_closed.id,
 				   :lesson_id => @lessonTPA1_3.id, 
 				   :repetitions => "Fare 4 sessioni con durata di 15 secondi.")
+#associazioni lesson TPA2_1
+Association.create(:exercise_id => @fast_chair_stand.id,
+				   :lesson_id => @lessonTPA2_1.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 11 ripetizioni.")
+Association.create(:exercise_id => @standing_hip_abduction_without_placing_the_foot_on_the_floor.id,
+				   :lesson_id => @lessonTPA2_1.id,
+				   :repetitions => "Fare 3 sessioni per gambacon durata di 12 ripetizioni.")
+Association.create(:exercise_id => @standing_hip_flexion_without_placing_the_foot_on_the_floor.id,
+				   :lesson_id => @lessonTPA2_1.id,
+				   :repetitions => "Fare 3 sessioni per gamba con durata di 12 ripetizioni.")
+#associazioni lesson TPA2_2
+Association.create(:exercise_id => @standing_leg_extension_with_weights.id,
+				   :lesson_id => @lessonTPA2_2.id,
+				   :repetitions => "Fare 3 sessioni con durata di 10 ripetizioni per gamba.")
+Association.create(:exercise_id => @one_leg_heel_lift_with_wights.id,
+				   :lesson_id => @lessonTPA2_2.id,
+				   :repetitions => "Fare 3 sessioni con durata di 12 ripetizioni.")
+Association.create(:exercise_id => @seated_side_arms_with_resistence.id,
+				   :lesson_id => @lessonTPA2_2.id,
+				   :repetitions => "Fare 3 sessioni con durata di 15 ripetizioni.")
+#associazioni lesson TPA2_3
+Association.create(:exercise_id => @seated_sit_ups_straight_arms_overhead.id,
+				   :lesson_id => @lessonTPA2_3.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 12 ripetizioni.")
+Association.create(:exercise_id => @standing_toe_lift_with_weights.id,
+				   :lesson_id => @lessonTPA2_3.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 10 ripetizioni.")
+Association.create(:exercise_id => @standing_hip_adduction.id,
+				   :lesson_id => @lessonTPA2_3.id, 
+				   :repetitions => "Fare 3 sessioni con durata di 12 ripetizioni.")

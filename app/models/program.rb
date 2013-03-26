@@ -10,7 +10,7 @@
 #
 
 class Program < ActiveRecord::Base
-  attr_accessible :description, :title
+  attr_accessible :description, :title, :difficulty
   has_many :lessons, :dependent => :destroy
   has_many :feedbacks, :dependent => :destroy
   before_save {|prog| prog.title = title.capitalize}
