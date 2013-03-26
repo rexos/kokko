@@ -6,7 +6,7 @@
   <div class="modal-body center" style="background-color: #b94a48; color:white; padding-top: 40px">
     <% if !flash[:error].nil? %>
     <div class="alert alert-error center" style="width:90%">
-      <h4><strong>Invalid Username or Password</srong></h4>
+      <h4><strong>Username o password non validi</srong></h4>
     </div>
     <% end %>
     <%= form_for :session, url: {controller: :sessions, action: :create}  do |s| %>
