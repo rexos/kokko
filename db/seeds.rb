@@ -97,12 +97,12 @@ Exercise.delete_all
 
 #creazione training program
 Program.delete_all
-@TP1 = Program.create(:title => 'Equilibrio - Principiante',:description => 'Training per principianti che permette di prendere confidenza con il proprio equilibrio.')
-@TP2 = Program.create(:title => 'Forza - Principiante',:description => 'Training per principianti che comincia ad allenare la forza.')
-@TP3 = Program.create(:title => 'Riscaldamento - Principiante', :description => 'Training utile per riscaldarsi la muscolatura prima di un attivita fisica.')
-@TP4 = Program.create(:title => 'Stretching - Principiante', :description => 'Training utile per allungare e riscaldare la muscolatura prima di un attivita fisica.')
-@TP5 = Program.create(:title => 'Misto 1 - Principiante', :description => 'Training misto tra riscaldamento, forze e stretch')
-@TP6 = Program.create(:title => 'Misto 2 - Principiante', :description => 'Training misto tra riscaldamento, forze e equilibrio')
+@TP1 = Program.create(:title => 'Equilibrio - Principiante',:description => 'Training per principianti che permette di prendere confidenza con il proprio equilibrio.', :difficulty => 'Principiante' )
+@TP2 = Program.create(:title => 'Forza - Principiante',:description => 'Training per principianti che comincia ad allenare la forza.', :difficulty => 'Principiante')
+@TP3 = Program.create(:title => 'Riscaldamento - Principiante', :description => 'Training utile per riscaldarsi la muscolatura prima di un attivita fisica.' :difficulty => 'Principiante')
+@TP4 = Program.create(:title => 'Stretching - Principiante', :description => 'Training utile per allungare e riscaldare la muscolatura prima di un attivita fisica.',:difficulty => 'Principiante')
+@TP5 = Program.create(:title => 'Misto 1 - Principiante', :description => 'Training misto tra riscaldamento, forze e stretch',:difficulty => 'Principiante')
+@TP6 = Program.create(:title => 'Misto 2 - Principiante', :description => 'Training misto tra riscaldamento, forze e equilibrio',:difficulty => 'Principiante')
 #creazione lesson di un training
 Lesson.delete_all
 #lezione TP1
