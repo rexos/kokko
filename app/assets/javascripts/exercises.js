@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require edit
 $(document).ready(function(){
     $(function() {
 	window.updateIframe = function() {
