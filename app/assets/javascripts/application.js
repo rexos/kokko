@@ -13,13 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+
 
 $(document).ready(function(){
-    $('div.title').click(function(){
-	$(this).next().toggle('slow');
-    });
-
     if($('p.error').attr('id')>0){
 	$('#login-modal').modal('show');
     }
@@ -50,27 +46,5 @@ $(document).ready(function(){
 	    return false;
 	}
     });
-
-    $(function() {
-	window.updateIframe = function() {
-	    var h = $(window).height();
-	    $("#iframe").height(0.5*h);
-	}
-	window.updateIframe();
-	window.resize(window.updateIframe);
-    });
-
-    $(document).on('ajax:success', function(){
-	$('div.modal-body').append('<div class="alert alert-success center" style="width:90%"><h4><strong>Feedback ricevuto con successo!<br />Grazie mille per la collaborazione!</strong><h4></div>');
-	$('button.btn-success').fadeOut('slow',function(){
-	    $('div.modal-footer').prepend('<button id="close" class="btn btn-success btn-large" style="display:none"><i class="icon-ok"></i>&nbsp;&nbsp;Chiudi</button>');
-	    $('#close').fadeIn('slow');
-	    $('#close').click(function(){
-		$('#feedback-modal').modal('hide');
-	    });
-	});
-    });
-
-
     
 });
