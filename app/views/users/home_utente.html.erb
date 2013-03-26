@@ -23,10 +23,13 @@
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a data-toggle="tab" href="#Mieitraining"><h4>&nbsp;<i class="icon-folder-open-alt"></i>&nbsp;Miei Training</h4></a></li>
     <li><a data-toggle="tab" href="#Principiante"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Principiante</h4></a></li>
+    <li><a data-toggle="tab" href="#Intermedio"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Intermedio</h4></a></li>
+    <li><a data-toggle="tab" href="#Avanzato"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Avanzato</h4></a></li>
   </ul>
 
   <!-- div tab -->
   <div class="tab-content" id="myTabContent">
+
     <div id="Mieitraining" class="tab-pane fade in active">
       <div class="accordion" id="MieiTraining">
         <% @programs.each do |p| %>
@@ -55,10 +58,10 @@
 
 
     <div id="Principiante" class="tab-pane fade">
-      <div class="accordion" id="AltriTraining">
+      <div class="accordion" id="Principiante">
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
-        <% if progress == 0 && p.difficulty.to_s == "Principiante" %>
+        <% if progress == 0 && p.difficulty.to_s =='Principiante' %>
         <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" > 
           <div class="accordion-heading">  
             <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#AltriTraining" href="#<%= p.id %>">  
@@ -77,17 +80,62 @@
       <% end %> <!-- chiudo if progress == 0-->
       <% end %> <!-- chiudo program.each-->
     </div>
+    </div>
+
+    <div id="Intermedio" class="tab-pane fade">
+      <div class="accordion" id="Intermedio">
+        <% @programs.each do |p| %>
+        <% progress = get_progress_of_program(p.id) %>
+        <% if progress == 0 && p.difficulty.to_s =='Intermedio' %>
+        <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" > 
+          <div class="accordion-heading">  
+            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#AltriTraining" href="#<%= p.id %>">  
+              <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
+               <%= p.title %> 
+             </h3>      
+           </a>  
+         </div>  
+         <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
+          <div class="accordion-inner black" style="background-color: #fff">  
+            <p><%= p.description %></p>
+            <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+          </div>   
+        </div>  
+      </div>
+      <% end %> <!-- chiudo if progress == 0-->
+      <% end %> <!-- chiudo program.each-->
+    </div>
+    </div>
+
+
+    <div id="Avanzato" class="tab-pane fade">
+      <div class="accordion" id="Avanzato">
+        <% @programs.each do |p| %>
+        <% progress = get_progress_of_program(p.id) %>
+        <% if progress == 0 && p.difficulty.to_s == 'Avanzato' %>
+        <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" > 
+          <div class="accordion-heading">  
+            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#AltriTraining" href="#<%= p.id %>">  
+              <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
+               <%= p.title %> 
+             </h3>      
+           </a>  
+         </div>  
+         <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
+          <div class="accordion-inner black" style="background-color: #fff">  
+            <p><%= p.description %></p>
+            <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+          </div>   
+        </div>  
+      </div>
+      <% end %> <!-- chiudo if progress == 0-->
+      <% end %> <!-- chiudo program.each-->
+    </div>
+    </div>
+
+
+
   </div>
-
-
-
-
-
-
-
-  
-
-
 
   <%end%> <!-- chiudo if program.count == 0-->
 </div>
