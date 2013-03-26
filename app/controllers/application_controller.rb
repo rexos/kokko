@@ -5,11 +5,20 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exce|
     redirect_to session[:current_path]
   end
+  rescue_from ActionController::RoutingError, :with => :render_error  
+  rescue_from Exception, :with => :render_error
 
   helper_method :current_user
   helper_method :store_current_path
 
+
+
   private
+
+  def render_error
+    render :file => "public/404.html", :status => 404
+  end
+
 
   def current_user
     if session[:user_id]
@@ -21,10 +30,6 @@ class ApplicationController < ActionController::Base
   
   def store_current_path
     session[:current_path] = request.fullpath
-  end
-  
-  def previous_path
-    session[:current_path]
   end
 
 end
