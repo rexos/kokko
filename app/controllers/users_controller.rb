@@ -11,9 +11,9 @@ class UsersController < ApplicationController
       if @user.save 
         session[:user_id] = @user.id
         SignupMailer.signup_mail(@user).deliver
-        format.js { render :nothing => true }
+        format.js { render :js => "window.location = '/users/home_utente'" }
       else
-        format.js { render :nothing => true }
+        format.js { render :success => false }
       end
     end
   end

@@ -17,5 +17,4 @@ $(document).ready(function(){
     if ($('p.done').attr('id') != 0){
 	$('#feedback-modal').modal('show');
     }
-
 });
