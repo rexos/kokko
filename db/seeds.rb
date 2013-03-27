@@ -156,7 +156,7 @@ Exercise.delete_all
 								 :video_url => 'http://www.youtube.com/watch?v=N2pVdff79mk')
 @standing_hip_flexion_without_placing_the_foot_on_the_floor = Exercise.create(:description => 'In piedi, aiutandoti con una sedia per l\'equilibrio, porta un ginocchio verso il petto senza appoggiarlo per terra.Materiali:sedia',
 								 :difficulty => 'Hard', 
-								 :name => 'Standing Hip Abduction Without Placing The Foot On The Floor',
+								 :name => 'Standing Hip Flexion Without Placing The Foot On The Floor',
 								 :video_url => 'http://www.youtube.com/watch?v=vnspDV60FKU')
 @standing_leg_extension_with_weights = Exercise.create(:description => 'Da in piedi, aiutandoti con una sediae con dei pesi alle caviglie, estendi e fletti una gamba senza appoggiarla per terra. Materiali:sedia,pesi per caviglie.',
 								 :difficulty => 'Hard', 

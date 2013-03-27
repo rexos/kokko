@@ -12,8 +12,9 @@
     <%= form_for :session, url: {controller: :sessions, action: :create}  do |s| %>
     <%= s.text_field :username,  placeholder: "Nome Utente"%><br />
     <%= s.password_field :password,  placeholder: "Password" %><br />
-    <%= s.check_box :remember_me%>
-    Ricordami
+    <div style="width: 100px; margin: 0 auto">
+    <label class="checkbox" style="float:right"><%= s.check_box :remember_me%>
+    Ricordami</label></div>
     </div>
   <div class="modal-footer">
     <button class="btn btn-danger btn-large"><i class="icon-signin"></i>&nbsp;&nbsp;Login</button>
