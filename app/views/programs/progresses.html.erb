@@ -45,3 +45,4 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2">Progressi di: <%= @progra
     <div class="bar" style="width:<%= get_progress_of_program(@program.id) %>%"></div>
   </div>
  
+  <div class="center"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>
