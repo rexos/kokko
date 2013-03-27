@@ -11,9 +11,9 @@ class UsersController < ApplicationController
       if @user.save 
         session[:user_id] = @user.id
         SignupMailer.signup_mail(@user).deliver
-        format.js { render :nothing => true }
+        format.js { render :action => 'registered.js.erb' }
       else
-        format.js { render :success => false }
+        format.js { render :action => 'error_registered.js.erb'}
       end
     end
   end
