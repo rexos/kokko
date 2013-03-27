@@ -594,13 +594,13 @@ Association.create(:exercise_id => @one_leg_heel_lift_with_wights.id,
 			       :repetitions => 'Fare 3 sessioni con una durata di 12 ripetizioni.')
 #Associazioni TPA3_3-1
 Association.create(:exercise_id => @one_leg_stand_eye_closed.id,
-			       :lesson_id => @lessonTPA3_2.id, 
+			       :lesson_id => @lessonTPA3_3.id, 
 			       :repetitions => 'Fare 4 sessioni con una durata di 15 secondi.')
 #Associazioni TPA3_3-2
 Association.create(:exercise_id => @standing_toe_lift_with_weights.id,
-			       :lesson_id => @lessonTPA3_2.id, 
+			       :lesson_id => @lessonTPA3_3.id, 
 			       :repetitions => 'Fare 3 sessioni con una durata di 10 ripetizioni.')
 #Associazioni TPA3_3-3
 Association.create(:exercise_id => @standing_hip_adduction.id,
-			       :lesson_id => @lessonTPA3_2.id, 
+			       :lesson_id => @lessonTPA3_3.id, 
 			       :repetitions => 'Fare 3 sessioni con una durata di 12 ripetizioni.')
