@@ -22,7 +22,7 @@
 
   <!-- ul nav -->
   <ul class="nav nav-tabs" id="myTab">
-    <li class="active"><a data-toggle="tab" href="#Mieitraining"><h4>&nbsp;<i class="icon-folder-open-alt"></i>&nbsp;Miei Training</h4></a></li>
+     <li class="active"><a data-toggle="tab" href="#Mieitraining"><h4>&nbsp;<i class="icon-folder-open-alt"></i>&nbsp;Miei Training</h4></a></li>
     <li><a data-toggle="tab" href="#Principiante"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Principiante</h4></a></li>
     <li><a data-toggle="tab" href="#Intermedio"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Intermedio</h4></a></li>
     <li><a data-toggle="tab" href="#Avanzato"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Avanzato</h4></a></li>
@@ -33,10 +33,16 @@
 
     <div id="Mieitraining" class="tab-pane fade in active">
       <div class="accordion" id="MieiTraining">
+
+        <% if current_user.statuses.count == 0 %>
+        <div class="alert alert-error">
+          <h2><strong><center>Scegli un programma e inizia subito l'allenamento!</center></strong></h2>
+        </div>
+        <% else %>
        <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
         <% if progress > 0 %>
-        <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" >  
+        <div class="accordion-group" >  
           <div class="accordion-heading">  
             <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#MieiTraining" href="#<%= p.id %>">  
               <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
@@ -52,8 +58,9 @@
             </div>   
           </div>  
         </div>
-        <% end %> <!-- chiudo if progress > 0-->
-        <% end %> <!-- chiudo program.each do-->
+        <% end %> <!-- chiudo if progress > 0 -->
+        <% end %> <!-- chiudo program.each do -->
+        <% end %> <!-- chido if program.empty? -->
       </div>
     </div>
 
@@ -63,7 +70,7 @@
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
         <% if progress == 0 && p.difficulty.to_s =='Principiante' %>
-        <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" > 
+        <div class="accordion-group" > 
           <div class="accordion-heading">  
             <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#Principiante" href="#<%= p.id %>">  
               <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
@@ -88,7 +95,7 @@
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
         <% if progress == 0 && p.difficulty.to_s =='Intermedio' %>
-        <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" > 
+        <div class="accordion-group" > 
           <div class="accordion-heading">  
             <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#Intermedio" href="#<%= p.id %>">  
               <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
@@ -114,9 +121,9 @@
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
         <% if progress == 0 && p.difficulty.to_s == 'Avanzato' %>
-        <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc" > 
+        <div class="accordion-group" > 
           <div class="accordion-heading">  
-            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#Avanzato" href="#<%= p.id %>">  
+            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218);" data-toggle="collapse" data-parent="#Avanzato" href="#<%= p.id %>">  
               <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
                <%= p.title %> 
              </h3>      

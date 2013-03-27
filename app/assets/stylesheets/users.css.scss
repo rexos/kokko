@@ -62,3 +62,22 @@ body{
 	border: 5px solid #ddd;
 	background-color: #fff;
 }
+
+.nav-tabs > li > a {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;	
+}
+
+.nav-tabs a {
+	color: black;
+}
+
+#myTabContent {
+	background-color: white;
+	margin-top: -20px;
+	padding-top: 20px;
+}
+

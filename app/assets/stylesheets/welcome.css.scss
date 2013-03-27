@@ -143,6 +143,7 @@ a:active, a:hover {
   text-decoration: none;
 }
 
+/* ---------------- OVERRIDE BOOTSTRAP ---------------- */
 .accordion-inner div li a {
   color: #b94a48;
   font-size: 25px;
@@ -163,6 +164,11 @@ a:active, a:hover {
   line-height: 2;
 }
 
+.accordion-group {
+  border: none;
+  border-top: 2px solid #ccc;
+}
+
 .padd-odd {
   padding-right: 20px;
   font-size: 30px;
@@ -175,6 +181,7 @@ a:active, a:hover {
 .btn {
   font-family: 'Sintony', sans-serif;
 }
+/* ---------------- END OVERRIDE BOOTSTRAP ---------------- */
 
 .rilievo {
   color: #282828;
