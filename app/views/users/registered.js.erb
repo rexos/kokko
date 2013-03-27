@@ -1,6 +1,8 @@
-$('div.modal-body').prepend(
+$('#register').children('i').removeClass('icon-plus');
+$('#register').children('i').addClass('icon-spinner icon-spin');
+$('#signup-modal').children('div.modal-body').prepend(
 	'<div class="alert alert-success"><strong>La tua registrazione è avvenuta correttamente verrai automaticamente reindirizzato alla tua home page</strong></div>'
 );
-$('div.alert-success').fadeOut(5000,function(){
+$('div.alert-success').delay(3000).fadeOut('slow',function(){
 	window.location = '/users/home_utente';
 });

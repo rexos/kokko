@@ -24,7 +24,7 @@
 </div>
 
 
-<div id="signin-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="signup-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header" style="background-color: #a73d3b  ">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel" style="color:white">Registrati!</h3>
@@ -37,7 +37,7 @@
   <%= u.password_field :password_confirmation ,  placeholder: "Conferma Password"%>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-danger btn-large"><i class="icon-plus"></i>&nbsp;&nbsp;Registrati</button>
+    <button id="register" type="submit" class="btn btn-danger btn-large"><i class="icon-plus"></i>&nbsp;&nbsp;Registrati</button>
     <button class="btn btn-large" data-dismiss="modal" aria-hidden="true"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>
   <% end %>
   </div>
