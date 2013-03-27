@@ -1,7 +1,3 @@
-//= require jquery
-//= require jquery_ujs
-//= require twitter/bootstrap
-//= require edit
 $(document).ready(function(){
     $(document).on('ajax:success', function(){
 	$('#feedback-modal').children('div.modal-body').append('<div class="alert alert-success center" style="width:90%"><h4><strong>Feedback ricevuto con successo!<br />Grazie mille per la collaborazione!</strong><h4></div>');

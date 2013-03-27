@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exce|
     redirect_to session[:current_path]
   end
-  rescue_from ActionController::RoutingError, :with => :render_error  
-  rescue_from Exception, :with => :render_error
 
   helper_method :current_user
   helper_method :store_current_path
