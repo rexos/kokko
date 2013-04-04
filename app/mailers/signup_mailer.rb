@@ -1,4 +1,3 @@
-# -*- coding: undecided -*-
 class SignupMailer < ActionMailer::Base
   default from: "deadormi@info.com"
 
