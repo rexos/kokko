@@ -40,10 +40,6 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true, :format => { :with => EMAIL_REGULAR_EXPRESSION }
   validates :password, :presence => true, :length => { minimum: 6 }, :on => :create
   validates_presence_of :password_confirmation, :on => :create
-
-  def role?(role)
-    self.role.include? role
-  end
     
   #private methods
   private
