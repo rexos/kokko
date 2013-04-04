@@ -3,6 +3,9 @@ class ProgramsController < ApplicationController
 
   def new
   end
+  
+  def wall
+  end
 
   def index
     @programs = Program.all

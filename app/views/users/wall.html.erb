@@ -1,0 +1,13 @@
+<div class="alert allert-warning">
+  <%= current_user.username.capitalize %>'s Wall
+</div>
+
+<div class="well">
+  <ul type="none">
+    <% current_user.feedbacks.each do |f| %>
+    <div class="alert alert-success">
+      <%= f.body %>
+    </div>
+    <% end %>
+  </ul>
+</div>

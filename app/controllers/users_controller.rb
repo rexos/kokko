@@ -59,4 +59,7 @@ class UsersController < ApplicationController
     @programs = Program.all
   end
 
+  def wall
+  end
+
 end

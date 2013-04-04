@@ -43,4 +43,6 @@ Kokkonut::Application.routes.draw do
   get "users/add_status" => "users#add_status"
   post "users/update" => "users#update"
   get "users/home_utente" => "users#home_utente"
+  get "users/wall" => "users#wall"
+  
 end
