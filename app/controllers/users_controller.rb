@@ -60,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   def wall
+      @feedbacks = current_user.feedbacks.find(:all, :order => "created_at DESC")
   end
 
 end

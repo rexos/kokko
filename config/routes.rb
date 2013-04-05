@@ -27,6 +27,10 @@ Kokkonut::Application.routes.draw do
   get "lessons/show/:lesson_id" => "lessons#show"
   get "lessons/edit" => "lessons#edit"
   get "lessons/destroy" => "lessons#destroy"
+
+  #feedbacks/statuses routes
+  post "feedbacks/create" => "feedbacks#create"
+  get "feedbacks/destroy" => "feedbacks#destroy"
   
   #exercise routes
   get "exercises/new" => "exercises#new"

@@ -2,11 +2,31 @@
   <%= current_user.username.capitalize %>'s Wall
 </div>
 
+<div class="well center">
+  <%= form_for :feedback, url: {controller: :feedbacks, action: :create} do |f| %>
+  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 5 %><br />
+  <button type="submit" class="btn btn-info btn-default"><i class="icon icon-ok"></i>&nbsp;&nbsp;Save</button>
+  <% end %>
+</div>
+
 <div class="well">
   <ul type="none">
-    <% current_user.feedbacks.each do |f| %>
-    <div class="alert alert-success">
-      <%= f.body %>
+    <% @feedbacks.each do |f| %>
+    <div class="alert alert-success" id=<%= f.id %>>
+      <% if f.program_id %>
+      <h4>
+	<small>
+	  <%= current_user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
+	</small>
+      </h4>
+      <% end %>
+      <%= f.body %><br />
+      <h4>
+	<small>
+	  Posted on : <%= f.created_at.to_s[0..9] %> at : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
+	  <%= link_to '<i class="icon icon-remove"></i>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
+	</small>
+      </h4>
     </div>
     <% end %>
   </ul>

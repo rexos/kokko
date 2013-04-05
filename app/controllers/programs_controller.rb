@@ -3,14 +3,14 @@ class ProgramsController < ApplicationController
 
   def new
   end
-  
+
   def wall
   end
 
   def index
     @programs = Program.all
   end
-  
+
   def create
     @program = Program.new(params[:new_program])
     if @program.save
@@ -43,19 +43,19 @@ class ProgramsController < ApplicationController
     @all_lessons = @program.lessons.all
     @user_statuses = current_user.statuses
     user_associations = Array.new
-    
+
     @user_statuses.each do |s|
       user_associations.push(s.association_id)
     end
-    
+
     @all_lessons.each do |l|
-      
+
       lesson_associations = Array.new
-      
+
       l.associations.each do |a|
         lesson_associations.push(a.id)
       end
-      
+
       tot_exercises = l.associations.count
       ary_complete = user_associations & lesson_associations
       tot_complete = ary_complete.count
