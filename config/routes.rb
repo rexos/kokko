@@ -49,4 +49,8 @@ Kokkonut::Application.routes.draw do
   get "users/home_utente" => "users#home_utente"
   get "users/wall" => "users#wall"
   
+  #messages routes
+  get "messages/new" => "messages#new"
+  post "messages/create" => "messages#create"
+
 end

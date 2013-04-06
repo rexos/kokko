@@ -318,4 +318,6 @@
 
   <%end%> <!-- chiudo if program.count == 0-->
   <%= link_to '<button class="btn btn-info btn-small">My Wall</button>'.html_safe, controller: :users, action: :wall %>
+  <%= link_to '<button class="btn btn-info btn-small">Amici</button>'.html_safe %>
+  <%= link_to '<button class="btn btn-info btn-small">Messaggi</button>'.html_safe, controller: :messages, action: :new %>
 </div>
