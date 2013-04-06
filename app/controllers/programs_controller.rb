@@ -68,6 +68,7 @@ class ProgramsController < ApplicationController
 
   def show
     store_current_path
+    @time = Time.now + 2.hour
     if params[:done_id]
       @done_program = Program.find(params[:done_id])
       @program = Program.find(params[:done_id])

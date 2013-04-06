@@ -13,4 +13,7 @@ $(document).ready(function(){
     if ($('p.done').attr('id') != 0){
 	$('#feedback-modal').modal('show');
     }
+    
+    //var time = $('p.time').val(); #to be continued
+
 });
