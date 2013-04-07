@@ -14,6 +14,19 @@ $(document).ready(function(){
 	$('#feedback-modal').modal('show');
     }
     
-    //var time = $('p.time').val(); #to be continued
+    var time = parseInt($('p.time').text());
+
+    setInterval(countdown,1000);
+    function countdown(){
+	var minutes = parseInt(time / 60);
+	var seconds = time % 60;
+	time = time-1;
+	var colon = " : ";
+	if (seconds < 10){
+	    colon = " : 0"
+	}
+	$('p.time').text(minutes+colon+seconds);
+    }
+    
 
 });
