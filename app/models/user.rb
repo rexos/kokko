@@ -13,6 +13,7 @@
 #  first_name      :string(255)
 #  second_name     :string(255)
 #  where           :string(255)
+#  read            :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -27,20 +28,21 @@ class User < ActiveRecord::Base
   #before create/update methods
   before_create { |user| user.email = email.downcase }
   before_create :generate_token
+  before_create { |user| user.username = username.downcase }
   before_update {|user| user.first_name = first_name.capitalize}
   before_update {|user| user.second_name = second_name.capitalize}
   before_update {|user| user.where = where.capitalize}
 
   #email regex
   EMAIL_REGULAR_EXPRESSION = /\b[A-Z0-9._+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
-  
+
 
   #validations
   validates :username, :presence => true, :uniqueness => true, :length => { :minimum => 5 }
   validates :email, :presence => true, :uniqueness => true, :format => { :with => EMAIL_REGULAR_EXPRESSION }
   validates :password, :presence => true, :length => { minimum: 6 }, :on => :create
   validates_presence_of :password_confirmation, :on => :create
-    
+
   #private methods
   private
 

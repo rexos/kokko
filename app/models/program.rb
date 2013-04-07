@@ -7,6 +7,7 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  difficulty  :string(255)
 #
 
 class Program < ActiveRecord::Base
