@@ -1,6 +1,19 @@
 <h1>Nuovo messaggio</h1>
  <%= form_for :message, url: {controller: :messages, action: :create} do |f| %>
-	  <%= f.text_field :reciever, :placeholder => 'Destinatario' %>
-	  <%= f.text_area :body, :placeholder => 'Testo...'%>
-	  <button type="submit" class="btn btn-mini btn-success">Send</button>
+	  <%= f.text_field :reciever, :placeholder => 'Destinatario' %><br />
+	  <%= f.text_area :body, :placeholder => 'Testo...', :rows => 5%><br />
+	  <button type="submit" class="btn btn-defatult btn-success"><i class="icon icon-envelope"></i>&nbsp;&nbsp;Send</button>
  <% end %>
+
+<h3>Messaggi ricevuti (sezione rimovibile)</h3>
+<ul type="none">
+  <% @messages.each do |m| %>
+  <div class="alert alert-success">
+    <h4><small>From :</small></h4>
+    <%= User.find(m.from).username.capitalize %>
+    <br />
+    <h4><small>Text :</small></h4>
+    <%= m.body %>
+  </div>
+  <% end %>
+</ul>
