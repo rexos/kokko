@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include ProgramsHelper
+  include MessagesHelper
 
   rescue_from CanCan::AccessDenied do |exce|
     redirect_to session[:current_path]
