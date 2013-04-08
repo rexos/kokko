@@ -27,21 +27,25 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2">Progressi di: <%= @progra
 <% @program.lessons.each do |l| %>
 
   <div class="row-fluid" style="margin: 20px">
-    <div class="span2" style="text-align: right"><strong><%= l.title %></strong></div>
+    <div class="span2" style="text-align: right;margin-top:10px"><strong><%= l.title %></strong></div>
     <div class="span8">
-      <div class="progress progress-success" style="width:100%; border: 2px solid #ccc">
-        <div class="bar" style="width:<%= get_progress_of_lesson(l.id) %>%"></div>
+      <div class="meter nostripes" style="margin-top:0px;width:100%; border: 2px solid #ccc">
+        <span style="width: <%= get_progress_of_lesson(l.id) %>%"></span>
       </div>
     </div>
     <div class="span2"></div>
   </div>
 
   <% end %>
-
-  <h3 style="margin-bottom: 20px;color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2; text-align:center">Progressi totali
- </h3>
-  <div class="progress progress-striped progress-success active" style="width:100%;border-top: 2px solid #ccc;border-bottom: 2px solid #ccc">
-    <div class="bar" style="width:<%= get_progress_of_program(@program.id) %>%"></div>
+  
+  <div class="row-fluid">
+    <h3 style="margin-bottom: 20px;color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2; text-align:center">Progressi totali
+    </h3>
+    <div class="offset1 span10 offset1">
+      <div class="meter red" style="margin-top:0px;width:100%; border: 2px solid #ccc" >
+        <span style="width:<%= get_progress_of_program(@program.id) %>%"></span>
+      </div>
+    </div>
   </div>
  
   <div class="center"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>

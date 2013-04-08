@@ -16,4 +16,14 @@ $(document).ready(function(){
     
     //var time = $('p.time').val(); #to be continued
 
+
+    $(".meter > span").each(function() {
+    	$(this)
+    	.data("origWidth", $(this).width())
+    	.width(0)
+    	.animate({
+    		width: $(this).data("origWidth")
+    	}, 1200);
+    });
+
 });
