@@ -8,9 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:new_user])
     respond_to do |format|
-      if @user.save 
+      if @user.save
         session[:user_id] = @user.id
         SignupMailer.signup_mail(@user).deliver
+        Message.new(:from => "1", :body => "Ti diamo il benvenuto alla nostra social gym #{@user.username.capitalize}, speriamo che tu ti possa divertire con noi! Lo staff di Kokko SocialGym", :to => @user.id).save
         format.js { render :action => 'registered.js.erb' }
       else
         format.js { render :action => 'error_registered.js.erb'}

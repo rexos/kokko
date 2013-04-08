@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406142718) do
+ActiveRecord::Schema.define(:version => 20130407122720) do
 
   create_table "associations", :force => true do |t|
     t.integer  "lesson_id"
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(:version => 20130406142718) do
     t.text     "body"
     t.integer  "from"
     t.integer  "to"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "read",       :default => false
   end
 
   create_table "programs", :force => true do |t|

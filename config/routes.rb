@@ -31,7 +31,7 @@ Kokkonut::Application.routes.draw do
   #feedbacks/statuses routes
   post "feedbacks/create" => "feedbacks#create"
   get "feedbacks/destroy" => "feedbacks#destroy"
-  
+
   #exercise routes
   get "exercises/new" => "exercises#new"
   post "exercises/create" => "exercises#create"
@@ -48,9 +48,12 @@ Kokkonut::Application.routes.draw do
   post "users/update" => "users#update"
   get "users/home_utente" => "users#home_utente"
   get "users/wall" => "users#wall"
-  
+
   #messages routes
   get "messages/new" => "messages#new"
   post "messages/create" => "messages#create"
+  get "messages/destroy" => "messages#destroy"
+  get "messages/show" => "messages#show"
+  get "messages/read" => "messages#set_read"
 
 end

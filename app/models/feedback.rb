@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: feedbacks
+#
+#  id         :integer          not null, primary key
+#  rating     :integer
+#  body       :text
+#  user_id    :integer
+#  program_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Feedback < ActiveRecord::Base
   belongs_to :user
   belongs_to :program
