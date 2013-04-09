@@ -1,6 +1,4 @@
-<%= link_to '<button class="btn btn-primary btn-default" ><i class="icon icon-plus"></i>&nbsp;&nbsp;Nuovo Messaggio</button>'.html_safe, action: :new %>
-
-<h3>Messaggi ricevuti (sezione rimovibile)</h3>
+<h3>Messaggi ricevuti</h3>
 <ul type="none">
   <% @messages.each do |m| %>
   <div class="alert alert-success">
@@ -12,10 +10,11 @@
     <h4><small>Ricevuto il : <%= m.created_at.to_s[0..9] %> alle : <%= m.created_at.to_s[11..15] %></small></h4>
     <% if !m.read %>
     <p class="read" id=<%= m.id %>>
-    <%= link_to '<input type="checkbox"></input>&nbsp;&nbsp;'.html_safe, action: :set_read, :message_id => m.id, :remote => true %>Letto
+    <%= link_to 'Letto', action: :set_read, :message_id => m.id, :remote => true %>
     </p>
     <% end %>
     <%= link_to '<p style="color:red"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, {action: :destroy, :message_id => m.id}, confirm: "Sei sicuro di voler eliminare il messaggio?\npremi OK per eliminarlo" %>
   </div>
   <% end %>
+  <%= link_to '<button class="btn btn-primary btn-default" ><i class="icon icon-plus"></i>&nbsp;&nbsp;Nuovo Messaggio</button>'.html_safe, action: :new %>
 </ul> 
