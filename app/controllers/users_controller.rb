@@ -64,4 +64,8 @@ class UsersController < ApplicationController
       @feedbacks = current_user.feedbacks.find(:all, :order => "created_at DESC")
   end
 
+  def search
+    @found_users = search_users(params[:research][:text])
+  end
+
 end

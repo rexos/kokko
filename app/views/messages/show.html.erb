@@ -18,3 +18,8 @@
   <% end %>
   <%= link_to '<button class="btn btn-primary btn-default" ><i class="icon icon-plus"></i>&nbsp;&nbsp;Nuovo Messaggio</button>'.html_safe, action: :new %>
 </ul> 
+
+<%= form_for :research, url: {controller: :users, action: :search} do |f| %>
+<%= f.text_field :text, placeholder: "Cerca qualcuno" %>
+<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>
+<% end  %>

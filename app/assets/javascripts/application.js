@@ -4,7 +4,6 @@
 //= require programs
 //= require exercises
 
-
 $(function () {
     // Custom selects
     $("select").dropkick();

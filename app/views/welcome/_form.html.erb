@@ -13,10 +13,11 @@
     <%= s.text_field :username,  placeholder: "Nome Utente"%><br />
     <%= s.password_field :password,  placeholder: "Password" %><br />
     <div style="width: 100px; margin: 0 auto">
-    <label class="checkbox" style="float:right"><%= s.check_box :remember_me%>
-    Ricordami</label></div>
+
+      <%= s.check_box :remember_me%>&nbsp;&nbsp;
+	Ricordami</div>
     </div>
-  <div class="modal-footer">
+    <div class="modal-footer">
     <button class="btn btn-danger btn-large"><i class="icon-signin"></i>&nbsp;&nbsp;Login</button>
     <button class="btn btn-large" data-dismiss="modal" aria-hidden="true"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>
   <% end %>
