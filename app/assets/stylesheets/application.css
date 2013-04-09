@@ -7,8 +7,121 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
+ *=require "bootstrap_and_overrides.css.less"
+ *=require "flat-ui.css"
  *= require_self
- *= require_tree .
+ *= require_tree 
+ 
  */
 
+.black{
+  color:black;
+}
+
+.red {
+  color:#a73d3b;
+}
+
+.light-red {
+  color: #b94a48;
+}
+
+.bg-red{
+  color:#a73d3b;
+}
+
+.bg-white{
+  color:white;
+}
+
+.green{
+  color:#5bb75b;
+}
+
+h2 {
+  margin: 40px;
+}
+
+
+html body ::selection {
+  background: #ff0066;
+  color: white;
+  text-shadow: none;
+}
+body {
+  padding: 0px;
+  font-size: 15px;
+}
+
+.center {
+  text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color:red;
+}
+
+a {
+  color: #fff;
+}
+
+a:active, a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+
+/* ---------------- OVERRIDE BOOTSTRAP ---------------- */
+.accordion-inner div li a {
+  color: #b94a48;
+  font-size: 25px;
+}
+
+.accordion-inner div li {
+  padding-top: 20px;
+}
+
+.accordion-inner div li a:active {
+  color: #a73d3b;
+}
+
+.accordion-inner p, .goal p {
+  padding-left: 20px;
+  padding-top: 5px;
+  font-size: 20px;
+  line-height: 2;
+}
+
+.accordion-group {
+  border: none;
+  border-top: 2px solid #ccc;
+}
+
+.nav-tabs li.active a h4 {
+  color: #a73d3b;
+}
+
+.nav-tabs li a {
+  background-color: rgb(232, 241, 238);
+}
+
+.nav-tabs > li > a {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;  
+}
+
+.nav-tabs a {
+  color: black;
+}
+
+#myTabContent {
+  background-color: white;
+  margin-top: -20px;
+  padding-top: 20px;
+}
+
+/* ---------------- END OVERRIDE BOOTSTRAP ---------------- */
