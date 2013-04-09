@@ -6,6 +6,9 @@ h1 a i:hover {
 	color: #a73d3b;
 }
 
+img {
+	width: 20%;
+}
 
 .meter { 
 	height: 20px;  /* Can be anything */
@@ -135,3 +138,38 @@ h1 a i:hover {
 	-webkit-animation: none;
 	background-image: none;
 }
+
+/* MENU UTENTE BORDI TONDI GRIGI BIANCHI
+.span-odd-dx{
+	border: 5px solid #bbb;
+	border-radius: 200px;
+	background-color: #ccc; 
+	
+}
+
+.span-odd-sx{
+	border: 5px solid #ddd;
+	border-radius: 200px;
+	background-color: #fff; 
+	
+}
+
+.span-sx{
+	border-radius: 200px;
+	border: 5px solid #bbb;
+	background-color: #ccc;
+}
+
+.span-sx:active, .span-odd-dx:active {
+	background-color: #bbb;
+}
+
+.span-dx:active, .span-odd-sx:active {
+	background-color: #ddd;
+}
+
+.span-dx{
+	border-radius: 200px;
+	border: 5px solid #ddd;
+	background-color: #fff;
+}  */
