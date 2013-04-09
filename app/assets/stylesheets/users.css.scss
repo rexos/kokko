@@ -31,3 +31,15 @@ a {
 img.home-icon {
 	width: 60%;
 }
+
+div.h-icon {
+	padding: 10px;
+	border-radius: 20px;
+	transition-property: background-color;
+  	transition-duration: 0.5s;
+  	transition-timing-function: ease;
+}
+
+div.h-icon:hover {
+	background-color: #ECF0F1;
+}
