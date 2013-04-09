@@ -11,17 +11,9 @@
  *=require "flat-ui.css"
  *= require_self
  *= require_tree 
- 
  */
 
-.bg_torq_light{
-	background-color: #95A5A6;
-}
-
-.bg_torq_dark{
-	background-color: #7F8C8D;
-}
-
+@import "settings";
 
 .white{
 	color:#fff;
@@ -77,6 +69,10 @@ a {
 	color: #fff;
 }
 
+a:hover {
+  text-decoration: none;
+  color: #fff;
+}
 
 
 
@@ -93,7 +89,19 @@ a {
 }
 
 .accordion-heading{
-	background-color: #7F8C8D;
+	background-color: $torquoise;
+}
+
+.accordion-heading:hover{
+  background-color: $wet_asphalt;
+}
+
+.accordion-heading a{
+  color: $midnight_blue;
+}
+
+.accordion-heading:hover a{
+  color: white;
 }
 
 .accordion-inner div li {
@@ -113,10 +121,7 @@ a {
 
 .accordion-group {
   border: none;
-  border-top: 2px solid #ccc;
 }
-
-
 
 .nav-tabs li a {
   background-color: rgb(232, 241, 238);
