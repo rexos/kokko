@@ -1,0 +1,4 @@
+alert('<%= escape_javascript(@found_users.to_s) %>');
+$('div.alert-warning').hide();
+$('body').append('<%= escape_javascript(render :partial => "results", :collection => @found_users) %>');
+

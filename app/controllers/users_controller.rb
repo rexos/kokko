@@ -66,6 +66,9 @@ class UsersController < ApplicationController
 
   def search
     @found_users = search_users(params[:research][:text])
+    respond_to do |format|
+      format.js { render :action =>:found_users }
+    end
   end
 
 end
