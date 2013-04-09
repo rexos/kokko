@@ -1,8 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require exercises
 //= require programs
+//= require exercises
 
 
 $(function () {
