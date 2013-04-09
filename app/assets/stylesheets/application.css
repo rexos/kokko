@@ -14,6 +14,19 @@
  
  */
 
+.bg_torq_light{
+	background-color: #95A5A6;
+}
+
+.bg_torq_dark{
+	background-color: #7F8C8D;
+}
+
+
+.white{
+	color:#fff;
+}
+
 .black{
   color:black;
 }
@@ -48,9 +61,11 @@ html body ::selection {
   color: white;
   text-shadow: none;
 }
+
 body {
   padding: 0px;
   font-size: 15px;
+  background-color: #fff;
 }
 
 .center {
@@ -59,23 +74,25 @@ body {
 
 a {
 	text-decoration: none;
-	color:red;
+	color: #fff;
 }
 
-a {
-  color: #fff;
-}
 
-a:active, a:hover {
-  color: #000;
-  text-decoration: none;
-}
+
 
 
 /* ---------------- OVERRIDE BOOTSTRAP ---------------- */
 .accordion-inner div li a {
-  color: #b94a48;
+  color: #000;
   font-size: 25px;
+}
+
+.btn {
+	border: 2px #fff solid;
+}
+
+.accordion-heading{
+	background-color: #7F8C8D;
 }
 
 .accordion-inner div li {
@@ -98,9 +115,7 @@ a:active, a:hover {
   border-top: 2px solid #ccc;
 }
 
-.nav-tabs li.active a h4 {
-  color: #a73d3b;
-}
+
 
 .nav-tabs li a {
   background-color: rgb(232, 241, 238);

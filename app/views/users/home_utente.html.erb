@@ -7,8 +7,7 @@
 -->
 
 <div class="center">
-  <h2 class="black"><i class="icon-list"></i>&nbsp;<span style="color: #282828;
-    text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">Programmi Allenamento</span></h2>
+  <h2 class="black"><i class="icon-list"></i>&nbsp;Programmi Allenamento</h2>
   </div>
   
   <% if @programs.count == 0 %>
@@ -213,18 +212,18 @@
        <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
         <% if progress > 0 %>
-        <div class="accordion-group" >  
-          <div class="accordion-heading">  
-            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#MieiTraining" href="#<%= p.id %>">  
-              <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
+        <div class="accordion-group bg_torq_dark" >  
+          <div class="accordion-heading ">  
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#MieiTraining" href="#<%= p.id %>">  
+              <h3>
                 <%= p.title %> 
               </h3>      
             </a>  
           </div>  
-          <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-            <div class="accordion-inner black" style="background-color: #fff">  
+          <div id="<%= p.id %>" class="accordion-body collapse" >  
+            <div class="accordion-inner black bg_torq_light">  
               <p><%= p.description %></p>
-              <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+              <p><%=link_to '<button class="btn btn-large btn-primary" ><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
               </p>
             </div>   
           </div>  
@@ -243,16 +242,16 @@
         <% if progress == 0 && p.difficulty.to_s =='Principiante' %>
         <div class="accordion-group" > 
           <div class="accordion-heading">  
-            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#Principiante" href="#<%= p.id %>">  
-              <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#Principiante" href="#<%= p.id %>">  
+              <h3>
                <%= p.title %> 
              </h3>      
            </a>  
          </div>  
-         <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-          <div class="accordion-inner black" style="background-color: #fff">  
+         <div id="<%= p.id %>" class="accordion-body collapse" >  
+          <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+            <p><%=link_to '<button class="btn btn-large btn-success"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
@@ -268,16 +267,16 @@
         <% if progress == 0 && p.difficulty.to_s =='Intermedio' %>
         <div class="accordion-group" > 
           <div class="accordion-heading">  
-            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218); " data-toggle="collapse" data-parent="#Intermedio" href="#<%= p.id %>">  
-              <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
+            <a class="accordion-toggle"  data-toggle="collapse" data-parent="#Intermedio" href="#<%= p.id %>">  
+              <h3>
                <%= p.title %> 
              </h3>      
            </a>  
          </div>  
-         <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-          <div class="accordion-inner black" style="background-color: #fff">  
+         <div id="<%= p.id %>" class="accordion-body collapse">  
+          <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+            <p><%=link_to '<button class="btn btn-large btn-success"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
@@ -294,16 +293,16 @@
         <% if progress == 0 && p.difficulty.to_s == 'Avanzato' %>
         <div class="accordion-group" > 
           <div class="accordion-heading">  
-            <a class="accordion-toggle" style="background-color: rgb(228, 218, 218);" data-toggle="collapse" data-parent="#Avanzato" href="#<%= p.id %>">  
-              <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#Avanzato" href="#<%= p.id %>">  
+              <h3>
                <%= p.title %> 
              </h3>      
            </a>  
          </div>  
-         <div id="<%= p.id %>" class="accordion-body collapse" style="height: 0px; ">  
-          <div class="accordion-inner black" style="background-color: #fff">  
+         <div id="<%= p.id %>" class="accordion-body collapse" >  
+          <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+            <p><%=link_to '<button class="btn btn-large btn-success"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
