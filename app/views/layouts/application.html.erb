@@ -28,7 +28,7 @@
         <div class="span12" id="light-menu">
           <ul type="none">
 	    <% if current_user_message_count > 0 %>
-	    <li><%= pluralize(current_user_message_count, 'message') %></li>
+	    <li id="msg_notification"><%= pluralize(current_user_message_count, 'message') %></li>
 	    <% end %>
             <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :home_utente %></li>
 	    <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>

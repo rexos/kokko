@@ -31,8 +31,9 @@ class MessagesController < ApplicationController
         def set_read
           @message = Message.find(params[:message_id])
           @message.update_attributes(:read => true);
+          @message_id = @message.id
           respond_to do |format|
-            format.js { render :nothing => true }
+            format.js { render :action => :read }
           end
         end
 
