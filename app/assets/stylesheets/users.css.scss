@@ -23,39 +23,23 @@
 	border: 2px #fff solid;
 }
 
-.span-odd-dx{
-	border: 5px solid #bbb;
-	border-radius: 200px;
-	background-color: #ccc; 
-	
+a {
+	text-decoration: none;
+	color: #fff;
 }
 
-.span-odd-sx{
-	border: 5px solid #ddd;
-	border-radius: 200px;
-	background-color: #fff; 
-	
+img.home-icon {
+	width: 60%;
 }
 
-.span-sx{
-	border-radius: 200px;
-	border: 5px solid #bbb;
-	background-color: #ccc;
+div.h-icon {
+	padding: 10px;
+	border-radius: 20px;
+	transition-property: background-color;
+  	transition-duration: 0.5s;
+  	transition-timing-function: ease;
 }
 
-.span-sx:active, .span-odd-dx:active {
-	background-color: #bbb;
+div.h-icon:hover {
+	background-color: #ECF0F1;
 }
-
-.span-dx:active, .span-odd-sx:active {
-	background-color: #ddd;
-}
-
-.span-dx{
-	border-radius: 200px;
-	border: 5px solid #ddd;
-	background-color: #fff;
-}
-
-
-

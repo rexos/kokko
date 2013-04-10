@@ -2,29 +2,36 @@
 
 	    <div class="row-fluid menu-el">
 	    <% progress = get_progress_of_program(@program.id) %>
+	    
 	    <% if progress == 0%>
 	      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
 	      <div class="span6 center span-sx black">
-		<h2><i class="icon-list red"></i>&nbsp;INIZIA</h2>
+			<h2><!-- <i class="icon-list red"></i> -->&nbsp;INIZIA</h2>
+	      	<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
 	      </div>  
 	      <% end %>
+	    
 	    <% elsif progress>0 && progress<100%>
 	    	<%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
 	      	<div class="span6 center span-sx black">
-				<h2><i class="icon-list red"></i>&nbsp;CONTINUA</h2>
+				<h2><!-- <i class="icon-list red"></i> -->&nbsp;CONTINUA</h2>
+				<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
 	      	</div>  
 	      	<% end %>
+	    
 	    <%else %>
 	    	<%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
 	      	<div class="span6 center span-sx black">
-				<h2><i class="icon-list red"></i>&nbsp;RICOMINCIA</h2>
+				<h2><!-- <i class="icon-list red"></i> -->&nbsp;RICOMINCIA</h2>
+				<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
 	      	</div>  
 	      	<% end %>
 	    <% end %>
 	      
 	    <%= link_to ({action: :progresses, :prog_id => @program.id}) do %>
 	      <div class="span6 center span-dx" >
-		<h2 class="red"><i class="icon-bar-chart black"></i>&nbsp;PROGRESSI</h2>
+		<h2 class="red"><!-- <i class="icon-bar-chart black"></i> -->&nbsp;PROGRESSI</h2>
+		<%= image_tag ("illustrations/clipboard.png"), :class => "menu-icon" %>
 	      </div>	      
 	    </div>
 	    <% end %>
@@ -33,12 +40,14 @@
 	    <div class="row-fluid menu-el ">
 	    	<a href="#">
 	      		<div class="span6 center span-odd-sx">
-				<h2 class="red"><i class="icon-calendar black"></i>&nbsp;CALENDARIO</h2>
+				<h2 class="red"><!-- <i class="icon-calendar black"></i>&nbsp; -->CALENDARIO</h2>
+				<%= image_tag ("illustrations/calendar.png"), :class => "menu-icon" %>
 	      		</div>
 	  		</a>
 	  		<a href="#">	
 	      		<div class="span6 center span-odd-dx black"> 
-				<h2 class><i class="icon-envelope red"></i>&nbsp;MESSAGGI</h2>
+				<h2 class><!-- <i class="icon-envelope red"></i>&nbsp; -->MESSAGGI</h2>
+				<%= image_tag ("illustrations/mail.png"), :class => "menu-icon" %>
 	      		</div>
 	  		</a>
 	    </div>
@@ -46,12 +55,14 @@
 	    <div class="row-fluid menu-el">
 	    	<a href="#">
 	      <div class="span6 center span-sx black">
-		<h2><i class="icon-comments red"></i>&nbsp;BACHECA</h2>
+		<h2><!-- <i class="icon-comments red"></i>&nbsp; -->BACHECA</h2>
+		<%= image_tag ("illustrations/book.png"), :class => "menu-icon" %>
 	      </div>
 	  	</a>
 	      <a href="#">
 	      <div class="span6 center span-dx">
-		<h2 class="red"><i class="icon-group black"></i>&nbsp;AMICI</h2>
+		<h2 class="red"><!-- <i class="icon-group black"></i>&nbsp; -->AMICI</h2>
+		<%= image_tag ("illustrations/colors.png"), :class => "menu-icon" %>
 	      </div></a>
 	    </div>
 

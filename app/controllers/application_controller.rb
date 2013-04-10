@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include ProgramsHelper
+  include UsersHelper
   include MessagesHelper
 
   rescue_from CanCan::AccessDenied do |exce|
