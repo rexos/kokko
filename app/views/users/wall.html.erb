@@ -17,7 +17,9 @@
       <h4>
 	<small>
 	  <%= current_user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
+	  commentato con rating al programma :
 	</small>
+	<%= f.rating %>
       </h4>
       <% end %>
       <%= f.body %><br />

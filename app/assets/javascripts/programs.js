@@ -39,4 +39,9 @@ $(document).ready(function(){
     	}, 1200);
     });
 
+    $('span.star').click(function(){
+	    var star_id = parseInt($(this).attr('id').substr(4,4));
+	    $('#rating_field').attr('value',star_id);
+	});
+
 });

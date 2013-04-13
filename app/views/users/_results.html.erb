@@ -1,9 +1,8 @@
 
 
-  <% @found_users.each do |f| %>
-  <div class="alert alert-warning">
-    <%= f.username.capitalize %>
-    <%= f.email %>
-  </div>
-  <% end %>
+<% @found_users.each do |f|%>
+<div class="alert alert-warning">
+  Username : <%= f.username.capitalize %>, email : <%= f.email %>
+</div>
+<% end  %>
 

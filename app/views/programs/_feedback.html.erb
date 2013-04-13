@@ -9,16 +9,17 @@
     <b>RATING</b>
     <br />
     <span class="rating">
-      <span class="star"></span>
-      <span class="star"></span>
-      <span class="star"></span>
-      <span class="star"></span>
-      <span class="star"></span>
+      <span id="star5" class="star"></span>
+      <span id="star4" class="star"></span>
+      <span id="star3" class="star"></span>
+      <span id="star2" class="star"></span>
+      <span id="star1" class="star"></span>
     </span>
     <br />
     <br />
     <%= form_for :feedback, url: {:controller => :programs, :action => :add_feedback}, :remote => true do |f| %>
     <%= f.hidden_field :program_id, value: @done_program.id %>
+    <%= f.hidden_field :rating, :id => "rating_field", :value => 0 %>
     <%= f.text_area :body, :placeholder => "Il Tuo Commento ...", rows: 5 %>
   </div>
   <div class="modal-footer">
