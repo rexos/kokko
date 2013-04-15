@@ -71,4 +71,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def visit
+    if params[:visited_user_id].to_i == current_user.id
+      redirect_to action: :wall
+    else
+      @visited_user = visit_user(params[:visited_user_id])
+      @visited_user_feedbacks = @visited_user.feedbacks.find( :all, :order => "created_at DESC" )
+    end
+  end
+
+  def friends
+  end
+
+  def follow
+    @relationship = Relationship.new(:follower => current_user.id, :followed => params[:followed])
+    respond_to do |format|
+      if @relationship.save
+        format.js { render action: :followed }
+      else
+        format.js { render :nothing => true }
+      end
+    end
+  end
+
 end

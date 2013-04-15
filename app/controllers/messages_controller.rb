@@ -10,15 +10,17 @@ class MessagesController < ApplicationController
 	def create
           @name = params[:message][:reciever]
           @reciever = User.find_by_username(@name.downcase)
-          if @reciever
-            @message = Message.new(:from => current_user.id, :to => @reciever.id, :body => params[:message][:body])
-            if @message.save
-              redirect_to controller: :users, action: :home_utente
+          respond_to do |format|
+            if @reciever
+              @message = Message.new(:from => current_user.id, :to => @reciever.id, :body => params[:message][:body])
+              if @message.save
+                format.js { render action: :sent }
+              else
+                format.js { render :action => :sending_error }
+              end
             else
-              render action: :new
+              format.js { render :action => :sending_error }
             end
-          else
-            render action: :new
           end
         end
 

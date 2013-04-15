@@ -16,10 +16,7 @@
     <%= link_to '<p style="color:red"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, {action: :destroy, :message_id => m.id}, confirm: "Sei sicuro di voler eliminare il messaggio?\npremi OK per eliminarlo" %>
   </div>
   <% end %>
-  <%= link_to '<button class="btn btn-primary btn-default" ><i class="icon icon-plus"></i>&nbsp;&nbsp;Nuovo Messaggio</button>'.html_safe, action: :new %>
+  <li><button class="btn btn-info" href="#new-message-modal" data-toggle="modal"><i class="icon-plus"></i>&nbsp;Nuovo Messaggio</li></a></li>
 </ul> 
 
-<%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
-<%= f.text_field :text, placeholder: "Cerca qualcuno" %>
-<!--<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>-->
-<% end  %>
+<%= render "new_message" %>

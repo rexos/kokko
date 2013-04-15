@@ -1,8 +1,12 @@
 
-
 <% @found_users.each do |f|%>
 <div class="alert alert-warning">
-  Username : <%= f.username.capitalize %>, email : <%= f.email %>
+  Username : <%= f.username.capitalize %><br />
+  <%= link_to :controller => :users, :action => :visit, :visited_user_id => f.id do %>
+  <button class="btn btn-info btn-mini">
+    Wall di <%= f.username.capitalize %>
+  </button>
+  <% end %>
 </div>
 <% end  %>
 

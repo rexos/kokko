@@ -13,7 +13,7 @@
 class Message < ActiveRecord::Base
   attr_accessible :body, :from, :to, :read
 
-  validates :to, :presence => true
-  validates :body, :presence => true
+  validates_presence_of :to
+  validates_presence_of :body
 
 end

@@ -32,7 +32,11 @@
 	    <li id="msg_notification"><%= current_user_message_count %> <%= current_user_message_count == 1 ? "messaggio" : "messaggi" %></li>
 	    <% end %>
 	    <% end %>
-            <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :home_utente %></li>
+            <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :home_utente %>
+	      <% if current_user.first_name && !current_user.first_name.blank? %>
+	      (<%=current_user.first_name%>)
+	      <% end %>
+	    </li>
 	    <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
             <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
           </ul> 
