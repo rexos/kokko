@@ -1,7 +1,8 @@
-  <div class="center page-title">
-    <h2><i class="icon-list black"></i>&nbsp;<%=@lesson.title%></h2>
+  <div class="page-title">
+    <h2 class="center">
+        <i class="icon-list"></i>&nbsp;<%=@lesson.title%>
+    </h2>
   </div>
-  
   
   <% if @lesson.exercises.count == 0 %> 
   <div class="alert alert-error">
