@@ -4,3 +4,17 @@
 <%= f.text_field :text, placeholder: "Cerca qualcuno" %>
 <!--<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>-->
 <% end  %>
+
+<ul type="none">
+  <% @current_user_friends.each do |friend|  %>
+  <div id=<%= friend.id %> class="well" style="width:30%">
+    <%= friend.username.capitalize %>
+    <%= link_to action: :visit, :visited_user_id => friend.id do %>
+    <button style="float:right"><i class="icon-eye-open"></i>&nbsp;Visit</button>
+    <% end %>
+    <%= link_to action: :remove_friend, :removed_friend_id => friend.id, :remote => true do %>
+    <button style="float:right"><i class="icon-remove"></i>&nbsp;Remove</button>
+    <% end %>
+  </div>
+  <% end %>
+</ul>

@@ -1,7 +1,8 @@
 <h1>Wall di <%= @visited_user.username.capitalize %></h1>
 <br />
-
-<%= link_to '<button class="btn btn-warning"><i class="icon icon-group"></i>&nbsp;&nbsp;Segui</button>'.html_safe, :remote => true, :action => :follow, :followed => @visited_user.id %>
+<% if !Relationship.where( :follower => current_user.id, :followed => @visited_user.id ).first %>
+<%= link_to '<button id="follow" class="btn btn-warning"><i class="icon icon-group"></i>&nbsp;&nbsp;Segui</button>'.html_safe, :remote => true, :action => :follow, :followed => @visited_user.id %>
+<% end %>
 <br />
 <br />
 <div class="well">
@@ -11,7 +12,7 @@
       <% if f.program_id %>
       <h4>
 	<small>
-	  <%= current_user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
+	  <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
 	  commentato con rating al programma :
 	</small>
 	<%= f.rating %>

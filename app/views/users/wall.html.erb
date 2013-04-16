@@ -16,7 +16,7 @@
       <% if f.program_id %>
       <h4>
 	<small>
-	  <%= current_user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
+	  <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
 	  commentato con rating al programma :
 	</small>
 	<%= f.rating %>

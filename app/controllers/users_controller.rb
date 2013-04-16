@@ -80,10 +80,25 @@ class UsersController < ApplicationController
   end
 
   def friends
+    @current_user_friends_ids = Relationship.where( :follower => current_user.id )
+    @current_user_friends = Array.new
+    @current_user_friends_ids.each do |rel|
+      @current_user_friends.push User.find(rel.followed)
+    end
+  end
+
+  def remove_friend
+    @removed_id = params[:removed_friend_id]
+    Relationship.where( :follower => current_user.id, :followed => @removed_id ).first.destroy
+    respond_to do |format|
+      format.js { render action: :friend_removed }
+    end
   end
 
   def follow
     @relationship = Relationship.new(:follower => current_user.id, :followed => params[:followed])
+    @followed = User.find(params[:followed]).username
+    current_user.feedbacks.new( :body => "#{current_user.username.capitalize} ha aggiunto #{@followed.capitalize} tra gli amici!").save
     respond_to do |format|
       if @relationship.save
         format.js { render action: :followed }
