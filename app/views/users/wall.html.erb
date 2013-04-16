@@ -1,6 +1,6 @@
 <div class="page-title">
   <h2 class="center">
-      <i class="icon-e"></i>&nbsp;Bacheca di <%= current_user.username.capitalize %>
+      <i class="icon-comments-alt"></i>&nbsp;Bacheca di <%= current_user.username.capitalize %>
   </h2>
   
 </div>
@@ -12,25 +12,32 @@
   <% end %>
 </div>
 
-<div class="well">
-  
+<div class="row-fluid ">
+    
     <% @feedbacks.each do |f| %>
-    <div class="row-fluid" id= <%= f.id %> >
+    <div class="row-fluid message-row" id= <%= f.id %> >
+      <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
+      &nbsp;&nbsp;
+      <i class="icon-quote-left"></i>&nbsp;
       <% if f.program_id %>
+    
     <h4>
+    
 	  <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
 	  commentato con rating al programma :
 	  <%= f.rating %>
     <% end %>
     <%= f.body %>
+    &nbsp;<i class="icon-quote-right"></i>
     </h4>
     <br />
     <small>
 	  Scritto il : <%= f.created_at.to_s[0..9] %> alle : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
-	  <%= link_to '<i class="icon icon-remove"></i>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
+	  <%= link_to '<span style="color:red; font-size: 20px"><i class="icon icon-remove"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
 	  </small>
+
     </div>
-    
     <% end %>
+    
   
 </div>

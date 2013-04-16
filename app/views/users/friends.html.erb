@@ -1,25 +1,29 @@
 <div class="page-title">
   <h2 class="center">
-      <i class="icon-film"></i>&nbsp;I miei amici
+      <i class="icon-group"></i>&nbsp;I miei amici
   </h2>
 </div>
-<br />
+
+<div class="row-fluid center">
 <%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
-<%= f.text_field :text, placeholder: "Cerca qualcuno" %>
+<%= f.text_field :text, placeholder: "Cerca qualcuno" %>&nbsp;<button class="btn btn-info"><i class="icon icon-search"></i></button>
 <!--<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>-->
 <% end  %>
+</div>
 
 
-<ul type="none">
+<div class="well">
+  <h3>Chi seguo:</h3>
   <% @current_user_friends.each do |friend|  %>
-  <div id=<%= friend.id %> class="well" style="width:30%">
-    <%= friend.username.capitalize %>
+  <div id=<%= friend.id %> class="row-fluid friend-row" style="width:30%">
+    <h4>  <strong><%= friend.username.capitalize %></strong>&nbsp;&nbsp;
     <%= link_to action: :visit, :visited_user_id => friend.id do %>
-    <button style="float:right"><i class="icon-eye-open"></i>&nbsp;Visit</button>
+    <button class="btn btn-success"><i class="icon-eye-open"></i>&nbsp;Visit</button>
     <% end %>
     <%= link_to action: :remove_friend, :removed_friend_id => friend.id, :remote => true do %>
-    <button style="float:right"><i class="icon-remove"></i>&nbsp;Remove</button>
+    <button class="btn btn-danger"><i class="icon-remove"></i>&nbsp;Remove</button>
     <% end %>
+    <h4>
   </div>
   <% end %>
-</ul>
+</div>
