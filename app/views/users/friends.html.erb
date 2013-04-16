@@ -1,9 +1,14 @@
-<h1>I miei amici</h1>
+<div class="page-title">
+  <h2 class="center">
+      <i class="icon-film"></i>&nbsp;I miei amici
+  </h2>
+</div>
 <br />
 <%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
 <%= f.text_field :text, placeholder: "Cerca qualcuno" %>
 <!--<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>-->
 <% end  %>
+
 
 <ul type="none">
   <% @current_user_friends.each do |friend|  %>
