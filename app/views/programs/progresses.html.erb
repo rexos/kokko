@@ -24,11 +24,10 @@
   -->
 
 <% @program.lessons.each do |l| %>
-
   <div class="row-fluid">
     <div class="span2" style="text-align: right;margin-top:10px"><strong><%= l.title %></strong></div>
     <div class="span8">
-      <div class="meter nostripes" style="margin-top:0px;width:100%; border: 2px solid #ccc">
+      <div class="meter nostripes" style="margin-top:0px;width:100%; border: 2px solid #BDC3C7">
         <span style="width: <%= get_progress_of_lesson(l.id) %>%"></span>
       </div>
     </div>
@@ -41,7 +40,7 @@
     <h3 class="center page-title">Progressi totali
     </h3>
     <div class="span10 offset1">
-      <div class="meter red" style="margin-top:0px;width:100%; border: 2px solid #ccc" >
+      <div class="meter red" style="margin-top:0px;width:100%; border: 2px solid #BDC3C7" >
         <span style="width:<%= get_progress_of_program(@program.id) %>%"></span>
       </div>
     </div>
