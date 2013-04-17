@@ -1,3 +1,5 @@
+@import "settings";
+
 #row-line-top {
   background-color: #a73d3b;
 }
@@ -95,9 +97,6 @@
   padding-right: 20px;
 }
 
-
-
-
 .padd-odd {
   padding-right: 20px;
   font-size: 30px;
@@ -107,7 +106,9 @@
   font-size: 30px;
 }
 
-
+.modal-header {
+    background-color: $midnight_blue;
+}
 
 
 
