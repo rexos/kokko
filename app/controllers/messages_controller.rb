@@ -27,7 +27,10 @@ class MessagesController < ApplicationController
         def destroy
           @message = Message.find(params[:message_id])
           @message.destroy
-          redirect_to action: :show
+          @destroyed_message_id = params[:message_id]
+          respond_to do |format|
+            format.js { render :action => :destroyed }
+          end
         end
 
         def set_read

@@ -1,7 +1,7 @@
 <h3>Messaggi ricevuti</h3>
 <ul type="none">
   <% @messages.each do |m| %>
-  <div class="alert alert-success">
+  <div id=<%= m.id %> class="alert alert-success">
     <h4><small>From :</small></h4>
     <%= User.find(m.from).username.capitalize %>
     <br />
@@ -9,11 +9,11 @@
     <%= m.body %><br />
     <h4><small>Ricevuto il : <%= m.created_at.to_s[0..9] %> alle : <%= m.created_at.to_s[11..15] %></small></h4>
     <% if !m.read %>
-    <p class="read" id=<%= m.id %>>
+    <p class="read" id="label-<%= m.id %>">
     <%= link_to 'Letto', action: :set_read, :message_id => m.id, :remote => true %>
     </p>
     <% end %>
-    <%= link_to '<p style="color:red"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, {action: :destroy, :message_id => m.id}, confirm: "Sei sicuro di voler eliminare il messaggio?\npremi OK per eliminarlo" %>
+    <%= link_to '<p style="color:red"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, {action: :destroy, :message_id => m.id}, confirm: "Sei sicuro di voler eliminare il messaggio?\npremi OK per eliminarlo", :remote => true %>
   </div>
   <% end %>
   <li><button class="btn btn-info" href="#new-message-modal" data-toggle="modal"><i class="icon-plus"></i>&nbsp;Nuovo Messaggio</li></a></li>

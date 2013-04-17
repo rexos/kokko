@@ -1,5 +1,5 @@
 alert("Messaggio segnato come \"letto\"");
-$('#<%= escape_javascript(@message_id.to_s) %>').fadeOut('fast');
+$('#label-<%= escape_javascript(@message_id.to_s) %>').fadeOut('fast');
 var msg_num = parseInt($('#msg_notification').text().substr(0,2));
     if(msg_num - 1 == 0){
     	       $('#msg_notification').fadeOut('fast');
