@@ -1,13 +1,14 @@
 <div class="page-title">
-  <%= gravatar_for( current_user, 80 ) %>
   <h2 class="center">
       <i class="icon-comments-alt"></i>&nbsp;Bacheca di <%= current_user.username.capitalize %>
   </h2>  
 </div>
 
 <div class="well center">
+
   <%= form_for :feedback, url: {controller: :feedbacks, action: :create} do |f| %>
-  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 4 %><br />
+  <%= gravatar_for( current_user, 60 )%> &nbsp;&nbsp;
+  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 3%><br />
   <button type="submit" class="btn btn-info btn-default"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica!</button>
   <% end %>
 </div>
