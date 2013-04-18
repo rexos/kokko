@@ -1,26 +1,26 @@
 @import "settings";
 
 #row-line-top {
-  background-color: #a73d3b;
+  background-color: $midnight_blue;
 }
 #row-line-main {
-  background-color: #b94a48;
+  background-color: $wet_asphalt;
   color: #ffffff;
 }
 #row-line-button {
-  background-color: #ebebeb;
+  background-color: $clouds;
 }
 #row-line-first {
   background-color: #ffffff;
-  color: #b94a48;
+  color: $wet_asphalt;
 }
 #row-line-second {
-  background-color: #b94a48;
-  color: #ffffff;
+  background-color: $wet_asphalt;
+  color: #fff;
 }
 #row-line-third {
-  background-color: #ffffff;
-  color: #b94a48;
+  background-color: #fff;
+  color: $wet_asphalt;
 }
 #row-line-bottom {
   background-color: #222222;
@@ -30,7 +30,7 @@
 .main-title {
   font-size: 90px;
   line-height: 1;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.85);
+  /*text-shadow: 0 4px 4px rgba(0, 0, 0, 0.85);*/
   font-family: 'Montserrat', Helvetica, sans-serif;
 }
 #subtitle {
@@ -50,8 +50,8 @@
   line-height: 1.5;
 }
 .button-style {
-  width: 70%;
-  padding: 30px 0px;
+  width: 80%;
+  padding: 10px;
   font-size: 30px;
 }
 
@@ -71,7 +71,7 @@
   height: 0px;
   border-style: solid;
   border-width: 50px 50px 0 50px;
-  border-color: #b94a48 transparent transparent transparent;
+  border-color: $wet_asphalt transparent transparent transparent;
 }
 #triangle-bottom {
   margin: 0 auto;
