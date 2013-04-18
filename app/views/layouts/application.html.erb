@@ -28,11 +28,11 @@
         <div class="span12" id="light-menu">
           <ul type="none">
           <%= link_to controller: :messages, action: :show do %>
-          <li id="msg_notification"><i class="icon icon-envelope"></i></li>
-	    <!--<% if current_user_message_count > 0 %>
-
-	    
-	    <% end %>-->
+          <li id="msg_notification"><i class="icon icon-envelope"></i>
+	  <% if current_user_message_count > 0 %>
+	  &nbsp;&nbsp;<%= current_user_message_count %> new
+	  <% end %>
+	  </li>
 	    <% end %>
             <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :home_utente %>
 	      <% if current_user.first_name && !current_user.first_name.blank? %>

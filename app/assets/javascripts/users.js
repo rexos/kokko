@@ -9,6 +9,6 @@ $(document).ready(function(){
 			type: "GET",
 			url: "/messages/get_new_messages"
 		    });
-	    }, 5000);
+	    }, 3000);
 });
 
