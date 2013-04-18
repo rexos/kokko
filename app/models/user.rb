@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :statuses
   has_many :feedbacks, :dependent => :destroy
   has_many :associations, :through => :status
+  has_many :messages, :foreign_key => :to, :dependent => :destroy
 
   #before create/update methods
   before_create { |user| user.email = email.downcase }

@@ -42,4 +42,13 @@ class MessagesController < ApplicationController
           end
         end
 
+        def get_new_messages
+          @new_messages = current_user.messages.where( :read => false ).count
+          if request.xhr?
+            respond_to do |format|
+              format.js { render :action => :new_messages }
+            end
+          end
+        end
+
 end

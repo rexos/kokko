@@ -1,5 +1,4 @@
 Kokkonut::Application.routes.draw do
-  
 
   #sessions routes
   post "sessions/create" =>"sessions#create"
@@ -61,5 +60,6 @@ Kokkonut::Application.routes.draw do
   get "messages/destroy" => "messages#destroy"
   get "messages/show" => "messages#show"
   get "messages/read" => "messages#set_read"
+  get "*messages/get_new_messages" => "messages#get_new_messages"
 
 end
