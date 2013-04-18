@@ -25,9 +25,9 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id])
     else
       @current_user ||= User.find_by_token(cookies[:token]) if !cookies[:token].nil?
-    end 
+    end
   end
-  
+
   def store_current_path
     session[:current_path] = request.fullpath
   end

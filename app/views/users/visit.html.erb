@@ -1,4 +1,5 @@
 <h1>Wall di <%= @visited_user.username.capitalize %></h1>
+<%= gravatar_for( @visited_user, 80 ) %>
 <br />
 <% if !Relationship.where( :follower => current_user.id, :followed => @visited_user.id ).first %>
 <%= link_to '<button id="follow" class="btn btn-warning"><i class="icon icon-group"></i>&nbsp;&nbsp;Segui</button>'.html_safe, :remote => true, :action => :follow, :followed => @visited_user.id %>
