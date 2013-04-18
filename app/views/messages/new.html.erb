@@ -1,8 +1,0 @@
-<h1>Nuovo messaggio</h1>
-<%= form_for :message, url: {controller: :messages, action: :create} do |f| %>
-<%= f.text_field :reciever, :placeholder => 'Destinatario' %><br />
-<%= f.text_area :body, :placeholder => 'Testo...', :rows => 5%><br />
-<button type="submit" class="btn btn-defatult btn-success"><i class="icon icon-envelope"></i>&nbsp;&nbsp;Send</button>
-<% end %>
-
-

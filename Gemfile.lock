@@ -144,7 +144,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.9)
   rspec
-  sass-rails (~> 3.2.3)
+  sass-rails
   sqlite3
   therubyracer
   twitter-bootstrap-rails

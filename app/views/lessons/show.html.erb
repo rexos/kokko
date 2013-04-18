@@ -1,8 +1,8 @@
-  <div class="center">
-    <h2><i class="icon-list black"></i>&nbsp;<span style="color: #282828;
-text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><%=@lesson.title%></span></h2>
+  <div class="page-title">
+    <h2 class="center">
+        <i class="icon-list"></i>&nbsp;<%=@lesson.title%>
+    </h2>
   </div>
-  
   
   <% if @lesson.exercises.count == 0 %> 
   <div class="alert alert-error">
@@ -13,24 +13,23 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><%=@lesson.title%></span
 
    <div class="accordion" id="accordion2">
       <% @lesson.exercises.each do |e| %>  
-            <div class="accordion-group" style="border-top: 2px solid #ccc;border-bottom: 2px solid #ccc">  
+            <div class="accordion-group"  >  
               <div class="accordion-heading">  
-                <a style="background-color: rgb(228, 218, 218);" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= e.id %>">  
-                 <h3 style="color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;"><i class="icon-play light-red"></i>&nbsp;<%= e.name %>&nbsp;&nbsp;
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= e.id %>">  
+                 <h3><i class="icon-play light-red"></i>&nbsp;<%= e.name %>&nbsp;&nbsp;
                  <%if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}%>
-                  <!--<span class="label label-success" style="border: 2px #ccc solid"><h6>&nbsp;&nbsp;FINITO!&nbsp;&nbsp;</h6></span>-->
                   <strong><i class="icon-ok-sign green">&nbsp;&nbsp;FINITO!&nbsp;&nbsp;</i></strong>
                  <%end%> </h3>
                 </a>  
               </div>  
-              <div id="<%= e.id %>" class="accordion-body collapse" style="height: 0px; ">  
-                <div class="accordion-inner black center" style="background-color: #fff">  
+              <div id="<%= e.id %>" class="accordion-body collapse">  
+                <div class="accordion-inner black center" >  
                   <p style="text-align:left"><%= e.description %></p>
                   <p>
                     Difficoltà: <strong><%= e.difficulty %></strong><br />
                     Ripetizioni: <strong><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></strong>
                 </p>
-                  <%=link_to '<button class="btn btn-large btn-success" style="border: 2px #ebebeb solid"><i class="icon-play"></i>&nbsp;&nbsp;Inizia Esercizio!</button>'.html_safe,controller: :exercises,action: :show,:association_id => @lesson.associations.find_by_exercise_id(e.id).id %>  
+                  <%=link_to '<button class="btn btn-large btn-success"><i class="icon-play"></i>&nbsp;&nbsp;Inizia Esercizio!</button>'.html_safe,controller: :exercises,action: :show,:association_id => @lesson.associations.find_by_exercise_id(e.id).id %>  
                 </div>  
               </div>  
             </div>

@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        SignupMailer.signup_mail(@user).deliver
         Message.new(:from => "1", :body => "Ti diamo il benvenuto alla nostra social gym #{@user.username.capitalize}, speriamo che tu ti possa divertire con noi! Lo staff di Kokko SocialGym", :to => @user.id).save
         format.js { render :action => 'registered.js.erb' }
       else
@@ -68,6 +67,44 @@ class UsersController < ApplicationController
     @found_users = search_users(params[:research][:text])
     respond_to do |format|
       format.js { render :action =>:found_users }
+    end
+  end
+
+  def visit
+    if params[:visited_user_id].to_i == current_user.id
+      redirect_to action: :wall
+    else
+      @visited_user = visit_user(params[:visited_user_id])
+      @visited_user_feedbacks = @visited_user.feedbacks.find( :all, :order => "created_at DESC" )
+    end
+  end
+
+  def friends
+    @current_user_friends_ids = Relationship.where( :follower => current_user.id )
+    @current_user_friends = Array.new
+    @current_user_friends_ids.each do |rel|
+      @current_user_friends.push User.find(rel.followed)
+    end
+  end
+
+  def remove_friend
+    @removed_id = params[:removed_friend_id]
+    Relationship.where( :follower => current_user.id, :followed => @removed_id ).first.destroy
+    respond_to do |format|
+      format.js { render action: :friend_removed }
+    end
+  end
+
+  def follow
+    @relationship = Relationship.new(:follower => current_user.id, :followed => params[:followed])
+    @followed = User.find(params[:followed]).username
+    current_user.feedbacks.new( :body => "#{current_user.username.capitalize} ha aggiunto #{@followed.capitalize} tra gli amici!").save
+    respond_to do |format|
+      if @relationship.save
+        format.js { render action: :followed }
+      else
+        format.js { render :nothing => true }
+      end
     end
   end
 

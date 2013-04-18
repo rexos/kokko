@@ -1,7 +1,6 @@
-  <h2 class="center">
-    <i class="icon-bar-chart black"></i>
-    <span style="color: #282828;
-text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2">Progressi di: <%= @program.title %> </span>
+  <h2 class="center page-title">
+    <i class="icon-bar-chart"></i>
+    Progressi di: <%= @program.title %>
   </h2>
 
   <!--
@@ -40,11 +39,10 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2">Progressi di: <%= @progra
 
 
 <% @program.lessons.each do |l| %>
-
   <div class="row-fluid">
     <div class="span2" style="text-align: right;margin-top:10px"><strong><%= l.title %></strong></div>
     <div class="span8">
-      <div class="meter nostripes" style="margin-top:0px;width:100%; border: 2px solid #ccc">
+      <div class="meter nostripes" style="margin-top:0px;width:100%; border: 2px solid #BDC3C7">
         <span style="width: <%= get_progress_of_lesson(l.id) %>%"></span>
       </div>
     </div>
@@ -54,10 +52,10 @@ text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2">Progressi di: <%= @progra
   <% end %>
   
   <div class="row-fluid">
-    <h3 style="margin-bottom: 20px;color: #282828; text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2; text-align:center">Progressi totali
+    <h3 class="center page-title">Progressi totali
     </h3>
     <div class="span10 offset1">
-      <div class="meter red" style="margin-top:0px;width:100%; border: 2px solid #ccc" >
+      <div class="meter red" style="margin-top:0px;width:100%; border: 2px solid #BDC3C7" >
         <span style="width:<%= get_progress_of_program(@program.id) %>%"></span>
       </div>
     </div>

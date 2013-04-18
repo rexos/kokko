@@ -1,9 +1,13 @@
 
-
-  <% @found_users.each do |f| %>
-  <div class="alert alert-warning">
-    <%= f.username.capitalize %>
-    <%= f.email %>
-  </div>
+<% @found_users.each do |f|%>
+<div class="row-fluid row-ricerca">
+  Nome : <h2> <%= f.username.capitalize %>
+  <%= link_to :controller => :users, :action => :visit, :visited_user_id => f.id do %>
+  <button class="btn btn-info btn-mini">
+    Bacheca di <%= f.username.capitalize %>
+  </button>
+</h2>
   <% end %>
+</div>
+<% end  %>
 
