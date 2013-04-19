@@ -7,9 +7,9 @@
 <div class="well center">
 
   <%= form_for :feedback, url: {controller: :feedbacks, action: :create} do |f| %>
-  <%= gravatar_for( current_user, 60 )%> &nbsp;&nbsp;
-  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 3%><br />
-  <button type="submit" class="btn btn-info btn-default"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica!</button>
+  <%= gravatar_for( current_user,"avatar" ) %> &nbsp;&nbsp;
+  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 4%><br />
+  <button type="submit" class="btn btn-primary btn-large"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica</button>
   <% end %>
 </div>
 
