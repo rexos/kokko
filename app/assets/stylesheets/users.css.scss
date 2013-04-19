@@ -29,7 +29,7 @@ a {
 }
 
 img.home-icon {
-	width: 60%;
+	width: 100px;
 }
 
 div.h-icon {
@@ -46,8 +46,15 @@ div.h-icon:hover {
 
 .message-row{
 	margin-top: 10px;
-	padding: 20px;
-
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left:20px;
+	border-top: $silver 3px solid;
+	border-right: $silver 3px solid;
+	border-bottom: $silver 3px solid;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: $clouds;
 }
 
 .wall-image{
@@ -75,11 +82,21 @@ div.h-icon:hover {
 	padding: 20px;
 }
 
-.row-wall,.row-following{
+.row-following{
 	margin-top: 20px;
 	margin-bottom: 5px;
 	border-top: $silver 3px solid;
 	border-bottom: $silver 3px solid;
 	padding: 15px;
 	background-color: $clouds;
+}
+
+.row-wall{
+	margin-top: 20px;
+	margin-bottom: 5px;
+	
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 30px; 
+	
 }
