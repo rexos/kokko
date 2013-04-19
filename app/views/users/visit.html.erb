@@ -9,7 +9,9 @@
 </div>
 
 <% if !Relationship.where( :follower => current_user.id, :followed => @visited_user.id ).first %>
-<%= link_to '<button id="follow" class="btn btn-warning"><i class="icon icon-group"></i>&nbsp;&nbsp;Segui</button>'.html_safe, :remote => true, :action => :follow, :followed => @visited_user.id %>
+<div class="center">
+<%= link_to '<button id="follow" class="btn btn-large btn-primary"><i class="icon icon-group"></i>&nbsp;&nbsp;Segui</button>'.html_safe, :remote => true, :action => :follow, :followed => @visited_user.id %>
+</div>
 <% end %>
 
 <div class="row-fluid">
