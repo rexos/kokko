@@ -22,7 +22,7 @@
       <i class="icon-quote-left"></i>&nbsp;
       <% if f.program_id %>
     
-    <h4>
+   
     
 	  <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
 	  commentato con rating al programma :
@@ -30,7 +30,7 @@
     <% end %>
     <%= f.body %>
     &nbsp;<i class="icon-quote-right"></i>
-    </h4>
+    
     <br />
     <small>
 	  Scritto il : <%= f.created_at.to_s[0..9] %> alle : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
