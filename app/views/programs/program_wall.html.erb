@@ -1,0 +1,12 @@
+<div class="center">
+  <h1>Bacheca <%= @program.title.capitalize %></h1>
+
+  <% @program.feedbacks.each do |feed| %>
+  <div class="well">
+    Utente : <%= feed.user.username.capitalize %><br />
+    Testo : <%= feed.body %><br />
+    Rating al programma : <%= feed.rating %>
+  </div>
+  <% end %>
+  
+</div>

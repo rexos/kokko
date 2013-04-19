@@ -89,4 +89,9 @@ class ProgramsController < ApplicationController
       end
     end
   end
+
+  def program_wall
+    @program = Program.find(params[:program_id])
+  end
+
 end
