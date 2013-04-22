@@ -63,4 +63,7 @@ Kokkonut::Application.routes.draw do
   get "messages/read" => "messages#set_read"
   get "*messages/get_new_messages" => "messages#get_new_messages"
 
+  #comments routes
+  post "comments/create" => "comments#create"
+
 end
