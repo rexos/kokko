@@ -1,25 +1,46 @@
-<h1>Wall di <%= @visited_user.username.capitalize %></h1>
-<%= gravatar_for( @visited_user, 80 ) %>
-<br />
+<div class="page-title">
+    <h2 class="center">
+        <i class="icon-list"></i>&nbsp;Bacheca di <%= @visited_user.username.capitalize %>
+    </h2>
+  </div>
+
+<div class="row-fluid center ">
+<%= gravatar_for( @visited_user, "avatar") %>
+</div>
+
 <% if !Relationship.where( :follower => current_user.id, :followed => @visited_user.id ).first %>
-<%= link_to '<button id="follow" class="btn btn-warning"><i class="icon icon-group"></i>&nbsp;&nbsp;Segui</button>'.html_safe, :remote => true, :action => :follow, :followed => @visited_user.id %>
+<div class="center">
+<%= link_to '<button id="follow" class="btn btn-large btn-primary"><i class="icon icon-group"></i>&nbsp;&nbsp;Segui</button>'.html_safe, :remote => true, :action => :follow, :followed => @visited_user.id %>
+</div>
 <% end %>
-<br />
-<br />
-<div class="well">
-  <ul type="none">
+
+<div class="row-fluid">
+  
+   
+   
     <% @visited_user_feedbacks.each do |f| %>
-    <div class="alert alert-success" id=<%= f.id %>>
+    
+
+    <div class="well row-visited" id=<%= f.id %> >
+      
+      
       <% if f.program_id %>
+       <h4>
+       <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
+	     <small>
+	     <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
+	     commentato con rating al programma :
+	     </small>
+	     <%= f.rating %>
+      </h2>
+    <% end %>
       <h4>
-	<small>
-	  <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
-	  commentato con rating al programma :
-	</small>
-	<%= f.rating %>
+      <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
+      &nbsp;
+      <i class="icon-quote-left"></i>&nbsp;
+      <%= f.body %>
+      &nbsp;<i class="icon-quote-right"></i>
       </h4>
-      <% end %>
-      <%= f.body %><br />
       <h4>
 	<small>
 	  Posted on : <%= f.created_at.to_s[0..9] %> at : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
@@ -27,5 +48,6 @@
       </h4>
     </div>
     <% end %>
-  </ul>
+
+
 </div>

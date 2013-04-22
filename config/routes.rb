@@ -1,5 +1,4 @@
 Kokkonut::Application.routes.draw do
-  
 
   #sessions routes
   post "sessions/create" =>"sessions#create"
@@ -20,6 +19,7 @@ Kokkonut::Application.routes.draw do
   get "programs/progresses" => "programs#progresses"
   post "programs/feedback" => "programs#add_feedback"
   get "programs/calendar" => "programs#calendar"
+  get "programs/program_wall" => "programs#program_wall"
 
   #lesson routes
   get "lessons/new" => "lessons#new"
@@ -61,5 +61,6 @@ Kokkonut::Application.routes.draw do
   get "messages/destroy" => "messages#destroy"
   get "messages/show" => "messages#show"
   get "messages/read" => "messages#set_read"
+  get "*messages/get_new_messages" => "messages#get_new_messages"
 
 end

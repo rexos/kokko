@@ -1,10 +1,12 @@
 
 <% @found_users.each do |f|%>
 <div class="row-fluid row-ricerca">
-  Nome : <h2> <%= f.username.capitalize %>
+
+  <h2> 
+  <%= gravatar_for( f,"avatar" ) %>
   <%= link_to :controller => :users, :action => :visit, :visited_user_id => f.id do %>
-  <button class="btn btn-info btn-mini">
-    Bacheca di <%= f.username.capitalize %>
+  <button class="btn btn-primary btn-large">
+    <i class="icon icon-comments-alt"></i>&nbsp;&nbsp;Bacheca di <strong><%= f.username.capitalize %></strong>
   </button>
 </h2>
   <% end %>
