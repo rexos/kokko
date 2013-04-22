@@ -5,11 +5,12 @@
 //= require programs
 //= require exercises
 
-
 $(function () {
     // Custom selects
     $("select").dropkick();
 });
+
+
 
 $(document).ready(function() {
     // Todo list
