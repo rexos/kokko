@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422204713) do
+ActiveRecord::Schema.define(:version => 20130423074451) do
 
   create_table "associations", :force => true do |t|
     t.integer  "lesson_id"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130422204713) do
     t.string   "first_name"
     t.string   "second_name"
     t.string   "where"
+    t.integer  "my_training_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
