@@ -144,4 +144,12 @@ a:hover {
   padding-top: 20px;
 }
 
+button, .btn {
+  font-family: "Lato", sans serif;
+}
+
+button.btn-large {
+  font-size: 20px;
+}
+
 /* ---------------- END OVERRIDE BOOTSTRAP ---------------- */
