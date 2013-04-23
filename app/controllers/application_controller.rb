@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :store_current_path
 
+  def headshot_custom_file_path
+    file_name = "#{current_user.username}_#{Time.now.to_i}.jpg"
+    File.join(Rails.root, 'app', 'assets', 'images', file_name)
+  end
 
 
   private

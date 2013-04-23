@@ -1,1 +1,2 @@
 $('#<%= escape_javascript( @feedback.id.to_s ) %>').children('div.comments-list').children('form').before('<%= escape_javascript( render :partial => "display_comment" ) %>');
+$('textarea').val('');

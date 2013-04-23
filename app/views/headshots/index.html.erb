@@ -1,7 +1,7 @@
 <%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path) %>
 
-<%= headshot_camera %>
+<%= headshot_camera(width=500, height=500) %>
 
 <br/><br/>
 
-<%= headshot_snap_button('Shoot') %>
+<%= headshot_snap_button('Scatta') %>
