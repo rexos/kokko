@@ -59,11 +59,12 @@
 		<%= image_tag ("illustrations/book.png"), :class => "menu-icon" %>
 	      </div>
 	      <% end %>
-	      <a href="#">
+	      <%= link_to action: :waiting_room, :program_id => @program.id do %>
 	      <div class="span6 center span-dx">
 		<h2 class="red"><!-- <i class="icon-group black"></i>&nbsp; -->SALA D' ATTESA</h2>
 		<%= image_tag ("illustrations/colors.png"), :class => "menu-icon" %>
-	      </div></a>
+	      </div>
+	      <% end %>
 	    </div>
 
 	    <div class="row-fluid">
