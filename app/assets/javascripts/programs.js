@@ -25,7 +25,9 @@ $(document).ready(function(){
 	$('p.time').text(minutes+colon+seconds);
     }
     
-
+    $('.medal').each(function() {
+    	$(this)
+    	.fadeIn('slow')});
 
     $(".meter > span").each(function() {
     	$(this)
@@ -40,5 +42,7 @@ $(document).ready(function(){
 	    var star_id = parseInt($(this).attr('id').substr(4,4));
 	    $('#rating_field').attr('value',star_id);
 	});
+
+
 
 });

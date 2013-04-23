@@ -11,14 +11,14 @@ img.menu-icon {
 }
 
 .meter { 
-	height: 20px;  /* Can be anything */
+	height: 10px;  /* Can be anything */
 	position: relative;
 	margin: 60px 0 20px 0; /* Just for demo spacing */
 	background: #555;
 	-moz-border-radius: 25px;
 	-webkit-border-radius: 25px;
 	border-radius: 25px;
-	padding: 10px;
+	padding: 7px;
 	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
 	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
 	box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
@@ -141,9 +141,18 @@ img.menu-icon {
 
 
 //medaglia
+.medal{
 
-#medal{
-	background-image: url('asset');
+	
+	display:none;
+}
+.medal p{
+
+
+	top:180px;
+	margin: 0px;
+	position:relative;
+
 }
 
 

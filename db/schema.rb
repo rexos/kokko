@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(:version => 20130414213922) do
   add_index "associations", ["lesson_id", "exercise_id"], :name => "index_associations_on_lesson_id_and_exercise_id", :unique => true
   add_index "associations", ["lesson_id"], :name => "index_associations_on_lesson_id"
 
+  create_table "events", :force => true do |t|
+    t.integer  "training_id"
+    t.integer  "lesson_id"
+    t.date     "start_time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.string   "difficulty"
