@@ -29,7 +29,13 @@
 
         <% if current_user.statuses.count == 0 %>
         <div class="alert alert-success">
-          <h2><strong><center>Scegli un programma e inizia subito l'allenamento!</center></strong></h2>
+          <p>
+            <h2 class="center"><strong>Scegli un programma e inizia subito l'allenamento!</strong></h2>
+          </p>
+          <p>
+            <div id="bounce-arrow"><i id="start-ico" style="color:#E74C3C" class="icon-circle-arrow-left icon-4x"></i>
+            </div>
+          </p>
         </div>
         <% else %>
        <% @programs.each do |p| %>
