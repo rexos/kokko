@@ -1,6 +1,8 @@
 Kokkonut::Application.routes.draw do
 
-  post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
+  # headshot-camera routes
+  post "headshots/capture" => 'headshots#capture', :as => :headshot_capture
+  get "headshots/index" => "headshots#index"
 
   #sessions routes
   post "sessions/create" =>"sessions#create"

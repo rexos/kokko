@@ -41,4 +41,10 @@ $(document).ready(function(){
 	    $('#rating_field').attr('value',star_id);
 	});
 
+    	$('li').click(function(){
+		$('li.active').children('a').children('h4').children('i').toggleClass('icon-folder-close-alt icon-folder-open-alt');
+		$(this).children('a').children('h4').children('i').toggleClass('icon-folder-close-alt icon-folder-open-alt');
+	});
+
+
 });

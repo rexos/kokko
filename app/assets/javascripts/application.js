@@ -2,10 +2,11 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require programs
-//= require exercises
-//= require headshot
 //= require headshot_support
 //= require users
+//= require headshot
+//= require exercises
+
 
 $(function () {
     // Custom selects
