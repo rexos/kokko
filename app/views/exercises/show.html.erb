@@ -16,18 +16,24 @@
       <div class="ex-title">
         <h3><%=@exercise.name%></h3>
       </div>
+
       <div class="ex-cont">
       <p style="text-align:left; font-size: 20px">
 	       <%=@exercise.description%><br /><br />
-	       <strong>Ripetizioni: </strong><%=@association.repetitions%><br />
+	       <strong><i class="icon-random"></i>&nbsp;Ripetizioni: </strong><%=@association.repetitions%><br />
       </p>
     
       <p class="center">
-	     <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :lessons, action: :show, lesson_id: @association.lesson_id %>
-	
-	     <%= link_to '<button class="btn btn-large btn-info" style="margin-top: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-ok"></i>&nbsp;&nbsp;Fine esercizio!</button>'.html_safe,controller: :users, action: :add_status, :association_id => @association.id , :user_id => current_user.id %>
+        <div class="row-fluid">
+          <div class="span6">
+              <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :lessons, action: :show, lesson_id: @association.lesson_id %>
+          </div>
+          <div class="span6">
+              <%= link_to '<button class="btn btn-large btn-info" style="margin-top: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-ok"></i>&nbsp;&nbsp;Fine esercizio!</button>'.html_safe,controller: :users, action: :add_status, :association_id => @association.id , :user_id => current_user.id %>
+          </div>
+        </div> 
       </p>
-      </div>
+      </div> <!-- ex-cont -->
 
     </div> <!-- span6 -->
     </div> <!-- row -->
