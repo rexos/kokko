@@ -53,6 +53,7 @@
             <div class="accordion-inner black  ">  
               <p><%= p.description %></p>
               <p><%=link_to '<button class="btn btn-large btn-info" ><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+                <%=link_to '<button class="btn btn-large btn-info" ><b>imposta Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
               </p>
             </div>   
           </div>  
@@ -79,7 +80,9 @@
          <div id="<%= p.id %>" class="accordion-body collapse" >  
           <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+            <%=link_to '<button class="btn btn-large btn-info" ><b>imposta Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
+            </p>     
           </div>   
         </div>  
       </div>
@@ -104,7 +107,9 @@
          <div id="<%= p.id %>" class="accordion-body collapse">  
           <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+            <%=link_to '<button class="btn btn-large btn-info" ><b>imposta Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
+            </p>     
           </div>   
         </div>  
       </div>
@@ -129,7 +134,9 @@
          <div id="<%= p.id %>" class="accordion-body collapse" >  
           <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
+            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+            <%=link_to '<button class="btn btn-large btn-info" ><b>imposta Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
+            </p>     
           </div>   
         </div>  
       </div>
