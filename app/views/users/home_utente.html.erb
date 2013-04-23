@@ -1,13 +1,16 @@
- <div class="center page-title">
+<!--
+   carica i css welcome e style
+
+  <% if false %>
+  <% provide(:style, %w(welcome style)) %> 
+  <% end %>
+-->
+
+  <div class="center page-title">
    <h2 class="black"><i class="icon-list"></i>&nbsp;Programmi Allenamento</h2>
   </div>
   
-  <% if @programs.count == 0 %>
-  <div class="alert alert-error">
-    <h2><strong><center>Non c'è alcun allenamento!</center></strong></h2>
-  </div>
   
-  <% else %>
 
   <div class="row-fluid"> 
   <div class="span9">
@@ -22,71 +25,6 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="Mieitraining">
-      <p>I'm in Section 1.</p>
-    </div>
-    <div class="tab-pane" id="Principiante">
-
-        <div class="accordion" id="MieiTraining">
-
-        <% if current_user.statuses.count == 0 %>
-        <div class="alert alert-success">
-          <h2><strong><center>Scegli un programma e inizia subito l'allenamento!</center></strong></h2>
-        </div>
-        <% else %>
-       <% @programs.each do |p| %>
-        <% progress = get_progress_of_program(p.id) %>
-        <% if progress > 0 %>
-        <div class="accordion-group " >  
-          <div class="accordion-heading ">  
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#MieiTraining" href="#<%= p.id %>">  
-              <h3>
-                <%= p.title %> 
-              </h3>      
-            </a>  
-          </div>  
-          <div id="<%= p.id %>" class="accordion-body collapse" >  
-            <div class="accordion-inner black  ">  
-              <p><%= p.description %></p>
-              <p><%=link_to '<button class="btn btn-large btn-info" ><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
-              </p>
-            </div>   
-          </div>  
-        </div>
-        <% end %> <!-- chiudo if progress > 0 -->
-        <% end %> <!-- chiudo program.each do -->
-        <% end %> <!-- chido if program.empty? -->
-      </div>
-
-
-    </div>
-    <div class="tab-pane" id="Intermedio">
-      <p>Howdy, I'm in Section 3.</p>
-    </div>
-    <div class="tab-pane" id="Avanzato">
-      <p>Howdy, I'm in Section 4.</p>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-    <% if false %>
-  <!-- ul nav -->
-  <ul class="nav nav-tabs" id="myTab">
-     <li class="active"><a data-toggle="tab" href="#Mieitraining"><h4>&nbsp;<i class="icon-folder-open-alt"></i>&nbsp;Miei Training</h4></a></li>
-    <li><a data-toggle="tab" href="#Principiante"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Principiante</h4></a></li>
-    <li><a data-toggle="tab" href="#Intermedio"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Intermedio</h4></a></li>
-    <li><a data-toggle="tab" href="#Avanzato"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Avanzato</h4></a></li>
-  </ul>
-
-  <!-- div tab -->
-  <div class="tab-content" id="myTabContent">
-
-    <div id="Mieitraining" class="tab-pane fade in active">
       <div class="accordion" id="MieiTraining">
 
         <% if current_user.statuses.count == 0 %>
@@ -110,8 +48,6 @@
               <p><%= p.description %></p>
               <p><%=link_to '<button class="btn btn-large btn-info" ><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
               </p>
-              <p><%=link_to '<button class="btn btn-large btn-info" ><b>Imposta come Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id%>
-              </p>
             </div>   
           </div>  
         </div>
@@ -121,8 +57,7 @@
       </div>
     </div>
 
-
-    <div id="Principiante" class="tab-pane fade">
+    <div class="tab-pane" id="Principiante">
       <div class="accordion" id="Principiante">
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
@@ -138,19 +73,17 @@
          <div id="<%= p.id %>" class="accordion-body collapse" >  
           <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info" ><b>Imposta come Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id%>
-              </p>     
+            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
       <% end %> <!-- chiudo if progress == 0-->
       <% end %> <!-- chiudo program.each-->
-    </div>
+      </div>
     </div>
 
-    <div id="Intermedio" class="tab-pane fade">
-      <div class="accordion" id="Intermedio">
+    <div class="tab-pane" id="Intermedio">
+        <div class="accordion" id="Intermedio">
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
         <% if progress == 0 && p.difficulty.to_s =='Intermedio' %>
@@ -165,9 +98,7 @@
          <div id="<%= p.id %>" class="accordion-body collapse">  
           <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info" ><b>Imposta come Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id, :remote => true%>
-              </p>     
+            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
@@ -176,9 +107,8 @@
     </div>
     </div>
 
-
-    <div id="Avanzato" class="tab-pane fade">
-      <div class="accordion" id="Avanzato">
+    <div class="tab-pane" id="Avanzato">
+        <div class="accordion" id="Avanzato">
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
         <% if progress == 0 && p.difficulty.to_s == 'Avanzato' %>
@@ -193,9 +123,7 @@
          <div id="<%= p.id %>" class="accordion-body collapse" >  
           <div class="accordion-inner black">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>  
-            <p><%=link_to '<button class="btn btn-large btn-info" ><b>Imposta come Mio Training</b></button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id%>
-              </p>   
+            <p><%=link_to '<button class="btn btn-large btn-info"><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
@@ -203,13 +131,12 @@
       <% end %> <!-- chiudo program.each-->
     </div>
     </div>
-  </div> <!-- chiude div tab -->
-  <%end%> <!-- chiudo if program.count == 0-->
+
+  </div>
+</div>
 
 
-</div> <!-- chiude span -->
-
-<% end %>
+</div> <!-- chiude span9 -->
 
 <div class="span3">
   <div class="row-fluid center">
