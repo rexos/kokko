@@ -16,7 +16,7 @@
             <div class="accordion-group"  >  
               <div class="accordion-heading">  
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= e.id %>">  
-                 <h3><i class="icon-play light-red"></i>&nbsp;<%= e.name %>&nbsp;&nbsp;
+                 <h3><%= e.name %>
                  <%if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}%>
                   <strong><i class="icon-ok-sign"></i></strong>
                  <%end%> </h3>
