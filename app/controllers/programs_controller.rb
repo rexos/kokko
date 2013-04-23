@@ -99,4 +99,9 @@ class ProgramsController < ApplicationController
     redirect_to action: :show, :prog_id => current_user.my_training_id
   end
 
+  def waiting_room
+    @program = Program.find(params[:program_id])
+    @attending = User.where(:my_training_id => params[:program_id])
+  end
+
 end

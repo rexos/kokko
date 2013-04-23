@@ -1,0 +1,7 @@
+<h1>Waiting room</h1>
+<h3>Utenti che stanno effettuando questo Training Program</h3>
+<% @attending.each do |u| %>
+<div class="alert alert-success">
+  <%= u.username.capitalize %>
+</div>
+<% end %>
