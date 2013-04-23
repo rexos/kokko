@@ -25,26 +25,24 @@ ActiveRecord::Schema.define(:version => 20130423074451) do
   add_index "associations", ["lesson_id", "exercise_id"], :name => "index_associations_on_lesson_id_and_exercise_id", :unique => true
   add_index "associations", ["lesson_id"], :name => "index_associations_on_lesson_id"
 
-<<<<<<< HEAD
-  create_table "events", :force => true do |t|
-    t.integer  "training_id"
-    t.integer  "lesson_id"
-    t.date     "start_time"
-=======
   create_table "comments", :force => true do |t|
     t.integer  "commenter"
     t.text     "body"
     t.integer  "feedback_id"
->>>>>>> f32db517178ec2139c00820788bf625d3cb791d1
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-<<<<<<< HEAD
-=======
   add_index "comments", ["feedback_id"], :name => "index_comments_on_feedback_id"
 
->>>>>>> f32db517178ec2139c00820788bf625d3cb791d1
+  create_table "events", :force => true do |t|
+    t.integer  "training_id"
+    t.integer  "lesson_id"
+    t.date     "start_time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.string   "difficulty"

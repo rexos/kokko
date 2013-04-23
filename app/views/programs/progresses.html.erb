@@ -3,63 +3,45 @@
     Progressi di: <%= @program.title %>
   </h2>
 
-  <!--
-    <div class="row-fluid">
-        <div class="span7 offset5">
-      <% @program.lessons.each do |l| %>
-      
-        <div style="float:left">
-	         <div style="background-color:white;width:20px; height:100px">
-	           <div style="width:100%; height:<%= 100-get_progress_of_lesson(l.id).to_i %>%; background-color:white"></div>
-	           <div style="width:100%; height:<%= get_progress_of_lesson(l.id).to_i %>%; background-color:#FAA732"></div>
-	         </div>
-
-	         <%= l.title %>
-      </div>
-      <% end %>
-      </div>
-    </div>
-
-  <div style="clear:both"></div>
-  -->
-
-  <div class="row-fluid center">
-    <div class="offset2 span10 center">
-      <% @program.lessons.each do |l|
-        break if get_progress_of_lesson(l.id)==0 %>
-        <div class="span3 center">
-          <div class="medal">
+  <div class="container center">
+  
+<div class="row-fluid center">
+  <div style="margin-top:40px;float:left;">
+        <% @program.lessons.each do |l|%>
+        
+       <% if get_progress_of_lesson(l.id) != 0 %>
+          <div class="medal" style="float:left;">
             <p><%= l.title %></p>
             <h2 style="margin:0px;position:relative;top:180px;"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
-            <%= image_tag('medal/Medal.jpeg') %>
-          </div>
-          <div class="row">
-            <div class="offset2 span10">
-              <div class="center meter nostripes" style=";width:75%; border: 2px solid #BDC3C7;margin:0px">
+            <%= image_tag('medal/Medal.jpeg',:size => "250x100") %>
+              <div class="meter nostripes" style="width:75%; border: 2px solid #BDC3C7;margin:auto;">
                 <span  style="width:<%= get_progress_of_lesson(l.id) %>%;"></span>
               </div>
-            </div>
           </div>
-
-        </div>
-
-
+          <% else %>
+          <div class="medal" style="float:left;">
+            <p><%= l.title %></p>
+            <h2 style="margin:0px;position:relative;top:180px;"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
+            <%= image_tag('medal/MedalNone.png',:size => "250x100") %>
+          </div>
+        <% end %>
         <% end %>
       </div>
-    </div>
+      
 
 
-<div class="row-fluid">
-    <div class="center page-title"><%= @program.title %>
-           <div class="cup center">
-            <h2 style="margin:0px;position:relative;top:180px;"><%= get_progress_of_program(@program.id) %>%</h2>
-            <%= image_tag('medal/cup2.jpg',:size => "250x100") %>
-            <div class="offset4 span3 meter red" style="margin-top:0px; border: 2px solid #BDC3C7" >
-              <span style="width:<%= get_progress_of_program(@program.id) %>%"></span>
-            </div>
-          </div>
-        </div>
+      
+       <div class="medal cup center" style="margin-bottom:20px;float:left;">
+        <h4 style="margin:0px;position:relative;top:100px;">
+          <%= @program.title.split(" -").first %></h4>
+        <h2 style="margin:0px;position:relative;top:120px;"><%= get_progress_of_program(@program.id) %>%</h2>
+        <%= image_tag('medal/cup2.jpg',:size => "300x100") %>
+      </div>
+   
+  <div style="float:clear"></div>
   </div>
+  </div>
+
 
 <!--
 
@@ -87,4 +69,5 @@
   </div>
   
  -->
-  <div class="center"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>
+  
+  <div class="center" style="margin-top:25px;"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>
