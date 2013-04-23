@@ -94,4 +94,9 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:program_id])
   end
 
+  def set_my_training
+    current_user.update_attributes(:my_training_id => params[:prog_id])
+    redirect_to action: :show, :prog_id => current_user.my_training_id
+  end
+
 end
