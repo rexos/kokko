@@ -17,7 +17,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :password, :password_confirmation, :role, :first_name, :second_name, :where, :password_digest
+  attr_accessible :username, :email, :password, :password_confirmation, :role, :first_name, :second_name, :where, :password_digest, :my_training_id
   has_secure_password
 
   #user relationships
@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
   before_create { |user| user.email = email.downcase }
   before_create :generate_token
   before_create { |user| user.username = username.downcase }
-  before_update {|user| user.first_name = first_name.capitalize}
-  before_update {|user| user.second_name = second_name.capitalize}
-  before_update {|user| user.where = where.capitalize}
+  #before_update {|user| user.first_name = first_name.capitalize}
+  #before_update {|user| user.second_name = second_name.capitalize}
+  #before_update {|user| user.where = where.capitalize}
 
   #email regex
   EMAIL_REGULAR_EXPRESSION = /\b[A-Z0-9._+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
