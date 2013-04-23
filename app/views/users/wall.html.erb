@@ -1,0 +1,96 @@
+<div class="page-title">
+  <h2 class="center">
+      <i class="icon-comments-alt"></i>&nbsp;Bacheca di <%= current_user.username.capitalize %>
+  </h2>  
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="row-wall center">
+
+  <%= form_for :feedback, url: {controller: :feedbacks, action: :create} do |f| %>
+  <%= gravatar_for( current_user,"avatar" ) %> &nbsp;&nbsp;
+  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 3%><br />
+  <button type="submit" class="btn btn-primary btn-large"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica</button>
+  <% end %>
+  </div>
+
+  </div>
+</div>
+
+<div class="row-fluid">
+<div class="span9">
+<div class="row-fluid ">
+  
+    <% @feedbacks.each do |f| %>
+    <div class="row-fluid message-row" id= <%= f.id %> >
+      <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
+      &nbsp;&nbsp;
+      <i class="icon-quote-left"></i>&nbsp;
+      <% if f.program_id %>
+    
+   
+    
+        <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
+	  commentato con rating al programma :
+	  <%= f.rating %>
+    <% end %>
+    <%= f.body %>
+    &nbsp;<i class="icon-quote-right"></i>
+    
+    <br />
+    <small>
+        Scritto il : <%= f.created_at.to_s[0..9] %> alle : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
+	  <%= link_to '<span style="color:red; font-size: 20px"><i class="icon icon-remove"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
+	    </small>
+    <!-- Commets start -->
+      <p class="comments" style="cursor:pointer">Comments (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
+      <div class="comments-list" style="display:none">
+	<% f.comments.order("created_at").each do |c| %>
+	<div class="alert alert-info" id="comment-<%= c.id %>">
+	  <%= User.find(c.commenter).username.capitalize %> : <%= c.body %>
+	  <% if c.commenter == current_user.id %>
+	  <%= link_to '<i class="icon-remove" style="color:red"></i>'.html_safe, :controller => :comments, :action => :destroy, :comment_id => c.id, :remote => true %>
+	  <% end %>
+	</div>
+	<% end %>
+	<%= form_for :comment, :url => {:controller => :comments, :action => :create, :feedback_id => f.id}, :remote => true do |f| %>
+	<%= f.hidden_field :commenter, :value => current_user.id %>
+	<%= f.text_area :body, :placeholder => "commenta ..", :rows => 1 %>
+	<button class="btn btn-info btn-default" type="submit">Ok</button>
+	<% end %>
+      </div>
+      <!-- Comments end -->
+
+    </div>
+    <% end %>
+    
+  
+</div>
+</div>
+<div class="span3">
+  <div class="row-fluid center">
+
+  <div class="row-fluid">
+    <div class="center" style="margin-bottom: 20px">
+    <div class="h-icon">
+    <h2>Amici</h2>
+    <%= link_to :controller => :users, :action => :friends do %>
+    <%= image_tag ("illustrations/colors.png"), :class => "home-icon" %>
+    </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+  <div class="center" style="margin-bottom: 20px">
+    <div class="h-icon">
+    <h2>Messaggi</h2>
+    <%= link_to ({ controller: :messages, action: :show}) do %>
+    <%= image_tag ("illustrations/mail.png"), :class => "home-icon" %>
+    </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+</div>
