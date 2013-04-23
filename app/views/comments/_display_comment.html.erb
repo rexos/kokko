@@ -1,0 +1,4 @@
+<div class="alert alert-info" id="comment-<%= @comment.id %>">
+  <%= current_user.username.capitalize %> : <%= @comment.body %>
+  <%= link_to '<i class="icon-remove" style="color : red"></i>'.html_safe, :controller => :comments, :action => :destroy, :comment_id => @comment.id, :remote => true %>
+</div>

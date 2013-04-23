@@ -8,8 +8,7 @@ class MessagesController < ApplicationController
         end
 
 	def create
-          @name = params[:message][:reciever]
-          @reciever = User.find_by_username(@name.downcase)
+          @reciever = User.find_by_username(params[:message][:reciever].downcase)
           respond_to do |format|
             if @reciever
               @message = Message.new(:from => current_user.id, :to => @reciever.id, :body => params[:message][:body])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414213922) do
+ActiveRecord::Schema.define(:version => 20130423074451) do
 
   create_table "associations", :force => true do |t|
     t.integer  "lesson_id"
@@ -25,14 +25,26 @@ ActiveRecord::Schema.define(:version => 20130414213922) do
   add_index "associations", ["lesson_id", "exercise_id"], :name => "index_associations_on_lesson_id_and_exercise_id", :unique => true
   add_index "associations", ["lesson_id"], :name => "index_associations_on_lesson_id"
 
+<<<<<<< HEAD
   create_table "events", :force => true do |t|
     t.integer  "training_id"
     t.integer  "lesson_id"
     t.date     "start_time"
+=======
+  create_table "comments", :force => true do |t|
+    t.integer  "commenter"
+    t.text     "body"
+    t.integer  "feedback_id"
+>>>>>>> f32db517178ec2139c00820788bf625d3cb791d1
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
+<<<<<<< HEAD
+=======
+  add_index "comments", ["feedback_id"], :name => "index_comments_on_feedback_id"
+
+>>>>>>> f32db517178ec2139c00820788bf625d3cb791d1
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.string   "difficulty"
@@ -112,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20130414213922) do
     t.string   "first_name"
     t.string   "second_name"
     t.string   "where"
+    t.integer  "my_training_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

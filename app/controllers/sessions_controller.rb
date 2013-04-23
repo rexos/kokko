@@ -14,7 +14,11 @@ class SessionsController < ApplicationController
       when "admin" 
         redirect_to :controller => :programs, action: :index
       when "user"
-        redirect_to :controller => :users, :action => :home_utente
+        if current_user.my_training_id
+            redirect_to :controller => :programs, action: :show, :prog_id => current_user.my_training_id  
+        else
+            redirect_to :controller => :users, :action => :home_utente
+        end
       end  
     else
       flash[:error] = "Invalid Username or Password"
