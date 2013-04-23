@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	$('p.comments').click(function(){
 		$(this).next().slideToggle('fast');
 		$(this).children('i').toggleClass('icon-arrow-down icon-arrow-up');
@@ -23,6 +22,7 @@ $(document).ready(function(){
 		    });
 	    }, 3000);
 
+
 	// la funzione fa rimbalzare la frecca quando l'utente 
 	// entra la prima volta nella app e deve ancora scegliere un training program
 	function bounce(x){
@@ -40,7 +40,6 @@ $(document).ready(function(){
 	    }
 	}
 	bounce(1);
-
 
 });
 
