@@ -18,7 +18,71 @@
   <% else %>
 
   <div class="row-fluid"> 
-  <div class="span9">  
+  <div class="span9">
+
+
+  <div class="tabbable tabs-left">
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a data-toggle="tab" href="#Mieitraining"><h4>&nbsp;<i class="icon-folder-open-alt"></i>&nbsp;Miei Training</h4></a></li>
+    <li><a data-toggle="tab" href="#Principiante"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Principiante</h4></a></li>
+    <li><a data-toggle="tab" href="#Intermedio"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Intermedio</h4></a></li>
+    <li><a data-toggle="tab" href="#Avanzato"> <h4>&nbsp;<i class="icon-folder-close-alt"></i>&nbsp;Avanzato</h4></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="Mieitraining">
+      <p>I'm in Section 1.</p>
+    </div>
+    <div class="tab-pane" id="Principiante">
+
+        <div class="accordion" id="MieiTraining">
+
+        <% if current_user.statuses.count == 0 %>
+        <div class="alert alert-success">
+          <h2><strong><center>Scegli un programma e inizia subito l'allenamento!</center></strong></h2>
+        </div>
+        <% else %>
+       <% @programs.each do |p| %>
+        <% progress = get_progress_of_program(p.id) %>
+        <% if progress > 0 %>
+        <div class="accordion-group " >  
+          <div class="accordion-heading ">  
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#MieiTraining" href="#<%= p.id %>">  
+              <h3>
+                <%= p.title %> 
+              </h3>      
+            </a>  
+          </div>  
+          <div id="<%= p.id %>" class="accordion-body collapse" >  
+            <div class="accordion-inner black  ">  
+              <p><%= p.description %></p>
+              <p><%=link_to '<button class="btn btn-large btn-info" ><b>Vai al Training Program</b></button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
+              </p>
+            </div>   
+          </div>  
+        </div>
+        <% end %> <!-- chiudo if progress > 0 -->
+        <% end %> <!-- chiudo program.each do -->
+        <% end %> <!-- chido if program.empty? -->
+      </div>
+
+
+    </div>
+    <div class="tab-pane" id="Intermedio">
+      <p>Howdy, I'm in Section 3.</p>
+    </div>
+    <div class="tab-pane" id="Avanzato">
+      <p>Howdy, I'm in Section 4.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+    <% if false %>
   <!-- ul nav -->
   <ul class="nav nav-tabs" id="myTab">
      <li class="active"><a data-toggle="tab" href="#Mieitraining"><h4>&nbsp;<i class="icon-folder-open-alt"></i>&nbsp;Miei Training</h4></a></li>
@@ -140,10 +204,13 @@
     </div>
     </div>
   </div> <!-- chiude div tab -->
-
   <%end%> <!-- chiudo if program.count == 0-->
 
+
 </div> <!-- chiude span -->
+
+<% end %>
+
 <div class="span3">
   <div class="row-fluid center">
 
