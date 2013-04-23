@@ -107,18 +107,16 @@ div.h-icon:hover {
 	padding-left: 30px; 	
 }
 
-/* MENU HOME UTENTE (DOVE SCEGLIE IL TRAINING)
+/* MENU HOME UTENTE (DOVE SCEGLIE IL TRAINING) */
 .tabbable ul li a {
-	color: $midnight_blue;
-	background-color: $sun_flower;
+	color: $wet_asphalt;
 }
 
 .tabbable ul li.active a, .tabbable ul li.active a:hover  {
-	color: white;
-	background-color: $belize_hole;
+	color: $wet_asphalt;
 }
-*/
 
 .tabbable ul li a:hover {
-	color: $concrete;
+	background-color: $wet_asphalt;
+	color: white;
 }
