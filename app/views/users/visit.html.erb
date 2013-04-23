@@ -41,6 +41,24 @@
       <%= f.body %>
       &nbsp;<i class="icon-quote-right"></i>
       </h4>
+      <!-- Commets start -->
+      <p class="comments" style="cursor:pointer">Comments (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
+      <div class="comments-list" style="display:none">
+	<% f.comments.order("created_at").each do |c| %>
+	<div class="alert alert-info" id="comment-<%= c.id %>">
+	  <%= User.find(c.commenter).username.capitalize %> : <%= c.body %>
+	  <% if c.commenter == current_user.id %>
+	  <%= link_to '<i class="icon-remove" style="color:red"></i>'.html_safe, :controller => :comments, :action => :destroy, :comment_id => c.id, :remote => true %>
+	  <% end %>
+	</div>
+	<% end %>
+	<%= form_for :comment, :url => {:controller => :comments, :action => :create, :feedback_id => f.id}, :remote => true do |f| %>
+	<%= f.hidden_field :commenter, :value => current_user.id %>
+	<%= f.text_area :body, :placeholder => "commenta ..", :rows => 1 %>
+	<button class="btn btn-info btn-default" type="submit">Ok</button>
+	<% end %>
+      </div>
+      <!-- Comments end -->
       <h4>
 	<small>
 	  Posted on : <%= f.created_at.to_s[0..9] %> at : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;

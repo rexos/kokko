@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	$('p.comments').click(function(){
+		$(this).next().slideToggle('fast');
+		$(this).children('i').toggleClass('icon-arrow-down icon-arrow-up');
+	    });
 	$('p.answer').click(function(){
 		var destination= $(this).attr('data-destination');
 		$('#new-message-modal').modal('toggle');

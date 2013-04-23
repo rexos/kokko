@@ -40,7 +40,7 @@
             <h4><small>
 		Ricevuto il : <%= m.created_at.to_s[0..9] %> alle : <%= m.created_at.to_s[11..15] %>
             </small>
-	      <h4><p style="color:blue" class="answer" data-destination="<%= User.find(m.from).username %>"><i class="icon-share"></i>&nbsp;Rispondi</p></h4>
+	      <h4><p style="color:blue; cursor:pointer" class="answer" data-destination="<%= User.find(m.from).username %>"><i class="icon-share"></i>&nbsp;Rispondi</p></h4>
 	      <% if !m.read %>
 	      <h4 id="label-<%= m.id %>"><%= link_to '<p style="color:green"><i class="icon icon-ok-sign"></i> Letto</p>'.html_safe, action: :set_read, :message_id => m.id, :remote => true %></h4>
 	      <% end %>

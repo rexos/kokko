@@ -65,5 +65,6 @@ Kokkonut::Application.routes.draw do
 
   #comments routes
   post "comments/create" => "comments#create"
+  get "comments/destroy" => "comments#destroy"
 
 end
