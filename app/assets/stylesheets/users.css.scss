@@ -61,10 +61,10 @@ div.h-icon:hover {
 	width:40px;
 }
 
-
 .avatar{
 	border: 2px $torquoise solid;
 	border-radius: 5px;
+	width: 80px;
 }
 
 .friend-row{
@@ -105,4 +105,20 @@ div.h-icon:hover {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 30px; 	
+}
+
+/* MENU HOME UTENTE (DOVE SCEGLIE IL TRAINING)
+.tabbable ul li a {
+	color: $midnight_blue;
+	background-color: $sun_flower;
+}
+
+.tabbable ul li.active a, .tabbable ul li.active a:hover  {
+	color: white;
+	background-color: $belize_hole;
+}
+*/
+
+.tabbable ul li a:hover {
+	color: $concrete;
 }
