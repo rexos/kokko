@@ -1,6 +1,10 @@
-<div class="center">
-  <h1>Bacheca <%= @program.title.capitalize %></h1>
+<div class="page-title">
+    <h2 class="center">
+        <i class="icon-pushpin"></i>&nbsp;Bacheca <%= @program.title.capitalize %>
+    </h2>
+  </div>
 
+<div class="center">
   <% @program.feedbacks.each do |feed| %>
   <div class="well">
     Utente : <%= feed.user.username.capitalize %><br />
@@ -10,3 +14,5 @@
   <% end %>
   
 </div>
+
+<div class="center" style="margin-top:25px;"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>
