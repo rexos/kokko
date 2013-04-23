@@ -2,8 +2,12 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require programs
+//= require headshot_support
+//= require users
+//= require headshot
 //= require exercises
 //= require users
+
 
 
 

@@ -16,18 +16,22 @@
             <div class="accordion-group"  >  
               <div class="accordion-heading">  
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= e.id %>">  
-                 <h3><%= e.name %>
-                 <%if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}%>
-                  <strong><i class="icon-ok-sign"></i></strong>
-                 <%end%> </h3>
+                 <h3>
+                  <%if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}%>
+                    <strong><i class="icon-ok-sign"></i></strong>
+                  <% else %>
+                    <strong><i class="icon-circle"></i></strong>
+                  <%end%>
+                  <%= e.name %> 
+                </h3>
                 </a>  
               </div>  
               <div id="<%= e.id %>" class="accordion-body collapse">  
-                <div class="accordion-inner black center" >  
+                <div class="accordion-inner accordion-content center" >  
                   <p style="text-align:left"><%= e.description %></p>
                   <p>
-                    Difficoltà: <strong><%= e.difficulty %></strong><br />
-                    Ripetizioni: <strong><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></strong>
+                    <strong><i class="icon-signal"></i></strong>&nbsp;Difficoltà: <strong><%= e.difficulty %></strong><br />
+                    <strong><i class="icon-random"></i></strong>&nbsp;Ripetizioni: <strong><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></strong>
                 </p>
                   <%=link_to '<button class="btn btn-large btn-info"><i class="icon-play"></i>&nbsp;&nbsp;Inizia Esercizio!</button>'.html_safe,controller: :exercises,action: :show,:association_id => @lesson.associations.find_by_exercise_id(e.id).id %>  
                 </div>  

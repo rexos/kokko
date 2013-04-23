@@ -1,82 +1,82 @@
 <div class="container center">
-
-	    <div class="row-fluid menu-el">
-	    <% progress = get_progress_of_program(@program.id) %>
+  <div class="row-fluid menu-el">
+    <% progress = get_progress_of_program(@program.id) %>
+    
+    <% if progress == 0%>
+    <div class="span6 center span-sx black">
+      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+      <h2 class="menu-title"><!-- <i class="icon-list red"></i> -->INIZIA</h2>
+      <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>  
+      <% end %>
+    </div>
+    
+    <% elsif progress>0 && progress<100%>
+      <div class="span6 center span-sx">
+	<%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
+	<h2 class="menu-title"><!-- <i class="icon-list red"></i> -->CONTINUA</h2>
+	<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
+	<% end %>
+      </div>
+      
+      <% else %>
+      <div class="span6 center span-sx">
+	<%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+	<h2 class="menu-title"><!-- <i class="icon-list red"></i> -->RICOMINCIA</h2>
+	<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>  
+	<% end %>
+      </div>
+      <% end %>
+      
+      <div class="span6 center span-dx" >
+	<%= link_to ({action: :progresses, :prog_id => @program.id}) do %>
+	<h2 class="menu-title"><!-- <i class="icon-bar-chart black"></i> -->PROGRESSI</h2>
+	<%= image_tag ("illustrations/clipboard.png"), :class => "menu-icon" %>
+	<% end %>
+      </div>	      
+  </div>
+ 
+      	
+  <div class="row-fluid menu-el ">
+    <div class="span6 center span-odd-sx">
+      <a href="#">
+	<h2 class="menu-title"><!-- <i class="icon-calendar black"></i>&nbsp; -->CALENDARIO</h2>
+	<%= image_tag ("illustrations/calendar.png"), :class => "menu-icon" %>
+      </a>
+    </div>
+    
+    
+    <div class="span6 center span-odd-dx"> 
+      <%= link_to ({ controller: :messages, action: :show}) do %>		
+      <h2 class="menu-title"><!-- <i class="icon-envelope red"></i>&nbsp; -->MESSAGGI</h2>
+      <%= image_tag ("illustrations/mail.png"), :class => "menu-icon" %>
+      <% end %>
+    </div>
+  </div>
 	    
-	    <% if progress == 0%>
-	      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
-	      <div class="span6 center span-sx black">
-			<h2 class="menu-title"><!-- <i class="icon-list red"></i> -->&nbsp;INIZIA</h2>
-	      	<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
-	      </div>  
-	      <% end %>
-	    
-	    <% elsif progress>0 && progress<100%>
-	    	<%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
-	      	<div class="span6 center span-sx">
-				<h2 class="menu-title"><!-- <i class="icon-list red"></i> -->&nbsp;CONTINUA</h2>
-				<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
-	      	</div>  
-	      	<% end %>
-	    
-	    <%else %>
-	    	<%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
-	      	<div class="span6 center span-sx">
-				<h2 class="menu-title"><!-- <i class="icon-list red"></i> -->&nbsp;RICOMINCIA</h2>
-				<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
-	      	</div>  
-	      	<% end %>
-	    <% end %>
-	      
-	    <%= link_to ({action: :progresses, :prog_id => @program.id}) do %>
-	      <div class="span6 center span-dx" >
-		<h2 class="menu-title"><!-- <i class="icon-bar-chart black"></i> -->&nbsp;PROGRESSI</h2>
-		<%= image_tag ("illustrations/clipboard.png"), :class => "menu-icon" %>
-	      </div>	      
-	    </div>
-	    <% end %>
-
-	    	
-	    <div class="row-fluid menu-el ">
-	    	<a href="#">
-	      		<div class="span6 center span-odd-sx">
-				<h2 class="menu-title"><!-- <i class="icon-calendar black"></i>&nbsp; -->CALENDARIO</h2>
-				<%= image_tag ("illustrations/calendar.png"), :class => "menu-icon" %>
-	      		</div>
-	  		</a>
-	  		<a href="#">	
-	      		<div class="span6 center span-odd-dx"> 
-				<h2 class="menu-title"><!-- <i class="icon-envelope red"></i>&nbsp; -->MESSAGGI</h2>
-				<%= image_tag ("illustrations/mail.png"), :class => "menu-icon" %>
-	      		</div>
-	  		</a>
-	    </div>
-	    
-	    <div class="row-fluid menu-el">
-	      <%= link_to action: :program_wall, :program_id => @program.id do %>
-	      <div class="span6 center span-sx">
-		<h2 class="menu-title"><!-- <i class="icon-comments red"></i>&nbsp; -->BACHECA PROGRAMMA</h2>
-		<%= image_tag ("illustrations/book.png"), :class => "menu-icon" %>
-	      </div>
-	      <% end %>
-	      <%= link_to action: :waiting_room, :program_id => @program.id do %>
-	      <div class="span6 center span-dx">
-		<h2 class="menu-title"><!-- <i class="icon-group black"></i>&nbsp; -->SALA D' ATTESA</h2>
-		<%= image_tag ("illustrations/colors.png"), :class => "menu-icon" %>
-	      </div>
-	      <% end %>
-	    </div>
-
-	    <div class="row-fluid">
-	    	<div class="span12 center">
-	    		<h1><a href="../users/home_utente"><i class="icon-home icon-large black"></i></a></h1>
-	    	</div>
-	   	</div>	
-	    
-	    Questo training program comincia tra : <p class="time"><%= 3600 - (@time.to_s[14...16].to_i*60)+(@time.to_s[17...19].to_i) %></p>
-
+  <div class="row-fluid menu-el">
+    <div class="span6 center span-sx">    
+      <%= link_to action: :program_wall, :program_id => @program.id do %>
+      <h2 class="menu-title"><!-- <i class="icon-comments red"></i>&nbsp; -->BACHECA PROGRAMMA</h2>
+      <%= image_tag ("illustrations/book.png"), :class => "menu-icon" %>
+      <% end %>    
+    </div>
+    
+    
+    <div class="span6 center span-dx">
+      <%= link_to action: :waiting_room, :program_id => @program.id do %>
+      <h2 class="menu-title"><!-- <i class="icon-group black"></i>&nbsp; -->SALA D'ATTESA</h2>
+      <%= image_tag ("illustrations/colors.png"), :class => "menu-icon" %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row-fluid">
+    <div class="span12 center">
+      <h1><a href="../users/home_utente"><i class="icon-home icon-large black"></i></a></h1>
+    </div>
+  </div>	
+  Questo training program comincia tra : <p class="time"><%= 3600 - (@time.to_s[14...16].to_i*60)+(@time.to_s[17...19].to_i) %></p>
 </div>	    
-
 	    
 <% if @done_program %>
 <%= render 'feedback' %>

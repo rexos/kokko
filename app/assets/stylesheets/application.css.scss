@@ -122,6 +122,10 @@ a:hover {
   border: none;
 }
 
+.accordion-content {
+  background-color: $clouds;
+}
+
 .nav-tabs li a {
   background-color: $clouds;
 }
@@ -142,6 +146,14 @@ a:hover {
   background-color: white;
   margin-top: -20px;
   padding-top: 20px;
+}
+
+button, .btn {
+  font-family: "Lato", sans serif;
+}
+
+button.btn-large {
+  font-size: 20px;
 }
 
 /* ---------------- END OVERRIDE BOOTSTRAP ---------------- */
