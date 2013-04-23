@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "settings";
+
 h1 a i:hover {
 	color: #a73d3b;
 }
@@ -137,6 +139,10 @@ img.menu-icon {
 .nostripes > span > span, .nostripes > span:after {
 	-webkit-animation: none;
 	background-image: none;
+}
+
+.menu-title {
+	color: $asbestos;
 }
 
 /* MENU UTENTE BORDI TONDI GRIGI BIANCHI
