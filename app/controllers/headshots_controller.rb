@@ -1,0 +1,2 @@
+class HeadshotsController < ApplicationController
+end

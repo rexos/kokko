@@ -14,6 +14,7 @@ gem 'rails', '3.2.9'
   gem "cancan"
   gem "flat-ui-rails"  
   gem "sass-rails"
+  gem "headshot"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

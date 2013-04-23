@@ -1,5 +1,7 @@
 Kokkonut::Application.routes.draw do
 
+  post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
+
   #sessions routes
   post "sessions/create" =>"sessions#create"
   match "login" => "sessions#new"
