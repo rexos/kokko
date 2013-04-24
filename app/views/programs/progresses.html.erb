@@ -9,7 +9,7 @@
   <div style="margin-top:40px;float:left">
         <% @program.lessons.each do |l|%>
         
-       <% if get_progress_of_lesson(l.id) != 0 %>
+       <% if get_progress_of_lesson(l.id).to_i != 0 %>
           <div class="medal" style="float:left">
             <p><%= l.title %></p>
             <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
@@ -34,7 +34,7 @@
        <div class="medal cup center" style="margin-bottom:20px;float:left">
         <h4 style="margin:0px;position:relative;top:100px">
           <%= @program.title.split(" -").first %></h4>
-        <h2 style="margin:0px;position:relative;top:120px"><%= get_progress_of_program(@program.id) %>%</h2>
+        <h2 style="margin:0px;position:relative;top:120px"><%= get_progress_of_program(@program.id).to_i %>%</h2>
         <%= image_tag('medal/cup2.jpg',:size => "300x100") %>
       </div>
    
