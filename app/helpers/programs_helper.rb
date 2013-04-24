@@ -30,7 +30,7 @@ module ProgramsHelper
       lesson_associations.push(a.id)
     end
     total = (user_associations & lesson_associations)
-    ((lesson_associations & user_associations).count.to_d/lesson_associations.count.to_d)*100
+    ((lesson_associations & user_associations).count.to_d / lesson_associations.count.to_d)*100
   end
 
 end

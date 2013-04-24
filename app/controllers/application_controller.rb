@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
 
   def headshot_custom_file_path
     file_name = "#{current_user.username}_#{Time.now.to_i}.jpg"
-    File.join(Rails.root, 'app', 'assets', 'images', file_name)
+    File.join("www.dropbox.com/sh/viat29e9zjm80g0/FsJRvMcUnh&h=1AQEbwDYF/", file_name)
+#    File.join(Rails.root, 'app', 'assets', 'images', file_name)
   end
 
 
