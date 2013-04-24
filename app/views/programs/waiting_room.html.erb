@@ -6,10 +6,12 @@
 
 <div class="row-fluid">
 	<div class="span12">
-			<h3>Utenti iscritti al programma <strong><%= @program.title.capitalize %></strong></h3>
+			<div style="margin-left: 15px"><h3>Utenti iscritti al programma <strong><%= @program.title.capitalize %></strong></h3></div>
 		<% @attending.each do |u| %>
-		<div class="alert alert-success">
-		  <h4><%= u.username.capitalize %></h4>
+		<div class="user-box">
+		  <%= gravatar_for(User.find(u.id), "avatar") %>
+		  <div style="clear:left"></div>
+		  <h4 class="center"><%= u.username.capitalize %></h4>
 		</div>
 		<% end %>
 	</div>
