@@ -13,7 +13,16 @@ class ApplicationController < ActionController::Base
 
   def headshot_custom_file_path
     file_name = "#{current_user.username}_#{Time.now.to_i}.jpg"
-    File.join(Rails.root, 'app', 'assets', 'images', file_name)
+    #File.join(Rails.root, 'app', 'assets', 'images', file_name)
+    #session log dropbox
+    session = Dropbox::Session.new('pdu5pfk396z07bjy', 'vx5rexi2pz4bffz')
+    session.mode = :sandbox # might need to set this to :dropbox; consult your API account page
+    puts "Visit #{session.authorize_url} to log in to Dropbox. Hit enter when you have done this."
+    gets
+    session.authorize
+    #metto online la foto
+    session.upload('file_name', '/')
+    #gem link https://github.com/RISCfuture/dropbox
   end
 
 
