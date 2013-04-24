@@ -29,7 +29,7 @@
           <%= link_to controller: :messages, action: :show do %>
           <li id="msg_notification"><i class="icon icon-envelope"></i>
 	  <% if current_user_message_count > 0 %>
-	  &nbsp;&nbsp;<%= current_user_message_count %> new
+	  &nbsp;&nbsp;<%= current_user_message_count %>
 	  <% end %>
 	  </li>
 	    <% end %>

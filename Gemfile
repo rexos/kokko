@@ -14,8 +14,6 @@ gem 'rails', '3.2.9'
   gem "cancan"
   gem "flat-ui-rails"  
   gem "sass-rails"
-  gem "headshot"
-  gem "dropbox"
   
 # Gems used only for assets and not required
 # in production environments by default.

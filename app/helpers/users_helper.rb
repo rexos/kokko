@@ -15,14 +15,9 @@ module UsersHelper
   end
 
   def gravatar_for(user, css)
-    if HeadshotPhoto.where("image_file_name LIKE ?" , "%#{user.username}_%").first
-      image_url = HeadshotPhoto.where("image_file_name LIKE ?" , "%#{user.username}_%").first.image_file_name.to_s
-      image_tag(image_url, alt: user.username, :class => css)
-    else
-      gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-      gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-      image_tag(gravatar_url, alt: user.username, :class => css)
-    end
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+    image_tag(gravatar_url, alt: user.username, :class => css)
   end
 
 end
