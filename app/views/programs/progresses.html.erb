@@ -9,10 +9,10 @@
   <div style="margin-top:40px;float:left">
         <% @program.lessons.each do |l|%>
         
-       <% if get_progress_of_lesson(l.id).to_i != 0 %>
+       <% if get_progress_of_lesson(l.id) != 0 %>
           <div class="medal" style="float:left">
             <p><%= l.title %></p>
-            <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
+            <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id) %>%</h2>
             <%= image_tag('medal/Medal.jpeg',:size => "250x100") %>
               <div class="meter nostripes" style="width:75%; border: 2px solid #BDC3C7;margin:auto">
                 <span  style="width:<%= get_progress_of_lesson(l.id) %>%"></span>
@@ -21,7 +21,7 @@
           <% else %>
           <div class="medal" style="float:left">
             <p><%= l.title %></p>
-            <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
+            <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id) %>%</h2>
             <%= image_tag('medal/MedalNone.png',:size => "250x100") %>
           </div>
         <% end %>
@@ -32,10 +32,17 @@
 
       
        <div class="medal cup center" style="margin-bottom:20px;float:left">
-        <h4 style="margin:0px;position:relative;top:100px">
+        <% if get_progress_of_program(@program.id) != 0 %>
+          <h4 style="margin:0px;position:relative;top:100px">
           <%= @program.title.split(" -").first %></h4>
-        <h2 style="margin:0px;position:relative;top:120px"><%= get_progress_of_program(@program.id).to_i %>%</h2>
-        <%= image_tag('medal/cup2.jpg',:size => "300x100") %>
+          <h2 style="margin:0px;position:relative;top:120px"><%= get_progress_of_program(@program.id) %>%</h2>
+          <%= image_tag('medal/cup3.png',:size => "300x100") %>
+        <% else %>
+          <h4 style="margin:0px;position:relative;top:100px;color:#fff">
+          <%= @program.title.split(" -").first %></h4>
+          <h2 style="margin:0px;position:relative;top:120px;color:#fff"><%= get_progress_of_program(@program.id) %>%</h2>
+          <%= image_tag('medal/cup3none.png',:size => "300x100") %>
+        <% end %>
       </div>
    
   <div style="float:clear"></div>
