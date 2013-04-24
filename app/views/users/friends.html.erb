@@ -18,16 +18,20 @@
   <h3>Chi seguo:</h3>
   <% @current_user_friends.each do |friend|  %>
   <div id=<%= friend.id %> class="row-fluid friend-row" style="width:30%">
-    <h4><%= gravatar_for( friend,"avatar" ) %> &nbsp;&nbsp;
-    <%= link_to action: :visit, :visited_user_id => friend.id do %>
-    <button class="btn btn-success"><i class="icon-eye-open"></i>&nbsp;Visita</button>
-    <% end %>
-    <%= link_to action: :remove_friend, :removed_friend_id => friend.id, :remote => true do %>
-    <button class="btn btn-danger"><i class="icon-remove"></i>&nbsp;Rimuovi</button>
-    <% end %>
     
-    <strong><%= friend.username.capitalize %></strong>
-    <h4>
+    <p><h4><%= gravatar_for( friend,"avatar" ) %><h4>
+    <h4><strong><%= friend.username.capitalize %></strong></h4>
+    </p>
+
+    <%= link_to action: :visit, :visited_user_id => friend.id do %>
+    <button class="btn btn-success" style="float:left"><i class="icon-eye-open"></i>&nbsp;Visita</button>
+    <% end %>
+
+    <%= link_to action: :remove_friend, :removed_friend_id => friend.id, :remote => true do %>
+    <button class="btn btn-danger" style="float:left"><i class="icon-remove"></i>&nbsp;Rimuovi</button>
+    <% end %>
+    <div style="clear:both"></div>
+
   </div>
   <% end %>
 </div>
