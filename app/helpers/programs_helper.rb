@@ -30,7 +30,7 @@ module ProgramsHelper
       lesson_associations.push(a.id)
     end
     total = (user_associations & lesson_associations)
-    (BigDecimal((lesson_associations & user_associations).count) / BigDecimal(lesson_associations.count))*100
+    (BigDecimal((lesson_associations & user_associations).count.to_s) / BigDecimal(lesson_associations.count.to_s))*100
   end
 
 end
