@@ -71,11 +71,16 @@
   
   <div class="row-fluid">
     <div class="span12 center">
-      <h1><a href="../users/home_utente"><i class="icon-home icon-large black"></i></a></h1>
+         <h2>INIZIA TRA</h2>
+         <p>
+         <div class="time">
+          <%= 3600 - (@time.to_s[14...16].to_i*60)+(@time.to_s[17...19].to_i) %>
+         </div>
+       </p>    
     </div>
   </div>	
-  Questo training program comincia tra : <p class="time"><%= 3600 - (@time.to_s[14...16].to_i*60)+(@time.to_s[17...19].to_i) %></p>
-</div>	    
+  
+</div> <!-- container center-->	    
 	    
 <% if @done_program %>
 <%= render 'feedback' %>

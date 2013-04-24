@@ -11,7 +11,7 @@ $(document).ready(function(){
 	$('#feedback-modal').modal('show');
     }
     
-    var time = parseInt($('p.time').text());
+    var time = parseInt($('.time').text());
 
     setInterval(countdown,1000);
     function countdown(){
@@ -22,7 +22,7 @@ $(document).ready(function(){
 	if (seconds < 10){
 	    colon = " : 0"
 	}
-	$('p.time').text(minutes+colon+seconds);
+	$('.time').text(minutes+colon+seconds);
     }
     
     $('.medal').each(function() {
