@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
     session.authorize
     #metto online la foto
     session.upload('file_name', '/')
-    #gem link https://github.com/RISCfuture/dropbox
   end
 
 
