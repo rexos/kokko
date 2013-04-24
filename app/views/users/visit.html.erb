@@ -1,3 +1,6 @@
+<div class="row-fluid">
+<div class="span9">
+
 <div class="page-title">
     <h2 class="center">
         <i class="icon-list"></i>&nbsp;Bacheca di <%= @visited_user.username.capitalize %>
@@ -65,4 +68,43 @@
     <% end %>
 
 
+</div>
+</div> <!-- span9 -->
+  <div class="span3">
+    <div class="row-fluid center">
+
+   <div class="row-fluid">
+    <div class="center" style="margin-bottom: 20px">
+    <div class="h-icon">
+    <h2>Home</h2>
+    <%= link_to ({ controller: :users, action: :home_utente })  do %>
+    <i class="icon-home" style="font-size: 140px;color:#2980B9"></i>
+    </div>
+    <% end %>
+    </div>
+  </div> 
+
+  <div class="row-fluid">
+    <div class="center" style="margin-bottom: 20px">
+    <div class="h-icon">
+    <h2>Amici</h2>
+    <%= link_to :controller => :users, :action => :friends do %>
+    <%= image_tag ("illustrations/colors.png"), :class => "home-icon" %>
+    </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+  <div class="center" style="margin-bottom: 20px">
+    <div class="h-icon">
+    <h2>Messaggi</h2>
+    <%= link_to ({ controller: :messages, action: :show}) do %>
+    <%= image_tag ("illustrations/mail.png"), :class => "home-icon" %>
+    </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+  </div>
 </div>
