@@ -16,13 +16,10 @@
 
 <div class="row-fluid">
   
-   
-   
     <% @visited_user_feedbacks.each do |f| %>
     
 
     <div class="well row-visited" id=<%= f.id %> >
-      
       
       <% if f.program_id %>
        <h4>
@@ -61,7 +58,7 @@
       <!-- Comments end -->
       <h4>
 	<small>
-	  Posted on : <%= f.created_at.to_s[0..9] %> at : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
+	  Postato il <%= f.created_at.to_s[8..9] + "-" + f.created_at.to_s[5..6] + "-" + f.created_at.to_s[0..3] %> alle <%= f.created_at.to_s[11..15] %>
 	</small>
       </h4>
     </div>
