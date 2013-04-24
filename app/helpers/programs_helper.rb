@@ -15,7 +15,7 @@ module ProgramsHelper
         ex_done += 1
       end
     end
-    progress = ((ex_done.to_f/total.to_f)*100).to_i
+    progress = ((ex_done.to_f/total.to_f)*100).to_d
   end
 
 

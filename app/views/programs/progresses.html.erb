@@ -32,10 +32,17 @@
 
       
        <div class="medal cup center" style="margin-bottom:20px;float:left">
-        <h4 style="margin:0px;position:relative;top:100px">
+        <% if get_progress_of_program(@program.id) != 0 %>
+          <h4 style="margin:0px;position:relative;top:100px">
           <%= @program.title.split(" -").first %></h4>
-        <h2 style="margin:0px;position:relative;top:120px"><%= get_progress_of_program(@program.id) %>%</h2>
-        <%= image_tag('medal/cup2.jpg',:size => "300x100") %>
+          <h2 style="margin:0px;position:relative;top:120px"><%= get_progress_of_program(@program.id).to_i %>%</h2>
+          <%= image_tag('medal/cup3.png',:size => "300x100") %>
+        <% else %>
+          <h4 style="margin:0px;position:relative;top:100px;color:#fff;">
+          <%= @program.title.split(" -").first %></h4>
+          <h2 style="margin:0px;position:relative;top:120px;color:#fff;"><%= get_progress_of_program(@program.id).to_i %>%</h2>
+          <%= image_tag('medal/cup3none.png',:size => "300x100") %>
+        <% end %>
       </div>
    
   <div style="float:clear"></div>
