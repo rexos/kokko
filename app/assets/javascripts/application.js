@@ -6,15 +6,10 @@
 //= require exercises
 //= require users
 
-
-
-
 $(function () {
     // Custom selects
     $("select").dropkick();
 });
-
-
 
 $(document).ready(function() {
     // Todo list

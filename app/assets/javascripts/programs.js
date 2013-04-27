@@ -39,9 +39,9 @@ $(document).ready(function(){
     });
 
     $('span.star').click(function(){
-	    var star_id = parseInt($(this).attr('id').substr(4,4));
+        var star_id = parseInt($(this).attr('id').substr(4,4));
 	    $('#rating_field').attr('value',star_id);
-	});
+    });
 
     	$('li').click(function(){
 		$('li.active').children('a').children('h4').children('i').toggleClass('icon-folder-close-alt icon-folder-open-alt');
