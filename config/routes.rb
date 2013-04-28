@@ -1,5 +1,8 @@
 Kokkonut::Application.routes.draw do
 
+
+
+
   #sessions routes
   post "sessions/create" =>"sessions#create"
   match "login" => "sessions#new"

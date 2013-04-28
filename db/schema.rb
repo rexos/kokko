@@ -35,14 +35,6 @@ ActiveRecord::Schema.define(:version => 20130423150224) do
 
   add_index "comments", ["feedback_id"], :name => "index_comments_on_feedback_id"
 
-  create_table "events", :force => true do |t|
-    t.integer  "training_id"
-    t.integer  "lesson_id"
-    t.date     "start_time"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.string   "difficulty"
