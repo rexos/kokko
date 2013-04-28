@@ -49,7 +49,7 @@
            <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
            <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
          </ul>
-         <ul type="none">
+         <ul type="none" style="float: left">
           <% if controller.controller_name == 'programs' ||  controller.controller_name == 'lessons'%>
           <li> <%= @program.title %> </li>
           <% end %>
