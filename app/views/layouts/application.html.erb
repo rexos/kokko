@@ -28,31 +28,36 @@
     <link href="http://fonts.googleapis.com/css?family=Sintony" rel="stylesheet" type="text/css">
   </head>
 
-  <body>
+  <body style="background-image: url('/assets/wood.jpg')">
     <% if current_user %>
     
       <div class="row-fluid" id="profile-row-line-top">
         <div class="span12" id="light-menu">
-          <ul type="none">
-          <%= link_to controller: :messages, action: :show do %>
-          <li id="msg_notification"><i class="icon icon-envelope"></i>
-	  <% if current_user_message_count > 0 %>
-	  &nbsp;&nbsp;<%= current_user_message_count %>
-	  <% end %>
-	  </li>
-	    <% end %>
-            <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :home_utente %>
-	      <% if current_user.first_name && !current_user.first_name.blank? %>
-	      (<%=current_user.first_name%>)
-	      <% end %>
-	    </li>
-	    <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
-            <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
-          </ul> 
-        </div>
-      </div>
-    <% else %>
-    <div class="row-fluid" id="row-line-top">
+          <ul type="none"> 
+            <%= link_to controller: :messages, action: :show do %>
+            <li id="msg_notification"><i class="icon icon-envelope"></i>
+             <% if current_user_message_count > 0 %>
+             &nbsp;&nbsp;<%= current_user_message_count %>
+             <% end %>
+           </li>
+           <% end %>
+           <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :home_utente %>
+             <% if current_user.first_name && !current_user.first_name.blank? %>
+             (<%=current_user.first_name%>)
+             <% end %>
+           </li>
+           <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
+           <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
+         </ul>
+         <ul type="none" style="float: left">
+          <% if controller.controller_name == 'programs' ||  controller.controller_name == 'lessons'%>
+          <li> <%= @program.title %> </li>
+          <% end %>
+         </ul>
+       </div>
+     </div>
+     <% else %>
+     <div class="row-fluid" id="row-line-top">
       <div class="span12" id="light-menu">
         <ul type="none">
           <li><a href="#"><i class="icon-group"></i>&nbsp;chi siamo</a></li> 

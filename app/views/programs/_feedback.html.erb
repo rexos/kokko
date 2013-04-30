@@ -3,27 +3,29 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel" style="color:white">Congratulazioni <%= current_user.username %>!</h3>
   </div>
-  <div class="modal-body center">
-    <p>Hai completato tutti gli esercizi del training program : <b><%= @done_program.title %></b>, Saremo lieti se lasciassi un commento con i tuoi pareri su questo programma di allenamento </p>
-    <br />
-    <b>RATING</b>
-    <br />
-    <span class="rating">
-      <span id="star5" class="star"></span>
-      <span id="star4" class="star"></span>
-      <span id="star3" class="star"></span>
-      <span id="star2" class="star"></span>
-      <span id="star1" class="star"></span>
-    </span>
-    <br />
-    <br />
+  <div class="modal-body">
+    <h4>Hai completato tutti gli esercizi del training program <b><%= @done_program.title %></b>, saremo lieti se lasciassi un commento con i tuoi pareri su questo programma di allenamento.</h4>
+    <p class="center">
+      <b>VOTA</b>
+      <br />
+      <span class="rating">
+        <span id="star5" class="star"></span>
+        <span id="star4" class="star"></span>
+        <span id="star3" class="star"></span>
+        <span id="star2" class="star"></span>
+        <span id="star1" class="star"></span>
+      </span>
+      <br />
+    <div class="center">
     <%= form_for :feedback, url: {:controller => :programs, :action => :add_feedback}, :remote => true do |f| %>
     <%= f.hidden_field :program_id, value: @done_program.id %>
     <%= f.hidden_field :rating, :id => "rating_field", :value => 0 %>
-    <%= f.text_area :body, :placeholder => "Il Tuo Commento ...", rows: 5 %>
+    <%= f.text_area :body, :placeholder => "Scrivi qua il tuo commento...", rows: 5 %>
+    </div>
+    </p>
   </div>
   <div class="modal-footer">
-    <button tybe="submit" class="btn btn-success btn-large"><i class="icon-envelope"></i>&nbsp;&nbsp;Give feeds</button>
+    <button tybe="submit" class="btn btn-success btn-large"><i class="icon-envelope"></i>&nbsp;&nbsp;Invia commento</button>
     <% end %>
     <button class="btn btn-large" data-dismiss="modal" aria-hidden="true"><i class="icon-reply"></i>&nbsp;&nbsp;Non ora</button>
   </div>
