@@ -38,10 +38,10 @@
       	
   <div class="row-fluid menu-el ">
     <div class="span6 center span-odd-sx">
-      <a href="#">
+      <%= link_to controller: :users, action: :calendar do %>
 	<h2 class="menu-title"><!-- <i class="icon-calendar black"></i>&nbsp; -->CALENDARIO</h2>
 	<%= image_tag ("illustrations/calendar.png"), :class => "menu-icon" %>
-      </a>
+	<% end %>
     </div>
     
     
