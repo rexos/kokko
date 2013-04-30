@@ -1311,7 +1311,7 @@
          timeslotsPerHour : 4,
          buttons : true,
          buttonText : {
-            today : "today",
+            today : "Oggi",
             lastWeek : "&nbsp;&lt;&nbsp;",
             nextWeek : "&nbsp;&gt;&nbsp;"
          },
@@ -1351,10 +1351,10 @@
          },
          noEvents : function() {
          },
-         shortMonths : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-         longMonths : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-         shortDays : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-         longDays : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+         shortMonths : ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+         longMonths : ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'August', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+         shortDays : ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
+         longDays : ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato']
       }
    });
 

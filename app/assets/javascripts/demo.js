@@ -40,14 +40,14 @@ $(document).ready(function() {
 
          $dialogContent.dialog({
             modal: true,
-            title: "New Calendar Event",
+            title: "Nuovo evento",
             close: function() {
                $dialogContent.dialog("destroy");
                $dialogContent.hide();
                $('#calendar').weekCalendar("removeUnsavedEvents");
             },
             buttons: {
-               save : function() {
+               Salva : function() {
                   calEvent.id = id;
                   id++;
                   calEvent.start = new Date(startField.val());
@@ -59,7 +59,7 @@ $(document).ready(function() {
                   $calendar.weekCalendar("updateEvent", calEvent);
                   $dialogContent.dialog("close");
                },
-               cancel : function() {
+               Indietro : function() {
                   $dialogContent.dialog("close");
                }
             }
@@ -89,14 +89,14 @@ $(document).ready(function() {
 
          $dialogContent.dialog({
             modal: true,
-            title: "Edit - " + calEvent.title,
+            title: "Modifica" + calEvent.title,
             close: function() {
                $dialogContent.dialog("destroy");
                $dialogContent.hide();
                $('#calendar').weekCalendar("removeUnsavedEvents");
             },
             buttons: {
-               save : function() {
+               Salva : function() {
 
                   calEvent.start = new Date(startField.val());
                   calEvent.end = new Date(endField.val());
@@ -106,11 +106,11 @@ $(document).ready(function() {
                   $calendar.weekCalendar("updateEvent", calEvent);
                   $dialogContent.dialog("close");
                },
-               "delete" : function() {
+               "Elimina" : function() {
                   $calendar.weekCalendar("removeEvent", calEvent.id);
                   $dialogContent.dialog("close");
                },
-               cancel : function() {
+               Indietro : function() {
                   $dialogContent.dialog("close");
                }
             }

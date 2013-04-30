@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423150224) do
+ActiveRecord::Schema.define(:version => 20130423074451) do
 
   create_table "associations", :force => true do |t|
     t.integer  "lesson_id"
@@ -55,18 +55,6 @@ ActiveRecord::Schema.define(:version => 20130423150224) do
 
   add_index "feedbacks", ["program_id"], :name => "index_feedbacks_on_program_id"
   add_index "feedbacks", ["user_id"], :name => "index_feedbacks_on_user_id"
-
-  create_table "headshot_photos", :force => true do |t|
-    t.string   "description"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.integer  "capturable_id"
-    t.string   "capturable_type"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
 
   create_table "lessons", :force => true do |t|
     t.string   "title"
