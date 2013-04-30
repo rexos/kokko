@@ -3,7 +3,7 @@
  Code licensed under the BSD License:
  http://developer.yahoo.net/yui/license.txt
  version: 2.5.1
- */
+ 
 html {
     color: #000;
     background: #FFF;
@@ -74,3 +74,5 @@ input, textarea, select {
 legend {
     color: #000;
 }
+
+*/

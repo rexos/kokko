@@ -7,6 +7,7 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
+ *= require "demo.css"
  *= require "bootstrap_and_overrides.css.less"
  *= require "flat-ui.css"
  *= require_self
@@ -14,6 +15,10 @@
  */
 
 @import "settings";
+
+li {
+    list-style: none;
+}
 
 .page-title {
   margin: 20px;
