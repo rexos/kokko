@@ -1,15 +1,18 @@
 Kokkonut::Application.routes.draw do
 
-
-
+  root :to => 'welcome#index'
 
   #sessions routes
   post "sessions/create" =>"sessions#create"
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
 
-  root :to => 'welcome#index'
 
+  #events routes
+  post "*events/create" => "events#create"
+  get "*events/destroy" => "events#destroy"
+  get "*events/fetch" => "events#fetch"
+  post "*events/edit" => "events#edit"
 
   #program routes
   get "programs/all" => "programs#index"

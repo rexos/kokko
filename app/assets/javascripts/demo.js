@@ -9,10 +9,10 @@ $(document).ready(function() {
       allowCalEventOverlap : true,
       overlapEventsSeparate: true,
       firstDayOfWeek : 1,
-      businessHours :{start: 8, end: 18, limitDisplay: true },
+      businessHours :{start: 8, end: 20, limitDisplay: true },
       daysToShow : 7,
       height : function($calendar) {
-         return $(window).height() - $("h1").outerHeight() - 1;
+	       return $(window).height() - $("h1").outerHeight() - 1;
       },
       eventRender : function(calEvent, $event) {
          if (calEvent.end.getTime() < new Date().getTime()) {
@@ -48,13 +48,23 @@ $(document).ready(function() {
             },
             buttons: {
                Salva : function() {
-                  calEvent.id = id;
-                  id++;
+			 var myEvent = { start : new Date(startField.val()), end : new Date(endField.val()), title : titleField.val(), body : bodyField.val() };
+			 var savedId;
+			 $.ajax({
+				 url : '/events/create',
+				     type : 'POST',
+				     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+				     data : 'newEvent='+JSON.stringify(myEvent),
+				     async : false,
+				     success : function(response){
+				     savedId = response;
+				 }
+			     });
+			 calEvent.id = savedId;
                   calEvent.start = new Date(startField.val());
                   calEvent.end = new Date(endField.val());
                   calEvent.title = titleField.val();
                   calEvent.body = bodyField.val();
-
                   $calendar.weekCalendar("removeUnsavedEvents");
                   $calendar.weekCalendar("updateEvent", calEvent);
                   $dialogContent.dialog("close");
@@ -89,7 +99,7 @@ $(document).ready(function() {
 
          $dialogContent.dialog({
             modal: true,
-            title: "Modifica" + calEvent.title,
+            title: "Modifica " + calEvent.title,
             close: function() {
                $dialogContent.dialog("destroy");
                $dialogContent.hide();
@@ -103,11 +113,31 @@ $(document).ready(function() {
                   calEvent.title = titleField.val();
                   calEvent.body = bodyField.val();
 
+		  var editEvent = { start : new Date(startField.val()), end : new Date(endField.val()), title : titleField.val(), body : bodyField.val(), id : calEvent.id };
+
+		  $.ajax({
+			  url : '/events/edit',
+			      type : 'POST',
+			      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			      data : 'editEvent='+JSON.stringify(editEvent),
+			      async : false,
+			      success : function(response){
+			      alert(response);
+			  }
+		      });
+
                   $calendar.weekCalendar("updateEvent", calEvent);
                   $dialogContent.dialog("close");
                },
-               "Elimina" : function() {
+               Elimina : function() {
                   $calendar.weekCalendar("removeEvent", calEvent.id);
+		  $.ajax({
+			  url : '/events/destroy',
+			      type : 'GET',
+			      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			      data : 'eventId='+calEvent.id,
+			      async : false
+		      });
                   $dialogContent.dialog("close");
                },
                Indietro : function() {
@@ -144,49 +174,19 @@ $(document).ready(function() {
       var year = new Date().getFullYear();
       var month = new Date().getMonth();
       var day = new Date().getDate();
-
+      var ev;
+      $.ajax({
+	      url : '/events/fetch',
+		  type : 'GET',
+		  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		  async : false,
+		  success : function(response){
+		  ev = JSON.parse(response);
+	      }
+	  });
       return {
-         events : [
-		   /*{
-               "id":1,
-               "start": new Date(year, month, day, 12),
-               "end": new Date(year, month, day, 13, 30),
-               "title":"Lunch with Mike"
-            },
-            {
-               "id":2,
-               "start": new Date(year, month, day, 14),
-               "end": new Date(year, month, day, 14, 45),
-               "title":"Dev Meeting"
-            },
-            {
-               "id":3,
-               "start": new Date(year, month, day + 1, 17),
-               "end": new Date(year, month, day + 1, 17, 45),
-               "title":"Hair cut"
-            },
-            {
-               "id":4,
-               "start": new Date(year, month, day - 1, 8),
-               "end": new Date(year, month, day - 1, 9, 30),
-               "title":"Team breakfast"
-            },
-            {
-               "id":5,
-               "start": new Date(year, month, day + 1, 14),
-               "end": new Date(year, month, day + 1, 15),
-               "title":"Product showcase"
-            },
-	    {
-               "id":6,
-               "start": new Date(year, month, day, 10),
-               "end": new Date(year, month, day, 11),
-               "title":"I'm read-only",
-               readOnly : true
-	       }*/
-
-         ]
-      };
+	  events : ev
+	      };
    }
 
 
