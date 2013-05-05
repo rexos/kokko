@@ -4,49 +4,53 @@
   </h2>
 
   <div class="container center">
-  
-<div class="row-fluid center">
-  <div style="margin-top:40px;float:left">
-        <% @program.lessons.each do |l|%>
-        
-       <% if get_progress_of_lesson(l.id).to_i != 0 %>
-          <div class="medal" style="float:left">
-            <p><%= l.title %></p>
-            <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
-            <%= image_tag('medal/Medal.jpeg',:size => "250x100") %>
-	    <div class="meter nostripes" style="width:75%; border: 2px solid #BDC3C7;margin:auto">
-              <span  style="width:<%= get_progress_of_lesson(l.id) %>%"></span>
-            </div>
+    
+    <div class="row-fluid center">
+      <% @program.lessons.each do |l|%>
+
+      <% if get_progress_of_lesson(l.id).to_i != 0 %>
+      <div class="span3">
+        <div class="medal">
+          <p><%= l.title %></p>
+          <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
+          <%= image_tag('medal/Medal.jpeg',:size => "250x100") %>
+          <div class="meter nostripes" style="width:75%; border: 2px solid #BDC3C7;margin:auto">
+            <span  style="width:<%= get_progress_of_lesson(l.id) %>%"></span>
           </div>
-          <% else %>
-          <div class="medal" style="float:left">
-            <p><%= l.title %></p>
-            <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
-            <%= image_tag('medal/MedalNone.png',:size => "250x100") %>
-          </div>
-        <% end %>
-        <% end %>
+        </div>
       </div>
+      <% else %>
+      <div class="span3">
+        <div class="medal" >
+          <p><%= l.title %></p>
+          <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
+          <%= image_tag('medal/MedalNone.png',:size => "250x100") %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+      
       
 
 
-      
-       <div class="medal cup center" style="margin-bottom:20px;float:left">
+      <div class="span3">
+       <div class="medal cup center">
         <% if get_progress_of_program(@program.id) != 0 %>
-          <h4 style="margin:0px;position:relative;top:100px">
+        <h4 style="margin:0px;position:relative;top:100px">
           <%= @program.title.split(" -").first %></h4>
           <h2 style="margin:0px;position:relative;top:120px"><%= get_progress_of_program(@program.id).to_i %>%</h2>
           <%= image_tag('medal/cup3.png',:size => "300x100") %>
-        <% else %>
+          <% else %>
           <h4 style="margin:0px;position:relative;top:100px;color:#fff">
-          <%= @program.title.split(" -").first %></h4>
-          <h2 style="margin:0px;position:relative;top:120px;color:#fff"><%= get_progress_of_program(@program.id).to_i %>%</h2>
-          <%= image_tag('medal/cup3none.png',:size => "300x100") %>
-        <% end %>
+            <%= @program.title.split(" -").first %></h4>
+            <h2 style="margin:0px;position:relative;top:120px;color:#fff"><%= get_progress_of_program(@program.id).to_i %>%</h2>
+            <%= image_tag('medal/cup3none.png',:size => "300x100") %>
+            <% end %>
+          </div>
+        </div>
+
       </div>
-   
-  <div style="float:clear"></div>
-  </div>
+    </div>
   </div>
 
 
