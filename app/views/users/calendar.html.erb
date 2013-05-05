@@ -11,7 +11,12 @@
 	<%= stylesheet_link_tag "demo" %>
 	<%= stylesheet_link_tag "reset" %>
 	<%= javascript_include_tag "jquery.weekcalendar" %>
+	<% if current_user.role.include? "admin" %>
 	<%= javascript_include_tag "demo" %>
+	<% else %>
+	<%= javascript_include_tag "demoUser" %>
+	<% end %>
+	
 	
 	
 
