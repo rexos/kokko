@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require programs
-//= require users
 //= require exercises
 //= require users
 

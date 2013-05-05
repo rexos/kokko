@@ -10,10 +10,10 @@ Kokkonut::Application.routes.draw do
 
 
   #events routes
-  post "*events/create" => "events#create"
-  get "*events/destroy" => "events#destroy"
-  get "*events/fetch" => "events#fetch"
-  post "*events/edit" => "events#edit"
+  post "events/create" => "events#create"
+  get "events/destroy" => "events#destroy"
+  get "events/fetch" => "events#fetch"
+  post "events/edit" => "events#edit"
 
   #program routes
   get "programs/all" => "programs#index"
