@@ -1,6 +1,7 @@
 Kokkonut::Application.routes.draw do
 
   root :to => 'welcome#index'
+  get "whoweare" => "welcome#whoweare"
 
   #sessions routes
   post "sessions/create" =>"sessions#create"

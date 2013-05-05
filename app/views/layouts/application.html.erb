@@ -60,7 +60,7 @@
      <div class="row-fluid" id="row-line-top">
       <div class="span12" id="light-menu">
         <ul type="none">
-          <li><a href="#"><i class="icon-group"></i>&nbsp;chi siamo</a></li> 
+          <li><%= link_to '<i class="icon-group"></i>&nbsp;chi siamo'.html_safe, controller: :welcome, action: :whoweare %></li> 
           <li><a href="mailto:dea.dormi@gmail.com"><i class="icon-envelope"></i>&nbsp;contatti</a></li>
         </ul> 
       </div>
