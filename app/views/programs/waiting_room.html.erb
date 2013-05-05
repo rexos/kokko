@@ -7,6 +7,11 @@
 <div class="row-fluid">
 	<div class="span12">
 			<div style="margin-left: 15px"><h3>Utenti iscritti al programma <strong><%= @program.title.capitalize %></strong></h3></div>
+		<% if @attending.count == 0 %>
+		<div class="alert alert-danger" style="margin-top: 20px">
+        <h3 class="center" >Non è iscritto nessuno al momento!</h3>
+      	</div>
+      	<% end %>
 		<% @attending.each do |u| %>
 		<div class="user-box">
 		  <%= gravatar_for(User.find(u.id), "avatar") %>
@@ -17,4 +22,4 @@
 	</div>
 </div>
 
- <div class="center" style="margin-top:25px;"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>
+ <div class="center" style="margin-top:25px;"><%= link_to '<button class="btn btn-large btn-primary"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>

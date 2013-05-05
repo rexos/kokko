@@ -108,4 +108,8 @@ class UsersController < ApplicationController
     end
   end
 
+  #def calendar
+  #  render :layout => false
+  #end
+
 end

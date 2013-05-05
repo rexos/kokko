@@ -1,10 +1,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require users
 //= require programs
-//= require users
 //= require exercises
-//= require users
+
 
 $(function () {
     // Custom selects

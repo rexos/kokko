@@ -16,7 +16,15 @@
 
 <div class="row-following">
   <h3>Chi seguo:</h3>
+  <% if @current_user_friends.count == 0 %>
+  <div class="row center">
+   <div class="alert-success">
+      <h2>Al momento non segui nessuno, cerca nuovi amici! </h2>
+   </div>
+  </div>
+  <% end %>
   <% @current_user_friends.each do |friend|  %>
+  
   <div id=<%= friend.id %> class="row-fluid friend-row" style="width:30%">
     
     <p><h4><%= gravatar_for( friend,"avatar" ) %><h4>

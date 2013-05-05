@@ -28,7 +28,7 @@
     <link href="http://fonts.googleapis.com/css?family=Sintony" rel="stylesheet" type="text/css">
   </head>
 
-  <body>
+  <body >
     <% if current_user %>
     
       <div class="row-fluid" id="profile-row-line-top">
@@ -49,8 +49,8 @@
            <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
            <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
          </ul>
-         <ul class="left" style="text-align:left;" type="none">
-          <% if controller.controller_name == 'programs' ||  controller.controller_name == 'lessons'%>
+         <ul type="none" style="float: left">
+          <% if current_user.role == "user" && ( controller.controller_name == 'programs' ||  controller.controller_name == 'lessons' ) %>
           <li> <%= @program.title %> </li>
           <% end %>
          </ul>
@@ -60,7 +60,7 @@
      <div class="row-fluid" id="row-line-top">
       <div class="span12" id="light-menu">
         <ul type="none">
-          <li><a href="#"><i class="icon-group"></i>&nbsp;chi siamo</a></li> 
+          <li><%= link_to '<i class="icon-group"></i>&nbsp;chi siamo'.html_safe, controller: :welcome, action: :whoweare %></li> 
           <li><a href="mailto:dea.dormi@gmail.com"><i class="icon-envelope"></i>&nbsp;contatti</a></li>
         </ul> 
       </div>

@@ -9,4 +9,8 @@ class WelcomeController < ApplicationController
       end
     end
   end
+
+  def whoweare
+  end
+
 end

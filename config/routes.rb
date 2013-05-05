@@ -1,15 +1,19 @@
 Kokkonut::Application.routes.draw do
 
-
-
+  root :to => 'welcome#index'
+  get "whoweare" => "welcome#whoweare"
 
   #sessions routes
   post "sessions/create" =>"sessions#create"
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
 
-  root :to => 'welcome#index'
 
+  #events routes
+  post "events/create" => "events#create"
+  get "events/destroy" => "events#destroy"
+  get "events/fetch" => "events#fetch"
+  post "events/edit" => "events#edit"
 
   #program routes
   get "programs/all" => "programs#index"
@@ -59,6 +63,7 @@ Kokkonut::Application.routes.draw do
   get "users/friends" => "users#friends"
   get "users/follow" => "users#follow"
   get "users/remove_friend" => "users#remove_friend"
+  get "users/calendar" => "users#calendar"
 
   #messages routes
   get "messages/new" => "messages#new"
