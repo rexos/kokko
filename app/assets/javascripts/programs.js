@@ -29,6 +29,10 @@ $(document).ready(function(){
     	$(this)
     	.fadeIn('slow')});
 
+    $('.cup').each(function() {
+        $(this)
+        .fadeIn('slow')});
+
     $(".meter > span").each(function() {
     	$(this)
     	.data("origWidth", $(this).width())

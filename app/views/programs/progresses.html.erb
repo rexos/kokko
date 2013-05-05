@@ -4,7 +4,7 @@
   </h2>
 
   <div class="container center">
-    
+
     <div class="row-fluid center">
       <% @program.lessons.each do |l|%>
 
@@ -12,7 +12,7 @@
       <div class="span3">
         <div class="medal">
           <p><%= l.title %></p>
-          <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
+          <h2 style="margin:0px;position:relative;top:210px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
           <%= image_tag('medal/Medal.jpeg',:size => "250x100") %>
           <div class="meter nostripes" style="width:75%; border: 2px solid #BDC3C7;margin:auto">
             <span  style="width:<%= get_progress_of_lesson(l.id) %>%"></span>
@@ -23,18 +23,18 @@
       <div class="span3">
         <div class="medal" >
           <p><%= l.title %></p>
-          <h2 style="margin:0px;position:relative;top:180px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
+          <h2 style="margin:0px;position:relative;top:210px"><%= get_progress_of_lesson(l.id).to_i %>%</h2>
           <%= image_tag('medal/MedalNone.png',:size => "250x100") %>
         </div>
       </div>
       <% end %>
       <% end %>
-      
+
       
 
 
       <div class="span3">
-       <div class="medal cup center">
+        <div class="cup center">
         <% if get_progress_of_program(@program.id) != 0 %>
         <h4 style="margin:0px;position:relative;top:100px">
           <%= @program.title.split(" -").first %></h4>

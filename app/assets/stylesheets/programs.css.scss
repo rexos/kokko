@@ -146,10 +146,26 @@ img.menu-icon {
 //medaglia
 .medal{
 	display:none;
-	margin-left:10px;
 }
 .medal p{
 
+
+	top:210px;
+	margin: 0px;
+	position:relative;
+
+}
+
+.medal img{
+
+	margin-top: 30px;
+}
+
+
+.cup{
+	display:none;
+}
+.cup p{
 
 	top:180px;
 	margin: 0px;
@@ -157,9 +173,6 @@ img.menu-icon {
 
 }
 
-.cup{
-	margin-left:20px;	
-}
 
 .menu-title {
 	color: $midnight_blue;
