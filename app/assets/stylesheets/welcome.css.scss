@@ -85,6 +85,15 @@
 #light-menu ul {
   float: right;
 }
+
+
+.who-photo{
+  /*border: 2px solid $silver;*/
+  border-radius: 5px;
+  width: 100px;
+  margin: 20px;
+}
+
 #light-menu li {
   color: #fff;
   text-decoration: none;
@@ -114,4 +123,9 @@
   font-size: 30px;
 }
 
+.who-name{
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: bold;
+}
 
