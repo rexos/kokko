@@ -4,7 +4,7 @@
     <h3 id="myModalLabel" style="color:white">Entra!</h3>
   </div>
   <div class="modal-body center" style="padding-top: 40px">
-    <% if !flash[:error].nil? %>
+    <% if session[:log_error] %>
     <div class="alert alert-error center" style="width:90%">
       <h4><strong>Username o password non validi</srong></h4>
     </div>

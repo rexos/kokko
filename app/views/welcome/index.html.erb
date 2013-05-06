@@ -12,7 +12,6 @@
 	<%= image_tag("icon.svg") %>
       </div>
     </div>
-
     <!-- SEZIONE BOTTONI -->
     <div class="row-fluid" id="row-line-button"> 
       <div class="span1"></div>
@@ -105,6 +104,7 @@
       <p>2013 Kokko - Built with <a style="color:#08C" href="http://rubyonrails.org/" target="blank">Ruby on Rails</a></p>
     </div>
     <%= render 'form' %>
-    <% if !flash[:error].nil? %>
-    <p class="error" id="1"></p>  
-    <% end %>
+    <% if session[:log_error] == 2 %>
+<p class="error" id="1"></p>
+<% session[:log_error] = nil %>
+<% end %>

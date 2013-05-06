@@ -2,16 +2,16 @@ class SessionsController < ApplicationController
 
   def new
   end
-  
+
   def create
     user = User.find_by_username(params[:session][:username])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      if params[:session][:remember_me].to_i==1
+      if params[:session][:remember_me].to_i == 1
         cookies.permanent[:token] = user.token
       end
       case user.role
-      when "admin" 
+      when "admin"
         redirect_to :controller => :programs, action: :index
       when "user"
         if current_user.my_training_id
@@ -19,13 +19,13 @@ class SessionsController < ApplicationController
         else
             redirect_to :controller => :users, :action => :home_utente
         end
-      end  
+      end
     else
-      flash[:error] = "Invalid Username or Password"
+      session[:log_error] = 2
       redirect_to root_url
     end
   end
-  
+
   def destroy
     session[:user_id] = nil
     cookies.delete(:token)

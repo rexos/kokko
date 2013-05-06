@@ -8,6 +8,7 @@ $(document).ready(function() {
       timeslotsPerHour : 4,
       allowCalEventOverlap : true,
       overlapEventsSeparate: true,
+	       readonly : true,
       firstDayOfWeek : 1,
       businessHours :{start: 8, end: 20, limitDisplay: true },
       daysToShow : 7,
@@ -22,62 +23,12 @@ $(document).ready(function() {
                "border" : "1px solid #888"
             });
          }
-      },
+	 },
       draggable : function(calEvent, $event) {
          return calEvent.readOnly != true;
       },
       resizable : function(calEvent, $event) {
          return calEvent.readOnly != true;
-      },
-      eventNew : function(calEvent, $event) {
-         var $dialogContent = $("#event_edit_container");
-         resetForm($dialogContent);
-         var startField = $dialogContent.find("select[name='start']").val(calEvent.start);
-         var endField = $dialogContent.find("select[name='end']").val(calEvent.end);
-         var titleField = $dialogContent.find("input[name='title']");
-         var bodyField = $dialogContent.find("textarea[name='body']");
-
-
-         $dialogContent.dialog({
-            modal: true,
-            title: "Nuovo evento",
-            close: function() {
-               $dialogContent.dialog("destroy");
-               $dialogContent.hide();
-               $('#calendar').weekCalendar("removeUnsavedEvents");
-            },
-            buttons: {
-               Salva : function() {
-			 var myEvent = { start : new Date(startField.val()), end : new Date(endField.val()), title : titleField.val(), body : bodyField.val() };
-			 var savedId;
-			 $.ajax({
-				 url : '/events/create',
-				     type : 'POST',
-				     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-				     data : 'newEvent='+JSON.stringify(myEvent),
-				     async : false,
-				     success : function(response){
-				     savedId = response;
-				 }
-			     });
-			 calEvent.id = savedId;
-                  calEvent.start = new Date(startField.val());
-                  calEvent.end = new Date(endField.val());
-                  calEvent.title = titleField.val();
-                  calEvent.body = bodyField.val();
-                  $calendar.weekCalendar("removeUnsavedEvents");
-                  $calendar.weekCalendar("updateEvent", calEvent);
-                  $dialogContent.dialog("close");
-               },
-               Indietro : function() {
-                  $dialogContent.dialog("close");
-               }
-            }
-         }).show();
-
-         $dialogContent.find(".date_holder").text($calendar.weekCalendar("formatDate", calEvent.start));
-         setupStartAndEndTimeFields(startField, endField, calEvent, $calendar.weekCalendar("getTimeslotTimes", calEvent.start));
-
       },
       eventDrop : function(calEvent, $event) {
       },
@@ -85,7 +36,7 @@ $(document).ready(function() {
       },
       eventClick : function(calEvent, $event) {
 
-         if (calEvent.readOnly) {
+	       if (calEvent.readOnly) {
             return;
          }
 
@@ -97,54 +48,6 @@ $(document).ready(function() {
          var bodyField = $dialogContent.find("textarea[name='body']");
          bodyField.val(calEvent.body);
 
-         $dialogContent.dialog({
-            modal: true,
-            title: "Modifica " + calEvent.title,
-            close: function() {
-               $dialogContent.dialog("destroy");
-               $dialogContent.hide();
-               $('#calendar').weekCalendar("removeUnsavedEvents");
-            },
-            buttons: {
-               Salva : function() {
-
-                  calEvent.start = new Date(startField.val());
-                  calEvent.end = new Date(endField.val());
-                  calEvent.title = titleField.val();
-                  calEvent.body = bodyField.val();
-
-		  var editEvent = { start : new Date(startField.val()), end : new Date(endField.val()), title : titleField.val(), body : bodyField.val(), id : calEvent.id };
-
-		  $.ajax({
-			  url : '/events/edit',
-			      type : 'POST',
-			      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			      data : 'editEvent='+JSON.stringify(editEvent),
-			      async : false,
-			      success : function(response){
-			      alert(response);
-			  }
-		      });
-
-                  $calendar.weekCalendar("updateEvent", calEvent);
-                  $dialogContent.dialog("close");
-               },
-               Elimina : function() {
-                  $calendar.weekCalendar("removeEvent", calEvent.id);
-		  $.ajax({
-			  url : '/events/destroy',
-			      type : 'GET',
-			      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			      data : 'eventId='+calEvent.id,
-			      async : false
-		      });
-                  $dialogContent.dialog("close");
-               },
-               Indietro : function() {
-                  $dialogContent.dialog("close");
-               }
-            }
-         }).show();
 
          var startField = $dialogContent.find("select[name='start']").val(calEvent.start);
          var endField = $dialogContent.find("select[name='end']").val(calEvent.end);
@@ -243,25 +146,5 @@ $(document).ready(function() {
       }
 
    });
-
-
-   var $about = $("#about");
-
-   $("#about_button").click(function() {
-      $about.dialog({
-         title: "About this calendar demo",
-         width: 600,
-         close: function() {
-            $about.dialog("destroy");
-            $about.hide();
-         },
-         buttons: {
-            close : function() {
-               $about.dialog("close");
-            }
-         }
-      }).show();
-   });
-
-
+   
 });
