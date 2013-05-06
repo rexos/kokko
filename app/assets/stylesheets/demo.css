@@ -16,11 +16,11 @@
 	width: 10em;
 	text-align: center;
 }
-
+/*
 .wc-header td {
-	background: /*url(images/header-bg.png) repeat-x*/;
+	background: url(images/header-bg.png) repeat-x;
 }
-
+*/
 label {
 	display: block;
 	margin-top: 1em;
