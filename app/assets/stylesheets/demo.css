@@ -18,9 +18,9 @@
 }
 
 .wc-header td {
-	background: url(images/header-bg.png) repeat-x;
+	background: /*url(images/header-bg.png) repeat-x*/;
 }
-/*
+
 label {
 	display: block;
 	margin-top: 1em;
@@ -39,7 +39,7 @@ select, input[type='text'], textarea {
 input[type='text'] {
 	width: 245px;
 }
-*/
+
 
 ul.formatted,ol.formatted {
 	display: block;
