@@ -1,0 +1,2 @@
+var content_id = $("#<%= escape_javascript(@exercise_id.to_s)%>");
+$(content_id).children('iframe').before("<h1>Fatto!<h1>");
