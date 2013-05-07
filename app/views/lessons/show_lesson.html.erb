@@ -9,21 +9,41 @@
   </div>
   <% else %>
   <ul class="nav nav-tabs" id="myTab">
-    <% @lesson.exercises.each do |e| %>    
-      <li><a href="#<%=e.id%>" data-toggle="tab"><%=e.name%></a></li>
+    <% if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id}  %>
+    <li class="active"><a href="#<%=@lesson.exercises.first.id%>" data-toggle="tab"><%=@lesson.exercises.first.name%><i class="icon-ok"></i></a></li>
+    <% else %>
+    <li class="active"><a href="#<%=@lesson.exercises.first.id%>" data-toggle="tab"><%=@lesson.exercises.first.name%></a></li>
+    <% end %>
+    <% @lesson.exercises.each do |e| %>
+      <% if @lesson.exercises.first.id != e.id%>
+        <% if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}  %>
+          <li><a href="#<%=e.id%>" data-toggle="tab"><%=e.name%><i class="icon-ok"></i></a></li>
+        <% else %>
+          <li><a href="#<%=e.id%>" data-toggle="tab"><%=e.name%></a></li>
+        <% end %>
+      <% end %>
     <%end%>
   </ul>
   <div class="tab-content">
-    <% @lesson.exercises.each do |e| %>
-      <div class="tab-pane" id="<%=e.id%>">
-        <% if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}  %>
-          <h2 style="color:black">Fatto</h2>
+    <div class="tab-pane active" id="<%=@lesson.exercises.first.id%>">
+        <iframe width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+@lesson.exercises.first.code %>"></iframe>
+        <%= @lesson.exercises.first.description %>
+        <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, prog_id: @lesson.program.id %>
+        <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id}  %>
+        <%= link_to '<button class="btn btn-large btn-danger fatto" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Fatto!</button>'.html_safe, controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id, :remote => true %>
         <%end%>
+      </div>
+    <% @lesson.exercises.each do |e| %>
+    <% if @lesson.exercises.first.id != e.id%>
+      <div class="tab-pane" id="<%=e.id%>">
         <iframe width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+e.code %>"></iframe>
         <%= e.description %>
-        <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Fatto!</button>'.html_safe, controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(e.id).id, :remote => true %>
         <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, prog_id: @lesson.program.id %>
+        <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}  %>
+        <%= link_to '<button class="btn btn-large btn-danger fatto" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Fatto!</button>'.html_safe, controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(e.id).id, :remote => true %>
+        <%end%>
       </div>
+      <% end %>
     <% end %>
   </div>
 
