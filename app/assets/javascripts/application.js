@@ -3,6 +3,7 @@
 //= require welcome
 //= require twitter/bootstrap
 //= require users
+//= require edit
 //= require programs
 //= require exercises
 //= require lessons 
