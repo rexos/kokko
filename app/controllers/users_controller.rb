@@ -43,16 +43,20 @@ class UsersController < ApplicationController
   def add_status
     @association = Association.find(params[:association_id])
     @status = Status.where(:user_id => params[:user_id],:association_id => @association.id).first
+    @ex = Exercise.find( @association.exercise_id )
+    respond_to do |format|
+      format.js { render action: :set_ex_done }
+    end
     unless @status
       @status = Status.new(:user_id => params[:user_id],:association_id => @association.id)
       @status.save
     end
-    @current_lesson = Lesson.find(@association.lesson_id)
-    if get_progress_of_program(@current_lesson.program_id) != 100
-      redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
-    else
-      redirect_to controller: :programs, action: :show, :done_id => @current_lesson.program_id
-    end
+    #@current_lesson = Lesson.find(@association.lesson_id)
+    #if get_progress_of_program(@current_lesson.program_id) != 100
+     # redirect_to controller: :lessons, action: :show_lesson, :lesson_id => Association.find(params[:association_id]).lesson_id
+    #else
+     # redirect_to controller: :programs, action: :show, :done_id => @current_lesson.program_id
+    #end
   end
 
   def home_utente
@@ -61,6 +65,7 @@ class UsersController < ApplicationController
 
   def wall
       @feedbacks = current_user.feedbacks.find(:all, :order => "created_at DESC")
+      @program = Program.find(current_user.my_training_id)
   end
 
   def search
@@ -80,6 +85,7 @@ class UsersController < ApplicationController
   end
 
   def friends
+    @program = Program.find(current_user.my_training_id)
     @current_user_friends_ids = Relationship.where( :follower => current_user.id )
     @current_user_friends = Array.new
     @current_user_friends_ids.each do |rel|
@@ -109,7 +115,16 @@ class UsersController < ApplicationController
   end
 
   def calendar
-    render :layout => false
+    @current_program = Program.find( params[:current_program_id] )
+    @program = Program.find(current_user.my_training_id)
+    render :layout => true
   end
+
+  def get_online_users
+    respond_to do |format|
+      format.js { render :action => :online_users }
+    end
+  end
+
 
 end

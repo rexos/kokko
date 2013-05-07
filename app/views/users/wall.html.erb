@@ -1,6 +1,6 @@
 
 <div class="row-fluid">
-<div class="span9">
+<div class="span12">
 
 <div class="page-title">
   <h2 class="center">
@@ -12,11 +12,12 @@
   <div class="span12">
     <div class="row-wall center">
 
-  <%= form_for :feedback, url: {controller: :feedbacks, action: :create} do |f| %>
+  <%= form_for :feedback, url: {controller: :feedbacks, action: :create}  do |f|  %>
   <%= gravatar_for( current_user,"avatar" ) %> &nbsp;&nbsp;
   <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 3%><br />
   <button type="submit" class="btn btn-primary btn-large"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica</button>
   <% end %>
+  <%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
   </div>
 
   </div>
@@ -32,9 +33,7 @@
       <i class="icon-quote-left"></i>&nbsp;
       <% if f.program_id %>
     
-   
-    
-        <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
+    <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
 	  commentato con rating al programma :
 	  <%= f.rating %>
     <% end %>
@@ -47,7 +46,7 @@
 	  <%= link_to '<span style="color:red; font-size: 20px"><i class="icon icon-remove"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
 	    </small>
     <!-- Commets start -->
-      <p class="comments" style="cursor:pointer">Comments (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
+      <p class="comments" style="cursor:pointer">Commenti (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
       <div class="comments-list" style="display:none">
 	<% f.comments.order("created_at").each do |c| %>
 	<div class="alert alert-info" id="comment-<%= c.id %>">
@@ -71,6 +70,7 @@
   
 </div>
 </div>
+<!--
 <div class="span3">
   <div class="row-fluid center">
 
@@ -108,3 +108,5 @@
   </div>
 </div>
 </div>
+-->
+

@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
 
   def create
-    @event = Event.new(ActiveSupport::JSON.decode(params[:newEvent]))
+    @program = Program.find(params[:current_program_id])
+    @event = @program.events.new(ActiveSupport::JSON.decode(params[:newEvent]))
     respond_to do |format|
       if @event.save
         format.js { render :success => true, :text => @event.id.to_s }
@@ -28,7 +29,8 @@ class EventsController < ApplicationController
   end
 
   def fetch
-    @events = Event.all
+    @program = Program.find(params[:current_program_id])
+    @events = @program.events.all
     respond_to do |format|
       format.js { render :success => true, :json => @events.to_json( :only => [ :id, :title, :body, :start, :end] ) }
     end

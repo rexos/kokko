@@ -1,10 +1,22 @@
 //= require jquery
 //= require jquery_ujs
+//= require welcome
 //= require twitter/bootstrap
 //= require users
 //= require programs
 //= require exercises
+//= require lessons 
 
+// iOS fullscreen WebApp 
+var a=document.getElementsByTagName("a");
+for(var i=0; i<a.length; i++) {
+    if(!a[i].onclick) {
+        a[i].onclick=function() {
+                window.location=this.getAttribute("href");
+                return false; 
+        }
+    }
+}
 
 $(function () {
     // Custom selects

@@ -9,13 +9,12 @@ $(document).ready(function(){
 		$('#message_dest').val(destination);
 	    });
 		
-	var stronzo = setInterval(function(){
+	var new_messages = setInterval(function(){
 		$.ajax({
 			type: "GET",
 			url: "/messages/get_new_messages"
 		    });
 	    }, 3000);
-
-
+	
 });
 

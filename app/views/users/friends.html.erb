@@ -1,5 +1,5 @@
 <div class="row-fluid">
-<div class="span9">
+<div class="span12">
 
 <div class="page-title">
   <h2 class="center">
@@ -10,17 +10,19 @@
 <div class="row-fluid center">
 <%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
 <%= f.text_field :text, placeholder: "Cerca qualcuno" %>&nbsp;<button class="btn btn-info"><i class="icon icon-search"></i></button>
+
 <!--<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>-->
 <% end  %>
+<%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
 </div>
 
-<div class="row-following">
-  <h3>Chi seguo:</h3>
+<h3>Chi seguo:</h3>
+
+  <div class="row-following">
   <% if @current_user_friends.count == 0 %>
+
   <div class="row center">
-   <div class="alert-success">
       <h2>Al momento non segui nessuno, cerca nuovi amici! </h2>
-   </div>
   </div>
   <% end %>
   <% @current_user_friends.each do |friend|  %>
@@ -28,8 +30,16 @@
   <div id=<%= friend.id %> class="row-fluid friend-row" style="width:30%">
     
     <p><h4><%= gravatar_for( friend,"avatar" ) %><h4>
-    <h4><strong><%= friend.username.capitalize %></strong></h4>
-    </p>
+    <h4><strong>
+	<%= friend.username.capitalize %>&nbsp;
+	<% if friend.online %>
+	<icon class="icon-circle" style="color:#2ecc71"></i>
+        <% else %>
+	<icon class="icon-circle"></i>
+	<% end %>
+</strong>
+</h4>
+</p>
 
     <%= link_to action: :visit, :visited_user_id => friend.id do %>
     <button class="btn btn-success" style="float:left"><i class="icon-eye-open"></i>&nbsp;Visita</button>
@@ -44,6 +54,7 @@
   <% end %>
 </div>
 </div>
+<!--
 <div class="span3">
   <div class="row-fluid center">
 
@@ -79,4 +90,5 @@
     </div>
   </div>
 </div>
+-->
 </div>

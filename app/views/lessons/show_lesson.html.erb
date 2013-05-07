@@ -1,0 +1,88 @@
+  <div class="page-title">
+    <h2 class="center">
+        <i class="icon-list"></i>&nbsp;<%=@lesson.title%>
+    </h2>
+  </div>
+  <% if @lesson.exercises.count == 0 %> 
+  <div class="alert alert-error">
+    <h2><strong><div class="center">Non c'è nessun esercizio per questa lezione!</div></strong></h2>
+  </div>
+  <% else %>
+  <ul class="nav nav-tabs" id="myTab">
+    <% if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id}  %>
+    <li class="active"><a href="#<%=@lesson.exercises.first.id%>" data-toggle="tab"><%=@lesson.exercises.first.name%><i class="icon-ok"></i></a></li>
+    <% else %>
+    <li class="active"><a href="#<%=@lesson.exercises.first.id%>" data-toggle="tab"><%=@lesson.exercises.first.name%></a></li>
+    <% end %>
+    <% @lesson.exercises.each do |e| %>
+      <% if @lesson.exercises.first.id != e.id%>
+        <% if @status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}  %>
+          <li><a href="#<%=e.id%>" data-toggle="tab"><%=e.name%><i class="icon-ok"></i></a></li>
+        <% else %>
+          <li><a href="#<%=e.id%>" data-toggle="tab"><%=e.name%></a></li>
+        <% end %>
+      <% end %>
+    <%end%>
+  </ul>
+  <div class="tab-content">
+    
+    <div class="tab-pane active" id="<%=@lesson.exercises.first.id%>">
+      <div class="row-fluid">
+        <div style="margin-left: 20px; margin-right: 20px">
+        <div class="span6">  
+        <div class="ex-cont">
+        <p><%= @lesson.exercises.first.description %></p>
+        <p>
+        <strong><i class="icon-random"></i>&nbsp;Ripetizioni:</strong> <%= @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).repetitions.to_s %>
+      </p>
+       <div class="center button-container"> 
+        <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, prog_id: @lesson.program.id %>
+        <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id}  %>
+        <%= link_to controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id, :remote => true do %>
+          <button id="b-<%=@lesson.exercises.first.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
+        <% end %>
+        <%end%>
+      </div>
+
+        </div>
+        </div>
+        <div class="span6">
+          <iframe width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+@lesson.exercises.first.code %>"></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+    <% @lesson.exercises.each do |e| %>
+    <% if @lesson.exercises.first.id != e.id%>
+      <div class="tab-pane" id="<%=e.id%>">
+       <div class="row-fluid">
+        <div style="margin-left: 20px; margin-right: 20px">
+       <div class="span6">
+       <div class="ex-cont"> 
+        <p><%= e.description %></p>
+        <p><strong><i class="icon-random"></i>&nbsp;Ripetizioni:</strong> <%= @lesson.associations.find_by_exercise_id(e.id).repetitions.to_s %>
+        </p>
+        <div class="center">
+        <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, prog_id: @lesson.program.id %>
+        <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}  %>
+        <%= link_to controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(e.id).id, :remote => true do %>
+          <button id="b-<%=e.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
+        <%end%>
+        <%end%>
+      </div>
+      </div>
+      </div>
+        <div class="span6">
+          <iframe width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+e.code %>"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% end %>

@@ -37,6 +37,9 @@ Kokkonut::Application.routes.draw do
   get "lessons/show/:lesson_id" => "lessons#show"
   get "lessons/edit" => "lessons#edit"
   get "lessons/destroy" => "lessons#destroy"
+  get "lessons/show_lesson/:lesson_id" => "lessons#show_lesson"
+  get "lessons/change_exercise" => "lessons#change_exercise"
+  get "lessons/set_exercise_done" => "lessons#set_exercise_done"
 
   #feedbacks/statuses routes
   post "feedbacks/create" => "feedbacks#create"
@@ -64,6 +67,7 @@ Kokkonut::Application.routes.draw do
   get "users/follow" => "users#follow"
   get "users/remove_friend" => "users#remove_friend"
   get "users/calendar" => "users#calendar"
+  get "*users/get_online_users" => "users#get_online_users"
 
   #messages routes
   get "messages/new" => "messages#new"
