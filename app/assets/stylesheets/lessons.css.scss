@@ -1,3 +1,28 @@
 // Place all the styles related to the lessons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "settings";
+
+iframe{
+	border: 4px $torquoise solid;
+}
+
+.ex-title {
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+	color: white;
+	background-color: $torquoise;	
+}
+
+.ex-cont {
+	padding: 25px;
+	text-align: left;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	color: white;
+	background-color: $clouds;
+	color: $wet_asphalt;
+	font-size: 20px;
+	line-height: 200%;
+}
