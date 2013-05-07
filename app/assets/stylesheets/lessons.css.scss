@@ -4,6 +4,17 @@
 
 @import "settings";
 
+iframe{
+	border: 4px $torquoise solid;
+}
+
+.ex-title {
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+	color: white;
+	background-color: $torquoise;	
+}
+
 .ex-cont {
 	padding: 25px;
 	text-align: left;
