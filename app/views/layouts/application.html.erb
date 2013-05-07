@@ -41,11 +41,18 @@
              <% end %>
            </li>
            <% end %>
+           <% if current_user.my_training_id.nil? == false %>
            <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, controller: :programs, action: :show, :prog_id => current_user.my_training_id  %>
              <% if current_user.first_name && !current_user.first_name.blank? %>
              (<%=current_user.first_name%>)
              <% end %>
            </li>
+           <% else %>
+            <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, controller: :users, action: :home_utente%>
+             <% if current_user.first_name && !current_user.first_name.blank? %>
+             (<%=current_user.first_name%>)
+             <% end %>
+           <% end %>
            <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
            <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
          </ul>
@@ -89,7 +96,8 @@
     </div>
   <div class="modal-footer">
     <button class="btn btn-large" data-dismiss="modal" aria-hidden="true"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>
-    <button type="submit" class="btn btn-primary btn-large" id="edit"%><i class="icon-check"></i>&nbsp;&nbsp;Salva Cambiamenti</button>
+    <%= link_to '<button class="btn btn-primary btn-large"><i class="icon-check"></i>&nbsp;&nbsp;Imposta Training</button>'.html_safe, controller: :users, action: :home_utente %> 
+    <button type="submit" class="btn btn-success btn-large" id="edit"%><i class="icon-check"></i>&nbsp;&nbsp;Salva</button>
     
     <% end %>
   </div>
