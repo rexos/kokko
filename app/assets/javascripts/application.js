@@ -5,6 +5,7 @@
 //= require users
 //= require programs
 //= require exercises
+//= require lessons 
 
 // iOS fullscreen WebApp 
 var a=document.getElementsByTagName("a");
