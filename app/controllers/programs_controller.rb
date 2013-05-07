@@ -34,7 +34,7 @@ class ProgramsController < ApplicationController
 
   def start
     @program = Program.find(params[:prog_id])
-    redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
+    redirect_to controller: :lessons,action: :show_lesson, :lesson_id => @program.lessons.first.id
   end
 
   #dont touch this holy pally method
@@ -60,10 +60,10 @@ class ProgramsController < ApplicationController
       ary_complete = user_associations & lesson_associations
       tot_complete = ary_complete.count
       if tot_exercises != tot_complete
-        redirect_to :controller => :lessons, action: :show, :lesson_id => l.id and return
+        redirect_to :controller => :lessons, action: :show_lesson, :lesson_id => l.id and return
       end
     end
-    redirect_to controller: :lessons,action: :show, :lesson_id => @program.lessons.first.id
+    redirect_to controller: :lessons,action: :show_lesson, :lesson_id => @program.lessons.first.id
   end
 
   def show

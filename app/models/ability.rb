@@ -8,8 +8,10 @@ class Ability
       can :manage, :all
     when "user"
       can :read, :all
+      can :set_exercise_done, :all
       can :list, :all
       can :start, :all
+      can :show_lesson, :all
       can :manage, User
       can :manage, Program
       cannot :create, User

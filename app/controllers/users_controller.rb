@@ -43,16 +43,20 @@ class UsersController < ApplicationController
   def add_status
     @association = Association.find(params[:association_id])
     @status = Status.where(:user_id => params[:user_id],:association_id => @association.id).first
+    @ex = Exercise.find( @association.exercise_id )
+    respond_to do |format|
+      format.js { render action: :set_ex_done }
+    end
     unless @status
       @status = Status.new(:user_id => params[:user_id],:association_id => @association.id)
       @status.save
     end
-    @current_lesson = Lesson.find(@association.lesson_id)
-    if get_progress_of_program(@current_lesson.program_id) != 100
-      redirect_to controller: :lessons, action: :show, :lesson_id => Association.find(params[:association_id]).lesson_id
-    else
-      redirect_to controller: :programs, action: :show, :done_id => @current_lesson.program_id
-    end
+    #@current_lesson = Lesson.find(@association.lesson_id)
+    #if get_progress_of_program(@current_lesson.program_id) != 100
+     # redirect_to controller: :lessons, action: :show_lesson, :lesson_id => Association.find(params[:association_id]).lesson_id
+    #else
+     # redirect_to controller: :programs, action: :show, :done_id => @current_lesson.program_id
+    #end
   end
 
   def home_utente
