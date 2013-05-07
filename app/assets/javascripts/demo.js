@@ -3,7 +3,7 @@ $(document).ready(function() {
 
    var $calendar = $('#calendar');
    var id = 10;
-
+   var programId = $('p.prog_id').attr('id');
    $calendar.weekCalendar({
       timeslotsPerHour : 4,
       allowCalEventOverlap : true,
@@ -49,14 +49,13 @@ $(document).ready(function() {
             buttons: {
                Salva : function() {
 			 var myEvent = { start : new Date(startField.val()), end : new Date(endField.val()), title : titleField.val(), body : bodyField.val() };
-			 var programId = $('p.prog_id').attr('id');
 			 alert(programId);
 			 var savedId;
 			 $.ajax({
 				 url : '/events/create',
 				     type : 'POST',
 				     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-				     data : 'newEvent='+JSON.stringify(myEvent)+"current_prog_id="+programId,
+				     data : { newEvent: JSON.stringify(myEvent), current_program_id: programId },
 				     async : false,
 				     success : function(response){
 				     savedId = response;
@@ -181,6 +180,7 @@ $(document).ready(function() {
 	      url : '/events/fetch',
 		  type : 'GET',
 		  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		  data : { current_program_id : programId },
 		  async : false,
 		  success : function(response){
 		  ev = JSON.parse(response);
