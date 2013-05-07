@@ -41,7 +41,7 @@
              <% end %>
            </li>
            <% end %>
-           <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, :controller => :users, :action => :home_utente %>
+           <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, controller: :programs, action: :show, :prog_id => current_user.my_training_id  %>
              <% if current_user.first_name && !current_user.first_name.blank? %>
              (<%=current_user.first_name%>)
              <% end %>
