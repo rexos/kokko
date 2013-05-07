@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20130430163152) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "token"
+    t.boolean  "online",          :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "role",            :default => "user"

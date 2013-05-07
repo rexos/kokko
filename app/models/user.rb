@@ -7,17 +7,18 @@
 #  email           :string(255)
 #  password_digest :string(255)
 #  token           :string(255)
+#  online          :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  role            :string(255)      default("user")
 #  first_name      :string(255)
 #  second_name     :string(255)
 #  where           :string(255)
-#  read            :boolean          default(FALSE)
+#  my_training_id  :integer
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :password, :password_confirmation, :role, :first_name, :second_name, :where, :password_digest, :my_training_id
+  attr_accessible :username, :email, :password, :password_confirmation, :role, :first_name, :second_name, :where, :password_digest, :my_training_id, :online
   has_secure_password
 
   #user relationships

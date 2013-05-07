@@ -112,4 +112,11 @@ class UsersController < ApplicationController
     render :layout => true
   end
 
+  def get_online_users
+    respond_to do |format|
+      format.js { render :action => :online_users }
+    end
+  end
+
+
 end

@@ -8,6 +8,7 @@
 #  to         :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  read       :boolean          default(FALSE)
 #
 
 require 'test_helper'

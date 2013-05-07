@@ -10,12 +10,13 @@ class SessionsController < ApplicationController
       if params[:session][:remember_me].to_i == 1
         cookies.permanent[:token] = user.token
       end
+      current_user.update_attributes( :online => true )
       case user.role
       when "admin"
         redirect_to :controller => :programs, action: :index
       when "user"
         if current_user.my_training_id
-            redirect_to :controller => :programs, action: :show, :prog_id => current_user.my_training_id  
+            redirect_to :controller => :programs, action: :show, :prog_id => current_user.my_training_id
         else
             redirect_to :controller => :users, :action => :home_utente
         end
@@ -27,6 +28,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    current_user.update_attributes( :online => false )
     session[:user_id] = nil
     cookies.delete(:token)
     redirect_to :controller => :welcome, :action => :index

@@ -25,7 +25,7 @@
     <div class="tab-pane active" id="Mieitraining">
       <div class="accordion" id="MieiTraining">
 
-        <% if current_user.statuses.count == 0 %>
+        <% if current_user.statuses.count == 0 && !current_user.my_training_id %>
         <div class="alert alert-success">
           <p>
             <h2 class="center"><strong>Scegli un programma e inizia subito l'allenamento!</strong></h2>
@@ -38,21 +38,22 @@
         <% else %>
        <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
-        <% if progress > 0 %>
+        <% if current_user.my_training_id.to_i == p.id %>
         <div class="accordion-group " >  
           <div class="accordion-heading ">  
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#MieiTraining" href="#<%= p.id %>">  
               <h3>
-                <%= p.title %> 
+                <%= p.title %>&nbsp;&nbsp; 
+		<% if p.id == current_user.my_training_id %>
+		(Iscritto)
+		<% end %>
               </h3>      
             </a>  
           </div>  
           <div id="<%= p.id %>" class="accordion-body collapse" >  
             <div class="accordion-inner accordion-content">  
               <p><%= p.description %></p>
-              <p><%=link_to '<button class="btn btn-large btn-info" >Vai al Training Program</button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
-                <%=link_to '<button class="btn btn-large btn-info" >Imposta Mio Training</button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
-              </p>
+              <p class="center"><%=link_to '<button class="btn btn-large btn-info" >Vai Al Training Program</button>'.html_safe, controller: :programs, action: :show, :prog_id => p.id %></p>
             </div>   
           </div>  
         </div>
@@ -66,7 +67,7 @@
       <div class="accordion" id="Principiante">
         <% @programs.each do |p| %>
         <% progress = get_progress_of_program(p.id) %>
-        <% if progress == 0 && p.difficulty.to_s =='Principiante' %>
+        <% if progress == 0 && p.difficulty.to_s =='Principiante' && p.id != current_user.my_training_id %>
         <div class="accordion-group" > 
           <div class="accordion-heading">  
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#Principiante" href="#<%= p.id %>">  
@@ -78,9 +79,7 @@
          <div id="<%= p.id %>" class="accordion-body collapse" >  
           <div class="accordion-inner accordion-content">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info">Vai al Training Program</button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
-            <%=link_to '<button class="btn btn-large btn-info" >Imposta Mio Training</button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
-            </p>     
+            <p class="center"><%=link_to '<button class="btn btn-large btn-info" >Iscrizione Al Training</button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
@@ -105,9 +104,7 @@
          <div id="<%= p.id %>" class="accordion-body collapse">  
           <div class="accordion-inner accordion-content">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info">Vai al Training Program</button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
-            <%=link_to '<button class="btn btn-large btn-info" >Imposta Mio Training</button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
-            </p>     
+            <p class="center"><%=link_to '<button class="btn btn-large btn-info" >Iscrizione Al Training</button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>
@@ -132,9 +129,7 @@
          <div id="<%= p.id %>" class="accordion-body collapse" >  
           <div class="accordion-inner accordion-content">  
             <p><%= p.description %></p>
-            <p><%=link_to '<button class="btn btn-large btn-info">Vai al Training Program</button>'.html_safe,controller: :programs,action: :show,:prog_id => p.id %>
-            <%=link_to '<button class="btn btn-large btn-info" >Imposta Mio Training</button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %>
-            </p>     
+            <p class="center"><%=link_to '<button class="btn btn-large btn-info" >Iscrizione Al Training</button>'.html_safe,controller: :programs,action: :set_my_training,:prog_id => p.id %></p>     
           </div>   
         </div>  
       </div>

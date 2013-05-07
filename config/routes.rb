@@ -64,6 +64,7 @@ Kokkonut::Application.routes.draw do
   get "users/follow" => "users#follow"
   get "users/remove_friend" => "users#remove_friend"
   get "users/calendar" => "users#calendar"
+  get "*users/get_online_users" => "users#get_online_users"
 
   #messages routes
   get "messages/new" => "messages#new"

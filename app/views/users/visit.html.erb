@@ -3,7 +3,12 @@
 
 <div class="page-title">
     <h2 class="center">
-        <i class="icon-list"></i>&nbsp;Bacheca di <%= @visited_user.username.capitalize %>
+        <i class="icon-list"></i>&nbsp;Bacheca di <%= @visited_user.username.capitalize %>&nbsp;
+	<% if @visited_user.online %>
+	<icon class="icon-circle" style="color:#2ecc71"></i>
+        <% else %>
+	<icon class="icon-circle"></i>
+	<% end %>
     </h2>
   </div>
 
@@ -42,7 +47,7 @@
       &nbsp;<i class="icon-quote-right"></i>
       </h4>
       <!-- Commets start -->
-      <p class="comments" style="cursor:pointer">Comments (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
+      <p class="comments" style="cursor:pointer">Commenti (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
       <div class="comments-list" style="display:none">
 	<% f.comments.order("created_at").each do |c| %>
 	<div class="alert alert-info" id="comment-<%= c.id %>">
