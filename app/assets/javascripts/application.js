@@ -6,6 +6,17 @@
 //= require programs
 //= require exercises
 
+// iOS fullscreen WebApp 
+var a=document.getElementsByTagName("a");
+for(var i=0; i<a.length; i++) {
+    if(!a[i].onclick) {
+        a[i].onclick=function() {
+                window.location=this.getAttribute("href");
+                return false; 
+        }
+    }
+}
+
 $(function () {
     // Custom selects
     $("select").dropkick();

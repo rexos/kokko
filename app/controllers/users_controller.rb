@@ -61,6 +61,7 @@ class UsersController < ApplicationController
 
   def wall
       @feedbacks = current_user.feedbacks.find(:all, :order => "created_at DESC")
+      @program = Program.find(current_user.my_training_id)
   end
 
   def search
@@ -80,6 +81,7 @@ class UsersController < ApplicationController
   end
 
   def friends
+    @program = Program.find(current_user.my_training_id)
     @current_user_friends_ids = Relationship.where( :follower => current_user.id )
     @current_user_friends = Array.new
     @current_user_friends_ids.each do |rel|
@@ -109,6 +111,7 @@ class UsersController < ApplicationController
   end
 
   def calendar
+    @program = Program.find(current_user.my_training_id)
     render :layout => true
   end
 
