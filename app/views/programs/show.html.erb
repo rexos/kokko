@@ -47,7 +47,7 @@
     
     <div class="span6 center span-odd-dx">
       <%= link_to action: :program_wall, :program_id => @program.id do %>
-      <h2 class="menu-title"><!-- <i class="icon-comments red"></i>&nbsp; -->BACHECA PROGRAMMA</h2>
+      <h2 class="menu-title">BACHECA PROGRAMMA</h2>
       <%= image_tag ("illustrations/book.png"), :class => "menu-icon" %>
       <% end %>
     </div>
@@ -55,11 +55,13 @@
 	    
   <div class="row-fluid menu-el">
     <div class="span6 center span-sx">
-      <%= link_to action: :waiting_room, :program_id => @program.id do %>
-      <h2 class="menu-title"><!-- <i class="icon-group black"></i>&nbsp; -->SALA D'ATTESA</h2>
-      <%= image_tag ("illustrations/time.png"), :class => "menu-icon" %>
-      <% end %>         
-    </div>
+    
+    <%= link_to ({ controller: :messages, action: :show}) do %>
+    <h2 class="menu-title">MESSAGGI</h2>
+    <%= image_tag ("illustrations/mail.png"), :class => "home-icon" %>
+    <% end %>
+    </div>       
+  
     
     <div class="span6 center span-dx">
       <%= link_to ({ controller: :users, action: :home_utente })  do %>   
