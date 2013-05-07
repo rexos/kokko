@@ -53,18 +53,36 @@
     </div>
   </div>
 	    
+      <!--
   <div class="row-fluid menu-el">
     <div class="span6 center span-sx">
       <%= link_to action: :waiting_room, :program_id => @program.id do %>
-      <h2 class="menu-title"><!-- <i class="icon-group black"></i>&nbsp; -->SALA D'ATTESA</h2>
+      <h2 class="menu-title">SALA D'ATTESA</h2>
       <%= image_tag ("illustrations/time.png"), :class => "menu-icon" %>
       <% end %>         
     </div>
     
     <div class="span6 center span-dx">
       <%= link_to ({ controller: :users, action: :home_utente })  do %>   
-      <h2 class="menu-title"><!-- <i class="icon-envelope red"></i>&nbsp; -->HOME</h2>
+      <h2 class="menu-title">HOME</h2>
       <i class="icon-home" style="font-size: 150px; color:#2980B9"></i>
+      <% end %> 
+    </div>
+  </div>  
+  -->
+
+  <div class="row-fluid menu-el">
+    <div class="span6 center span-sx">
+      <%= link_to :controller => :users, :action => :friends do %>
+      <h2 class="menu-title"><!-- <i class="icon-group black"></i>&nbsp; -->AMICI</h2>
+      <%= image_tag ("illustrations/colors.png"), :class => "menu-icon" %>
+      <% end %>         
+    </div>
+    
+    <div class="span6 center span-dx">
+      <%= link_to ({ controller: :users, action: :wall}) do %>
+      <h2 class="menu-title"><!-- <i class="icon-envelope red"></i>&nbsp; -->BACHECA UTENTE</h2>
+      <%= image_tag ("illustrations/map.png"), :class => "menu-icon" %>
       <% end %> 
     </div>
   </div>
