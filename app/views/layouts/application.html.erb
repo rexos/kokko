@@ -81,10 +81,10 @@
   </div>
   <div class="modal-body center">
     <%= form_for :edited_user,url: { controller: :users, action: :update} do |f| %>
-    <%= f.text_field :first_name, :value => current_user.first_name, placeholder: "Nome" %><br /><br />
-    <%= f.text_field :second_name, :value => current_user.second_name, placeholder: "Cognome" %><br /><br />
-    <%= f.text_field :where, :value => current_user.where, placeholder: "Città" %><br /><br />
-    <%= f.password_field :new_password, placeholder: "Nuova Password", :value => "password" %><br /><br />
+    <%= f.text_field :first_name, :value => current_user.first_name, placeholder: "Nome" %><br />
+    <%= f.text_field :second_name, :value => current_user.second_name, placeholder: "Cognome" %><br />
+    <!-- <%= f.text_field :where, :value => current_user.where, placeholder: "Città" %><br /><br /> -->
+    <%= f.password_field :new_password, placeholder: "Nuova Password", :value => "password" %><br />
     <%= f.password_field :new_password_confirm, placeholder: "Conferma Password", :value => "passward" %>
     </div>
   <div class="modal-footer">

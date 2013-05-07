@@ -4,28 +4,16 @@
     
     
     <div class="span6 center span-sx black">
-        <% if progress == 0%>
-          <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+
+        <a href="#multiplayer-modal" data-toggle="modal">
           <h2 class="menu-title">
-            INIZIA
-          </h2>
-          <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
+          <% if progress == 0%>INIZIA
+          <% elsif progress>0 && progress<100%>CONTINUA
+          <% else %>RICOMINCIA
           <% end %>
-        <% elsif progress>0 && progress<100%>
-          <%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
-         <h2 class="menu-title">
-            CONTINUA
-          </h2>
+        </h2>
           <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
-          <% end %>
-        <% else %>
-          <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
-          <h2 class="menu-title">
-            RICOMINCIA
-          </h2>
-          <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
-          <% end %>
-        <% end %>
+        </a>
     </div>
       
       <div class="span6 center span-dx" >
@@ -117,3 +105,43 @@
 <% if @done_program %>
 <%= render 'feedback' %>
 <% end %>
+
+
+<!--Multiplayer modal-->
+<div id="multiplayer-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" style="color:white">Modalità</h3>
+  </div>
+  <div class="modal-body center">
+    <h2>Scegli se vuoi allenarti da solo o in gruppo!</h2>
+  </div>
+  <div class="modal-footer center">
+   
+    
+
+    <% if progress == 0%>
+          <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+            <button class="btn btn-large btn-primary" aria-hidden="true">
+                <i class="icon-user"></i>&nbsp;&nbsp;Singolo
+            </button>
+          <% end %>
+        <% elsif progress>0 && progress<100%>
+          <%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
+            <button class="btn btn-large btn-primary" aria-hidden="true"><i class="icon-user"></i>&nbsp;&nbsp;Singolo</button>
+          <% end %>
+        <% else %>
+          <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+            <button class="btn btn-large btn-primary" aria-hidden="true"><i class="icon-user"></i>&nbsp;&nbsp;Singolo</button>
+          <% end %>
+        <% end %>
+
+
+        <%= link_to action: :waiting_room, :program_id => @program.id do %>
+          <button class="btn btn-large btn-info" aria-hidden="true"><i class="icon-group"></i>&nbsp;&nbsp;Gruppo</button> 
+        <% end %>
+  </div>
+</div>
+<!--Settings modal-->
+
+
