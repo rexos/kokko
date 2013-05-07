@@ -37,7 +37,13 @@
 	    <label for="end">Fine: </label><select name="end"><option value="">Seleziona</option></select>
 	  </li>
 	  <li>
-	    <label for="title">Titolo: </label><input type="text" name="title" />
+	    <label for="title">Lezione: </label>
+	    <select name="title">
+	      <% @current_program.lessons.each do |l| %>
+	      <option value="<%= l.title %>"><%= l.title %></option>
+	      <% end %>
+	    </select>
+	    <!--<label for="title">Lezione: </label><input type="text" name="title" />-->
 	  </li>
 	  <li>
 	    <label for="body">Descrizione: </label><textarea name="body"></textarea>

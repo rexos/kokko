@@ -34,7 +34,7 @@ $(document).ready(function() {
          resetForm($dialogContent);
          var startField = $dialogContent.find("select[name='start']").val(calEvent.start);
          var endField = $dialogContent.find("select[name='end']").val(calEvent.end);
-         var titleField = $dialogContent.find("input[name='title']");
+         var titleField = $dialogContent.find("select[name='title']");
          var bodyField = $dialogContent.find("textarea[name='body']");
 
 

@@ -68,7 +68,6 @@ class ProgramsController < ApplicationController
 
   def show
     store_current_path
-    @time = Time.now + 2.hour
     if params[:done_id]
       @done_program = Program.find(params[:done_id])
       @program = Program.find(params[:done_id])
@@ -101,6 +100,8 @@ class ProgramsController < ApplicationController
 
   def waiting_room
     @program = Program.find(params[:program_id])
+    @event = @program.events.find( :first, :conditions => ["start > ?", DateTime.now ] )
+    @days = @event.start.to_date - DateTime.now.to_date
     @attending = User.where(:my_training_id => params[:program_id])
   end
 
