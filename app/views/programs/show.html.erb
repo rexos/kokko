@@ -2,34 +2,22 @@
   <div class="row-fluid menu-el">
     <% progress = get_progress_of_program(@program.id) %>
     
-    <% if progress == 0%>
+    
     <div class="span6 center span-sx black">
-      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
-      <h2 class="menu-title"><!-- <i class="icon-list red"></i> -->INIZIA</h2>
+      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }), :data => {:toggle=>"tooltip"} do %>
+      <h2 class="menu-title">
+        <% if progress == 0%>INIZIA
+        <% elsif progress>0 && progress<100%>CONTINUA
+        <% else %>RICOMINCIA
+        <% end %>
+      </h2>
       <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>  
       <% end %>
     </div>
-    
-    <% elsif progress>0 && progress<100%>
-      <div class="span6 center span-sx">
-	<%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
-	<h2 class="menu-title"><!-- <i class="icon-list red"></i> -->CONTINUA</h2>
-	<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
-	<% end %>
-      </div>
-      
-      <% else %>
-      <div class="span6 center span-sx">
-	<%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
-	<h2 class="menu-title"><!-- <i class="icon-list red"></i> -->RICOMINCIA</h2>
-	<%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>  
-	<% end %>
-      </div>
-      <% end %>
       
       <div class="span6 center span-dx" >
 	<%= link_to ({action: :progresses, :prog_id => @program.id}) do %>
-	<h2 class="menu-title"><!-- <i class="icon-bar-chart black"></i> -->PROGRESSI</h2>
+	<h2 class="menu-title">PROGRESSI</h2>
 	<%= image_tag ("illustrations/clipboard.png"), :class => "menu-icon" %>
 	<% end %>
       </div>	      
