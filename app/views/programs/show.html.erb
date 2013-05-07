@@ -27,7 +27,7 @@
       	
   <div class="row-fluid menu-el ">
     <div class="span6 center span-odd-sx">
-      <%= link_to controller: :users, action: :calendar do %>
+      <%= link_to controller: :users, action: :calendar, :current_prog_id => @program.id do %>
 	<h2 class="menu-title"><!-- <i class="icon-calendar black"></i>&nbsp; -->CALENDARIO</h2>
 	<%= image_tag ("illustrations/calendar.png"), :class => "menu-icon" %>
 	<% end %>
