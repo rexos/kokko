@@ -36,36 +36,44 @@
           </div>  
         <div id="<%= m.id %>"  class="accordion-body collapse" >  
           <div class="accordion-inner"> 
-            <small>
-              Ricevuto il : <%= m.created_at.to_s[0..9] %> alle : <%= m.created_at.to_s[11..15] %>
-            </small>
+            
             <h3>
               <%= m.body %>
             </h3>
-	      
+	     
         <div class="msg-option">
-          <p style="color:blue; cursor:pointer" class="answer" data-destination="<%= User.find(m.from).username %>"><i class="icon-share"></i>&nbsp;Rispondi</p>
+          <p style="color:#34495E; cursor:pointer" class="answer" data-destination="<%= User.find(m.from).username %>"><i class="icon-share"></i>&nbsp;Rispondi</p>
         </div>
 
 	      <% if !m.read %>
-	      <div class="msg-option" id="label-<%= m.id %>"><%= link_to '<p style="color:green"><i class="icon icon-ok-sign"></i> Letto</p>'.html_safe, action: :set_read, :message_id => m.id, :remote => true %>
+	      <div class="msg-option" id="label-<%= m.id %>"><%= link_to '<p style="color:#27AE60"><i class="icon icon-ok-sign"></i> Letto</p>'.html_safe, action: :set_read, :message_id => m.id, :remote => true %>
         </div>
+
 	      <% end %>
 
         <div class="msg-option">
-	      <%= link_to '<p style="color:red"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, { controller: :messages, action: :destroy, :message_id => m.id}, confirm: "Sei sicuro di voler eliminare il messaggio?\npremi OK per eliminarlo", :remote => true %>
+	      <%= link_to '<p style="color:#E74C3C"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, { controller: :messages, action: :destroy, :message_id => m.id}, confirm: "Sei sicuro di voler eliminare il messaggio?\npremi OK per eliminarlo", :remote => true %>
         </div>
+
         <div style="clear:both"></div>    
 
-          </div> <!-- accordion inner -->   
+          </div> <!-- accordion inner -->  
+           <small>&nbsp;&nbsp;
+              Ricevuto il : <%= m.created_at.to_s[0..9] %> alle : <%= m.created_at.to_s[11..15] %>
+            </small> 
         </div>
+
        </div>
+
       <% end %>   
     </div>  
   </div>
+
   <% end %> <!-- chiudo if/else messagecount=0 -->
   </div>
  </div>
+
+
 
 
 
