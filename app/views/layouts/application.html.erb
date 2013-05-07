@@ -53,6 +53,13 @@
              (<%=current_user.first_name%>)
              <% end %>
            <% end %>
+           
+
+            <li><%= link_to '<i class="icon-user"></i>&nbsp; Bacheca '.html_safe+current_user.username.capitalize, controller: :users, action: :wall%>
+             <% if current_user.first_name && !current_user.first_name.blank? %>
+             (<%=current_user.first_name%>)
+             <% end %>
+           
            <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
            <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
          </ul>
