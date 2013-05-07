@@ -4,15 +4,28 @@
     
     
     <div class="span6 center span-sx black">
-      <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }), :data => {:toggle=>"tooltip"} do %>
-      <h2 class="menu-title">
-        <% if progress == 0%>INIZIA
-        <% elsif progress>0 && progress<100%>CONTINUA
-        <% else %>RICOMINCIA
+        <% if progress == 0%>
+          <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+          <h2 class="menu-title">
+            INIZIA
+          </h2>
+          <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
+          <% end %>
+        <% elsif progress>0 && progress<100%>
+          <%= link_to ({ controller: :programs, action: :resume, :prog_id => @program.id }) do %>
+         <h2 class="menu-title">
+            CONTINUA
+          </h2>
+          <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
+          <% end %>
+        <% else %>
+          <%= link_to ({ controller: :programs, action: :start, :prog_id => @program.id }) do %>
+          <h2 class="menu-title">
+            RICOMINCIA
+          </h2>
+          <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>
+          <% end %>
         <% end %>
-      </h2>
-      <%= image_tag ("illustrations/compass.png"), :class => "menu-icon" %>  
-      <% end %>
     </div>
       
       <div class="span6 center span-dx" >
