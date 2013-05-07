@@ -1,5 +1,5 @@
 <div class="row-fluid">
-<div class="span9">
+<div class="span12">
 
 <div class="page-title">
   <h2 class="center">
@@ -10,13 +10,17 @@
 <div class="row-fluid center">
 <%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
 <%= f.text_field :text, placeholder: "Cerca qualcuno" %>&nbsp;<button class="btn btn-info"><i class="icon icon-search"></i></button>
+
 <!--<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>-->
 <% end  %>
+<%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
 </div>
 
-<div class="row-following">
-  <h3>Chi seguo:</h3>
+<h3>Chi seguo:</h3>
+
+  <div class="row-following">
   <% if @current_user_friends.count == 0 %>
+
   <div class="row center">
    <div class="alert-success">
       <h2>Al momento non segui nessuno, cerca nuovi amici! </h2>
@@ -44,6 +48,7 @@
   <% end %>
 </div>
 </div>
+<!--
 <div class="span3">
   <div class="row-fluid center">
 
@@ -79,4 +84,5 @@
     </div>
   </div>
 </div>
+-->
 </div>
