@@ -1,4 +1,7 @@
-alert('ciao');
 var content_id = $("#<%= escape_javascript(@exercise_id.to_s)%>");
 $('#b-<%= escape_javascript(@exercise_id.to_s)%>').hide();
 $('a[href="#<%= escape_javascript(@exercise_id.to_s)%>"]').append('<i class="icon-ok"></i>');
+$('a[href="#<%= escape_javascript(@exercise_id.to_s)%>"]').parent().removeClass('active');
+$('a[href="#<%= escape_javascript(@exercise_id.to_s)%>"]').parent().next().addClass('active');
+$('#<%= escape_javascript(@exercise_id.to_s)%>').removeClass('active');
+$('#<%= escape_javascript(@exercise_id.to_s)%>').next().addClass('active');
