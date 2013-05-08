@@ -186,6 +186,19 @@ img.menu-icon {
 	margin-left: 15px;
 }
 
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating{
+    -webkit-animation: rotating 1s;
+}
+
 /* MENU UTENTE BORDI TONDI GRIGI BIANCHI
 .span-odd-dx{
 	border: 5px solid #bbb;
