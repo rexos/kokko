@@ -4,12 +4,6 @@
 
 @import "settings";
 
-.backstage{
-	background-color: $clouds;
-	border-top: 2px solid $silver;
-	border-bottom: 2px solid $silver;
-}
-
 iframe{
 	border: 4px $torquoise solid;
 }
@@ -21,10 +15,3 @@ iframe{
 	background-color: $torquoise;	
 }
 
-.ex-cont {
-	border-bottom-left-radius: 1em;
-	border-bottom-right-radius: 1em;
-	color: white;
-	background-color: $clouds;
-	color: $wet_asphalt;
-}

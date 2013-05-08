@@ -115,6 +115,7 @@ class UsersController < ApplicationController
   end
 
   def calendar
+    @current_program = Program.find( params[:current_program_id] )
     @program = Program.find(current_user.my_training_id)
     render :layout => true
   end

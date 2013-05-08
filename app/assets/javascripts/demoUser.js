@@ -78,10 +78,12 @@ $(document).ready(function() {
       var month = new Date().getMonth();
       var day = new Date().getDate();
       var ev;
+      var programId = $('p.prog_id').attr('id');
       $.ajax({
 	      url : '/events/fetch',
 		  type : 'GET',
 		  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		  data : { current_program_id : programId },
 		  async : false,
 		  success : function(response){
 		  ev = JSON.parse(response);

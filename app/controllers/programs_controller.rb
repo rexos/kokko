@@ -68,7 +68,6 @@ class ProgramsController < ApplicationController
 
   def show
     store_current_path
-    @time = Time.now + 2.hour
     if params[:done_id]
       @done_program = Program.find(params[:done_id])
       @program = Program.find(params[:done_id])
@@ -101,7 +100,19 @@ class ProgramsController < ApplicationController
 
   def waiting_room
     @program = Program.find(params[:program_id])
+    @event = @program.events.find( :first, :conditions => ["start > ?", DateTime.now ] )
+    @days = @event.start.to_date - DateTime.now.to_date
     @attending = User.where(:my_training_id => params[:program_id])
+  end
+
+  def back_and_feedback
+    @program = Program.find(params[:prog_id])
+    @feedback = current_user.feedbacks.find_by_program_id(@program.id)
+    if get_progress_of_program(@program.id)==100 && @feedback.nil?
+     redirect_to action: :show, :prog_id => current_user.my_training_id, :done_id => @program.id
+    else
+      redirect_to action: :show, :prog_id => current_user.my_training_id
+    end
   end
 
 end

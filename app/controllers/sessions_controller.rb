@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    current_user.update_attributes( :online => false )
+   current_user.update_attributes( :online => false )
     session[:user_id] = nil
     cookies.delete(:token)
     redirect_to :controller => :welcome, :action => :index
