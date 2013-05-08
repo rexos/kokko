@@ -3,7 +3,11 @@ class FeedbacksController < ApplicationController
     @feedback = current_user.feedbacks.new(params[:feedback])
     if @feedback.save
       redirect_to controller: :users, action: :wall
+    else
+      flash[:notice] = "inserisci qualcosa"
+      redirect_to controller: :users, action: :wall
     end
+
   end
 
   def destroy
