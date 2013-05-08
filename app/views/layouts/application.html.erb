@@ -42,20 +42,20 @@
            </li>
            <% end %>
            <% if current_user.my_training_id.nil? == false %>
-           <li><%= link_to '<i class="icon-user"></i>&nbsp; Home'.html_safe, controller: :programs, action: :show, :prog_id => current_user.my_training_id  %>
+           <li><%= link_to '<i class="icon-home"></i>&nbsp; Home'.html_safe, controller: :programs, action: :show, :prog_id => current_user.my_training_id  %>
              <% if current_user.first_name && !current_user.first_name.blank? %>
              (<%=current_user.first_name%>)
              <% end %>
            </li>
            <% else %>
-            <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe, controller: :users, action: :home_utente%>
+            <li><%= link_to '<i class="icon-home"></i>&nbsp;'.html_safe, controller: :users, action: :home_utente%>
              <% if current_user.first_name && !current_user.first_name.blank? %>
              (<%=current_user.first_name%>)
              <% end %>
            <% end %>
            
 
-            <li><%= link_to '<i class="icon-comments-alt"></i>&nbsp;'.html_safe+current_user.username.capitalize, controller: :users, action: :wall%>
+            <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, controller: :users, action: :wall%>
              
            
            <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
