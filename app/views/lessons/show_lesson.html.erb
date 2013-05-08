@@ -47,7 +47,7 @@
         </div>
         </div>
         <div class="span6">
-          <iframe width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+@lesson.exercises.first.code %>"></iframe>
+          <iframe class="video" width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+@lesson.exercises.first.code %>"></iframe>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
       </div>
       </div>
         <div class="span6">
-          <iframe width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+e.code %>"></iframe>
+          <iframe class="video" width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+e.code %>"></iframe>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
   </div>
 
   <div class="center">
-    <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, prog_id: @lesson.program.id %>
+    <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :back_and_feedback, prog_id: @lesson.program.id %>
   </div>
 
   <% end %>
