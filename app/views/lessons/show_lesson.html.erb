@@ -39,7 +39,7 @@
        <div class="center button-container"> 
         <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id}  %>
         <%= link_to controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id, :remote => true do %>
-          <button id="b-<%=@lesson.exercises.first.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
+          <button id="b-<%=@lesson.exercises.first.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
         <% end %>
         <%end%>
       </div>
@@ -67,7 +67,7 @@
         <div class="center">
         <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(e.id).id}  %>
         <%= link_to controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(e.id).id, :remote => true do %>
-          <button id="b-<%=e.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
+          <button id="b-<%=e.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
         <%end%>
         <%end%>
       </div>
@@ -84,7 +84,7 @@
   </div>
 
   <div class="center">
-    <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px; border: 2px #ebebeb solid"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, prog_id: @lesson.program.id %>
+    <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, prog_id: @lesson.program.id %>
   </div>
 
   <% end %>
