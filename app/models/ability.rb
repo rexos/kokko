@@ -12,6 +12,7 @@ class Ability
       can :list, :all
       can :start, :all
       can :show_lesson, :all
+      can :back_and_feedback, :all
       can :manage, User
       can :manage, Program
       cannot :create, User

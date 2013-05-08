@@ -29,7 +29,7 @@ Kokkonut::Application.routes.draw do
   get "programs/program_wall" => "programs#program_wall"
   get "programs/set_my_training" => "programs#set_my_training"
   get "programs/waiting_room" => "programs#waiting_room"
-
+  get "programs/back_and_feedback" => "programs#back_and_feedback"
   #lesson routes
   get "lessons/new" => "lessons#new"
   post "lessons/create" => "lessons#create"

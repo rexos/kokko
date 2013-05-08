@@ -3,7 +3,11 @@
     <% progress = get_progress_of_program(@program.id) %>
     
     
-    <div class="span6 center span-sx black rotating">
+<<<<<<< HEAD
+    <div class="span6 center span-sx black shake">
+=======
+    <div class="span6 center span-sx black ">
+>>>>>>> ed6391ea5e7ef963c06afce9e4f8d417ca4c5db6
 
         <a href="#multiplayer-modal" data-toggle="modal">
           <h2 class="menu-title">
@@ -16,7 +20,7 @@
         </a>
     </div>
       
-      <div class="span6 center span-dx " >
+      <div class="span6 center span-dx shake" >
 	<%= link_to ({action: :progresses, :prog_id => @program.id}) do %>
 	<h2 class="menu-title">PROGRESSI</h2>
 	<%= image_tag ("illustrations/clipboard.png"), :class => "menu-icon" %>
@@ -26,7 +30,7 @@
  
       	
   <div class="row-fluid menu-el ">
-    <div class="span6 center span-odd-sx ">
+    <div class="span6 center span-odd-sx shake">
       <%= link_to controller: :users, action: :calendar, :current_program_id => current_user.my_training_id do %>
 	<h2 class="menu-title"><!-- <i class="icon-calendar black"></i>&nbsp; -->CALENDARIO</h2>
 	<%= image_tag ("illustrations/calendar.png"), :class => "menu-icon" %>
@@ -34,7 +38,7 @@
     </div>
     
     
-    <div class="span6 center span-odd-dx ">
+    <div class="span6 center span-odd-dx shake">
       <%= link_to action: :program_wall, :program_id => @program.id do %>
       <h2 class="menu-title">BACHECA PROGRAMMA</h2>
       <%= image_tag ("illustrations/book.png"), :class => "menu-icon" %>
@@ -61,7 +65,7 @@
     </div>
 -->
 
-    <div class="span6 center span-sx ">
+    <div class="span6 center span-sx shake">
     <%= link_to ({ controller: :messages, action: :show}) do %>
     <h2 class="menu-title">MESSAGGI</h2>
     <%= image_tag ("illustrations/mail.png"), :class => "menu-icon" %>
@@ -70,7 +74,7 @@
 
          
   
-    <div class="span6 center span-odd-dx ">
+    <div class="span6 center span-odd-dx shake">
       <%= link_to :controller => :users, :action => :friends do %>
       <h2 class="menu-title"><!-- <i class="icon-group black"></i>&nbsp;-->AMICI</h2>
       <%= image_tag ("illustrations/colors.png"), :class => "menu-icon" %>
