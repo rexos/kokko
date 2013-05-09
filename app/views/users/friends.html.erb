@@ -1,94 +1,57 @@
 <div class="row-fluid">
-<div class="span12">
-
-<div class="page-title">
-  <h2 class="center">
+  <div class="page-title">
+    <h2 class="center">
       <i class="icon-group"></i>&nbsp;I miei amici
-  </h2>
+    </h2>
+  </div>
 </div>
 
 <div class="row-fluid center">
-<%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
-<%= f.text_field :text, placeholder: "Cerca qualcuno" %>&nbsp;<button class="btn btn-info"><i class="icon icon-search"></i></button>
-
-<!--<button class="btn btn-default" type="submit"><i class="icon icon-search"></i></button>-->
-<% end  %>
-<%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
+  <%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
+  <%= f.text_field :text, placeholder: "Cerca qualcuno" %>&nbsp;<button class="btn btn-info"><i class="icon icon-search"></i></button>
+  <% end  %>
 </div>
 
-<div style="margin-left: 15px"><h3>Chi seguo:</h3></div>
 
-  <div class="row-following">
+<div id="search-result" class="row-fluid">
   <% if @current_user_friends.count == 0 %>
-
-  <div class="row center">
+    <div class="alert alert-error center">
       <h2>Al momento non segui nessuno, cerca nuovi amici! </h2>
-  </div>
+    </div>
   <% end %>
+  <%else %>
+  <h2 style="padding-left:10px"> Chi seguo: </h2>
+  <div class="well">
   <% @current_user_friends.each do |friend|  %>
   
-  <div id=<%= friend.id %> class="row-fluid friend-row" style="width:30%">
+<div id=<%= friend.id %> class="row-fluid friend-row center">
     
-    <p><h4><%= gravatar_for( friend,"avatar" ) %><h4>
-    <h4><strong>
-	<%= friend.username.capitalize %>&nbsp;
-	<% if friend.online %>
-	<icon class="icon-circle" style="color:#2ecc71"></i>
+    <p>
+      <h4><%= gravatar_for( friend,"avatar" ) %><h4>
+      <h4><strong>
+	       <%= friend.username.capitalize %>&nbsp;
+	       <% if friend.online %>
+	         <icon class="icon-circle" style="color:#2ecc71"></i>
         <% else %>
-	<icon class="icon-circle"></i>
-	<% end %>
-</strong>
-</h4>
-</p>
+	         <icon class="icon-circle"></i>
+	       <% end %>
+      </strong></h4>
+    </p>
 
     <%= link_to action: :visit, :visited_user_id => friend.id do %>
-    <button class="btn btn-success" style="float:left"><i class="icon-eye-open"></i>&nbsp;Visita</button>
+    <button class="btn btn-success" ><i class="icon-eye-open"></i>&nbsp;Visita</button>
     <% end %>
 
     <%= link_to action: :remove_friend, :removed_friend_id => friend.id, :remote => true do %>
-    <button class="btn btn-danger" style="float:left"><i class="icon-remove"></i>&nbsp;Rimuovi</button>
+    <button class="btn btn-danger" ><i class="icon-remove"></i>&nbsp;Rimuovi</button>
     <% end %>
-    <div style="clear:both"></div>
+    
+</div>
 
-  </div>
   <% end %>
 </div>
 </div>
-<!--
-<div class="span3">
-  <div class="row-fluid center">
 
-    <div class="row-fluid">
-    <div class="center" style="margin-bottom: 20px">
-    <div class="h-icon">
-    <h2>Home</h2>
-    <%= link_to ({ controller: :users, action: :home_utente })  do %>
-    <i class="icon-home" style="font-size: 140px;color:#2980B9"></i>
-    </div>
-    <% end %>
-    </div>
-  </div> 
-
-    <div class="center" style="margin-bottom: 20px">
-      <div class="h-icon">
-        <h2>Bacheca</h2>
-        <%= link_to ({ controller: :users, action: :wall}) do %>
-        <%= image_tag ("illustrations/book.png"), :class => "home-icon" %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-
-  <div class="row-fluid">
-  <div class="center" style="margin-bottom: 20px">
-    <div class="h-icon">
-    <h2>Messaggi</h2>
-    <%= link_to ({ controller: :messages, action: :show}) do %>
-    <%= image_tag ("illustrations/mail.png"), :class => "home-icon" %>
-    </div>
-    <% end %>
-    </div>
-  </div>
-</div>
--->
+<div class="row-fluid center">
+<%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
 </div>

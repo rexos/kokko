@@ -1,3 +1,4 @@
+@import "settings";
 
 .wc-container {
 	font-size: 14px;	
@@ -56,9 +57,9 @@
 
 
 .wc-scrollable-grid {
-	overflow: auto;
+	/*overflow: auto;
 	overflow-x: hidden !important;
-	overflow-y: auto !important; 
+	overflow-y: auto !important; */
 	position: relative;
 	background-color: #fff;
 	width: 100%;
