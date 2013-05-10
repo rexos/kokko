@@ -277,9 +277,9 @@
 
          if (options.buttons) {
             calendarNavHtml = "<div class=\"wc-nav\">\
-                    <button class=\"wc-today\">" + options.buttonText.today + "</button>\
-                    <button class=\"wc-prev\">" + options.buttonText.lastWeek + "</button>\
-                    <button class=\"wc-next\">" + options.buttonText.nextWeek + "</button>\
+                    <button class=\"wc-today btn btn-primary\" >" + options.buttonText.today + "</button>\
+                    <button class=\"wc-prev btn btn-default\">" + options.buttonText.lastWeek + "</button>\
+                    <button class=\"wc-next btn btn-default\">" + options.buttonText.nextWeek + "</button>\
                     </div>";
 
             $(calendarNavHtml).appendTo($calendarContainer);
