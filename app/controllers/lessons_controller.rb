@@ -29,7 +29,9 @@ class LessonsController < ApplicationController
 
   def show_lesson
     store_current_path
+    @group = params[:group]
     @lesson = Lesson.find(params[:lesson_id])
+    @flash_msg = @lesson.flash_messages.all;
     @program = @lesson.program
     @status = current_user.statuses
   end
@@ -44,6 +46,17 @@ class LessonsController < ApplicationController
     end
     respond_to do |format|
       format.js { render action: :set_ex_done }
+    end
+  end
+
+  def new_flash_message
+    @lesson = Lesson.find(params[:lesson_id])
+    @body = params[:body]
+    @flash_msg = current_user.flash_messages.new(:lesson_id => @lesson.id, :body => @body.to_s)
+    respond_to do |f|
+      if @flash_msg.save
+        f.js { render :action => :insert_poke }
+      end
     end
   end
 

@@ -7,6 +7,7 @@ class Ability
     when "admin"
       can :manage, :all
     when "user"
+      can :new_flash_message, :all
       can :read, :all
       can :set_exercise_done, :all
       can :list, :all

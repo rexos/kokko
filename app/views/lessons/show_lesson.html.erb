@@ -83,6 +83,29 @@
     <% end %>
   </div>
 
+  <% if @group %>
+  <div class="row-fluid"> <!--Div Per Poke-->
+    <div class="dropdown">
+      <button class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</button>
+        <ul class="dropdown-menu center" role="menu" aria-labelledby="dLabel">
+          <%= link_to '<li><p role="menuitem">Poke 1</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 1", :lesson_id => @lesson.id, :remote => true %>
+          <li><a role="menuitem" href="#">Poke 2</a></li>
+          <li><a role="menuitem" href="#">Poke 3</a></li>
+        </ul>
+    </div>
+    <div id="poke_wall" class="well">
+      <% @flash_msg.each do |m|%>
+      <%= m.body %>
+      <% end %>
+    </div>
+  </div>
+  <%end%>
+
+  <!-- Link di prova -->
+  <%= link_to controller: :lessons, action: :show_lesson, :association_id => @lesson.id, :group => true do %>
+          <button class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px"><i class="icon-ok"></i>&nbsp;&nbsp;GRUPPAMI</button>
+  <%end%>
+
   <div class="center">
     <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :back_and_feedback, prog_id: @lesson.program.id %>
   </div>
