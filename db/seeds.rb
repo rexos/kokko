@@ -2,6 +2,9 @@
 User.delete_all
 User.create(username: 'deadormi', email:'dea.dormi@gmail.com',password:'diomerda',password_confirmation:'diomerda', role: 'admin')
 User.create(username: 'usertest', email:'user1@gmail.com',password:'usertest',password_confirmation:'usertest', role: 'user')
+User.create(username: 'qwerty', email:'qwerty@gmail.com',password:'qwerty',password_confirmation:'usertest', role: 'user')
+User.create(username: 'asdfgh', email:'asdfg@gmail.com',password:'asdfgh',password_confirmation:'usertest', role: 'user')
+User.create(username: 'zxcvbn', email:'zxcvbn@gmail.com',password:'zxcvbn',password_confirmation:'usertest', role: 'user')
 
 #creazione esercizi
 Exercise.delete_all
