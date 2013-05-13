@@ -89,8 +89,8 @@
       <button class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</button>
         <ul class="dropdown-menu center" role="menu" aria-labelledby="dLabel">
           <%= link_to '<li><p role="menuitem">Poke 1</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 1", :lesson_id => @lesson.id, :remote => true %>
-          <li><a role="menuitem" href="#">Poke 2</a></li>
-          <li><a role="menuitem" href="#">Poke 3</a></li>
+          <%= link_to '<li><p role="menuitem">Poke 2</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 2", :lesson_id => @lesson.id, :remote => true %>
+          <%= link_to '<li><p role="menuitem">Poke 3</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 3", :lesson_id => @lesson.id, :remote => true %>
         </ul>
     </div>
     <div id="poke_wall" class="well">
