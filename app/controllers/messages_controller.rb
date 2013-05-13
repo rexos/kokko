@@ -45,6 +45,7 @@ class MessagesController < ApplicationController
         def get_new_messages
           @new_messages = current_user.messages.where( :read => false ).count
           @event = Program.find( current_user.my_training_id ).events.where( "start > ? AND start < ?", DateTime.now + 1.hours, DateTime.now + 3.hours ).first
+          @flash_messages = FlashMessage.where('create_at > ?' Time.now - 3.seconds)
           if request.xhr?
             respond_to do |format|
               format.js { render :action => :new_messages }
