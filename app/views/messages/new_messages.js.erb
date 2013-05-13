@@ -1,2 +1,4 @@
 $('li').first().text('');
 $('li').first().append( '<i class="icon icon-envelope"></i><%= escape_javascript( render :partial => "new_messages" ) %>');
+$('button.btn-ready').hide();
+$('div.lesson-ready').append('<%= escape_javascript( render :partial => "ready_lesson" ) %>');

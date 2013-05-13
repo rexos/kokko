@@ -11,19 +11,6 @@ $(document).ready(function(){
 	$('#feedback-modal').modal('show');
     }
     
-    var time = parseInt($('.time').text());
-
-    setInterval(countdown,1000);
-    function countdown(){
-	var minutes = parseInt(time / 60);
-	var seconds = time % 60;
-	time = time-1;
-	var colon = " : ";
-	if (seconds < 10){
-	    colon = " : 0"
-	}
-	$('.time').text(minutes+colon+seconds);
-    }
     
     $('.medal').each(function() {
     	$(this)

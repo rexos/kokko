@@ -100,8 +100,7 @@ class ProgramsController < ApplicationController
 
   def waiting_room
     @program = Program.find(params[:program_id])
-    @event = @program.events.find( :first, :conditions => ["start > ?", DateTime.now ] )
-    @days = @event.start.to_date - DateTime.now.to_date
+    @event = @program.events.where("start >= ?", DateTime.now + 1.hours ).order( "start" ).first
     @attending = User.where(:my_training_id => params[:program_id])
   end
 

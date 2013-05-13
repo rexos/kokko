@@ -27,12 +27,11 @@
 		<% end %>
 	</div>
 </div>
+<br />
 <div class="row-fluid">
-  <div class="span12 center">
-    <h2>La <%= @event.title %> inizia tra : <%= @days.to_s[0] %> giorni </h2>
+  <div class="span12 center alert alert-info lesson-ready">
+    <h2>La <%= @event.title %> inizia il : <%= @event.start.to_s[0..9] %> alle <%= @event.start.to_s[10...-7] %> </h2>
     <p>
-      <div class="time">
-      </div>
     </p>    
   </div>
 </div>
