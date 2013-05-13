@@ -102,6 +102,17 @@ div.h-icon:hover {
 	padding-left: 30px; 	
 }
 
+.friend-box {
+	background-color: $clouds;
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 5px 20px 5px;
+	border: 3px solid #bdc3c7;
+}
+
+
 /* MENU HOME UTENTE (DOVE SCEGLIE IL TRAINING) */
 .tabbable ul li a {
 	color: $wet_asphalt;
