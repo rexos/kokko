@@ -17,8 +17,13 @@
   <%= f.text_area :body, :placeholder => "Come ti senti oggi?", rows: 3%><br />
   <div class="center">
     <button type="submit" class="btn btn-primary btn-large"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica</button>
+    <% end %>
+
+
+  <%= link_to controller: :programs, action: :show, :prog_id => @program.id do%>
+  <p class="btn btn-large btn-danger"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</p>
   <% end %>
-    <%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
+
   </div>
   </div>
   </div>
@@ -26,21 +31,23 @@
 
 
 <div class="row-fluid ">
-  
-    <% @feedbacks.each do |f| %>
+  <% @feedbacks.each do |f| %>
+
     <div class="row-fluid message-row" id= <%= f.id %> >
+      <h4>
       <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
       &nbsp;&nbsp;
+
       <i class="icon-quote-left"></i>&nbsp;
       <% if f.program_id %>
     
-    <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
-	  commentato con rating al programma :
-	  <%= f.rating %>
+    <%= f.user.username.capitalize %> a proposito di <strong><%= Program.find(f.program_id).title %></strong>
+	  ha commentato con rating <strong><%= f.rating %></strong> al programma :
+	  
     <% end %>
     <%= f.body %>
     &nbsp;<i class="icon-quote-right"></i>
-    
+    </h4>
     <br />
     <small>
         Scritto il : <%= f.created_at.to_s[0..9] %> alle : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
@@ -52,14 +59,14 @@
 	<% f.comments.order("created_at").each do |c| %>
 	<div class="alert alert-info" id="comment-<%= c.id %>">
 	  <%= User.find(c.commenter).username.capitalize %> : <%= c.body %>
-	  <% if c.commenter == current_user.id %>
-	  <%= link_to '<i class="icon-remove" style="color:red"></i>'.html_safe, :controller => :comments, :action => :destroy, :comment_id => c.id, :remote => true %>
+	  <% if c.commenter == current_user.id %>&nbsp;&nbsp;
+	  <%= link_to '<i class="icon-remove" style="color:#E74C3C"></i>'.html_safe, :controller => :comments, :action => :destroy, :comment_id => c.id, :remote => true %>
 	  <% end %>
 	</div>
 	<% end %>
 	<%= form_for :comment, :url => {:controller => :comments, :action => :create, :feedback_id => f.id}, :remote => true do |f| %>
 	<%= f.hidden_field :commenter, :value => current_user.id %>
-	<%= f.text_area :body, :placeholder => "commenta ..", :rows => 1 %>
+	<%= f.text_area :body, :placeholder => "Commenta", :rows => 1 %>
 	<button class="btn btn-info btn-default" type="submit">Ok</button>
 	<% end %>
       </div>

@@ -220,3 +220,16 @@ img.menu-icon {
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
 }
+
+.post-row{
+	margin-top: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left:20px;
+	border-top: $silver 3px solid;
+	border-right: $silver 3px solid;
+	border-bottom: $silver 3px solid;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: $clouds;
+}
