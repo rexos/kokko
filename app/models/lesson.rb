@@ -15,6 +15,7 @@ class Lesson < ActiveRecord::Base
   before_save{|lesson| lesson.title = title.capitalize}
 
   has_many :associations, :dependent => :destroy
+  has_many :flash_messages
   has_many :exercises, through: :associations
   attr_accessible :title
 end

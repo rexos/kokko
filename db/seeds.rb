@@ -2,6 +2,9 @@
 User.delete_all
 User.create(username: 'deadormi', email:'dea.dormi@gmail.com',password:'diomerda',password_confirmation:'diomerda', role: 'admin')
 User.create(username: 'usertest', email:'user1@gmail.com',password:'usertest',password_confirmation:'usertest', role: 'user')
+User.create(username: 'qwerty', email:'qwerty@gmail.com',password:'qwerty',password_confirmation:'usertest', role: 'user')
+User.create(username: 'asdfgh', email:'asdfg@gmail.com',password:'asdfgh',password_confirmation:'usertest', role: 'user')
+User.create(username: 'zxcvbn', email:'zxcvbn@gmail.com',password:'zxcvbn',password_confirmation:'usertest', role: 'user')
 
 #creazione esercizi
 Exercise.delete_all
@@ -604,3 +607,23 @@ Association.create(:exercise_id => @standing_toe_lift_with_weights.id,
 Association.create(:exercise_id => @standing_hip_adduction.id,
 			       :lesson_id => @lessonTPA3_3.id, 
 			       :repetitions => 'Fare 3 sessioni con una durata di 12 ripetizioni.')
+
+#Eventi Calendario
+Event.delete_all
+
+#eventi TP1 per una settimana
+@eventTP1_1 = @TP1.events.new(start: "2013-05-14 12:15:00",
+						:end => "2013-05-14 12:45:00",
+						title: "Lesson1",
+						body: "chiappe")
+@eventTP1_1.save
+@eventTP1_2 = @TP1.events.new(start: "2013-05-16 09:15:00",
+						:end => "2013-05-16 09:45:00",
+						title: "Lesson2",
+						body: "chiappe")
+@eventTP1_2.save
+@eventTP1_3 = @TP1.events.new(start: "2013-05-18 16:30:00",
+						:end => "2013-05-18 17:00:00",
+						title: "Lesson3",
+						body: "chiappe")
+@eventTP1_3.save

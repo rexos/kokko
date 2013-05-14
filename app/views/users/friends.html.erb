@@ -10,47 +10,50 @@
   <%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
   <%= f.text_field :text, placeholder: "Cerca qualcuno" %>&nbsp;<button class="btn btn-info"><i class="icon icon-search"></i></button>
   <% end  %>
-</div>
-<div class="center">
-<%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
+    <%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %>
 </div>
 
 <div id="search-result" class="row-fluid">
   <% if @current_user_friends.count == 0 %>
+
     <div class="alert alert-error center">
       <h2>Al momento non segui nessuno, cerca nuovi amici! </h2>
     </div>
-  <% end %>
-  <%else %>
-  <h2 style="padding-left:10px"> Chi seguo: </h2>
-  <div class="well">
-  <% @current_user_friends.each do |friend|  %>
   
-<div id=<%= friend.id %> class="row-fluid friend-row center">
+  <%else %>
+  
+    <h2 style="padding-left: 10px"> Chi seguo: </h2>
+
+    <% @current_user_friends.each do |friend|  %>
+      <div id=<%= friend.id %> class="friend-box center"> 
+        <p>
+          <h4><%= gravatar_for( friend,"avatar" ) %><h4>
+          <h4>
+            <strong>
+  	         <%= friend.username.capitalize %>&nbsp;
+  	         <% if friend.online %>
+  	           <icon class="icon-circle" style="color:#2ecc71"></i>
+              <% else %>
+  	           <icon class="icon-circle"></i>
+  	         <% end %>
+            </strong>
+          </h4>
+        </p>
+        <!-- BOTTONI -->  
+        <%= link_to action: :visit, :visited_user_id => friend.id do %>
+          <button class="btn btn-success" ><i class="icon-eye-open"></i>&nbsp;Visita</button>
+        <% end %>
+        <%= link_to action: :remove_friend, :removed_friend_id => friend.id, :remote => true do %>
+          <button class="btn btn-danger" ><i class="icon-remove"></i>&nbsp;Rimuovi</button>
+        <% end %>
+        <!-- BOTTONI -->
+
+      </div> <!-- CHIUDE FRIEND-BOX -->
+    <% end %> <!-- FINE EACH DO -->
+    <div style="clear: both"></div>  
     
-    <p>
-      <h4><%= gravatar_for( friend,"avatar" ) %><h4>
-      <h4><strong>
-	       <%= friend.username.capitalize %>&nbsp;
-	       <% if friend.online %>
-	         <icon class="icon-circle" style="color:#2ecc71"></i>
-        <% else %>
-	         <icon class="icon-circle"></i>
-	       <% end %>
-      </strong></h4>
-    </p>
+  <% end %> <!-- CHIUDE IF -->
+</div> <!-- CHIUDE SEARCH-RESULT -->       
 
-    <%= link_to action: :visit, :visited_user_id => friend.id do %>
-    <button class="btn btn-success" ><i class="icon-eye-open"></i>&nbsp;Visita</button>
-    <% end %>
 
-    <%= link_to action: :remove_friend, :removed_friend_id => friend.id, :remote => true do %>
-    <button class="btn btn-danger" ><i class="icon-remove"></i>&nbsp;Rimuovi</button>
-    <% end %>
-    
-</div>
-
-  <% end %>
-</div>
-</div>
 

@@ -1,8 +1,17 @@
-  <div class="page-title">
+
+  <div class="row-fluid">
+    <div class="span10">
+        <div class="page-title">
     <h2 class="center">
         <i class="icon-list"></i>&nbsp;<%=@lesson.title%>
     </h2>
   </div>
+    </div>
+    <div class="span2">
+        <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :back_and_feedback, prog_id: @lesson.program.id %>
+    </div>  
+  </div>
+
   <% if @lesson.exercises.count == 0 %> 
   <div class="alert alert-error">
     <h2><strong><div class="center">Non c'è nessun esercizio per questa lezione!</div></strong></h2>
@@ -30,21 +39,31 @@
       <div class="row-fluid">
         <div style="margin-left: 20px; margin-right: 20px">
         <div class="span6">
-        <div class="ex-title">&nbsp;</div>  
-        <div class="ex-cont">
-        <p><%= @lesson.exercises.first.description %></p>
-        <p>
-        <strong><i class="icon-random"></i>&nbsp;Ripetizioni:</strong> <%= @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).repetitions.to_s %>
-      </p>
-       <div class="center button-container"> 
-        <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id}  %>
-        <%= link_to controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id, :remote => true do %>
-          <button id="b-<%=@lesson.exercises.first.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
-        <% end %>
-        <%end%>
-      </div>
+          
+          <p>
+            <h2>Informazioni&nbsp;
+              
+                <i id="show-desc" class="icon-info-sign" style="color: #2980B9; font-size: 50px; cursor: pointer"></i></a>
+            </h2>
+          </p>
 
+          <div class="ex-info">
+            <div class="ex-title">&nbsp;</div>  
+            <div class="ex-cont">
+            <p><%= @lesson.exercises.first.description %></p>
+            <p>
+            <strong><i class="icon-random"></i>&nbsp;Ripetizioni:</strong> <%= @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).repetitions.to_s %>
+            </p>
+            <div class="center button-container"> 
+              <% if !@status.detect {|s| s.association_id == @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id}  %>
+              <%= link_to controller: :lessons, action: :set_exercise_done, :association_id => @lesson.associations.find_by_exercise_id(@lesson.exercises.first.id).id, :remote => true do %>
+              <button id="b-<%=@lesson.exercises.first.id%>" class="btn btn-large btn-info fatto" style="margin: 30px; margin-bottom: 30px"><i class="icon-ok"></i>&nbsp;&nbsp;Fatto!</button>
+              <% end %>
+              <%end%>
+            </div>
+          </div>
         </div>
+
         </div>
         <div class="span6">
           <iframe class="video" width="100%" height="100%" src="<%= "http://www.youtube.com/embed/"+@lesson.exercises.first.code %>"></iframe>
@@ -83,8 +102,29 @@
     <% end %>
   </div>
 
-  <div class="center">
-    <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :back_and_feedback, prog_id: @lesson.program.id %>
+  <% if @group %>
+  <div class="row-fluid"> <!--Div Per Poke-->
+    <div class="dropdown">
+      <button class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</button>
+        <ul class="dropdown-menu center" role="menu" aria-labelledby="dLabel">
+          <%= link_to '<li><p role="menuitem">Poke 1</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 1", :lesson_id => @lesson.id, :remote => true %>
+          <%= link_to '<li><p role="menuitem">Poke 2</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 2", :lesson_id => @lesson.id, :remote => true %>
+          <%= link_to '<li><p role="menuitem">Poke 3</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 3", :lesson_id => @lesson.id, :remote => true %>
+        </ul>
+    </div>
+    <div id="poke_wall" class="well">
+      <% @flash_msg.each do |m|%>
+      <%= m.body %>
+      <% end %>
+    </div>
   </div>
-
+  <%end%>
+  
   <% end %>
+
+<script>
+$(".ex-info").hide();
+$("#show-desc").click(function (){
+  $(".ex-info").toggle("slow");
+});
+</script>

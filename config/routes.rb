@@ -40,6 +40,7 @@ Kokkonut::Application.routes.draw do
   get "lessons/show_lesson/:lesson_id" => "lessons#show_lesson"
   get "lessons/change_exercise" => "lessons#change_exercise"
   get "lessons/set_exercise_done" => "lessons#set_exercise_done"
+  get "lessons/new_flash_message" => "lessons#new_flash_message"
 
   #feedbacks/statuses routes
   post "feedbacks/create" => "feedbacks#create"

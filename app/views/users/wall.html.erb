@@ -51,7 +51,7 @@
     <br />
     <small>
         Scritto il : <%= f.created_at.to_s[0..9] %> alle : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
-	  <%= link_to '<span style="color:#E74C3C; font-size: 20px"><i class="icon icon-remove"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
+	  <%= link_to '<span style="color: #C0392B; font-size: 20px"><i class="icon icon-remove"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
 	    </small>
     <!-- Commets start -->
       <p class="comments" style="cursor:pointer">Commenti (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
