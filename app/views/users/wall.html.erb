@@ -18,17 +18,10 @@
   <div class="center">
     <button type="submit" class="btn btn-primary btn-large"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica</button>
     <% end %>
-
-
-  <%= link_to controller: :programs, action: :show, :prog_id => @program.id do%>
-  <p class="btn btn-large btn-danger"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</p>
-  <% end %>
-
   </div>
   </div>
   </div>
 </div>
-
 
 <div class="row-fluid ">
   <% @feedbacks.each do |f| %>

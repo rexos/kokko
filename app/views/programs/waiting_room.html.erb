@@ -15,7 +15,6 @@
 		<% @attending.each do |u| %>
 		<div class="user-box">
 		  <%= gravatar_for(User.find(u.id), "avatar") %>
-		  <div style="clear:left"></div>
 		  <h4 class="center"><%= u.username.capitalize %>&nbsp;
 		    <% if u.online %>
 		    <icon class="icon-circle" style="color:#2ecc71"></i>
@@ -35,4 +34,3 @@
     </p>    
   </div>
 </div>
- <div class="center" style="margin-top:25px;"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>

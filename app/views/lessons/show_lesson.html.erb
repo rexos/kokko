@@ -4,7 +4,6 @@
     <h2>
       <i class="icon-list"></i>&nbsp;<%=@lesson.title%>
     </h2>
-    <%= link_to '<button class="btn btn-large btn-danger" style="margin: 30px; margin-bottom: 30px"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :back_and_feedback, prog_id: @lesson.program.id %>
   </div> 
 </div>
 
@@ -102,37 +101,44 @@
 
   <% if @group %>
   <div class="row-fluid"> <!--Div Per Poke-->
-    <div id="poke_wall" class="well">
+    <div class="span6">
+    <div id="poke_wall">
       <% @users.each do |u| %>
       <div class="user-box">
-          <%= gravatar_for(User.find(u.id), "avatar") %>
-          <div style="clear:left"></div>
-          <h4 class="center"><%= u.username.capitalize %>&nbsp;
+        <div class="dropdown">
+          <button class="dropdown-toggle btn btn-default" data-toggle="dropdown" href="#">Poke <%= u.username.capitalize %></button>
+            <ul class="dropdown-menu center" role="menu" aria-labelledby="dLabel">
+              <%= link_to '<li><p role="menuitem">Vai!</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Vai!", :to_id => u.id, :remote => true %>
+              <%= link_to '<li><p role="menuitem">Complimenti! :-)</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Complimenti! :-)", :to_id => u.id, :remote => true %>
+              <%= link_to '<li><p role="menuitem">Bravo!</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Bravo!", :to_id => u.id, :remote => true %>
+            </ul>
+          </div>
+          <h4 class="center">
+            <%= gravatar_for(User.find(u.id), "avatar") %><br />
+            <%= u.username.capitalize %>&nbsp;
             <% if u.online %>
-            <icon class="icon-circle" style="color:#2ecc71"></i>
-                    <% else %>
-            <icon class="icon-circle"></i>
-                    <% end %>
+              <icon class="icon-circle" style="color:#2ecc71"></i>
+            <% else %>
+              <icon class="icon-circle"></i>
+            <% end %>
           </h4>
-          
-      <div class="dropdown">
-      <button class="dropdown-toggle" data-toggle="dropdown" href="#">Poke <%= u.username %></button>
-        <ul class="dropdown-menu center" role="menu" aria-labelledby="dLabel">
-          <%= link_to '<li><p role="menuitem">Poke 1</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 1", :to_id => u.id, :remote => true %>
-          <%= link_to '<li><p role="menuitem">Poke 2</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 2", :to_id => u.id, :remote => true %>
-          <%= link_to '<li><p role="menuitem">Poke 3</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 3", :to_id => u.id, :remote => true %>
-        </ul>
-    </div>
       </div>
-      <% end %>
+        <% end %> <!-- chiude each -->
+    </div> <!-- chiude poke wall -->
+  
     </div>
-  </div>
-  <%end%>
-  <div id="poke_to_me"></div>
-  <% end %>
+    <div class="span6">
+      <div id="poke_to_me">
+      </div>
+    </div>
+  </div> <!-- chiude il row -->
+
+  <%end%> <!-- chiude if group -->
+
+  
+  <% end %> <!-- chiude if iniziale -->
 
 <script>
-$(".ex-info").hide();
 $(".show-desc").click(function (){
 $(".ex-info").slideToggle("slow");
 });

@@ -1,4 +1,6 @@
 <% @flash.each do |ddu| %>
-	<%= User.find(ddu.from).username %> : 
+<div class="alert alert-info" style="font-size: 30px">
+	<strong><%= User.find(ddu.from).username.capitalize %></strong> : 
 	<%= ddu.body.to_s %>
+</div>
 <% end %>
