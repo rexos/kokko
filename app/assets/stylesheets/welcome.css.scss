@@ -77,15 +77,6 @@
   border-width: 0 50px 50px 50px;
   border-color: transparent transparent #fff transparent;
 }
-#light-menu {
-  margin-top: 10px;
-  font-size: 20px;
-  color: #fff;
-}
-#light-menu ul {
-  float: right;
-}
-
 
 .who-photo{
   /*border: 2px solid $silver;*/
@@ -94,16 +85,44 @@
   margin: 20px;
 }
 
-#light-menu li {
+#light-menu ul {
+  float: right;
+}
+
+#light-menu li, #backbone {
+  margin-top: 10px;
   color: #fff;
   text-decoration: none;
   float: left;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
 }
 
 #light-menu li a {
   color: #fff;
   text-decoration: none;
+}
+
+#backbone {
+    background-color: $belize_hole;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+#backbone:active, #backbone:hover {
+  background-color: $peter_river;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+#bar-prog-title {
+    background-color: $wisteria;
+    border-radius: 5px;
+    margin-left: 10px;
+    border: 1px solid white;
 }
 
 .padd-odd {

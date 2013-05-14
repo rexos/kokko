@@ -32,40 +32,52 @@
     <% if current_user %>
     
       <div class="row-fluid" id="profile-row-line-top">
-        <div class="span12" id="light-menu">
-          <ul type="none"> 
-            <%= link_to controller: :messages, action: :show do %>
-            <li id="msg_notification"><i class="icon icon-envelope"></i>
-             <% if current_user_message_count > 0 %>
-             &nbsp;&nbsp;<%= current_user_message_count %>
-             <% end %>
-           </li>
-           <% end %>
-           <% if current_user.my_training_id.nil? == false %>
-           <li><%= link_to '<i class="icon-home"></i>&nbsp; Home'.html_safe, controller: :programs, action: :show, :prog_id => current_user.my_training_id  %>
-             <% if current_user.first_name && !current_user.first_name.blank? %>
-             (<%=current_user.first_name%>)
-             <% end %>
-           </li>
-           <% else %>
+        <div class="span2">
+          <% current_path = "#{request.fullpath}".split("?")[0] %>
+          <% if current_path != "/programs/show" && current_path != "/users/home_utente" %>
+          <ul><li>
+            <%= link_to controller: :programs, action: :show, :prog_id => @program.id do%>
+            <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
+            <% end %>
+          </li></ul>
+          <% end %>
+        </div>
+
+        <div class="span10" id="light-menu">
+            <ul type="none">
+                <%= link_to controller: :messages, action: :show do %>
+                <li id="msg_notification"><i class="icon icon-envelope"></i>
+                  <% if current_user_message_count > 0 %>
+                  &nbsp;<%= current_user_message_count %>
+                  <% end %>
+                </li>
+                <% end %>
+                  <% if current_user.my_training_id.nil? == false %>
+                  <li>
+                    <%= link_to '<i class="icon-home"></i>&nbsp; Home'.html_safe, controller: :programs, action: :show, :prog_id => current_user.my_training_id  %>
+                  <% if current_user.first_name && !current_user.first_name.blank? %>
+                    (<%=current_user.first_name%>)
+                  <% end %>
+                </li>
+            <% else %>
             <li><%= link_to '<i class="icon-home"></i>&nbsp;'.html_safe, controller: :users, action: :home_utente%>
              <% if current_user.first_name && !current_user.first_name.blank? %>
              (<%=current_user.first_name%>)
              <% end %>
            <% end %>
-           
-
+          
             <li><%= link_to '<i class="icon-user"></i>&nbsp;'.html_safe+current_user.username.capitalize, controller: :users, action: :wall%>
              
-           
            <li><a href="#settings-modal" data-toggle="modal"><i class="icon-cogs"></i>&nbsp;Impostazioni</li></a></li>
            <li><%= link_to '<i class="icon-off"></i>&nbsp;Logout'.html_safe, controller: :sessions, action: :destroy %></li>
          </ul>
-         <ul type="none" style="float: left">
-          <% if current_user.role == "user" && ( controller.controller_name == 'programs' ||  controller.controller_name == 'lessons' ) %>
-          <li> <%= @program.title %> </li>
+
+         <ul type="none" style="float: right">
+          <% if current_user.role == "user" && current_path != "/users/home_utente" %>
+          <li id="bar-prog-title"> <%= @program.title %> </li>
           <% end %>
          </ul>
+         <div style="clear:both"></div>
        </div>
      </div>
      <% else %>
