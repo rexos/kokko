@@ -31,9 +31,9 @@ class LessonsController < ApplicationController
     store_current_path
     @group = params[:group]
     @lesson = Lesson.find(params[:lesson_id])
-    @flash_msg = @lesson.flash_messages.all;
     @program = @lesson.program
     @status = current_user.statuses
+    @users = User.where(:my_training_id => @program.id, :online => true)
   end
 
   def set_exercise_done
@@ -50,12 +50,11 @@ class LessonsController < ApplicationController
   end
 
   def new_flash_message
-    @lesson = Lesson.find(params[:lesson_id])
     @body = params[:body]
-    @flash_msg = current_user.flash_messages.new(:lesson_id => @lesson.id, :body => @body.to_s)
+    @flash_msg = FlashMessage.new(:body => @body.to_s,:from => current_user.id, :to => params[:to_id])
     respond_to do |f|
       if @flash_msg.save
-        f.js { render :action => :insert_poke }
+        f.js { render :action => :sera_bratole }
       end
     end
   end

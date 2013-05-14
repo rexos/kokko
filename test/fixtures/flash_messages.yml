@@ -2,10 +2,12 @@
 
 one:
   body: MyText
-  user: 
-  lesson: 
+  program: 
+  from: 1
+  to: 1
 
 two:
   body: MyText
-  user: 
-  lesson: 
+  program: 
+  from: 1
+  to: 1

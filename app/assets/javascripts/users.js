@@ -10,11 +10,12 @@ $(document).ready(function(){
 	    });
 		
 	var new_messages = setInterval(function(){
+		$('#poke_to_me').empty();
 		$.ajax({
 			type: "GET",
 			url: "/messages/get_new_messages"
 		    });
-	    }, 3000);
+	    }, 4000);
 	
 });
 

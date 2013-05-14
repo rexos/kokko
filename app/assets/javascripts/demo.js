@@ -49,7 +49,6 @@ $(document).ready(function() {
             buttons: {
                Salva : function() {
 			 var myEvent = { start : new Date(startField.val()), end : new Date(endField.val()), title : titleField.val(), body : bodyField.val() };
-			 alert(programId);
 			 var savedId;
 			 $.ajax({
 				 url : '/events/create',
@@ -122,9 +121,6 @@ $(document).ready(function() {
 			      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
 			      data : 'editEvent='+JSON.stringify(editEvent),
 			      async : false,
-			      success : function(response){
-			      alert(response);
-			  }
 		      });
 
                   $calendar.weekCalendar("updateEvent", calEvent);

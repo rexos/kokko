@@ -102,27 +102,38 @@
 
   <% if @group %>
   <div class="row-fluid"> <!--Div Per Poke-->
-    <div class="dropdown">
-      <button class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</button>
+    <div id="poke_wall" class="well">
+      <% @users.each do |u| %>
+      <div class="user-box">
+          <%= gravatar_for(User.find(u.id), "avatar") %>
+          <div style="clear:left"></div>
+          <h4 class="center"><%= u.username.capitalize %>&nbsp;
+            <% if u.online %>
+            <icon class="icon-circle" style="color:#2ecc71"></i>
+                    <% else %>
+            <icon class="icon-circle"></i>
+                    <% end %>
+          </h4>
+          
+      <div class="dropdown">
+      <button class="dropdown-toggle" data-toggle="dropdown" href="#">Poke <%= u.username %></button>
         <ul class="dropdown-menu center" role="menu" aria-labelledby="dLabel">
-          <%= link_to '<li><p role="menuitem">Poke 1</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 1", :lesson_id => @lesson.id, :remote => true %>
-          <%= link_to '<li><p role="menuitem">Poke 2</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 2", :lesson_id => @lesson.id, :remote => true %>
-          <%= link_to '<li><p role="menuitem">Poke 3</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 3", :lesson_id => @lesson.id, :remote => true %>
+          <%= link_to '<li><p role="menuitem">Poke 1</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 1", :to_id => u.id, :remote => true %>
+          <%= link_to '<li><p role="menuitem">Poke 2</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 2", :to_id => u.id, :remote => true %>
+          <%= link_to '<li><p role="menuitem">Poke 3</p></li>'.html_safe, controller: :lessons, action: :new_flash_message, :body => "Poke 3", :to_id => u.id, :remote => true %>
         </ul>
     </div>
-    <div id="poke_wall" class="well">
-      <% @flash_msg.each do |m|%>
-      <%= m.body %>
+      </div>
       <% end %>
     </div>
   </div>
   <%end%>
-  
+  <div id="poke_to_me"></div>
   <% end %>
 
 <script>
 $(".ex-info").hide();
 $(".show-desc").click(function (){
-  $(".ex-info").toggle("fast");
+$(".ex-info").slideToggle("slow");
 });
 </script>
