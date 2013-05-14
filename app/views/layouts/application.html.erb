@@ -34,7 +34,7 @@
       <div class="row-fluid" id="profile-row-line-top">
         <div class="span2">
           <% current_path = "#{request.fullpath}".split("?")[0] %>
-          <% if current_path != "/programs/show" && current_path != "/users/home_utente" %>
+          <% if current_path != "/programs/show" && current_path != "/users/home_utente" && current_path != "/programs/all"%>
           <ul><li>
             <%= link_to controller: :programs, action: :show, :prog_id => @program.id do%>
             <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>

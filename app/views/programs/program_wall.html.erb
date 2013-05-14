@@ -1,5 +1,3 @@
-
-
 <div class="page-title">
     <h2 class="center">
         <i class="icon-pushpin"></i>&nbsp;Bacheca <%= @program.title.capitalize %>
@@ -17,7 +15,4 @@
     <p><strong>Rating:</strong> <%= feed.rating %></p>
   </div>
   <% end %>
-  
 </div>
-
-<div class="center" style="margin-top:25px;"><%= link_to '<button class="btn btn-large btn-danger"><i class="icon-reply"></i>&nbsp;&nbsp;Indietro</button>'.html_safe, controller: :programs, action: :show, :prog_id => @program.id %></div>
