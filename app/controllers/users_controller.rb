@@ -65,7 +65,6 @@ class UsersController < ApplicationController
 
   def wall
       @feedbacks = current_user.feedbacks.find(:all, :order => "created_at DESC")
-      @program = Program.find(current_user.my_training_id)
   end
 
   def search

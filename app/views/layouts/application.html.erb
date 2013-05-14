@@ -34,13 +34,25 @@
       <div class="row-fluid" id="profile-row-line-top">
         <div class="span2">
           <% current_path = "#{request.fullpath}".split("?")[0] %>
-          <% if current_path != "/programs/show" && current_path != "/users/home_utente" && current_path != "/programs/all"%>
           <ul><li>
-            <%= link_to controller: :programs, action: :show, :prog_id => @program.id do%>
+          <% if current_path != "/programs/show" && 
+                current_path != "/users/home_utente" && 
+                current_path != "/programs/all" &&
+                not(current_user.my_training_id.nil?)
+                %>
+          
+            <%= link_to controller: :programs, action: :show, :prog_id => current_user.my_training_id do%>
             <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
             <% end %>
-          </li></ul>
+          
+          <% elsif (current_path == "/users/wall" || current_path == "/messages/show") &&
+                current_user.my_training_id.nil? %>
+              <%= link_to controller: :users, action: :home_utente do%>
+              <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
+              <% end %>
+          <% else %>    
           <% end %>
+          </li></ul>
         </div>
 
         <div class="span10" id="light-menu">
@@ -73,8 +85,11 @@
          </ul>
 
          <ul type="none" style="float: right">
-          <% if current_user.role == "user" && current_path != "/users/home_utente" %>
-          <li id="bar-prog-title"> <%= @program.title %> </li>
+          <% if current_user.role == "user" && 
+                current_path != "/users/home_utente" && 
+                not(current_user.my_training_id.nil?) %>
+          <li id="bar-prog-title"> <%= Program.find(current_user.my_training_id).title %> 
+          </li>
           <% end %>
          </ul>
          <div style="clear:both"></div>

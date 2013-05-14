@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
 
         def show
           @messages = Message.where(:to =>current_user.id).order("created_at DESC")
-          @program = Program.find(current_user.my_training_id)
         end
 
 	def create
