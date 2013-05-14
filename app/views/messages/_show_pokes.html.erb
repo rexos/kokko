@@ -1,0 +1,4 @@
+<% @flash.each do |ddu| %>
+	<%= User.find(ddu.from).username %> : 
+	<%= ddu.body.to_s %>
+<% end %>
