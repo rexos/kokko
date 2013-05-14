@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
         cookies.permanent[:token] = user.token
       end
       current_user.update_attributes( :online => true )
+      FlashMessage.destroy_all(:to => current_user.id, :from => current_user.id)
       case user.role
       when "admin"
         redirect_to :controller => :programs, action: :index
@@ -28,6 +29,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+   FlashMessage.destroy_all(:to => current_user.id, :from => current_user.id)
    current_user.update_attributes( :online => false )
     session[:user_id] = nil
     cookies.delete(:token)
