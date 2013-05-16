@@ -22,6 +22,9 @@
           <% feed.rating.times { %>
             <i class="icon-star" style="color: #F1C40F"></i>
           <% } %>
+          <% (5-feed.rating).times { %>
+            <i class="icon-star-empty" style="color: #F1C40F"></i>
+          <% } %>
         </p>
     </div>
     <% end %>

@@ -41,7 +41,9 @@
       <i class="icon-quote-left"></i>&nbsp;
       <% if f.program_id %>
         <%= f.user.username.capitalize %> a proposito di <strong><%= Program.find(f.program_id).title %></strong>
-        ha commentato con rating <strong><%= f.rating %></strong> al programma :
+        ha commentato con rating 
+        <% f.rating.times { %><i class="icon-star" style="color: #F1C40F"></i><% } %><% (5-f.rating).times { %><i class="icon-star-empty" style="color: #F1C40F"></i><% } %> 
+        al programma :
       <% end %>
       <%= f.body %>
       &nbsp;<i class="icon-quote-right"></i>
