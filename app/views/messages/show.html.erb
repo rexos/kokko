@@ -1,6 +1,15 @@
 <div class="row-fluid"> 
  <div class="span12">  
 
+<% if current_user.my_training_id.nil? %>
+      <div class="alert alert-info" style="margin-top: 20px">
+        <h3 class="center" >Scegli un trainig program ed inizia l'allenamento!</h3>
+        <p class="center">
+        <%= link_to '<button class="btn btn-primary btn-large"><i class="icon-check"></i>&nbsp;&nbsp;Imposta Training</button>'.html_safe, controller: :users, action: :home_utente %>
+        </p>
+      </div>
+<% else %>
+
   <!-- TITOLO -->
 <div class="page-title">
   <h2 class="center">
@@ -71,6 +80,8 @@
 
   <% end %> <!-- chiudo if/else messagecount=0 -->
   </div>
+
+  <% end %>
  </div>
 </div>
 

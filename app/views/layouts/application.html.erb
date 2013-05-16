@@ -35,16 +35,21 @@
         <div class="span2">
           <% current_path = "#{request.fullpath}".split("?")[0] %>
           <ul><li>
+            
           <% if current_path != "/programs/show" && 
                 current_path != "/users/home_utente" && 
                 current_path != "/programs/all" &&
+                current_path[0..20] != "/lessons/show_lesson/" &&
                 not(current_user.my_training_id.nil?)
                 %>
-          
+
             <%= link_to controller: :programs, action: :show, :prog_id => current_user.my_training_id do%>
             <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
             <% end %>
-          
+
+          <% elsif current_path[0..20] == "/lessons/show_lesson/" %>
+                <%= link_to '<div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>'.html_safe, controller: :programs, action: :back_and_feedback, prog_id: @lesson.program.id %>
+
           <% elsif (current_path == "/users/wall" || current_path == "/messages/show") &&
                 current_user.my_training_id.nil? %>
               <%= link_to controller: :users, action: :home_utente do%>
