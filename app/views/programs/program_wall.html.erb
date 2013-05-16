@@ -13,7 +13,7 @@
     </div>
   <% else %>
     <% @program.feedbacks.each do |feed| %>
-      <div class="message-row">
+      <div class="feedback-box">
         <%= gravatar_for(User.find(feed.user.id), "avatar") %>
         <div style="clear:left"></div>
         <h4 class="center"><%= feed.user.username.capitalize %></h4>
@@ -21,5 +21,6 @@
         <p><strong>Rating:</strong> <%= feed.rating %></p>
     </div>
     <% end %>
+    <div style="clear:both"></div>
   <% end %>
 </div>
