@@ -43,6 +43,10 @@ class LessonsController < ApplicationController
     unless @status
       @status = Status.new(:user_id => current_user.id,:association_id => @association.id)
       @status.save
+      exercise = Exercise.find( @exercise_id )
+      User.find( :all, :conditions => [ "my_training_id = ? AND online = ? AND id != ?", current_user.my_training_id,  true, current_user.id ] ).each do |user|
+                   FlashMessage.new( :from => current_user.id, :to => user.id, :body => "Ho finito l'esercizio #{exercise.name}" ).save
+      end
     end
     respond_to do |format|
       format.js { render action: :set_ex_done }

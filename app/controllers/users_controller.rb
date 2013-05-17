@@ -60,11 +60,13 @@ class UsersController < ApplicationController
   end
 
   def home_utente
+    store_current_path
     @programs = Program.all
   end
 
   def wall
-      @feedbacks = current_user.feedbacks.find(:all, :order => "created_at DESC")
+    store_current_path
+    @feedbacks = current_user.feedbacks.find(:all, :order => "created_at DESC")
   end
 
   def search
@@ -75,6 +77,7 @@ class UsersController < ApplicationController
   end
 
   def visit
+    store_current_path
     if params[:visited_user_id].to_i == current_user.id
       redirect_to action: :wall
     else
@@ -84,6 +87,7 @@ class UsersController < ApplicationController
   end
 
   def friends
+    store_current_path
     @program = Program.find(current_user.my_training_id)
     @current_user_friends_ids = Relationship.where( :follower => current_user.id )
     @current_user_friends = Array.new
@@ -114,6 +118,7 @@ class UsersController < ApplicationController
   end
 
   def calendar
+    store_current_path
     @current_program = Program.find( params[:current_program_id] )
     @program = Program.find(current_user.my_training_id)
     render :layout => true

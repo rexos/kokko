@@ -44,7 +44,9 @@ class MessagesController < ApplicationController
         def get_new_messages
           if current_user
             @new_messages = current_user.messages.where( :read => false ).count
-            @event = Program.find( current_user.my_training_id ).events.where( "start > ? AND start < ?", DateTime.now + 1.hours, DateTime.now + 3.hours ).first
+            if current_user.my_training_id
+              @event = Program.find( current_user.my_training_id ).events.where( "start > ? AND start < ?", DateTime.now + 1.hours, DateTime.now + 3.hours ).first
+            end
             @flash = FlashMessage.where(:to => current_user.id, :read => false)
             @flash.each do |f|
               f.update_attributes(:read => true)
