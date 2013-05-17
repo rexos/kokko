@@ -92,7 +92,7 @@
           <% end %>
         <% end %>
 
-        <% if @program.events.count > 0 %>
+        <% if @program.events.where( "start > ?", DateTime.now + 2.hours ).first %>
             <%= link_to action: :waiting_room, :program_id => @program.id do %>
             <button class="btn btn-large btn-info" aria-hidden="true"><i class="icon-group"></i>&nbsp;&nbsp;Gruppo</button> 
             <% end %>
