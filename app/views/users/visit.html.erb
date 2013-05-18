@@ -34,25 +34,23 @@
 <div class="row-fluid">
     
     <% @visited_user_feedbacks.each do |f| %>
-    
-    <div class="well row-visited" id=<%= f.id %> >      
-      <% if f.program_id %>
-       <h4>
-       <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
-	     <small>
-	     <%= f.user.username.capitalize %> a proposito di <%= Program.find(f.program_id).title %>
-	     commentato con rating al programma :
-	     </small>
-	     <%= f.rating %>
-      </h2>
-    <% end %>
-      <h4>
-      <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
-      &nbsp;
-      <i class="icon-quote-left"></i>&nbsp;
-      <%= f.body %>
-      &nbsp;<i class="icon-quote-right"></i>
-      </h4>
+    <div class="row-fluid message-row" id="<%= f.id %>">
+            <div class="message-cont">      
+      <h3>
+          <small style="float: right">
+          Scritto il <%= f.created_at.to_s[8..9] + "-" + f.created_at.to_s[5..6] + "-" + f.created_at.to_s[0..3] %> alle <%= f.created_at.to_s[11..15] %>
+          </small>
+          <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
+          &nbsp;&nbsp;
+          <% if f.program_id %>
+          <span style="color: #7F8C8D"><%= f.user.username.capitalize %> a proposito di <strong style="color: #2980B9"><%= Program.find(f.program_id).title %></strong>
+          ha commentato con rating</span> 
+          <% f.rating.times { %><i class="icon-star" style="color: #F1C40F"></i><% } %><% (5-f.rating).times { %><i class="icon-star-empty" style="color: #F1C40F"></i><% } %><br />  
+          <% end %>
+          <i class="icon-quote-left"></i>&nbsp;
+          <%= f.body %>
+          &nbsp;<i class="icon-quote-right"></i>
+      </h3>
       <!-- Commets start -->
       <p class="comments" style="cursor:pointer">Commenti (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
       <div class="comments-list" style="display:none">
@@ -66,16 +64,12 @@
 	<% end %>
 	<%= form_for :comment, :url => {:controller => :comments, :action => :create, :feedback_id => f.id}, :remote => true do |f| %>
 	<%= f.hidden_field :commenter, :value => current_user.id %>
-	<%= f.text_area :body, :placeholder => "commenta ..", :rows => 1 %>
+	<%= f.text_area :body, :placeholder => "Commenta", :rows => 1 %>
 	<button class="btn btn-info btn-default" type="submit">Ok</button>
 	<% end %>
       </div>
       <!-- Comments end -->
-      <h4>
-	<small>
-	  Postato il <%= f.created_at.to_s[8..9] + "-" + f.created_at.to_s[5..6] + "-" + f.created_at.to_s[0..3] %> alle <%= f.created_at.to_s[11..15] %>
-	</small>
-      </h4>
+      </div>
     </div>
     <% end %>
 

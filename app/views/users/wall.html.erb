@@ -38,19 +38,19 @@
         
       <h3>
         <small style="float: right">
-        Scritto il <%= f.created_at.to_s[0..9] %> alle <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
-       <%= link_to '<span style="color: #C0392B; font-size: 30px"><i title="Elimina" class="icon icon-remove-sign"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
-      </small>
-      <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
-      &nbsp;&nbsp;
-      <% if f.program_id %>
+        Scritto il <%= f.created_at.to_s[8..9] + "-" + f.created_at.to_s[5..6] + "-" + f.created_at.to_s[0..3] %> alle <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
+        <%= link_to '<span style="color: #C0392B; font-size: 30px"><i title="Elimina" class="icon icon-remove-sign"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
+        </small>
+        <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
+        &nbsp;&nbsp;
+        <% if f.program_id %>
         <span style="color: #7F8C8D"><%= f.user.username.capitalize %> a proposito di <strong style="color: #2980B9"><%= Program.find(f.program_id).title %></strong>
         ha commentato con rating</span> 
         <% f.rating.times { %><i class="icon-star" style="color: #F1C40F"></i><% } %><% (5-f.rating).times { %><i class="icon-star-empty" style="color: #F1C40F"></i><% } %><br />  
-      <% end %>
-      <i class="icon-quote-left"></i>&nbsp;
-      <%= f.body %>
-      &nbsp;<i class="icon-quote-right"></i>
+        <% end %>
+        <i class="icon-quote-left"></i>&nbsp;
+        <%= f.body %>
+        &nbsp;<i class="icon-quote-right"></i>
       </h3>
     <!-- Commets start -->
       <p class="comments" style="cursor:pointer">Commenti (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
