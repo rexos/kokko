@@ -23,11 +23,10 @@
 
   <%= form_for :feedback, url: {controller: :feedbacks, action: :create}  do |f|  %>
   <%= gravatar_for( current_user,"avatar" ) %> &nbsp;&nbsp;
-  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", :rows => 3 %><br />
-  <div class="center">
-    <button type="submit" class="btn btn-primary btn-large"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica</button>
-    <% end %>
-  </div>
+  <%= f.text_area :body, :placeholder => "Come ti senti oggi?", :rows => 3 %>
+  <button type="submit" class="btn btn-primary btn-large"><i class="icon icon-ok"></i>&nbsp;&nbsp;Pubblica</button>
+  <% end %>
+  
   </div>
   </div>
 </div>
@@ -35,29 +34,30 @@
 <div class="row-fluid ">
   <% @feedbacks.each do |f| %>
     <div class="row-fluid message-row" id="<%= f.id %>" >
+        <div class="message-cont">
+        
       <h3>
+        <small style="float: right">
+        Scritto il <%= f.created_at.to_s[0..9] %> alle <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
+       <%= link_to '<span style="color: #C0392B; font-size: 30px"><i title="Elimina" class="icon icon-remove-sign"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
+      </small>
       <%= image_tag ("illustrations/share.png"), :class => "wall-image" %>
       &nbsp;&nbsp;
-      <i class="icon-quote-left"></i>&nbsp;
       <% if f.program_id %>
-        <%= f.user.username.capitalize %> a proposito di <strong><%= Program.find(f.program_id).title %></strong>
-        ha commentato con rating 
-        <% f.rating.times { %><i class="icon-star" style="color: #F1C40F"></i><% } %><% (5-f.rating).times { %><i class="icon-star-empty" style="color: #F1C40F"></i><% } %> 
-        al programma :
+        <span style="color: #7F8C8D"><%= f.user.username.capitalize %> a proposito di <strong style="color: #2980B9"><%= Program.find(f.program_id).title %></strong>
+        ha commentato con rating</span> 
+        <% f.rating.times { %><i class="icon-star" style="color: #F1C40F"></i><% } %><% (5-f.rating).times { %><i class="icon-star-empty" style="color: #F1C40F"></i><% } %><br />  
       <% end %>
+      <i class="icon-quote-left"></i>&nbsp;
       <%= f.body %>
       &nbsp;<i class="icon-quote-right"></i>
       </h3>
-      <small>
-        Scritto il : <%= f.created_at.to_s[0..9] %> alle : <%= f.created_at.to_s[11..15] %>&nbsp;&nbsp;
-	     <%= link_to '<span style="color: #C0392B; font-size: 20px"><i class="icon icon-remove"></i></span>'.html_safe, controller: :feedbacks, action: :destroy, :feedback_id => f.id, :remote => true %>
-	    </small>
     <!-- Commets start -->
       <p class="comments" style="cursor:pointer">Commenti (<%= f.comments.count %>)&nbsp;&nbsp;<i class="icon-arrow-down"></i></p>
       <div class="comments-list" style="display:none">
 	<% f.comments.order("created_at").each do |c| %>
 	<div class="alert alert-info" id="comment-<%= c.id %>">
-	  <%= User.find(c.commenter).username.capitalize %> : <%= c.body %>
+	  <%= User.find(c.commenter).username.capitalize %>: <%= c.body %>
 	  <% if c.commenter == current_user.id %>&nbsp;&nbsp;
 	  <%= link_to '<i class="icon-remove" style="color:#E74C3C"></i>'.html_safe, :controller => :comments, :action => :destroy, :comment_id => c.id, :remote => true %>
 	  <% end %>
@@ -68,10 +68,9 @@
 	<%= f.text_area :body, :placeholder => "Commenta", :rows => 1 %>
 	<button class="btn btn-info btn-default" type="submit">Ok</button>
 	<% end %>
+          </div> 
+        </div>
       </div>
-      <!-- Comments end -->
-
-    </div>
     <% end %>
     
 <% end %>  
