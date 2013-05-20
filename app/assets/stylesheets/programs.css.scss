@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "settings";
-
 h1 a i:hover {
 	color: #a73d3b;
 }
@@ -173,19 +171,6 @@ img.menu-icon {
 
 }
 
-
-.menu-title {
-	color: $midnight_blue;
-}
-
-.user-box {
-	float: left;
-	background-color: $clouds;
-	padding: 10px;
-	border-radius: 5px;
-	margin-left: 15px;
-}
-
 @-webkit-keyframes rotating {
     from{
         -webkit-transform: rotate(0deg);
@@ -221,6 +206,7 @@ img.menu-icon {
 	-webkit-animation-timing-function: linear;
 }
 
+/*
 .post-row{
 	margin-top: 10px;
 	padding-top: 20px;
@@ -233,3 +219,4 @@ img.menu-icon {
 	border-bottom-right-radius: 5px;
 	background-color: $clouds;
 }
+*/
