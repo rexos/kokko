@@ -41,27 +41,31 @@
                 current_path != "/programs/all" &&
                 current_path != "/users/index" &&
                 current_path[0..20] != "/lessons/show_lesson/" &&
-                not(current_user.my_training_id.nil?)
+                not(current_user.my_training_id.nil?) &&
+                current_user.role == "user"
                 %>
 
             <%= link_to controller: :programs, action: :show, :prog_id => current_user.my_training_id do%>
             <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
             <% end %>
 
-          <% elsif current_path[0..20] == "/lessons/show_lesson/" %>
+          <% elsif current_path[0..20] == "/lessons/show_lesson/" && current_user.role == "user" %>
                 <%= link_to '<div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>'.html_safe, controller: :programs, action: :back_and_feedback, prog_id: @lesson.program.id %>
 
           <% elsif (current_path == "/users/wall" || current_path == "/messages/show") &&
-                current_user.my_training_id.nil? %>
+              current_user.my_training_id.nil? &&
+                current_user.role == "user" %>
               <%= link_to controller: :users, action: :home_utente do%>
               <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
               <% end %>
 
-          <% elsif (current_path == "/programs/all" || current_path == "/users/index") &&
-                current_user.role == "admin" %>
+          <% elsif current_user.role == "admin" %>
               <%= link_to controller: :users, action: :home_utente do%>
-              <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
-              <% end %>    
+                <div class="btn btn-info" style="border: 0px; float:left">Area admin</div>
+              <% end %>
+              <%= link_to controller: :programs, action: :show, :prog_id => current_user.my_training_id do%>
+                <div class="btn btn-success" style="border: 0px; float:left">Area utente</div>
+              <% end %>      
           <% else %>    
           <% end %>
           </li></ul>
@@ -112,7 +116,7 @@
       <div class="span12" id="light-menu">
         <ul type="none">
           <li><%= link_to '<i class="icon-group"></i>&nbsp;chi siamo'.html_safe, controller: :welcome, action: :whoweare %></li> 
-          <li><a href="mailto:dea.dormi@gmail.com"><i class="icon-envelope"></i>&nbsp;contatti</a></li>
+          <li><a href="mailto:dea.dormi@gmail.com"><i class="icon-envelope"></i>&nbsp;contattaci</a></li>
         </ul> 
       </div>
     </div>

@@ -36,7 +36,7 @@ $(document).ready(function() {
          var endField = $dialogContent.find("select[name='end']").val(calEvent.end);
          var titleField = $dialogContent.find("select[name='title']");
          var bodyField = $dialogContent.find("textarea[name='body']");
-
+         bodyField.val("Evento in programma");
 
          $dialogContent.dialog({
             modal: true,
