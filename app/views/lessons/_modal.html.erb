@@ -2,34 +2,38 @@
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Add Exercise to Lesson <%= @lesson.title %></h3>
+    <h3 id="myModalLabel">Aggiungi Esercizio a Lezione <%= @lesson.title %></h3>
   </div>
   <div class="modal-body">
     <div class="center">
-      <h4>List of all exercises</h4>
+      <h4>Lista Esercizi</h4>
     </div>
-    <ul type="none">
+      <div class="accordion" id="accordion2">
       <% @all_exercises.each do |e| %>
-      <li>
-	<div class="title btn" style="width:80%">
-	  <p><%= e.name %></p>
+        <div class="accordion-group">
+          <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= e.id %>">
+                  <p><%= e.name %></p>
+              </a>
+          </div>
+          <div id="<%= e.id %>" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p>Descrizione : <%= e.description %></p>
+              <p>Difficoltà : <%= e.difficulty %></p>
+              <%= form_for :association, url: {controller: :exercises, action: :add_ex_to_lesson} do |f| %>
+              <%= f.hidden_field :exercise_id, value: e.id %>
+              <%= f.hidden_field :lesson_id, value: @lesson.id %>
+              Ripetizioni : <%= f.select :repetitions, options_for_select((1..10).step(1)) %><br />
+              <button type="submit" class="btn btn-mini btn-success">Aggiungi</button>
+              <% end %>  
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>    
 	</div>
-	<div class="body" style="display:none">
-	  <p>Description : <%= e.description %></p>
-	  <p>Difficulty : <%= e.difficulty %></p>
-	  <%= form_for :association, url: {controller: :exercises, action: :add_ex_to_lesson} do |f| %>
-	  <%= f.hidden_field :exercise_id, value: e.id %>
-	  <%= f.hidden_field :lesson_id, value: @lesson.id %>
-	  Repetitions : <%= f.select :repetitions, options_for_select((1..10).step(1)) %><br />
-	  <button type="submit" class="btn btn-mini btn-success">Add this one</button>
-	  <% end %>
-	</div>
-      </li>
-      <% end %>
-    </ul>
-  </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Chiudi</button>
   </div>
 </div>
 <!-- Modal -->

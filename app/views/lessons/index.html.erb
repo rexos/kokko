@@ -12,11 +12,11 @@
       <p><%= e.difficulty %></p>
       <p><%= e.video_url %></p>
       <p><%= @lesson.associations.find_by_exercise_id(e.id).repetitions %></p>
-      <%=link_to '<label class="label label-info">Remove</label>'.html_safe, controller: :exercises, action: :remove_ex_from_lesson, :lesson_id => @lesson.id, :exercise_id => e.id %>
+      <%=link_to '<label class="label label-info">Rimuovi</label>'.html_safe, controller: :exercises, action: :remove_ex_from_lesson, :lesson_id => @lesson.id, :exercise_id => e.id %>
     </div>
   </div>
   <% end %><br />
-  <button href="#myModal" class="btn btn-primary btn-default" data-toggle="modal"></i class="icon-plus icon-white"></i>Add Exercise</button>
+  <button href="#myModal" class="btn btn-primary btn-default" data-toggle="modal"></i class="icon-plus icon-white"></i>Aggiungi Esercizio</button>
 </div>
 
 

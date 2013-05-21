@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @program = Program.find(params[:idprog])
+    @program = Program.find(params[:prog_id])
     @lesson = @program.lessons.new(params[:lesson])
     if @lesson.save
       redirect_to controller: :programs, action: :index
