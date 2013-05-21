@@ -39,6 +39,7 @@
           <% if current_path != "/programs/show" && 
                 current_path != "/users/home_utente" && 
                 current_path != "/programs/all" &&
+                current_path != "/users/index" &&
                 current_path[0..20] != "/lessons/show_lesson/" &&
                 not(current_user.my_training_id.nil?)
                 %>
@@ -55,6 +56,12 @@
               <%= link_to controller: :users, action: :home_utente do%>
               <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
               <% end %>
+
+          <% elsif (current_path == "/programs/all" || current_path == "/users/index") &&
+                current_user.role == "admin" %>
+              <%= link_to controller: :users, action: :home_utente do%>
+              <div id="backbone"><i class="icon icon-reply"></i>&nbsp;&nbsp;Indietro</div>
+              <% end %>    
           <% else %>    
           <% end %>
           </li></ul>

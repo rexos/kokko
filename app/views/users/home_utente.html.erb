@@ -1,10 +1,3 @@
-<!--
-   carica i css welcome e style
-
-  <% if false %>
-  <% provide(:style, %w(welcome style)) %> 
-  <% end %>
--->
   <div class="row-fluid"> 
   <div class="span12">
 
@@ -13,6 +6,14 @@
         <i class="icon-list"></i>&nbsp;Programmi Allenamento
     </h2>
   </div>
+
+  <% if current_user.role == "admin" %>
+  <div class="center">
+    <a href="/programs/all"><button class="btn btn-large"><i class="icon-list"></i>&nbsp;Gestione programmi</button></a>
+    <a href="/users/index"><button class="btn btn-large"><i class="icon-group"></i>&nbsp;Gestione utenti</button></a>
+  </div>
+  <br />
+  <% end %>
 
   <div class="tabbable tabs-left">
   <ul class="nav nav-tabs" id="myTab">

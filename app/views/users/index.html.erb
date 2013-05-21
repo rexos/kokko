@@ -1,12 +1,10 @@
-
- <div class="well">
-  <ul>
+  <div class="row-fluid" style="margin-top: 20px">
     <% @users.each do |u| %>
-    <li>
+     <div class="user-box">
       <h4><%= u.username.capitalize %></h4>
       <p><%= u.email %></p>
-      <%= link_to "Drop", controller: :users, action: :destroy, :user_id => u.id %>
-    </li>
+      <%= link_to "<button class=\"btn btn-danger\"><i class=\"icon-trash\"></i>&nbsp;Elimina</button>".html_safe, controller: :users, action: :destroy, :user_id => u.id %>
+    </div>
     <% end %>
-  </ul>
-</div>
+    <div style="clear: both"></div>
+  </div>
