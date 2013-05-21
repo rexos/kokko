@@ -62,7 +62,7 @@
 	      <% end %>
 
         <div class="msg-option">
-	      <%= link_to '<p style="color:#E74C3C"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, { controller: :messages, action: :destroy, :message_id => m.id}, confirm: "Sei sicuro di voler eliminare il messaggio?\npremi OK per eliminarlo", :remote => true %>
+	      <%= link_to '<p style="color:#E74C3C"><i class="icon icon-remove"></i> Cancella</p>'.html_safe, { controller: :messages, action: :destroy, :message_id => m.id}, :remote => true %>
         </div>
 
         <div style="clear:both"></div>    

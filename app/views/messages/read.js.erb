@@ -1,4 +1,3 @@
-alert("Messaggio segnato come \"letto\"");
 $('#label-<%= escape_javascript(@message_id.to_s) %>').fadeOut('fast');
 $('#message-<%= @message_id.to_s %>').children('div.accordion-heading').children('a').children('h3').append('<i class="icon icon-ok-sign"></i>');
 var msg_num = parseInt($('#msg_notification').text().substr(0,2));
