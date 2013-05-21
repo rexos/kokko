@@ -1,15 +1,17 @@
+<h2 style="padding-left: 10px"> Risultati </h2>
 
+<div class="row-fluid">
 <% @found_users.each do |f|%>
-<div class="row-fluid row-ricerca">
-
+<div class="friend-box">
   <h2> 
   <%= gravatar_for( f,"avatar" ) %>
   <%= link_to :controller => :users, :action => :visit, :visited_user_id => f.id do %>
   <button class="btn btn-primary btn-large">
-    <i class="icon icon-comments-alt"></i>&nbsp;&nbsp;Bacheca di <strong><%= f.username.capitalize %></strong>
+    <i class="icon icon-comments-alt"></i>&nbsp;&nbsp;Visita <strong><%= f.username.capitalize %></strong>
   </button>
-</h2>
   <% end %>
+</h2>
 </div>
 <% end  %>
-
+<div style="clear: both"></div>
+</div>

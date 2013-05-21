@@ -9,7 +9,7 @@
 <div class="row-fluid center">
   <%= form_for :research, :remote => true, url: {controller: :users, action: :search} do |f| %>
   <%= f.text_field :text, placeholder: "Cerca qualcuno", :class => "user-input" %>&nbsp;<button class="btn btn-info"><i class="icon icon-search"></i></button>
-  <% end  %>
+  <% end %>
 </div>
 
 <div id="search-result" class="row-fluid">
@@ -21,9 +21,9 @@
   
   <%else %>
   
-    <h2 style="padding-left: 10px"> Chi seguo: </h2>
+    <h2 style="padding-left: 10px"> Chi seguo </h2>
     <% @current_user_friends.each do |friend|  %>
-      <div id=<%= friend.id %> class="friend-box center"> 
+      <div id="<%= friend.id %>" class="friend-box center"> 
         <p>
           <h4><%= gravatar_for( friend,"avatar" ) %><h4>
           <h4>
