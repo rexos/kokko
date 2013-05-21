@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 
   def destroy
    FlashMessage.destroy_all(:to => current_user.id, :from => current_user.id)
-   current_user.update_attributes( :online => false )
+    current_user.update_attributes( :online => false )
     session[:user_id] = nil
     cookies.delete(:token)
     redirect_to :controller => :welcome, :action => :index
